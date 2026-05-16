@@ -1,0 +1,15 @@
+.DS_Store
+*.swp
+__pycache__/
+.venv/
+
+# Eval output dirs — regeneratable from harness runs.
+/target/
+
+# IR sidecars — regeneratable from PDF + Pass 2 run. Bytes drift as
+# IR schema evolves; don't commit. (Convention inherited from Ferrite.)
+*.ir.kdl
+
+# Local editor / IDE state.
+.idea/
+.vscode/

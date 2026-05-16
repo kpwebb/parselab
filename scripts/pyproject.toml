@@ -1,0 +1,37 @@
+[project]
+name = "ferrite-scripts"
+version = "0.0.0"
+description = "Local-only developer scripts (Apple Silicon eval drivers, etc.)"
+requires-python = ">=3.11"
+dependencies = [
+    # MLX stack — darwin/arm64 only. Pip will refuse to install elsewhere,
+    # which is the intent: this project is for Mac-side dev tooling.
+    "mlx-vlm>=0.1.20 ; sys_platform == 'darwin' and platform_machine == 'arm64'",
+    # transformers 5.x guards `Idefics3ImageProcessor` (and the Pil
+    # variant) behind a `requires_torch` decorator regardless of which
+    # tensor backend actually runs the image ops. Without torch in the
+    # venv, AutoImageProcessor can't import the explicit class, falls
+    # back to the model_type mapping, finds a dict
+    # ({'pil': ..., 'torchvision': ...}), and errors out. mlx-vlm
+    # doesn't pull torch itself (it uses MLX for compute), so we add
+    # it explicitly here. CPU-friendly install on Apple Silicon.
+    "torch>=2.4 ; sys_platform == 'darwin' and platform_machine == 'arm64'",
+    "torchvision>=0.20 ; sys_platform == 'darwin' and platform_machine == 'arm64'",
+    # Shared eval deps with the Modal driver.
+    "docling-core>=2.0",
+    "pymupdf>=1.24",
+    "pillow>=10.0",
+    # FER-* TableFormerV2 hybrid spike: standalone TableFormer wrapped
+    # by `TFPredictor`. opencv-python-headless is what TFPredictor's
+    # `iocr_page` dict expects for the input image (BGR ndarray).
+    # Hugingface_hub is needed to snapshot the docling-models repo
+    # (the canonical artifact bundle that TFPredictor's tm_config.json
+    # is keyed against — the standalone `docling-project/TableFormerV2`
+    # repo ships only the .safetensors and lacks the wrapper config).
+    "docling-ibm-models>=3.0",
+    "opencv-python-headless>=4.8",
+    "huggingface-hub>=0.23",
+]
+
+[tool.uv]
+package = false

@@ -1,0 +1,108 @@
+# Ferrite Extraction — Datasheet Corpus Manifest
+# Each entry describes a PDF and the extraction targets it exercises.
+
+# ──── Passives ────
+
+[yageo_rc0805]
+file = "yageo_rc0805.pdf"
+class = "passive/resistor"
+vendor = "Yageo"
+part_number = "RC0805"
+pages = 10
+targets = ["electrical", "thermal", "package"]
+
+[murata_grm21]
+file = "murata_grm21.pdf"
+class = "passive/mlcc"
+vendor = "Murata"
+part_number = "GRM21BR71C105KA01"
+pages = 32
+targets = ["electrical", "thermal", "package", "derating_curves"]
+
+[coilcraft_xal7030]
+file = "coilcraft_xal7030.pdf"
+class = "passive/inductor"
+vendor = "Coilcraft"
+part_number = "XAL7030"
+pages = 4
+targets = ["electrical", "thermal", "package", "saturation_curves"]
+
+[murata_blm18]
+file = "murata_blm18.pdf"
+class = "passive/ferrite_bead"
+vendor = "Murata"
+part_number = "BLM18PG121SN1D"
+pages = 5
+targets = ["electrical", "impedance_vs_freq", "package"]
+
+# ──── Discretes ────
+
+[ao3400a]
+file = "ao3400a.pdf"
+class = "discrete/mosfet_n"
+vendor = "Alpha & Omega Semiconductor"
+part_number = "AO3400A"
+pages = 5
+targets = ["pinout", "electrical", "thermal", "soa_curves", "gate_charge"]
+
+[mmbt3904]
+file = "mmbt3904.pdf"
+class = "discrete/bjt_npn"
+vendor = "ON Semiconductor"
+part_number = "MMBT3904LT1"
+pages = 9
+targets = ["pinout", "electrical", "thermal", "hfe_curves"]
+
+[pmeg3010eb]
+file = "pmeg3010eb.pdf"
+class = "discrete/schottky"
+vendor = "Nexperia"
+part_number = "PMEG3010EB"
+pages = 8
+targets = ["pinout", "electrical", "thermal", "vf_curves"]
+
+# ──── Power ────
+
+[tlv757p]
+file = "tlv757p.pdf"
+class = "power/ldo"
+vendor = "Texas Instruments"
+part_number = "TLV757P"
+pages = 41
+targets = ["pinout", "electrical", "thermal", "abs_max", "decoupling", "layout"]
+
+[tps562200]
+file = "tps562200.pdf"
+class = "power/buck"
+vendor = "Texas Instruments"
+part_number = "TPS562200"
+pages = 36
+targets = ["pinout", "electrical", "thermal", "abs_max", "decoupling", "layout", "inductor_selection"]
+
+# ──── ICs ────
+
+[stm32f411ce]
+file = "stm32f411ce.pdf"
+class = "ic/mcu"
+vendor = "STMicroelectronics"
+part_number = "STM32F411CEU6"
+pages = 151
+targets = ["pinout", "alt_functions", "electrical", "thermal", "abs_max", "decoupling", "power_domains", "interfaces", "layout"]
+
+[stusb4500]
+file = "stusb4500.pdf"
+class = "ic/usb_pd"
+vendor = "STMicroelectronics"
+part_number = "STUSB4500"
+pages = 42
+targets = ["pinout", "electrical", "thermal", "abs_max", "decoupling", "interfaces", "layout"]
+
+# ──── Connectors ────
+
+[gct_usb4125]
+file = "gct_usb4125.pdf"
+class = "connector/usb_c"
+vendor = "GCT"
+part_number = "USB4125"
+pages = 10
+targets = ["pinout", "mechanical", "package"]
