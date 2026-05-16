@@ -1,5 +1,13 @@
-# Ferrite Extraction — Datasheet Corpus Manifest
-# Each entry describes a PDF and the extraction targets it exercises.
+# Parselab — Electronics Datasheet Corpus Manifest
+#
+# 12 vendor datasheets across passives, discretes, power converters,
+# MCUs, USB-PD, and connectors. Used to evaluate VLMs on electronic-
+# component documents specifically. Each entry names the PDF and the
+# extraction targets that page-shape exercises (parameter tables,
+# thermal characteristics, package drawings, pinouts, etc.).
+#
+# Add your own PDFs in this directory and extend this manifest to
+# point the harness at a different workload.
 
 # ──── Passives ────
 

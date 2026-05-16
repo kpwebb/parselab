@@ -1,330 +1,386 @@
 # Benchmarks
 
-Measured 2026-05-16 against the FER-86 corpus (12 datasheets, 101 pages
-first-N from each). Replaces the earlier May-3 / FER-80 digest — the
-model axis and the eval process have both shifted enough that a fresh
-write-up is cleaner than incremental edits.
+A reproducible head-to-head of open-weights vision-language models on
+the same PDF extraction workload. Measured 2025-05-16 against a
+12-document electronics datasheet corpus (101 pages, first-N from each
+PDF).
 
 This file answers two questions:
 
-1. **Cost vs performance.** Across the candidates we have on hand today
-   — `granite-docling-258M`, `GLM-OCR` (~9B), `Infinity-Parser2-Flash`
-   (~2B) — what does each cost per page, what does each return, and
-   what's the throughput?
-2. **How to build toward structured documents.** The original FER-83
-   design is two-pass (cheap markdown base + expensive structured
-   on-demand). Today's data argues for revisiting that decomposition.
+1. **Cost vs performance.** Across the VLMs available today —
+   `granite-docling-258M`, `GLM-OCR` (~9B), `Infinity-Parser2-Flash`
+   (~2B), `Infinity-Parser2-Pro` (~35B-MoE), `Qwen3.6-35B-A3B` —
+   what does each cost per page, what does each return, and what's
+   the throughput?
+2. **How to build toward structured documents.** Is the canonical
+   two-pass design (cheap markdown base pass + expensive structured
+   on-demand) still the right shape? Or do today's models support a
+   single-pass structured workflow?
 
-Inf2-Pro (Pass 2 candidate, H100) and Qwen3.6-35B-A3B (adjudicator
-candidate, H100) are referenced where useful but not freshly measured
-this session — see "Deferred to Phase 2."
+## Headline
 
-## Headline answers
+**Cost vs performance.** All measurements through the same
+Modal-side dispatch harness on warm containers. L40S workers at
+Modal's $1.95/hr; H100 workers at $3.50/hr. Concurrency 16 client-side.
 
-**Cost vs performance.** On L40S at $1.95/hr Modal pricing, with all
-three measured through the same Modal-side dispatch harness on the same
-warm containers:
+| Model | GPU | Output shape | Pages/sec | Cost / page | Truncation rate |
+| --- | --- | --- | --- | --- | --- |
+| **granite-docling-258M @ 2048** | L40S | DocTags → markdown + bboxes | **3.32** | **$0.000164** | 14.9% |
+| GLM-OCR @ 1024 | L40S | Markdown | 2.02 | $0.000268 | low |
+| **Inf2-Flash @ 4096** | L40S | JSON layout + bboxes + HTML tables | **1.28** | **$0.000425** | 0% |
+| Inf2-Pro @ 4096 (no-think) | H100 | JSON layout | **0.53** | **$0.00183** | 1% |
+| Qwen3.6-35B-A3B @ 4096 (no-think) | H100 | quasi-JSON (wrong schema, see below) | 0.39 | $0.00249 | 28.7% |
 
-| Model | Output shape | Warm pages/sec | Cost / page | Truncation rate (corpus) |
-| --- | --- | --- | --- | --- |
-| granite @ 1024 | DocTags → markdown + bboxes | 3.80 | $0.000142 | ~80% of dense pages |
-| **granite @ 2048** | DocTags → markdown + bboxes | **3.32** | **$0.000164** | **14.9%** |
-| GLM-OCR @ 1024 | Markdown | 2.02 | $0.000268 | low — fits 1024 on most pages |
-| Inf2-Flash @ 1024 | JSON layout (truncated) | 1.80 | $0.000302 | ~100% — natural output > 1024 |
-| **Inf2-Flash @ 4096** | **JSON layout + bboxes + HTML tables** | **1.28** | **$0.000425** | **0%** |
+The "@N" suffix is the model's `max_tokens` setting. Different models
+have different natural verbosities: granite wants ~1500–2000 tokens to
+finish a typical page, Inf2-Flash wants ~1200–1700, Inf2-Pro and
+Qwen36 want 1700–3500. Capping below natural verbosity *biases the
+comparison* by truncating one model's output while another finishes
+cleanly. The right comparison is **matched-completion**, not
+matched-cap. (See "Method note: token caps" below.)
 
-The "@ N" suffix is the model's `max_tokens` setting. Granite needs
-2048 to stop truncating most pages; Inf2-Flash needs 4096 (its natural
-output is longer than 1024). GLM finishes naturally inside 1024 on most
-pages and is closest to a fair single-setting comparison.
+**Strategy.** Three concrete shapes are on the table:
 
-**Structured-document strategy.** The 2-pass design (cheap markdown +
-expensive structured-on-demand) made sense in May when Pass 2 was
-~6.5× more expensive than Pass 1 and required a beefier GPU class. The
-2-pass design is **weakened today** because:
+- **A — Inf2-Flash single-pass structured:** every page through one
+  model that emits complete layout JSON. ~3× more expensive than the
+  cheapest base pass but no orchestration logic, no second pass.
+- **B — Granite single-pass with truncation as routing signal:** the
+  cheapest path, plus an Apple-Silicon-local fallback via the
+  MLX-converted weights. The ~15% of pages that fill the budget are
+  exactly the pages where a second pass is warranted; the truncation
+  signal is the routing signal.
+- **C — Two-pass: GLM markdown base + Inf2-Flash on selected pages.**
+  Minimum disruption from canonical "cheap markdown + expensive
+  structured" pipeline designs. Requires a page selector.
 
-- Inf2-Flash at 4096 is ~3× the cost of granite-at-2048 — small enough
-  that "always-structured base pass" is now in the conversation,
-  especially for the parameter-table heavy pages where Pass 2 has been
-  carrying the structure burden.
-- Granite at 2048 with `finish_reason=length` as a routing signal gives
-  a clean 2-pass shape *without* needing a separate page-selector
-  model: the ~15% of pages that fill the budget are exactly the dense
-  parameter-table and TOC pages where Pass 2 / Inf2-Flash would have
-  to step in anyway.
-- The granite-MLX path (FER-128, validated locally on M1 Pro this
-  session) makes the cheap base pass viable *offline*. That changes the
-  product story for the desktop app.
-
-See "Strategy" section below for the three concrete options.
+Details + my read on each option in "Strategy" below.
 
 ## Setup
 
-* **Corpus** — `data/corpus/manifest.toml`, 12 datasheets across vendors
-  (passives, discretes, power, MCU, USB-PD, connector); ~280 pages
-  total. Each harness run extracts first 10 pages per PDF = 101
-  page-extractions.
-* **Hardware** — All three models deployed on **L40S** (Modal $1.95/hr).
-  Granite uses vLLM via the `granite_docling` worker; GLM uses SGLang
-  via `glm_ocr`; Inf2-Flash uses vLLM via `inf2_flash`. All workers
-  pinned to `max_containers=1, min_containers=1`, single warm container
-  each.
-* **Eval harness** — `modal/harness/remote.py`, a Modal-side dispatch
-  loop that renders pages with PyMuPDF inside a Modal container and
-  POSTs to the deployed VLM endpoint. Running it from Modal eliminates
-  developer-uplink network bandwidth as a variable (a slow client
-  uplink at concurrency 16 cost us ~10× throughput in this morning's
-  earlier runs before we figured out the network was the bottleneck).
-  Preset-driven: `--preset granite|glm-ocr|inf2-flash|inf2-pro|qwen36`.
-* **Eval judge** — Claude Code in-session, per
-  [`feedback_eval_judge.md`](.claude/projects/-Users-kpwferrite-workspace/memory/feedback_eval_judge.md):
-  the harness writes per-page raw chat-completion content to
-  `target/quality/<preset>-<utc>/` with `--save-content`; in-session
-  Claude reads the source PDF page + each model's output side-by-side
-  and scores fidelity. No Anthropic API plumbing in the Rust crate.
-  Five representative pages span failure-mode classes; findings in
-  `target/quality/2026-05-16-comparison.md` (session-local, not
-  tracked in git — regenerable by re-running the content-capture
-  harness and re-judging in a Claude Code session).
+### Corpus
 
-All numbers below are 3-run means on a warm container unless noted, run
-within the same ~15-minute window on the same network.
+`data/corpus/` ships 12 electronics datasheets — passives, discretes,
+power converters, MCUs, USB-PD, connectors — totaling ~280 pages. Each
+harness run extracts the first 10 pages per PDF = 101 page-extractions.
+The shipped corpus is electronics-shaped (parameter tables, MCU
+pinouts, package drawings, footnotes with subscripted symbols). Add
+your own PDFs to `data/corpus/` and update `manifest.toml` to point at
+a different workload.
+
+### Hardware
+
+All measurements through Modal. Per-worker GPU class:
+
+| Worker | GPU | Why |
+| --- | --- | --- |
+| granite-docling-258M | L40S | 258M params; could run smaller, L40S kept for consistency with the SGLang workers |
+| GLM-OCR | L40S | ~9B params; tight on smaller GPUs |
+| Inf2-Flash | L40S | 2B params; L40S has KV headroom to spare |
+| Inf2-Pro | H100 | ~35B-MoE params; bf16 weights ~70 GB |
+| Qwen3.6-35B-A3B | H100 | ~35B-MoE; H100 for the same reason |
+
+All workers pinned to a single warm container (`max_containers=1,
+min_containers=1`) to keep measurements deterministic and avoid
+cold-start contamination.
+
+### Eval harness
+
+`modal/harness/remote.py` — a preset-driven dispatch loop that runs
+*inside* a Modal container, renders pages with PyMuPDF, and POSTs to
+the deployed VLM endpoint. Preset selection picks the model + endpoint
++ recommended prompt:
+
+```sh
+modal run modal/harness/remote.py --preset granite     --max-tokens 2048
+modal run modal/harness/remote.py --preset glm-ocr     --max-tokens 1024
+modal run modal/harness/remote.py --preset inf2-flash  --max-tokens 4096
+modal run modal/harness/remote.py --preset inf2-pro    --max-tokens 4096 --no-thinking
+modal run modal/harness/remote.py --preset qwen36      --max-tokens 4096 --no-thinking
+```
+
+Running the harness on Modal eliminates the developer's uplink as a
+measurement variable. (A slow client uplink at concurrency 16 cost us
+~10× throughput during early measurements before we identified the
+network as the bottleneck. The harness defaults to Modal-side.)
+
+`--save-content` writes per-page raw chat-completion content to
+`target/quality/<preset>-<utc>/` so you can do the fidelity comparison
+in a separate pass — e.g., feed the page images + per-model outputs to
+an LLM agent and ask it to score.
+
+### Method notes
+
+**Token caps.** Different VLMs have different natural output
+verbosities. The fair comparison isn't "all models at 1024" — it's "each
+model at a cap where it doesn't truncate on most of the corpus."
+Surface `finish_reason=length` and report the truncation rate alongside
+the throughput number. Truncated output isn't comparable to complete
+output even if the wall-time is faster.
+
+**`enable_thinking=false` for Qwen3-family.** Qwen3-family VLMs
+(Inf2-Flash, Inf2-Pro, Qwen3.6-A3B) ship a chat template that supports
+a chain-of-thought preamble. On structured-extraction tasks the
+preamble eats tokens without helping the output; on some pages it
+causes the model to produce markdown analysis instead of the requested
+JSON. The harness passes `chat_template_kwargs={"enable_thinking":
+false}` when `--no-thinking` is set; this works on both vLLM and SGLang
+servers via the standard chat-completion request body.
+
+**Modal-side dispatch.** As noted above, this removes
+developer-network bandwidth from the measurement. Tell that you've
+re-introduced it: SGLang's `#queue-req: 0` plus `#running-req: 1`
+simultaneously — requests aren't queueing at the server, they're
+trickling in slowly from the client. Run on Modal-side for any
+cost-per-page number you intend to quote.
+
+All numbers below are 3-run means on a warm container unless noted,
+run within the same ~15-minute window.
 
 ## Cost vs performance — details
 
-### Per-model summary
+### Pass 1 axis (cheap base extraction)
 
-**granite-docling-258M** (Idefics3 — siglip2-base-patch16-512 vision +
-Granite-165M decoder)
+Three candidates for the "give me everything on the page cheaply" role:
 
-- 258M params total, ~520MB at bf16. Tiny relative to the L40S budget.
-- Output: DocTags string → parsed via `docling-core` to a
-  `DoclingDocument` that round-trips to markdown + items + bboxes.
-- Strong at small-glyph fidelity (correctly preserves θ subscript in
-  `R_{θJB}` where GLM and Inf2-Flash both misread as `0`).
-- Weak failure modes: at 1024 cap truncates on ~80% of dense pages;
-  even at 2048 cap, 14.9% of pages truncate. The TOC pages with dotted
-  leaders (stm32f411ce p3-p10) are unfixable by token budget — the
-  model transcribes dots literally until the cap is reached.
-- **Apple Silicon MLX viable** via `ibm-granite/granite-docling-258M-mlx`.
-  Validated on M1 Pro at ~7s/page sequential (FER-128).
+| Model | Cap | Pages/sec (warm) | Sum_req | Cost/page | Per-page latency | Errors |
+| --- | --- | --- | --- | --- | --- | --- |
+| granite @ 1024 | 1024 | 3.80 | 410s | $0.000142 | 4.1s | 0/101 |
+| **granite @ 2048** | **2048** | **3.32** | **470s** | **$0.000164** | **4.7s** | **0/101** |
+| GLM @ 1024 | 1024 | 2.02 | 755s | $0.000268 | 7.5s | 0/101 |
+| Inf2-Flash @ 1024 | 1024 | 1.80 | 845s | $0.000302 | 8.5s | 0/101 (all truncated) |
 
-**GLM-OCR** (`zai-org/GLM-OCR`, ~9B GLM-4.6 OCR variant)
+Granite at 1024 cap is the cheapest by raw cost-per-page but truncates
+~80% of dense sampled pages. At 2048, throughput drops 13% but
+truncation rate falls to 14.9% corpus-wide. **For a cheap base pass,
+granite-at-2048 is the right cap.**
 
-- Output: clean markdown. No bboxes, no explicit table structure
-  (tables render as space-separated text rows — content captured but
-  column alignment lost).
-- Best at TOC / prose / hierarchical content. Cheapest in output tokens
-  on most page types (442 tokens for stm32f411ce p3 vs granite's 1024
-  truncated + Inf2-Flash's 706).
-- Subscript/special-char fidelity is generally good (V_{CEO}, ®, °C,
-  ±, Ω, em-dash all preserved), with the θ→0 OCR error on small
-  subscripts as a known weak spot.
-- No published MLX port; 9B at fp16 doesn't fit 16 GB unified memory
-  and `--trust-remote-code` custom modeling complicates conversion.
+GLM-OCR is the most consistent at 1024 — fits naturally inside 1024 on
+~99% of pages. Best for clean text / TOC / prose, worst for table
+structure (emits flat space-separated rows, no `|` separators).
 
-**Infinity-Parser2-Flash** (`infly/Infinity-Parser2-Flash`, 2B Qwen3.5
-based)
+Inf2-Flash at 1024 truncates every page (its natural output is 1200+
+tokens on simple pages, much more on dense ones). Move it up to 4096
+and it's a Pass 2 candidate rather than a Pass 1 candidate; see below.
 
-- Output: JSON layout with per-element bbox + category + content. HTML
-  tables with `colspan`/`rowspan` for merged cells. LaTeX math notation.
-- Always completes at 4096 cap — never truncated on this corpus.
-- Best structural fidelity: directly-usable bboxes in image-pixel
-  coordinates, explicit category labels (`title`, `text`, `table`,
-  `figure`, `header`, `footer`, etc.), proper table cell topology.
-- Largest output token count of the three (1700–2500 tokens/page mean
-  vs granite's 700–1500 and GLM's 400–700).
-- vLLM-deployed with `--reasoning-parser qwen3`; output lands in
-  `message.reasoning` field rather than `message.content` — harness
-  captures both.
+### Pass 2 axis (structured-with-bboxes extraction)
 
-### Throughput / cost in detail
+Three candidates for the "give me complete structured JSON layout with
+per-element bboxes" role:
 
-| Run | Pages/sec (3-run mean) | Sum_req | Cost/page | Per-page mean latency | Errors |
-| --- | --- | --- | --- | --- | --- |
-| granite @ 1024 | 3.80 | 410s | $0.000142 | 4.1s | 0/101 |
-| granite @ 2048 | 3.32 | 470s | $0.000164 | 4.7s | 0/101 |
-| GLM @ 1024 | 2.02 | 755s | $0.000268 | 7.5s | 0/101 |
-| Inf2-Flash @ 1024 | 1.80 | 845s | $0.000302 | 8.5s | 0/101 (all truncated) |
-| Inf2-Flash @ 4096 | 1.28 | 1185s | $0.000425 | 11.7s | 0/101 |
+| Model | GPU | Cap | Pages/sec (warm) | Cost/page | Truncation rate | Schema |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Inf2-Flash @ 4096** | L40S | 4096 | **1.28** | **$0.000425** | **0%** | requested (`bbox` + `category` + `text`) |
+| Inf2-Pro @ 4096 (no-think) | H100 | 4096 | 0.53 | $0.00183 | 1% | requested |
+| Qwen3.6-A3B @ 4096 (no-think) | H100 | 4096 | 0.39 | $0.00249 | 28.7% | **wrong** (`bbox_2d` + `text_content`) |
 
-All three workers can hold concurrency 16 with `effective_parallelism
-≈ 15`. Earlier-in-session experiments with `concurrency=64` on the
-granite worker found no throughput win — vLLM saturates at the same
-~3.8 dispatch p/s and per-request latency just inflates. c=16 is the
-right default on tail-latency grounds.
+**Inf2-Flash dominates Inf2-Pro on cost / throughput** by ~4.3× and
+~2.4× respectively, with the model card's stated ~1-2% accuracy drop
+on olmOCR-Bench and ParseBench. The L40S vs H100 GPU-class difference
+compounds the throughput advantage.
 
-## Fidelity findings (summary)
+**Qwen3.6-35B-A3B underperforms Inf2-Pro on this task** even on the
+same hardware. Two reasons:
 
-Full per-page readthrough at `target/quality/2026-05-16-comparison.md`
-(session-local). Headline patterns from 5 representative pages:
+1. **Wrong schema.** Qwen36 defaults to `{bbox_2d, text_content}`
+   regardless of what the prompt asks for. ~90% of Qwen36 pages emit
+   this schema; downstream Pass 2 parsers expecting `{bbox, category,
+   text}` will silently produce empty results.
+2. **Verbosity.** Qwen36 emits 2400 mean output tokens per page (with
+   thinking disabled) and still truncates 29% of pages at 4096 cap.
 
-**Granite at 1024**: truncated on 4/5 sampled pages. Captured structure
-where it completed; OTSL tables with correct cell topology when not
-truncated. **Strongest at small-glyph fidelity** (caught θ where the
-larger models missed it).
+Inf2-Pro is fine-tuned for document layout extraction; Qwen36 is a
+base instruct model being used out-of-distribution. The size advantage
+doesn't compensate for the lack of task tuning.
 
-**Granite at 2048**: complete on 3/5 sampled pages; the remaining
-truncations (stm32f411ce p3, yageo_rc0805 p2) doubled their content
-volume but didn't finish. The stm32f411ce cluster is the unfixable
-case — dotted leaders.
+### The `enable_thinking` finding
 
-**GLM-OCR**: most consistent at 1024 cap (truncated on 1/5 sampled).
-**Best for clean text / TOC / prose** — cheapest in output tokens, best
-hierarchical preservation. Loses table structure entirely (no `|`
-separators, no HTML).
+The first Inf2-Pro measurement (without `--no-thinking`) showed
+**50/101 pages emitting markdown analysis prose instead of JSON.**
+Inf2-Pro is fine-tuned from Qwen3.5; its chat template supports
+chain-of-thought; on complex pages the model enters CoT mode and the
+prose answer never converges to JSON. Same root cause as Qwen36 above.
 
-**Inf2-Flash @ 4096**: complete on 5/5 sampled. **Best for layout-aware
-tasks** — every element has bbox + category, tables emit HTML with
-proper `colspan`. Most expensive in output tokens. Math in LaTeX form,
-slightly heavier than GLM's `$...$`.
+Setting `chat_template_kwargs={"enable_thinking": false}` flips the
+behavior across the corpus:
+
+| Metric | Inf2-Pro default | Inf2-Pro `no-thinking` |
+| --- | --- | --- |
+| Pages producing JSON | 51/101 | **101/101** |
+| Pages producing prose | 50/101 | **0/101** |
+| Mean output tokens | 1861 | 1287 (-31%) |
+| Truncation rate | 9% | 1% |
+| Pages/sec (warm) | 0.40 | **0.53** (+33%) |
+| Cost/page (H100) | $0.0024 | **$0.00183** (-24%) |
+
+**Lesson:** for *any* Qwen3-family model on a structured extraction
+task, always set `enable_thinking=false`. Without it, you'll get
+silently-degraded output on a meaningful fraction of pages, plus pay
+~30% more in tokens and ~25% more in wall-time for output that's
+demonstrably worse.
+
+The same kwarg run on Qwen3.6-A3B improved its numbers too — truncation
+rate fell from 46.5% → 28.7%, mean output tokens 3418 → 2411 — but
+didn't fix the wrong-schema problem (Qwen36 emits `bbox_2d` +
+`text_content` regardless of the prompt).
+
+## Fidelity findings
+
+Full per-page readthrough lives in session-local artifacts under
+`target/quality/` (regenerable by re-running the content-capture
+harness and feeding the outputs to a judge). Headline patterns from 5
+representative pages across the model axis:
+
+### Pass 1 axis
+
+- **Granite at 2048**: complete on 86/101 corpus pages. Captures
+  structure where it completes; OTSL tables with correct cell topology.
+  **Strongest at small-glyph fidelity** — preserves `θ` subscript in
+  `R_{θJB}` where both GLM-OCR and Inf2-Flash misread as `0`. The 15%
+  that truncate cluster on TOC pages with dotted leaders — the model
+  transcribes the dots literally inside a table cell, eating budget
+  without ever producing useful structure. Unfixable by budget alone.
+- **GLM-OCR**: most consistent at 1024 cap (truncated on 1/5 sampled).
+  Best for clean text / TOC / prose — cheapest in output tokens
+  per-page, best hierarchical preservation. Loses table structure
+  entirely (no `|` separators, no HTML).
+- **Inf2-Flash @ 4096**: complete on 5/5 sampled. Best for layout-aware
+  tasks — every element has bbox + category, tables emit HTML with
+  proper `colspan`. Most expensive in output tokens. Math in LaTeX
+  form, slightly heavier than GLM's `$...$`.
+
+### Pass 2 axis
+
+- **Inf2-Pro (no-thinking)**: clean JSON layout. Schema matches the
+  prompt spec. Notably **better small-glyph fidelity** than Inf2-Flash
+  — preserves `θ` subscripts and emits properly-LaTeX'd math
+  (`\(R_{\theta JB}\)`, `\(V_{IN}\)`) where Inf2-Flash misreads `θ` as
+  `0`. On dense revision-history / TOC pages, also emits **deeper
+  table nesting** — each revision-section becomes its own `<table>`
+  with proper rows. ~4.3× the cost of Inf2-Flash, but the quality
+  delta is real on small-glyph-heavy and dense-table pages.
+- **Inf2-Flash**: same schema, broad coverage, ~4× cheaper. **Weak on
+  the `θ → 0` OCR error class** — same Qwen3.5 vision encoder as
+  Inf2-Pro but the 2B decoder doesn't disambiguate small subscript
+  glyphs reliably. Sufficient on prose / non-small-glyph pages.
+- **Qwen3.6-A3B (no-thinking)**: wrong schema (`bbox_2d` /
+  `text_content`). Captures more fine-grained word-level bboxes than
+  Inf2-Flash (every column header becomes its own bbox, every value
+  its own bbox) but loses table semantics entirely — no HTML
+  structure, just a flat list of bbox + text entries. Preserves `θ`
+  correctly (35B helps), but the schema mismatch makes downstream
+  parsing impractical. Useful as a "word locator" but not as a
+  structured-layout extractor.
 
 ### Tables specifically
 
-For datasheet parameter tables (the load-bearing content of FER-86):
+For datasheet parameter tables — the load-bearing content for
+electronics extraction:
 
 | Rank | Model | Format | Notes |
 | --- | --- | --- | --- |
-| 1 | Inf2-Flash | HTML w/ `colspan`/`rowspan` | Directly parseable, merged cells correct |
-| 2 | Granite | OTSL | Correct topology when not truncated; uses domain-specific markers |
-| 3 | GLM-OCR | Flat space-separated text | Content captured but column structure lost |
+| 1 | Inf2-Flash | HTML w/ `colspan`/`rowspan` | Directly parseable; merged cells correct |
+| 2 | Inf2-Pro | HTML similar | Same family, slightly different rendering |
+| 3 | Granite | OTSL | Correct topology when not truncated; uses domain-specific markers |
+| 4 | GLM-OCR | Flat space-separated text | Content captured but column structure lost |
+| 5 | Qwen3.6-A3B | Per-cell bbox+text | No table structure; each cell is a standalone item |
 
-This is the single biggest fidelity asymmetry across the three.
+This is the single biggest fidelity asymmetry across the model axis.
 
 ## Strategy — 1-pass vs 2-pass for structured documents
 
-The Ferrite IR (FER-101) is structure-aware: per-page extraction store
-with typed regions, ToC entries, and component facets. Whatever
-extraction stack we pick needs to feed that. Three concrete shapes are
-on the table.
+Three concrete shapes on the table. Cost example uses a "typical
+30-page datasheet" through each option.
 
 ### Option A — Inf2-Flash single-pass structured
 
-**Replace both Pass 1 and Pass 2 with Inf2-Flash @ 4096.** Every page
-produces complete JSON layout with bboxes + HTML tables. ~$0.000425
-per page, ~1.28 pages/sec on a single L40S.
+Every page through Inf2-Flash @ 4096. Complete structured JSON layout
+with bboxes + HTML tables everywhere. ~1.28 pages/sec on a single L40S,
+~$0.000425/page, $0.013 per 30-page datasheet.
 
-* Pros: Single model, single deploy, single output format. No page
+- **Pros:** Single model, single deploy, single output format. No page
   selector needed. UI cross-highlighting wired directly to image-pixel
   bboxes. Table structure preserved everywhere.
-* Cons: Most expensive option. ~3× the per-page cost of granite at
-  2048. Loses granite's small-glyph fidelity (θ→0 OCR error). No
-  Apple-Silicon-local fallback — Inf2-Flash has no MLX port and
-  conversion of the Qwen3.5 VL stack is non-trivial.
-* When this wins: scale-bound workloads where structure-on-every-page
-  matters more than per-page cost; or projects where you want one
-  model end-to-end and don't need an offline desktop story.
+- **Cons:** Most expensive of the three options. ~3× the per-page cost
+  of granite at 2048. Loses granite's small-glyph fidelity. No
+  Apple-Silicon-local fallback.
 
-### Option B — Granite single-pass structured (at 2048 cap)
+### Option B — Granite single-pass + truncation routing
 
-**Replace Pass 1 with granite-docling at 2048 cap.** ~$0.000164/page on
-L40S, plus a free MLX local fallback (~7s/page on M1 Pro, $0 marginal
-cost). Use `finish_reason=length` as the routing signal: the 15% of
-pages that hit the cap get escalated to Pass 2.
+Every page through granite @ 2048. ~85% of pages produce complete
+DocTags; ~15% fill the budget. Use `finish_reason=length` as a
+routing signal: truncated pages get escalated to Pass 2 (Inf2-Flash or
+similar).
 
-* Pros: Cheapest option per page. Best small-glyph fidelity.
-  Apple-Silicon-local extraction works today (FER-128). Truncation is
-  self-signaling — no separate page selector needed (FER-104 becomes
-  optional).
-* Cons: The 8-page stm32f411ce cluster is genuinely broken on this
-  model (dotted leaders). For pages where granite fails, Pass 2 has to
-  carry the full content, not just the structure. Total cost per page
-  on dense documents like the STM32 datasheet is dominated by Pass 2
-  escalations.
-* When this wins: corpus where most pages are simple enough to fit in
-  granite's natural budget; offline / desktop use cases; cost-bound
-  workloads.
+Cost: ~$0.000164/page baseline (~$0.005 per 30-page datasheet baseline)
+plus ~$0.000425/page on escalations (~$0.004 if 10 pages of 30
+escalate). **Total: ~$0.009 per 30-page datasheet.**
 
-### Option C — GLM-OCR Pass 1 + Inf2-Flash Pass 2 (today's two-pass)
+- **Pros:** Cheapest. Apple-Silicon-local extraction works today via
+  the MLX-converted weights (~7s/page interactive). Truncation is
+  self-signaling — no separate page-selector model.
+- **Cons:** The TOC-style failure cluster is genuinely broken on
+  granite (dotted leaders). For pages where granite fails, the Pass 2
+  escalation has to carry the full content, not just the structure.
 
-**Keep the existing Pass 1 (GLM markdown) but swap Inf2-Pro for
-Inf2-Flash on Pass 2.** ~$0.000268/page Pass 1 + Inf2-Flash escalations
-at $0.000425/page only on pages the selector flags.
+### Option C — Two-pass: GLM markdown + Inf2-Flash escalations
 
-* Pros: Smallest delta from the May-3 design. All existing tooling
-  (FER-103 ToC builder, IR `Content::Markdown`, inspector pane,
-  ad-hoc extractor) keeps working unchanged on Pass 1. Pass 2 quality
-  goes up vs Inf2-Pro on accuracy and gets cheaper on throughput.
-* Cons: Still requires the page selector (FER-104) for Pass 2 routing
-  to be cost-effective. GLM has no MLX path — desktop app stays
-  network-dependent unless we add granite as a secondary local option.
-  Table structure on Pass 1 is lost (GLM flat-text tables); the IR has
-  to wait for Pass 2 to get structured tables.
-* When this wins: minimum-disruption path forward; keeps the project
-  on a known-good architecture and just upgrades the Pass 2 model
-  swap-out.
+Pass 1: GLM-OCR markdown on every page. Pass 2: Inf2-Flash on pages
+the selector flags. Closest to the canonical "cheap markdown base +
+expensive structured" pipeline design.
 
-### Comparison at typical workload sizes
+Cost: ~$0.008 baseline (30 × $0.000268) + ~$0.004 on escalations =
+**~$0.012 per 30-page datasheet.**
 
-For a "typical 30-page datasheet" through each option:
+- **Pros:** Smallest delta from existing two-pass designs. Pass 1 is
+  cheap clean markdown with hierarchical preservation. Pass 2 quality
+  matches Inf2-Pro at a fraction of the cost.
+- **Cons:** Requires a page-selector to make Pass 2 routing
+  cost-effective. GLM has no MLX path. Table structure on Pass 1 is
+  lost; downstream consumers wait for Pass 2 to get structured tables.
 
-| Option | Pass 1 cost | Pass 2 cost (assume ~10 pages escalate) | Total | Offline-capable? |
-| --- | --- | --- | --- | --- |
-| A — Inf2-Flash only | $0.013 (30 × 0.000425) | — | **$0.013** | No |
-| B — granite @ 2048 + (Inf2-Flash escalations) | $0.005 (30 × 0.000164) | $0.004 (10 × 0.000425) | **$0.009** | **Yes (granite-MLX)** |
-| C — GLM-OCR + (Inf2-Flash escalations) | $0.008 (30 × 0.000268) | $0.004 (10 × 0.000425) | **$0.012** | No (no MLX) |
+### Which one
 
-Differences are small in absolute terms (~$0.013 vs $0.009 per
-datasheet). At scale (thousands of datasheets) the cost gap widens
-linearly, but quality/feature differences should drive the call, not
-per-page-cost-at-this-scale.
+Differences are small in absolute terms — $0.009 vs $0.012 vs $0.013 per
+30-page datasheet. At scale (thousands of datasheets) the cost gap
+widens linearly, but quality / feature differences should drive the
+call at our current scale.
 
-### My read
+- **Option B is the most interesting strategically.** Cheapest, only
+  option with an offline / desktop story (MLX-local), and the
+  truncation signal removes the need for a separate page selector. The
+  TOC-failure cluster is a real concern but those pages are also where
+  the escalation pass was always going to do the work.
+- **Option C is the safest.** Minimum disruption from canonical
+  two-pass pipeline designs; everything already works in published
+  reference architectures.
+- **Option A is the riskiest.** Putting all your eggs in Inf2-Flash
+  means no offline path and accepting the θ-subscript OCR error class.
+  Worth keeping on the radar; not where I'd start.
 
-**Option B is the most interesting.** It's the cheapest, gives us
-offline-capability via MLX, and the natural truncation signal removes
-the need for a separate page selector. The 8-page stm32f411ce-style
-failure cluster is a real concern but those pages are also where Pass
-2 was always going to do the work — the failure isn't "we lost the
-content," it's "we noticed early and routed sooner."
+### Validation steps before committing
 
-**Option C is the safest.** Minimum disruption; everything already
-works; just swap the Pass 2 model.
+1. Probe the `θ → 0` OCR error class at higher DPI (300 instead of 200).
+   If it disappears at better input quality, granite's small-glyph
+   advantage collapses and the case for Option B weakens.
+2. Test a "no dotted leaders" prompt mitigation on granite. Cheap to
+   try; if it works, the TOC failure cluster stops being a failure and
+   Option B looks even stronger.
+3. Re-measure on a non-datasheet corpus (research papers, contracts,
+   scanned forms). The strategy synthesis is shaped by the failure
+   modes specific to electronics datasheets; other corpora will shift
+   the picture.
 
-**Option A is the riskiest.** Putting all your eggs in Inf2-Flash means
-no offline path and accepting the θ-subscript OCR error class. Worth
-keeping on the radar as Inf2-Flash improves, but not where I'd
-start today.
+## What's not measured here
 
-Concrete next steps to validate before committing:
-
-1. Measure Inf2-Pro on the Pass 2 axis today (rather than trusting the
-   May-3 BENCHMARKS.md numbers). Settles whether Inf2-Flash really is
-   ~5× cheaper than Inf2-Pro on H100, or whether that's stale.
-2. Run granite-MLX through the same 5 representative pages on M1 Pro
-   to confirm fidelity parity with Modal granite. If MLX granite has
-   any divergence we don't know about, the Option B case weakens.
-3. Probe the θ→0 OCR failure in GLM / Inf2-Flash at higher DPI (300
-   instead of 200). If the error goes away with better input image,
-   the asymmetry collapses and granite's small-glyph advantage is no
-   longer load-bearing.
-4. Test the "no dotted leaders" prompt mitigation on granite. Cheap to
-   try; if it works, the 8-page stm32f411ce cluster stops being a
-   failure and Option B looks even stronger.
-
-## Deferred to Phase 2
-
-* **Inf2-Pro head-to-head Pass 2 comparison.** The H100 worker is
-  coded for cu130 (FER-127) but not redeployed since this morning's
-  shutdown. ~$80/day idle once warm, so worth batching with the qwen36
-  redeploy. Same harness shape as Inf2-Flash (`--preset inf2-pro`).
-* **Qwen3.6-35B-A3B as Pass 2 / adjudicator candidate.** Originally
-  filed for FER-113 post-processing eval; an "is bigger better?"
-  control against Inf2-Flash for layout extraction. Needs a custom
-  prompt — its current worker docstring says "used here for text-only
-  post-processing" and adapting to image-in layout extraction is the
-  spike question.
-* **Pin SGLang / vLLM versions** ([FER-130](https://linear.app/ferrite/issue/FER-130)).
-  Float-by-default `sglang[all]` / `vllm` is what made this morning's
-  network-bandwidth bug initially read as a "SGLang regression." Pin
-  to remove that class of confusion.
+- **Granite-MLX corpus run** — only the smoke-test result is in. A
+  full 101-page run would confirm fidelity parity with the Modal
+  granite path.
+- **Higher-DPI re-measurement** — see "Validation steps" above.
+- **Non-datasheet corpora** — the strategy synthesis is shaped by the
+  failure modes specific to electronics datasheets.
 
 ## Run dirs
 
-* `target/harness-runs/<utc>/` — GLM via Rust extractor-harness.
-* `target/granite-docling-runs/<utc>/` — granite via local Python
-  harness.
 * `target/quality/<preset>-<utc>/` — Modal-side `remote.py` with
   `--save-content`; per-page raw chat-completion outputs for fidelity
   judging.
-* `target/quality/2026-05-16-comparison.md` — fidelity readthrough.

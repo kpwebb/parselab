@@ -129,6 +129,7 @@ def run_corpus(
     concurrency: int,
     page_limit: int,
     dpi: int,
+    disable_thinking: bool = False,
 ) -> dict:
     """Render → POST → time. Returns headline metrics."""
     import tomllib
@@ -184,6 +185,15 @@ def run_corpus(
         }
         if keep_special_tokens:
             body["skip_special_tokens"] = False
+        if disable_thinking:
+            # Qwen3-family models (Qwen3.5-VL, Inf2-Flash, Qwen3.6-A3B, etc.)
+            # ship a chat template that honors `enable_thinking`. Setting
+            # it false suppresses the <think>...</think> chain-of-thought
+            # preamble that we don't want when the task is structured
+            # extraction. Works on both vLLM and SGLang OpenAI servers
+            # since both pass `chat_template_kwargs` through to the
+            # tokenizer's apply_chat_template().
+            body["chat_template_kwargs"] = {"enable_thinking": False}
 
         t0 = time.monotonic()
         try:
@@ -293,12 +303,17 @@ def main(
     page_limit: int = DEFAULT_PAGE_LIMIT,
     dpi: int = DEFAULT_DPI,
     save_content: bool = False,
+    no_thinking: bool = False,
 ) -> None:
     """Pick a preset and optionally override individual fields.
 
     With `--save-content`, per-page raw chat-completion content is
     written to `target/quality/<preset>-<utc>/<part_id>_p<NN>.json` so
     Claude Code can judge fidelity in-session.
+
+    With `--no-thinking`, sends `chat_template_kwargs={"enable_thinking":
+    false}` to suppress Qwen3-family chain-of-thought preambles. Tag
+    propagates into the run_id so output dirs are distinguishable.
     """
     import json
     from datetime import datetime, timezone
@@ -327,6 +342,7 @@ def main(
         concurrency=concurrency,
         page_limit=page_limit,
         dpi=dpi,
+        disable_thinking=no_thinking,
     )
     summary = payload["summary"]
     results = payload["results"]
@@ -345,7 +361,8 @@ def main(
         # modal/harness/remote.py).
         repo_root = Path(__file__).resolve().parents[2]
         run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-        out_dir = repo_root / "target" / "quality" / f"{preset}-{run_id}"
+        tag = "-nothink" if no_thinking else ""
+        out_dir = repo_root / "target" / "quality" / f"{preset}{tag}-{run_id}"
         out_dir.mkdir(parents=True, exist_ok=True)
         # Per-page files plus a run-level summary.
         for r in results:
