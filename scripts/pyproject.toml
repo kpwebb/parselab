@@ -1,5 +1,5 @@
 [project]
-name = "ferrite-scripts"
+name = "parselab-scripts"
 version = "0.0.0"
 description = "Local-only developer scripts (Apple Silicon eval drivers, etc.)"
 requires-python = ">=3.11"
@@ -21,7 +21,11 @@ dependencies = [
     "docling-core>=2.0",
     "pymupdf>=1.24",
     "pillow>=10.0",
-    # FER-* TableFormerV2 hybrid spike: standalone TableFormer wrapped
+    # Modal SDK — used by adjudicator scripts to resolve deployed
+    # worker endpoint URLs at runtime (no hardcoded workspace prefix).
+    "modal>=0.66",
+    "httpx>=0.27",
+    # TableFormerV2 hybrid spike: standalone TableFormer wrapped
     # by `TFPredictor`. opencv-python-headless is what TFPredictor's
     # `iocr_page` dict expects for the input image (BGR ndarray).
     # Hugingface_hub is needed to snapshot the docling-models repo

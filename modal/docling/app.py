@@ -9,8 +9,6 @@ directly via the Modal SDK without HTTP/JSON glue. L40S to mirror the
 GLM-OCR Pass 1 worker so per-page cost numbers fold cleanly into
 BENCHMARKS.md.
 
-Tracking issue: FER-125.
-
 Deploy:
 
     cd modal
@@ -29,10 +27,10 @@ from pathlib import Path
 
 import modal
 
-app = modal.App("ferrite-docling")
+app = modal.App("parselab-docling")
 
 image = (
-    # cu13 + python 3.12 — same base ABI as the SGLang workers (FER-127).
+    # cu13 + python 3.12 — same base ABI as the SGLang workers.
     modal.Image.from_registry(
         "nvidia/cuda:13.0.0-devel-ubuntu22.04",
         add_python="3.12",
@@ -51,10 +49,10 @@ image = (
     )
 )
 
-# Reuse the shared Ferrite HF model cache. Docling pulls its layout
+# Reuse the shared HF model cache volume. Docling pulls its layout
 # (DocLayNet) + TableFormer artifacts from HF on first run; the volume
 # means subsequent cold starts skip the download.
-model_cache = modal.Volume.from_name("ferrite-hf-cache", create_if_missing=True)
+model_cache = modal.Volume.from_name("parselab-hf-cache", create_if_missing=True)
 
 
 @app.cls(

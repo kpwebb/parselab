@@ -13,8 +13,6 @@ Why we want this worker:
   (same task, smaller / cheaper model) and the Qwen3.6-35B-A3B
   adjudicator candidate.
 
-Tracking issue: TBD (FER-132?).
-
 vLLM (not SGLang) per the model card recommendation. `--reasoning-parser
 qwen3` strips any `<think>...</think>` traces from output.
 `--enable-prefix-caching` lets the model reuse the prompt prefix's KV
@@ -28,7 +26,9 @@ Deploy:
 
 Endpoint:
 
-    https://ferrite-systems--ferrite-inf2-flash-serve.modal.run/v1/chat/completions
+    https://<workspace>--parselab-inf2-flash-serve.modal.run/v1/chat/completions
+
+(Resolved at runtime via `modal/harness/endpoints.py`.)
 """
 from __future__ import annotations
 
@@ -39,10 +39,10 @@ import modal
 MODEL_ID = "infly/Infinity-Parser2-Flash"
 VLLM_PORT = 8000
 
-app = modal.App("ferrite-inf2-flash")
+app = modal.App("parselab-inf2-flash")
 
 image = (
-    # cu13 base — same as the other workers post-FER-127.
+    # cu13 base — same as the other workers.
     modal.Image.from_registry(
         "nvidia/cuda:13.0.0-devel-ubuntu22.04",
         add_python="3.12",
@@ -63,7 +63,7 @@ image = (
 )
 
 # Shared HF model cache volume.
-model_cache = modal.Volume.from_name("ferrite-hf-cache", create_if_missing=True)
+model_cache = modal.Volume.from_name("parselab-hf-cache", create_if_missing=True)
 
 
 @app.function(

@@ -1,14 +1,14 @@
 """Qwen3.6-35B-A3B Modal worker — stock SGLang OpenAI-compatible server.
 
-Used by the FER-113 post-processing model evaluation as the "bigger +
-more expensive" candidate. 35B total / 3B activated MoE — same scale
-as Inf2 (which is ~35B Qwen3.5-MoE under the hood, fine-tuned for
-document layout). This worker uses the BASE instruct model so we can
-tell apart "size matters" from "domain fine-tuning matters."
+Larger / more expensive text-reasoning candidate alongside the
+Qwen3.5-9B worker. 35B total / 3B activated MoE — same scale as Inf2
+(which is ~35B Qwen3.5-MoE under the hood, fine-tuned for document
+layout). This worker uses the BASE instruct model so we can tell apart
+"size matters" from "domain fine-tuning matters."
 
-Multimodal but used here for text-only post-processing of already-
-extracted page content. Thinking mode disabled per-request via
-`enable_thinking=false`.
+Multimodal but used here primarily for text-only post-processing /
+table adjudication on already-extracted page content. Thinking mode
+disabled per-request via `enable_thinking=false`.
 
 The model card recommends 8 GPUs (TP=8), but we run on H100×1 to match
 our existing Inf2 deployment — the practical scale we're at doesn't
@@ -21,7 +21,9 @@ Deploy:
 
 Endpoint:
 
-    https://ferrite-systems--ferrite-qwen36-35b-a3b-serve.modal.run/v1/chat/completions
+    https://<workspace>--parselab-qwen36-35b-a3b-serve.modal.run/v1/chat/completions
+
+(Resolved at runtime via `modal/harness/endpoints.py`.)
 """
 from __future__ import annotations
 
@@ -32,10 +34,10 @@ import modal
 MODEL_ID = "Qwen/Qwen3.6-35B-A3B"
 SGLANG_PORT = 30000
 
-app = modal.App("ferrite-qwen36-35b-a3b")
+app = modal.App("parselab-qwen36-35b-a3b")
 
 image = (
-    # cu13 base — see FER-127 for the cu128 → cu13 rationale.
+    # cu13 base — matches the SGLang kernel wheel ABI.
     modal.Image.from_registry(
         "nvidia/cuda:13.0.0-devel-ubuntu22.04",
         add_python="3.12",
@@ -56,7 +58,7 @@ image = (
     )
 )
 
-model_cache = modal.Volume.from_name("ferrite-hf-cache", create_if_missing=True)
+model_cache = modal.Volume.from_name("parselab-hf-cache", create_if_missing=True)
 
 
 @app.function(
@@ -67,8 +69,8 @@ model_cache = modal.Volume.from_name("ferrite-hf-cache", create_if_missing=True)
     timeout=3600,
     scaledown_window=120,
     max_containers=1,
-    # Keep one container warm so ToC builds from `build-toc` and the
-    # desktop app don't pay the H100 cold-start.
+    # Keep one container warm so eval harnesses and adjudication runs
+    # don't pay the H100 cold-start.
     min_containers=1,
 )
 @modal.concurrent(max_inputs=16)
@@ -99,7 +101,7 @@ def serve() -> None:
         "--mem-fraction-static",
         "0.92",
         "--trust-remote-code",
-        # Tuning learned from FER-80 work.
+        # Tuning shared with the GLM-OCR / Inf2 workers.
         "--enable-mixed-chunk",
         "--schedule-conservativeness",
         "0.3",

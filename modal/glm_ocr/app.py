@@ -1,15 +1,12 @@
 """GLM-OCR Modal worker — stock SGLang OpenAI-compatible server.
 
-Pure infrastructure: hosts the GLM-OCR model behind SGLang's standard
-OpenAI `/v1/chat/completions` endpoint. PDF rendering, image encoding,
-request orchestration, metrics, and IR construction live in the Rust
-`extractor-client` (FER-83). The prior in-worker Python (custom extract
-methods, FER-82 envelope construction, per-page error handling, the
-`cuda_poisoned` self-exit recovery) was retired when we switched from
-HF transformers to SGLang — empirical probe (2026-05-03) showed SGLang
-gives ~6-8× throughput on the same L40S, and continuous batching
-naturally bounds the loop failure mode that motivated all the worker-
-side mitigations. See git history for the working HF-transformers worker.
+Hosts the GLM-OCR model behind SGLang's standard OpenAI
+`/v1/chat/completions` endpoint. Client-side PDF rendering, image
+encoding, and dispatch live in the harness (`modal/harness/remote.py`
+for Modal-side dispatch). Empirical probe (2026-05-03) showed SGLang
+gives ~6-8× throughput on the same L40S vs HF transformers, and
+continuous batching naturally bounds the loop failure mode that
+motivated earlier worker-side mitigations.
 
 Deploy:
 
@@ -18,7 +15,10 @@ Deploy:
 
 After deploy, hit as a standard OpenAI client:
 
-    POST https://ferrite-systems--ferrite-glm-ocr-serve.modal.run/v1/chat/completions
+    POST https://<workspace>--parselab-glm-ocr-serve.modal.run/v1/chat/completions
+
+(The harness resolves this URL at runtime via `modal.Function.from_name`;
+see `modal/harness/endpoints.py`.)
 """
 from __future__ import annotations
 
@@ -29,11 +29,11 @@ import modal
 MODEL_ID = "zai-org/GLM-OCR"
 SGLANG_PORT = 30000
 
-app = modal.App("ferrite-glm-ocr")
+app = modal.App("parselab-glm-ocr")
 
 image = (
     # cu13 + python 3.12 + libnuma1. cu13 is required by current
-    # sgl-kernel wheels on PyPI (FER-127); earlier cu128 builds hit
+    # sgl-kernel wheels on PyPI; earlier cu128 builds hit
     # `libnvrtc.so.13: cannot open shared object file` on fresh
     # deploys. cu124 attempts before that hit sgl_kernel arch
     # mismatches (SM89 / L40S) — see git history.
@@ -57,7 +57,7 @@ image = (
 
 # Shared HF model cache volume; first cold start downloads ~1.8GB of
 # weights, subsequent starts mount and skip.
-model_cache = modal.Volume.from_name("ferrite-hf-cache", create_if_missing=True)
+model_cache = modal.Volume.from_name("parselab-hf-cache", create_if_missing=True)
 
 
 @app.function(

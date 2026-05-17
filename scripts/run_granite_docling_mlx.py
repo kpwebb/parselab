@@ -1,11 +1,9 @@
 """Run granite-docling-258M locally on Apple Silicon via MLX.
 
-Mirrors `modal/harness/run_granite_docling.py` (FER-126) but drives the
+Mirrors `modal/harness/run_granite_docling.py` but drives the
 MLX-converted weights from `ibm-granite/granite-docling-258M-mlx`
 locally, no Modal involvement. Same envelope / raw / CSV / summary
 shape so the output is directly diff-able with the vLLM run.
-
-Tracking issue: FER-128.
 
 Prerequisites: macOS on Apple Silicon, the scripts venv installed:
 
@@ -316,7 +314,7 @@ def write_summary(
     model_load_secs: float,
 ) -> None:
     lines: list[str] = []
-    lines.append("FER-128 granite-docling-mlx local run")
+    lines.append("Parselab granite-docling-mlx local run")
     lines.append("==================================================")
     lines.append("")
     lines.append(f"page_limit={page_limit}  runtime=mlx-vlm  model={MODEL_PATH}")
@@ -354,7 +352,7 @@ def write_summary(
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
     p = argparse.ArgumentParser(
-        description="Run granite-docling-258M (MLX) locally against the FER-86 corpus"
+        description="Run granite-docling-258M (MLX) locally against the corpus"
     )
     p.add_argument("--pages", type=int, default=DEFAULT_PAGE_LIMIT)
     p.add_argument("--dpi", type=int, default=DEFAULT_DPI)

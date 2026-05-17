@@ -3,7 +3,7 @@
 Third pass on top of the granite + TableFormerV2 hybrid. For each
 table, computes three divergence signals; if any fires, crops the
 table region from the source PDF and POSTs it to the deployed Qwen
-worker (`ferrite-qwen36-35b-a3b`) for a fresh read.
+worker (`parselab-qwen36-35b-a3b`) for a fresh read.
 
 Signals:
 
@@ -16,8 +16,6 @@ Signals:
    enough to flag").
 3. **Grid topology mismatch** — granite's `num_rows` / `num_cols` !=
    TF's.
-
-Tracking issue: FER-129.
 
 Usage (from `scripts/`):
 
@@ -61,10 +59,16 @@ DEFAULT_PADDING_PX = 24
 DEFAULT_MAX_TOKENS = 4096
 DEFAULT_CONCURRENCY = 4
 
-QWEN_ENDPOINT = (
-    "https://ferrite-systems--ferrite-qwen36-35b-a3b-serve.modal.run/v1/chat/completions"
-)
+QWEN_APP = "parselab-qwen36-35b-a3b"
 QWEN_MODEL_ID = "Qwen/Qwen3.6-35B-A3B"
+
+
+def resolve_qwen_endpoint() -> str:
+    """Look up the deployed `parselab-qwen36-35b-a3b` worker's URL via Modal."""
+    import modal
+
+    fn = modal.Function.from_name(QWEN_APP, "serve")
+    return f"{fn.get_web_url().rstrip('/')}/v1/chat/completions"
 
 QWEN_PROMPT = """\
 Read this table image and return its contents as strict JSON only.
@@ -256,8 +260,7 @@ def build_qwen_request(crop_image, max_tokens: int, prompt: str) -> dict:
         "max_tokens": max_tokens,
         "temperature": 0.0,
         # Qwen3-family supports a "thinking" mode; turn it off to keep
-        # latency and tokens bounded for table reading. Inherits the
-        # FER-113 dispatch convention.
+        # latency and tokens bounded for table reading.
         "chat_template_kwargs": {"enable_thinking": False},
     }
 
@@ -299,6 +302,7 @@ def adjudicate_one(
     tf_table: dict,
     table_idx: int,
     args: argparse.Namespace,
+    qwen_endpoint: str,
 ) -> Adjudication:
     bbox_list = tf_table.get("granite_bbox_px") or []
     if len(bbox_list) != 4:
@@ -370,7 +374,7 @@ def adjudicate_one(
         # 600s covers the H100 cold start (~3-5 min for the 35B model
         # to mount weights + sglang init) plus any warm steady-state
         # request (typically 30-60s).
-        resp = client.post(QWEN_ENDPOINT, json=body, timeout=600.0)
+        resp = client.post(qwen_endpoint, json=body, timeout=600.0)
         resp.raise_for_status()
         payload = resp.json()
         adj.elapsed_secs = time.monotonic() - started
@@ -404,6 +408,9 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
                    help="parallel Qwen dispatches (default: %(default)s)")
     p.add_argument("--all-tables", action="store_true",
                    help="adjudicate every table, not just flagged ones")
+    p.add_argument("--endpoint", type=str, default=None,
+                   help=("override the Qwen chat-completions endpoint "
+                         f"(default: resolved via Modal SDK from {QWEN_APP!r})"))
     return p.parse_args(argv)
 
 
@@ -423,8 +430,11 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 2
 
+    qwen_endpoint = args.endpoint or resolve_qwen_endpoint()
+
     print(f"tf run:      {tf_run}")
     print(f"granite run: {granite_run}")
+    print(f"qwen endpoint: {qwen_endpoint}")
     print(
         f"thresholds: min_tokens={args.min_tokens} "
         f"text_similarity={args.text_similarity} "
@@ -502,7 +512,7 @@ def main(argv: list[str] | None = None) -> int:
 
     pdf_path_for = lambda pid: CORPUS_DIR / manifest[pid]["file"]
 
-    print(f"\ndispatching to Qwen ({QWEN_ENDPOINT})")
+    print(f"\ndispatching to Qwen ({qwen_endpoint})")
     print("(only flagged tables; pass --all-tables to bypass)")
 
     with httpx.Client(http2=False) as client:
@@ -522,6 +532,7 @@ def main(argv: list[str] | None = None) -> int:
                     tf_table,
                     t_idx,
                     args,
+                    qwen_endpoint,
                 )
                 futs[fut] = (part_id, page_no, t_idx)
 
@@ -577,7 +588,7 @@ def main(argv: list[str] | None = None) -> int:
                     )
 
     summary_lines = [
-        "FER-129 Qwen 3.6 35B-A3B table adjudication",
+        "Qwen 3.6 35B-A3B table adjudication",
         "=" * 50,
         f"tf run:      {tf_run}",
         f"granite run: {granite_run}",

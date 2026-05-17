@@ -1,21 +1,18 @@
-"""Run the deployed `ferrite-granite-docling` SGLang worker against the FER-86 corpus.
+"""Run the deployed `parselab-granite-docling` SGLang worker against the corpus.
 
 Per-page dispatch (the model takes one page image at a time):
 
     PDF → PyMuPDF render → PNG → base64 → /v1/chat/completions
         → DocTags string → docling_core parse → DoclingDocument
 
-Output mirrors `harness/run_docling.py` so all three runs (FER-125
-docling pipeline, this granite-docling VLM, plus existing Pass 1 / Pass
-2 envelopes) are diff-able with the same tooling:
+Output mirrors `harness/run_docling.py` so the runs are diff-able with
+the same tooling:
 
     target/granite-docling-runs/<utc>/
         envelopes/<part_id>.json       # normalized per-page envelope
         raw/<part_id>/page_<N>.json    # raw DoclingDocument per page
         granite_docling.csv            # per-page metrics
         summary.txt                    # per-PDF rollup
-
-Tracking issue: FER-126.
 
 Prerequisite: the worker is deployed (`modal deploy granite_docling/app.py`).
 
@@ -43,25 +40,24 @@ from pathlib import Path
 
 import httpx
 
+from harness.endpoints import chat_completions_url
+
 # Resolve workspace root from this file's location: modal/harness/run_granite_docling.py
 WORKSPACE_ROOT = Path(__file__).resolve().parents[2]
 CORPUS_DIR = WORKSPACE_ROOT / "data" / "corpus"
 MANIFEST_PATH = CORPUS_DIR / "manifest.toml"
 RUNS_ROOT = WORKSPACE_ROOT / "target" / "granite-docling-runs"
 
-# Mirror PASS1_PAGE_LIMIT in the Rust harness so granite-docling and
-# Pass 1 cover the same first-N-pages slice.
 DEFAULT_PAGE_LIMIT = 10
 
-# Matches the worker's @modal.concurrent(max_inputs=16) and the Pass 1
-# Rust harness dispatch concurrency.
+# Matches the worker's @modal.concurrent(max_inputs=16).
 DEFAULT_CONCURRENCY = 16
 
 DEFAULT_DPI = 200
 # Output token cap. The worker's `--max-model-len 8192` matches the
 # model's trained `max_position_embeddings`, so we can't expand total
 # context — we have to split it between input and output. Observed
-# input across the FER-86 corpus: 878–1142 tokens (image patches +
+# input across the datasheet corpus: 878–1142 tokens (image patches +
 # text prompt). 7000 output + 1142 input = 8142 fits, with ~50 tokens
 # margin. The earlier 4096 cap truncated dense MCU pages mid-DocTags-
 # stream (stm32f411ce p3–p10 returned 1 item each because the parser
@@ -69,9 +65,7 @@ DEFAULT_DPI = 200
 DEFAULT_MAX_TOKENS = 7000
 DEFAULT_PROMPT = "Convert this page to docling."
 
-ENDPOINT_URL = (
-    "https://ferrite-systems--ferrite-granite-docling-serve.modal.run/v1/chat/completions"
-)
+WORKER_APP = "parselab-granite-docling"
 MODEL_ID = "ibm-granite/granite-docling-258M"
 
 
@@ -235,12 +229,16 @@ def parse_doctags(doctags: str, png_bytes: bytes) -> tuple[dict, str, list[dict]
 
 
 def dispatch_one(
-    client: httpx.Client, task: PageTask, prompt: str, max_tokens: int
+    client: httpx.Client,
+    task: PageTask,
+    prompt: str,
+    max_tokens: int,
+    endpoint_url: str,
 ) -> PageResult:
     body = build_chat_request(task, prompt, max_tokens)
     started = time.monotonic()
     try:
-        resp = client.post(ENDPOINT_URL, json=body, timeout=300.0)
+        resp = client.post(endpoint_url, json=body, timeout=300.0)
         resp.raise_for_status()
         payload = resp.json()
         elapsed = time.monotonic() - started
@@ -277,7 +275,12 @@ def dispatch_one(
         )
 
 
-def write_envelope(envelopes_dir: Path, part: Part, results: list[PageResult]) -> None:
+def write_envelope(
+    envelopes_dir: Path,
+    part: Part,
+    results: list[PageResult],
+    endpoint_url: str,
+) -> None:
     pages = [
         {
             "page_no": r.page_no,
@@ -299,7 +302,7 @@ def write_envelope(envelopes_dir: Path, part: Part, results: list[PageResult]) -
         "class": part.cls,
         "extractor": "granite-docling-258M",
         "model": MODEL_ID,
-        "endpoint": ENDPOINT_URL,
+        "endpoint": endpoint_url,
         "pages": pages,
     }
     (envelopes_dir / f"{part.part_id}.json").write_text(json.dumps(envelope, indent=2))
@@ -351,7 +354,7 @@ def write_summary(
     wall_secs: float,
 ) -> None:
     lines: list[str] = []
-    lines.append("FER-126 granite-docling corpus run")
+    lines.append("Parselab granite-docling corpus run")
     lines.append("==================================================")
     lines.append("")
     lines.append(f"page_limit={page_limit}  concurrency={concurrency}")
@@ -401,7 +404,7 @@ def write_summary(
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
     p = argparse.ArgumentParser(
-        description="Run granite-docling-258M against the FER-86 corpus"
+        description="Run granite-docling-258M against the corpus"
     )
     p.add_argument(
         "--pages",
@@ -439,6 +442,16 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         default=[],
         help="Restrict to these part_ids (default: whole corpus)",
     )
+    p.add_argument(
+        "--endpoint",
+        type=str,
+        default=None,
+        help=(
+            "Override the chat-completions endpoint URL "
+            "(default: resolved via Modal SDK from the deployed "
+            f"{WORKER_APP!r} app)"
+        ),
+    )
     return p.parse_args(argv)
 
 
@@ -457,6 +470,9 @@ def main(argv: list[str] | None = None) -> int:
         active = sorted(manifest.values(), key=lambda p: p.part_id)
 
     print(f"loaded manifest, running {len(active)} parts (page_limit={args.pages})")
+
+    endpoint_url = args.endpoint or chat_completions_url(WORKER_APP)
+    print(f"endpoint: {endpoint_url}")
 
     run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     output_dir = RUNS_ROOT / run_id
@@ -489,7 +505,9 @@ def main(argv: list[str] | None = None) -> int:
     with httpx.Client(http2=False) as client:
         with ThreadPoolExecutor(max_workers=args.concurrency) as pool:
             futs = {
-                pool.submit(dispatch_one, client, t, args.prompt, args.max_tokens): t
+                pool.submit(
+                    dispatch_one, client, t, args.prompt, args.max_tokens, endpoint_url
+                ): t
                 for t in all_tasks
             }
             done = 0
@@ -533,7 +551,7 @@ def main(argv: list[str] | None = None) -> int:
         )
         for part in active:
             results = by_part[part.part_id]
-            write_envelope(envelopes_dir, part, results)
+            write_envelope(envelopes_dir, part, results, endpoint_url)
             write_raw(raw_dir, part, results)
             write_csv_rows(writer, part, results)
 

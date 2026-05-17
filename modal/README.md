@@ -1,22 +1,29 @@
-# Ferrite Modal workers
+# Parselab Modal workers
 
-Python apps that run the two-pass PDF extraction pipeline on Modal serverless
-GPUs. The Rust workspace's `extractor-client` (FER-83) calls these.
+Modal apps that host the VLM workers Parselab benchmarks against. Each
+worker is a self-contained `app.py` that exposes either:
+
+- **OpenAI-compatible `/v1/chat/completions`** via SGLang or vLLM
+  (granite-docling, GLM-OCR, Inf2-Flash, Inf2-Pro, Qwen3.5-9B,
+  Qwen3.6-35B-A3B), or
+- **A callable Modal class** (docling — IBM's local pipeline, not an
+  LLM server).
 
 ```
 modal/
-├── pyproject.toml          # uv-managed local deps (driver only; the worker
-│                           # image installs torch/transformers itself)
-├── glm_ocr/app.py            # Pass 1 — GLM-OCR (FER-81)
-├── infinity_parser2/app.py   # Pass 2 — Infinity-Parser2-Pro (FER-102)
-├── docling/app.py            # Docling pipeline eval worker (FER-125)
-├── granite_docling/app.py    # Granite-Docling-258M VLM eval worker (FER-126)
-├── shared/
-│   ├── pdf_utils.py          # PDF → page images via PyMuPDF
-│   └── wire.py               # FER-82 envelope (pydantic, mirrors the Rust IR)
+├── pyproject.toml              # uv-managed driver deps (the worker image
+│                               # installs torch/transformers itself)
+├── docling/app.py              # docling pipeline worker (callable class)
+├── glm_ocr/app.py              # GLM-OCR via SGLang
+├── granite_docling/app.py      # granite-docling-258M via vLLM
+├── inf2_flash/app.py           # Infinity-Parser2-Flash (2B) via vLLM
+├── infinity_parser2/app.py     # Infinity-Parser2-Pro (35B-MoE) via SGLang
+├── qwen35_9b/app.py            # Qwen3.5-9B via SGLang
+├── qwen36_35b_a3b/app.py       # Qwen3.6-35B-A3B via SGLang
 └── harness/
-    ├── run_docling.py        # FER-125 corpus driver for the docling pipeline worker
-    └── run_granite_docling.py  # FER-126 corpus driver for the granite-docling VLM
+    ├── remote.py               # Modal-side throughput harness (preset-driven)
+    ├── run_docling.py          # docling corpus driver (Modal SDK dispatch)
+    └── run_granite_docling.py  # granite-docling corpus driver (HTTP dispatch)
 ```
 
 ## Prerequisites
@@ -37,146 +44,58 @@ uv sync
 ```
 
 This installs the local driver deps (`modal`, `pymupdf`, `pillow`,
-`pydantic`). The GPU image installs its own torch/transformers/accelerate at
-container build time — nothing extra to do locally.
+`pydantic`, `httpx`, `docling-core`). The GPU image installs its own
+torch / transformers / SGLang or vLLM at container build time —
+nothing extra to do locally.
 
-## Deploy GLM-OCR (Pass 1)
+## Workers at a glance
+
+| Worker | Server | GPU | Output shape | Notes |
+| --- | --- | --- | --- | --- |
+| `granite_docling/` | vLLM | L40S | DocTags string | `--revision untied`; tiny (258M), L40S kept for cost-comparable numbers |
+| `glm_ocr/` | SGLang | L40S | Markdown | 9B; clean prose / TOC, no table structure |
+| `inf2_flash/` | vLLM | L40S | JSON layout + bboxes + HTML tables | 2B Qwen3.5-VL; primary Pass 2 candidate |
+| `infinity_parser2/` | SGLang | H100 | JSON layout + bboxes + HTML tables | 35B-MoE; needs `enable_thinking=false` for structured output |
+| `qwen35_9b/` | SGLang | L40S | text / VLM | text-reasoning post-processing (smaller/cheaper) |
+| `qwen36_35b_a3b/` | SGLang | H100 | text / VLM | text-reasoning post-processing (larger); used as table adjudicator |
+| `docling/` | (Modal class) | L40S | DoclingDocument | IBM local pipeline; called via Modal SDK, not HTTP |
+
+All workers share one HF-cache volume (`parselab-hf-cache`); first
+cold start populates it, subsequent starts mount and skip the
+download. All workers run pinned to a single warm container
+(`min_containers=1, max_containers=1`) so benchmark numbers are
+deterministic.
+
+## Deploy
+
+Each worker is independent:
 
 ```sh
 cd modal
 modal deploy glm_ocr/app.py
-```
-
-First deploy creates the `ferrite-hf-cache` volume and provisions an L40S
-container; first invocation downloads the ~1.8GB weights into the volume.
-Subsequent cold starts skip the download.
-
-The deployed app exposes:
-
-- `GlmOcr.extract(pdf_bytes, pages=None, prompt="Text Recognition:", dpi=200, max_new_tokens=8192)`
-  — returns the FER-82 envelope as a JSON-serializable dict
-- `GlmOcr.health()` — liveness probe; returns `{model, loaded}`
-
-## Smoke test
-
-```sh
-cd modal
-modal run glm_ocr/app.py --pdf-path ../data/corpus/<part>/datasheet.pdf
-```
-
-Limit to specific pages (zero-indexed):
-
-```sh
-modal run glm_ocr/app.py --pdf-path datasheet.pdf --pages 0,3,12
-```
-
-The driver prints the full envelope JSON to stdout. Per-page wall-clock
-elapsed and total timings are printed by the worker (visible in `modal logs`).
-
-## Cost monitoring
-
-Modal logs GPU seconds per invocation in the dashboard. The worker also prints
-per-page wall-clock elapsed and total time to stdout — pipe `modal logs
-ferrite-glm-ocr` through your favorite parser to aggregate.
-
-## Deploy Infinity-Parser2-Pro (Pass 2)
-
-```sh
-cd modal
+modal deploy granite_docling/app.py
+modal deploy inf2_flash/app.py
 modal deploy infinity_parser2/app.py
-```
-
-Pass 2 runs on a single H100. First cold start downloads ~70GB of weights
-into the shared `ferrite-hf-cache` volume (one-time); subsequent starts mount
-and skip the download.
-
-The deployed app exposes:
-
-- `InfinityParser2.extract(pdf_bytes, pages, prompt="Extract layout with bboxes as JSON", dpi=200, max_new_tokens=32768)`
-  — returns the FER-82 envelope; per-page entries are `format_type:
-  structured_json` with blocks (bbox + category + text). `pages` is required.
-- `InfinityParser2.health()` — liveness probe.
-
-## Smoke test (Pass 2)
-
-Pass 2 is always page-targeted, so explicit zero-indexed pages are required:
-
-```sh
-cd modal
-modal run infinity_parser2/app.py --pdf-path ../data/corpus/mmbt3904.pdf --pages 1
-```
-
-Bboxes in the wire output are in PDF points (xywh, page-relative), already
-rescaled from the model's pixel-space xyxy output. The worker maps the
-model's `category` strings 1:1 to the IR's `StructuredBlock.kind`.
-
-## Wire format
-
-Every worker returns the same envelope shape (FER-82). The `format_type`
-field on each page result discriminates the `content` payload:
-
-```jsonc
-// Pass 1 (GLM-OCR)
-{
-  "page": 0,
-  "format_type": "markdown",
-  "content": { "markdown": "# …" }
-}
-
-// Pass 2 (Infinity-Parser2-Pro)
-{
-  "page": 1,
-  "format_type": "structured_json",
-  "content": {
-    "blocks": [
-      {
-        "kind": "table",
-        "bbox": { "x": 72.0, "y": 120.0, "w": 450.0, "h": 200.0 },
-        "text": "Param | Min | Typ | Max | …"
-      }
-    ],
-    "page_meta": { "width_pts": 612.0, "height_pts": 792.0, "rotation_deg": 0, "dpi": 200 }
-  }
-}
-```
-
-The full envelope wraps these:
-
-```jsonc
-{
-  "schema_version": 1,
-  "extraction_uuid": "<uuid>",
-  "model": "glm-ocr@v1" | "infinity-parser2-pro@v1",
-  "prompt": "…",
-  "created_at": "2026-04-29T…Z",
-  "pages": [ /* Pass 1 or Pass 2 entries */ ]
-}
-```
-
-## Deploy docling (FER-125 spike)
-
-Docling is IBM's layout-aware PDF parser — local pipeline, not an LLM
-server. Unlike Pass 1 / Pass 2, the worker is an `@app.cls` exposing a
-`@modal.method()` rather than an OpenAI-compatible HTTP endpoint, so
-the eval harness dispatches via the Modal SDK.
-
-```sh
-cd modal
+modal deploy qwen35_9b/app.py
+modal deploy qwen36_35b_a3b/app.py
 modal deploy docling/app.py
 ```
 
-L40S (mirrors GLM-OCR for cost-comparable numbers), `min_containers=1`
-warm, shares the `ferrite-hf-cache` volume.
+After deploy, the SGLang / vLLM workers expose:
 
-The deployed class exposes:
+```
+POST https://<workspace>--parselab-<worker>-serve.modal.run/v1/chat/completions
+```
 
-- `DoclingExtractor.extract(pdf_bytes, pages=None)` — returns
-  `{pages, raw_document, elapsed_ms, docling_version}`. `pages` is our
-  normalized per-page envelope (markdown + items with bboxes);
-  `raw_document` is the full `DoclingDocument.export_to_dict()` so we
-  can review what docling natively produces.
+`docling` exposes a Modal class (`DoclingExtractor`) you reach via
+`modal.Cls.from_name("parselab-docling", "DoclingExtractor")`.
 
-### Smoke test (docling)
+## Smoke tests
+
+OpenAI-style workers — POST a single rendered page to the endpoint
+(see each worker's docstring for the exact URL).
+
+Docling (Modal class):
 
 ```sh
 cd modal
@@ -184,74 +103,86 @@ modal run docling/app.py --pdf-path ../data/corpus/ao3400a.pdf
 modal run docling/app.py --pdf-path ../data/corpus/stm32f411ce.pdf --pages 1,2,3
 ```
 
-### Run the docling corpus harness
+## Benchmarking
 
-Drives the deployed worker across the FER-86 corpus and writes outputs
-to `target/docling-runs/<utc>/`:
+The `harness/` directory has three drivers:
 
-- `envelopes/<part_id>.json` — normalized per-page envelopes (diff against
-  the Rust harness's Pass 1 / Pass 2 envelopes in `target/harness-runs/`).
-- `raw/<part_id>.json` — raw `DoclingDocument.export_to_dict()` for review.
-- `docling.csv` — per-page metrics.
-- `summary.txt` — per-PDF rollup + totals.
+- **`harness/remote.py`** — Modal-side throughput harness. Runs *inside*
+  a Modal container, renders the corpus with PyMuPDF, and POSTs to a
+  selected preset (or a custom endpoint). Use this for any
+  cost-per-page number you intend to quote — running outside Modal
+  introduces developer-uplink bandwidth as a measurement variable.
 
-```sh
-cd modal
-uv run python -m harness.run_docling                        # whole corpus, 10 pages each
-uv run python -m harness.run_docling --pages 4              # first 4 pages each
-uv run python -m harness.run_docling --parts ao3400a tps562200
-uv run python -m harness.run_docling --concurrency 2
-```
+  ```sh
+  cd modal
+  uv run modal run harness/remote.py --preset granite      --max-tokens 2048
+  uv run modal run harness/remote.py --preset glm-ocr      --max-tokens 1024
+  uv run modal run harness/remote.py --preset inf2-flash   --max-tokens 4096
+  uv run modal run harness/remote.py --preset inf2-pro     --max-tokens 4096 --no-thinking
+  uv run modal run harness/remote.py --preset qwen36       --max-tokens 4096 --no-thinking
+  ```
 
-## Deploy granite-docling-258M (FER-126 spike)
+  Add `--save-content` to write per-page raw chat-completion content
+  to `target/quality/<preset>-<utc>/` for downstream fidelity judging.
 
-Granite-Docling-258M is IBM's compact document VLM (Idefics3-based:
-siglip2-base-patch16-512 vision encoder + Granite 165M decoder, ~258M
-params total). Successor to SmolDocling. End-to-end image → DocTags;
-parses to a `DoclingDocument` via `docling-core`.
+- **`harness/run_granite_docling.py`** — per-page granite-docling driver
+  that POSTs to the deployed worker, parses DocTags via `docling-core`,
+  and writes normalized envelopes + raw documents + a CSV + summary.
 
-Hosted as a vLLM OpenAI-compatible server (SGLang's generic multimodal
-processor hits an internal bug on Idefics3 — `Modality.MULTI_IMAGES`
-attribute error — and the model card recommends vLLM specifically). The
-harness POSTs `{image, prompt}` to `/v1/chat/completions` and gets a
-DocTags string back; the OpenAI surface is identical to Pass 1 / Pass 2.
+  ```sh
+  cd modal
+  uv run python -m harness.run_granite_docling                # whole corpus, 10 pages each
+  uv run python -m harness.run_granite_docling --pages 4
+  uv run python -m harness.run_granite_docling --parts ao3400a tps562200
+  uv run python -m harness.run_granite_docling --concurrency 16
+  ```
 
-```sh
-cd modal
-modal deploy granite_docling/app.py
-```
+- **`harness/run_docling.py`** — docling pipeline driver. Dispatches
+  via the Modal SDK (`modal.Cls.from_name(...)`) rather than HTTP, since
+  docling exposes a class method, not an OpenAI endpoint.
 
-L40S (matches Pass 1 for cost-comparable BENCHMARKS.md numbers, even
-though the model is tiny), `min_containers=1` warm, `--revision untied`
-to avoid the tied-weights serving issue called out on the model card.
+  ```sh
+  cd modal
+  uv run python -m harness.run_docling                        # whole corpus, 10 pages each
+  uv run python -m harness.run_docling --pages 4              # first 4 pages each
+  uv run python -m harness.run_docling --parts ao3400a tps562200
+  uv run python -m harness.run_docling --concurrency 2
+  ```
 
-The deployed app exposes:
+See [`../BENCHMARKS.md`](../BENCHMARKS.md) for the headline numbers and
+methodology these drivers produced.
 
-- `POST https://ferrite-systems--ferrite-granite-docling-serve.modal.run/v1/chat/completions`
-  — standard OpenAI chat-completions with image_url + text content.
-  Returns DocTags in `choices[0].message.content`.
+## Worker-specific notes
 
-### Run the granite-docling corpus harness
+### `enable_thinking=false` for Qwen3-family
 
-Drives the deployed worker across the FER-86 corpus and writes outputs
-to `target/granite-docling-runs/<utc>/`:
+Qwen3-family VLMs (Inf2-Flash, Inf2-Pro, Qwen3.5-9B, Qwen3.6-A3B) ship
+a chat template that supports a chain-of-thought preamble. On
+structured-extraction tasks the preamble eats tokens without helping
+the output, and on some pages causes the model to produce markdown
+analysis instead of the requested JSON. The harness passes
+`chat_template_kwargs={"enable_thinking": false}` when `--no-thinking`
+is set; this works on both vLLM and SGLang OpenAI servers.
 
-- `envelopes/<part_id>.json` — normalized per-page envelope (markdown +
-  items + bboxes), parsed via `docling-core`.
-- `raw/<part_id>/page_<N>.json` — the raw DocTags string + parsed
-  `DoclingDocument` per page.
-- `granite_docling.csv` — per-page metrics.
-- `summary.txt` — per-PDF rollup + totals.
+### Granite-docling `--revision untied`
 
-```sh
-cd modal
-uv run python -m harness.run_granite_docling                       # whole corpus, 10 pages each
-uv run python -m harness.run_granite_docling --pages 4
-uv run python -m harness.run_granite_docling --parts ao3400a tps562200
-uv run python -m harness.run_granite_docling --concurrency 16
-```
+The published `main` branch of `ibm-granite/granite-docling-258M`
+ships with tied input/output embeddings, which vLLM rejects per the
+model card. The worker pins `--revision untied` to use the
+publication-recommended weights.
 
-## What's next
+### `skip_special_tokens=false` for granite-docling
 
-- FER-80: spike harness that drives both workers across the corpus and
-  produces a comparison report
+Granite-docling emits DocTags via element-type *special tokens*
+(`<text>`, `<title>`, `<table>`, ...). vLLM's default
+`skip_special_tokens=true` strips the wrappers and leaves
+unparseable bare coordinates. The granite-docling driver and
+`remote.py`'s `granite` preset force-keep them.
+
+### GPU class choices
+
+- L40S ($1.95/hr on Modal): granite-docling, GLM-OCR, Inf2-Flash,
+  Qwen3.5-9B, docling. Keeps the cost-comparison axis sane; the small
+  workers don't need an H100.
+- H100 ($3.50/hr): Inf2-Pro (~35B-MoE bf16 ≈ 70 GB), Qwen3.6-35B-A3B
+  (same scale). L40S is too small.

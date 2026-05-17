@@ -1,8 +1,7 @@
-"""Run the deployed `ferrite-docling` Modal worker against the FER-86 corpus.
+"""Run the deployed `parselab-docling` Modal worker against the corpus.
 
-Mirrors `crates/extractor-harness/` but for docling: walks
-`data/corpus/manifest.toml`, dispatches one extract per PDF to the
-Modal class, and writes:
+Walks `data/corpus/manifest.toml`, dispatches one extract per PDF to
+the Modal class, and writes:
 
     target/docling-runs/<utc>/
         docling.csv             # per-page metrics
@@ -10,11 +9,9 @@ Modal class, and writes:
         raw/<part_id>.json      # raw DoclingDocument.export_to_dict()
         summary.txt             # per-PDF rollup
 
-`raw/` exists so we can review what docling natively produces and
-compare its native shape to our IR — it's the "what does docling do" view;
-`envelopes/` is the "side-by-side with Pass 1 / Pass 2" view.
-
-Tracking issue: FER-125.
+`raw/` exists so we can review what docling natively produces — it's
+the "what does docling do" view; `envelopes/` is the normalized view
+that diffs cleanly against other extractors.
 
 Prerequisite: the worker is deployed (`modal deploy docling/app.py`).
 
@@ -203,7 +200,7 @@ def write_summary(
     wall_secs: float,
 ) -> None:
     lines = []
-    lines.append("FER-125 docling corpus run")
+    lines.append("Parselab docling corpus run")
     lines.append("==================================================")
     lines.append("")
     lines.append(f"page_limit={page_limit}  concurrency={concurrency}")
@@ -245,7 +242,7 @@ def write_summary(
 
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Run docling against the FER-86 corpus")
+    parser = argparse.ArgumentParser(description="Run docling against the corpus")
     parser.add_argument(
         "--pages",
         type=int,
@@ -283,7 +280,7 @@ def main(argv: list[str] | None = None) -> int:
 
     print(f"loaded manifest, running {len(active)} parts (page_limit={args.pages})")
 
-    DoclingExtractor = modal.Cls.from_name("ferrite-docling", "DoclingExtractor")
+    DoclingExtractor = modal.Cls.from_name("parselab-docling", "DoclingExtractor")
     extractor = DoclingExtractor()
 
     run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")

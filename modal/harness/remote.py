@@ -1,6 +1,6 @@
 """Run a VLM-endpoint harness from *inside* Modal.
 
-Generic OpenAI-chat-completions throughput harness. Renders the FER-86
+Generic OpenAI-chat-completions throughput harness. Renders the
 corpus inside a Modal container and POSTs each rendered page to an
 OpenAI-compatible endpoint. Returns headline metrics. Use to benchmark
 any of our deployed VLM workers without paying developer-uplink
@@ -44,6 +44,12 @@ import time
 
 import modal
 
+# NOTE: `from harness.endpoints import ...` is deferred into `main()`.
+# Modal uploads only this file into the container; the `harness/`
+# package isn't on the container's sys.path. The endpoint lookup only
+# runs locally (before `run_corpus.remote(...)`), so the deferred
+# import is invisible to the container.
+
 DEFAULT_DPI = 200
 DEFAULT_PAGE_LIMIT = 10
 
@@ -51,21 +57,20 @@ DEFAULT_PAGE_LIMIT = 10
 # `keep_special_tokens`: granite-docling emits DocTags via special-
 #   tokens (`<text>`, `<title>`, etc.) that vLLM/SGLang strip by default
 #   (`skip_special_tokens=True`). Force-keep for DocTags-shaped output.
+# Endpoint URLs are resolved at runtime via `harness.endpoints`; they
+# vary per Modal workspace and aren't worth hardcoding.
 PRESETS: dict[str, dict] = {
     "granite": {
-        "endpoint": "https://ferrite-systems--ferrite-granite-docling-serve.modal.run/v1/chat/completions",
         "model": "ibm-granite/granite-docling-258M",
         "prompt": "Convert this page to docling.",
         "keep_special_tokens": True,
     },
     "glm-ocr": {
-        "endpoint": "https://ferrite-systems--ferrite-glm-ocr-serve.modal.run/v1/chat/completions",
         "model": "zai-org/GLM-OCR",
         "prompt": "Text Recognition:",
         "keep_special_tokens": False,
     },
     "inf2-flash": {
-        "endpoint": "https://ferrite-systems--ferrite-inf2-flash-serve.modal.run/v1/chat/completions",
         "model": "infly/Infinity-Parser2-Flash",
         # The Inf2 layout-extraction prompt from the model card, condensed.
         "prompt": (
@@ -82,13 +87,11 @@ PRESETS: dict[str, dict] = {
         "keep_special_tokens": False,
     },
     "inf2-pro": {
-        "endpoint": "https://ferrite-systems--ferrite-infinity-parser2-serve.modal.run/v1/chat/completions",
         "model": "infly/Infinity-Parser2-Pro",
         "prompt": "Extract layout with bboxes as JSON",
         "keep_special_tokens": False,
     },
     "qwen36": {
-        "endpoint": "https://ferrite-systems--ferrite-qwen36-35b-a3b-serve.modal.run/v1/chat/completions",
         "model": "Qwen/Qwen3.6-35B-A3B",
         # Placeholder — Pass 2 use will substitute the layout prompt.
         "prompt": "Extract layout with bboxes as JSON",
@@ -96,7 +99,7 @@ PRESETS: dict[str, dict] = {
     },
 }
 
-app = modal.App("ferrite-harness-remote")
+app = modal.App("parselab-harness-remote")
 
 image = (
     modal.Image.debian_slim(python_version="3.12")
@@ -104,7 +107,7 @@ image = (
         "httpx>=0.27",
         "pymupdf>=1.24",
     )
-    # Bake the FER-86 corpus into the image so the container has the PDFs
+    # Bake the corpus into the image so the container has the PDFs
     # at hand without any volume mount or download step.
     .add_local_dir(
         "../data/corpus",
@@ -323,8 +326,10 @@ def main(
         raise SystemExit(
             f"unknown preset {preset!r}; choices: {sorted(PRESETS)}"
         )
+    from harness.endpoints import chat_completions_url_for_preset
+
     base = PRESETS[preset]
-    resolved_endpoint = endpoint or base["endpoint"]
+    resolved_endpoint = endpoint or chat_completions_url_for_preset(preset)
     resolved_model = model or base["model"]
     resolved_prompt = prompt or base["prompt"]
     resolved_kst = (

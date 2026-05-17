@@ -1,16 +1,11 @@
 """Infinity-Parser2-Pro Modal worker — stock SGLang OpenAI-compatible server.
 
-Pure infrastructure: hosts Infinity-Parser2-Pro behind SGLang's standard
-OpenAI `/v1/chat/completions` endpoint. PDF rendering, image encoding,
-prompt construction (including `enable_thinking=False` for Qwen3.5-VL),
-JSON layout parsing (the old `_parse_layout_json` / `LayoutParseError`),
-metrics, and IR construction live in the Rust `extractor-client`
-(FER-83). The prior in-worker Python (custom extract method, FER-82
-envelope, per-page error handling, image preprocessing constants) was
-retired when we switched from HF transformers to SGLang — empirical
+Hosts Infinity-Parser2-Pro behind SGLang's standard OpenAI
+`/v1/chat/completions` endpoint. Client-side PDF rendering, image
+encoding, prompt construction (including `enable_thinking=False` for
+Qwen3.5-VL), and JSON layout parsing live in the harness. Empirical
 probe (2026-05-03) showed SGLang gives ~10-15× throughput on the same
-H100 vs HF + SDPA. See git history for the working HF-transformers
-worker if needed.
+H100 vs HF + SDPA.
 
 Note: the Infinity-Parser2 official repo only ships HF + vLLM backends,
 not SGLang. Our probe confirmed SGLang serves this fine-tuned Qwen3.5-VL
@@ -23,7 +18,10 @@ Deploy:
 
 After deploy, hit as a standard OpenAI client:
 
-    POST https://ferrite-systems--ferrite-infinity-parser2-serve.modal.run/v1/chat/completions
+    POST https://<workspace>--parselab-infinity-parser2-serve.modal.run/v1/chat/completions
+
+(The harness resolves this URL at runtime via `modal.Function.from_name`;
+see `modal/harness/endpoints.py`.)
 """
 from __future__ import annotations
 
@@ -34,11 +32,10 @@ import modal
 MODEL_ID = "infly/Infinity-Parser2-Pro"
 SGLANG_PORT = 30000
 
-app = modal.App("ferrite-infinity-parser2")
+app = modal.App("parselab-infinity-parser2")
 
 image = (
     # cu13 + python 3.12 + libnuma1 — same base ABI as the GLM-OCR worker.
-    # See FER-127 for the cu128 → cu13 rationale.
     modal.Image.from_registry(
         "nvidia/cuda:13.0.0-devel-ubuntu22.04",
         add_python="3.12",
@@ -62,7 +59,7 @@ image = (
 
 # Shared HF model cache volume; first cold start downloads ~70GB of
 # weights, subsequent starts mount and skip.
-model_cache = modal.Volume.from_name("ferrite-hf-cache", create_if_missing=True)
+model_cache = modal.Volume.from_name("parselab-hf-cache", create_if_missing=True)
 
 
 @app.function(

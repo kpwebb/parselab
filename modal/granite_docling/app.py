@@ -15,11 +15,9 @@ model card explicitly recommends vLLM with `--revision untied`, so we
 use that path here. Same OpenAI HTTP surface as the SGLang workers, so
 the harness driver is unchanged.
 
-L40S to keep this directly comparable to the GLM-OCR Pass 1 worker —
-overkill for a 258M model, but the per-page cost number lines up with
-the existing BENCHMARKS.md table without GPU-class apples-to-oranges.
-
-Tracking issue: FER-126.
+L40S to keep this directly comparable to the GLM-OCR worker — overkill
+for a 258M model, but the per-page cost number lines up with the
+existing BENCHMARKS.md table without GPU-class apples-to-oranges.
 
 Note on `--revision untied`: the published main branch ships with tied
 input/output embeddings, which vLLM rejects per the model card.
@@ -31,7 +29,10 @@ Deploy:
 
 After deploy, hit as a standard OpenAI client:
 
-    POST https://ferrite-systems--ferrite-granite-docling-serve.modal.run/v1/chat/completions
+    POST https://<workspace>--parselab-granite-docling-serve.modal.run/v1/chat/completions
+
+(The harness resolves this URL at runtime via `modal.Function.from_name`;
+see `modal/harness/endpoints.py`.)
 """
 from __future__ import annotations
 
@@ -43,11 +44,11 @@ MODEL_ID = "ibm-granite/granite-docling-258M"
 MODEL_REVISION = "untied"
 VLLM_PORT = 8000
 
-app = modal.App("ferrite-granite-docling")
+app = modal.App("parselab-granite-docling")
 
 image = (
     # cu13 + python 3.12 + libnuma1 — same base image as the other
-    # workers (FER-127). cu13 matches current vLLM kernel wheels.
+    # workers. cu13 matches current vLLM kernel wheels.
     modal.Image.from_registry(
         "nvidia/cuda:13.0.0-devel-ubuntu22.04",
         add_python="3.12",
@@ -72,7 +73,7 @@ image = (
 # Shared HF model cache volume — granite-docling weights are tiny
 # (~1GB) but reusing the existing volume keeps the cache layout
 # consistent across all workers.
-model_cache = modal.Volume.from_name("ferrite-hf-cache", create_if_missing=True)
+model_cache = modal.Volume.from_name("parselab-hf-cache", create_if_missing=True)
 
 
 @app.function(

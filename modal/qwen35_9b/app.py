@@ -1,13 +1,14 @@
 """Qwen3.5-9B Modal worker — stock SGLang OpenAI-compatible server.
 
-Used by the FER-113 post-processing model evaluation as the "smaller +
-cheaper" candidate for FER-103/89/90/91 text reasoning tasks. Hybrid
-Gated DeltaNet + sparse MoE arch (similar concurrency story to the
-Mamba-based Inf2 worker — applying the same tuning playbook).
+Smaller / cheaper text-reasoning candidate alongside the Qwen3.6-35B-A3B
+worker for post-processing tasks (e.g. table adjudication, content
+summarization over already-extracted page content). Hybrid Gated
+DeltaNet + sparse MoE arch (similar concurrency story to the Mamba-based
+Inf2 worker — applying the same tuning playbook).
 
 Multimodal-capable but used here for text-only post-processing of
-already-extracted page content from Pass 1 (markdown) or Pass 2 (JSON).
-Thinking mode is disabled per-request via `enable_thinking=false` in
+already-extracted page content (markdown or structured JSON). Thinking
+mode is disabled per-request via `enable_thinking=false` in
 chat_template_kwargs from the client.
 
 Deploy:
@@ -17,7 +18,9 @@ Deploy:
 
 Endpoint:
 
-    https://ferrite-systems--ferrite-qwen35-9b-serve.modal.run/v1/chat/completions
+    https://<workspace>--parselab-qwen35-9b-serve.modal.run/v1/chat/completions
+
+(Resolved at runtime via `modal/harness/endpoints.py`.)
 """
 from __future__ import annotations
 
@@ -28,10 +31,10 @@ import modal
 MODEL_ID = "Qwen/Qwen3.5-9B"
 SGLANG_PORT = 30000
 
-app = modal.App("ferrite-qwen35-9b")
+app = modal.App("parselab-qwen35-9b")
 
 image = (
-    # cu13 base — see FER-127 for the cu128 → cu13 rationale.
+    # cu13 base — matches the SGLang kernel wheel ABI.
     modal.Image.from_registry(
         "nvidia/cuda:13.0.0-devel-ubuntu22.04",
         add_python="3.12",
@@ -52,7 +55,7 @@ image = (
     )
 )
 
-model_cache = modal.Volume.from_name("ferrite-hf-cache", create_if_missing=True)
+model_cache = modal.Volume.from_name("parselab-hf-cache", create_if_missing=True)
 
 
 @app.function(
@@ -68,7 +71,7 @@ model_cache = modal.Volume.from_name("ferrite-hf-cache", create_if_missing=True)
 @modal.web_server(port=SGLANG_PORT, startup_timeout=600)
 def serve() -> None:
     """Launch SGLang's OpenAI-compatible server. 9B fits comfortably on
-    L40S; tuning mirrors what we learned from the Inf2 worker (FER-80)."""
+    L40S; tuning mirrors what we learned from the Inf2 worker."""
     import os
 
     os.environ["HF_HOME"] = "/cache/hf"

@@ -1,7 +1,7 @@
 [project]
-name = "ferrite-modal"
+name = "parselab-modal"
 version = "0.0.0"
-description = "Modal workers for the Ferrite PDF extraction pipeline"
+description = "Modal workers for the Parselab VLM/PDF evaluation harness"
 requires-python = ">=3.11"
 dependencies = [
     "modal>=0.66",
@@ -9,8 +9,9 @@ dependencies = [
     "pillow>=10.0",
     "pydantic>=2.0",
     "httpx>=0.27",
-    # FER-126 driver: parses DocTags strings from granite-docling-258M
-    # responses into DoclingDocument. Standalone parser, no GPU/pipeline.
+    # granite-docling driver: parses DocTags strings from
+    # granite-docling-258M responses into DoclingDocument. Standalone
+    # parser, no GPU/pipeline.
     "docling-core>=2.0",
 ]
 
