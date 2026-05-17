@@ -1,0 +1,14 @@
+[package]
+name = "inspector-pane"
+version = "0.0.0"
+edition.workspace = true
+publish.workspace = true
+
+[lib]
+path = "src/inspector_pane.rs"
+
+[dependencies]
+extractor-client = { path = "../extractor-client" }
+ir = { path = "../ir" }
+serde_json.workspace = true
+gpui.workspace = true

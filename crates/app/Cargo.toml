@@ -1,0 +1,18 @@
+[package]
+name = "app"
+version = "0.0.0"
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+ir = { path = "../ir" }
+component-model = { path = "../component-model" }
+extractor-client = { path = "../extractor-client" }
+pdf-pane = { path = "../pdf-pane" }
+inspector-pane = { path = "../inspector-pane" }
+anyhow.workspace = true
+futures.workspace = true
+log = "0.4"
+tokio.workspace = true
+gpui.workspace = true
+gpui_platform = { workspace = true, features = ["font-kit"] }

@@ -1,0 +1,20 @@
+[package]
+name = "extractor-client"
+version = "0.0.0"
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+ir.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+uuid.workspace = true
+chrono.workspace = true
+async-trait.workspace = true
+reqwest.workspace = true
+base64.workspace = true
+tokio.workspace = true
+futures.workspace = true
+pdfium-render.workspace = true
+image.workspace = true

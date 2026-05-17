@@ -1,0 +1,15 @@
+[package]
+name = "pdf-pane"
+version = "0.0.0"
+edition.workspace = true
+publish.workspace = true
+
+[lib]
+path = "src/pdf_pane.rs"
+
+[dependencies]
+extractor-client = { path = "../extractor-client" }
+ir = { path = "../ir" }
+anyhow.workspace = true
+log = "0.4"
+gpui.workspace = true

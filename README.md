@@ -2,8 +2,8 @@
 
 Evaluation environment for vision-language models doing PDF data
 extraction. Modal-deployed VLM workers, a small corpus, matched-cap
-benchmark methodology, and (in progress) a purpose-built UI, based on
-Zed's GPUI framework for exploring model performance.
+benchmark methodology, and a purpose-built desktop UI on Zed's GPUI
+framework for exploring model output side-by-side with source PDFs.
 
 ## What this is
 
@@ -18,16 +18,15 @@ Parselab ships:
   `Infinity-Parser2-Flash` (2B), `Infinity-Parser2-Pro` (35B-MoE),
   `Qwen3.6-35B-A3B`, and others.
 - **A reproducible eval methodology** — matched output-token budgets,
-  warm-container measurements, Modal-side dispatch to remove client
-  network from the loop, and per-page content capture for downstream
+  warm-container measurements, and per-page content capture for downstream
   fidelity judging.
 - **A 12-datasheet electronics corpus** spanning passive components,
   discretes, MCUs, USB-PD, and connectors — the original motivating
   workload (see "Origin story" below). Easy to swap or extend with
   your own PDFs.
 - **A case-study writeup** in [`BENCHMARKS.md`](BENCHMARKS.md) covering
-  cost / throughput / fidelity across the model axis and a strategy
-  synthesis for one-pass vs two-pass structured-document extraction.
+  cost / throughput / fidelity across models and one-pass vs two-pass 
+  structured-document extraction.
 
 What it *doesn't* ship yet: a polished UI for exploring model output.
 That's actively being built on top of Zed's GPUI framework — see
@@ -40,15 +39,7 @@ datasheet PDFs as a live component library — extracting electrical,
 thermal, mechanical, and packaging facets from datasheets so the
 designer doesn't have to hand-curate component data. Presented at the
 [Raleigh AI Tinkerers
-meetup](https://raleigh.aitinkerers.org), May 06 2025:
-
-> Kevin Webb presented a VLM-powered "electronics design" workflow
-> that treats vendor datasheet PDFs as a live component library. The
-> demo built a document extraction ETL pipeline with open-weights VLMs
-> deployed on Modal, then used a Zed IDE UI on top to browse and
-> validate the extracted models. Instead of manually curating
-> libraries, it turns technical docs into structured parts you can
-> query.
+meetup, May 06 2025](https://raleigh.aitinkerers.org/p/ai-tinkerers-raleigh-meetup-may-6-2026).
 
 The component-extraction app remains the largest single consumer of
 this work, but the **methodology and infrastructure** generalize to
@@ -158,6 +149,24 @@ uv run python run_granite_docling_mlx.py --pages 4
 No Modal account needed, no marginal cost per page. About 7s per page
 sequential on M1 Pro.
 
+### Build the desktop app
+
+The Rust workspace hosts a GPUI-based desktop app for side-by-side PDF
++ extraction-inspector exploration. On macOS, requires Apple's Metal
+Toolchain (`xcodebuild -downloadComponent MetalToolchain`).
+
+```sh
+cargo build --release -p app
+target/release/app <path-to-extraction.kdl>
+```
+
+The app loads a `Doc` from disk (KDL on-disk format defined in
+[`crates/ir/src/kdl_serde.rs`](crates/ir/src/kdl_serde.rs)) and
+renders the source PDF beside the extracted IR. GPUI dependencies pull
+directly from the upstream Zed monorepo at a pinned commit — no
+vendoring needed; first `cargo build` takes a while to fetch + compile
+the Zed crates.
+
 ## Layout
 
 ```
@@ -165,30 +174,35 @@ parselab/
 ├── README.md              # this file
 ├── BENCHMARKS.md          # current measurements + strategy synthesis
 ├── LICENSE                # MIT
+├── Cargo.toml             # Rust workspace manifest
 ├── modal/                 # Modal worker definitions + harness scripts
 ├── scripts/               # Apple Silicon / darwin-arm64 dev tools
 │                          # (MLX driver, TableFormer hybrid, Qwen
 │                          #  adjudicator)
-├── data/
-│   └── corpus/            # 12-datasheet electronics corpus
-├── ir/                    # (TBD) document IR types — multi-pass
-│                          # extraction store, bbox'd content blocks
-└── ui/                    # (TBD) exploration UI on Zed's GPUI
+├── crates/                # Rust workspace
+│   ├── ir/                #   per-page extraction IR + KDL on-disk format
+│   ├── component-model/   #   facet model over IR (datasheet-flavored)
+│   ├── extractor-client/  #   Rust client for the Modal VLM workers
+│   ├── pdf-pane/          #   GPUI pane: PDF renderer + region selection
+│   ├── inspector-pane/    #   GPUI pane: per-page extraction inspector
+│   └── app/               #   desktop binary tying the panes together
+└── data/
+    ├── corpus/            # 12-datasheet electronics corpus
+    └── tests/quality/     # committed fidelity-judging artifacts
+                           # (referenced by BENCHMARKS.md)
 ```
 
 ## Roadmap
 
-- **UI for exploring VLM output** on Zed's GPUI framework: side-by-side
-  source PDF + model output, prompt iteration, region-select → re-extract.
 - **Agentic VLM tooling** — structured tool-call wrappers around the
   deployed workers, multi-model orchestration, eval-as-you-go feedback
   loops.
-- **Document IR + bbox'd content extraction blocks** — multi-pass
-  extraction state representation that survives prompt changes,
-  model swaps, and re-extractions.
 - **Multi-corpus support** — datasheets are one shape of PDF; research
   papers, contracts, scanned forms, slide decks all expose different
   failure modes worth measuring against.
+- **Desktop app polish** — the GPUI app in `crates/app/` currently
+  loads a saved IR document; future work covers in-app extraction
+  dispatch, prompt iteration UI, and live region-select → re-extract.
 
 ## License
 
@@ -198,8 +212,3 @@ The shipped corpus PDFs are vendor datasheets reproduced from their
 public source pages, used here under fair-use for evaluation. The
 models evaluated have their own (mostly Apache 2.0) licenses; see
 each worker's `app.py` for model-card links.
-
-## Author
-
-Kevin Webb · [@kpwebb](https://github.com/kpwebb) · MTS at
-[dottxt](https://dottxt.co).
