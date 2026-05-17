@@ -9,7 +9,7 @@ PDFs.
 
 Parselab was created as part of an EDA tool that uses VLMs to turn vendor
 datasheets into a queryable component library
-([May 2025 writeup](https://raleigh.aitinkerers.org/p/ai-tinkerers-raleigh-meetup-may-6-2026)).
+([See AI Tinkerers presentation, May 6th 2026](https://raleigh.aitinkerers.org/talks/rsvp_PDqUleDH6rI)).
 The EDA tool is one consumer; the harness, workers, and IR types are
 reusable for any project that needs to compare VLMs on PDFs.
 
