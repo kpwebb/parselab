@@ -78,23 +78,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7f202df86484c868dbad7eaa557ef785d5c66295e41b460ef922eca0723b842c"
 
 [[package]]
-name = "app"
-version = "0.0.0"
-dependencies = [
- "anyhow",
- "component-model",
- "extractor-client",
- "futures",
- "gpui",
- "gpui_platform",
- "inspector-pane",
- "ir",
- "log",
- "pdf-pane",
- "tokio",
-]
-
-[[package]]
 name = "ar_archive_writer"
 version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3776,6 +3759,23 @@ dependencies = [
  "redox_syscall 0.5.18",
  "smallvec",
  "windows-link 0.2.1",
+]
+
+[[package]]
+name = "parselab"
+version = "0.0.0"
+dependencies = [
+ "anyhow",
+ "component-model",
+ "extractor-client",
+ "futures",
+ "gpui",
+ "gpui_platform",
+ "inspector-pane",
+ "ir",
+ "log",
+ "pdf-pane",
+ "tokio",
 ]
 
 [[package]]

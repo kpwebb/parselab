@@ -1,7 +1,9 @@
+use std::collections::HashSet;
 use std::path::{Path, PathBuf};
 
 use anyhow::{Context as _, Result};
 use extractor_client::ad_hoc::AdHocClient;
+use extractor_client::discovery::discover_deployed_workers;
 use extractor_client::modal::ModalExtractor;
 use extractor_client::Extractor;
 use gpui::{
@@ -12,7 +14,7 @@ use gpui::{
 };
 use gpui_platform::application;
 use inspector_pane::{InspectorEvent, InspectorPane};
-use ir::Doc;
+use ir::{ContentHash, Doc, SCHEMA_VERSION};
 use pdf_pane::{PdfPane, PdfPaneEvent, ZoomActual, ZoomFit, ZoomIn, ZoomOut};
 
 actions!(parselab, [Quit]);
@@ -63,6 +65,7 @@ impl Workspace {
                 let inspector_for_pdf = p.inspector.clone();
                 let pdf_for_prompt = p.pdf.clone();
                 let pdf_for_pass2 = p.pdf.clone();
+                let pdf_for_pass1 = p.pdf.clone();
                 vec![
                     cx.subscribe(&p.inspector, move |_this, inspector, event, cx| {
                         match event {
@@ -110,6 +113,14 @@ impl Workspace {
                             }
                             InspectorEvent::ExtractComponentModel => {
                                 dispatch_component_extraction(inspector.clone(), cx);
+                            }
+                            InspectorEvent::RunExtraction(model) => {
+                                dispatch_extraction(
+                                    inspector.clone(),
+                                    pdf_for_pass1.clone(),
+                                    *model,
+                                    cx,
+                                );
                             }
                         }
                     }),
@@ -351,7 +362,11 @@ fn load_sidecar(pdf: &Path) -> Option<Doc> {
     }
 }
 
-fn run_app(app: Application, pdf_input: Option<PdfInput>) {
+fn run_app(
+    app: Application,
+    pdf_input: Option<PdfInput>,
+    deployed_workers: HashSet<String>,
+) {
     app.run(move |cx: &mut App| {
         cx.activate(true);
         cx.on_action(|_: &Quit, cx: &mut App| cx.quit());
@@ -371,7 +386,7 @@ fn run_app(app: Application, pdf_input: Option<PdfInput>) {
             WindowOptions {
                 window_bounds: Some(WindowBounds::Windowed(bounds)),
                 titlebar: Some(TitlebarOptions {
-                    title: Some(SharedString::new_static("Ferrite")),
+                    title: Some(SharedString::new_static("Parselab")),
                     appears_transparent: false,
                     traffic_light_position: Some(point(px(9.0), px(9.0))),
                 }),
@@ -393,8 +408,14 @@ fn run_app(app: Application, pdf_input: Option<PdfInput>) {
                         .map(|s| s.to_string_lossy().into_owned())
                         .unwrap_or_else(|| input.path.display().to_string());
                     let doc = load_sidecar(&input.path);
-                    let inspector =
-                        InspectorPane::build(doc, label, page_count, window, cx);
+                    let inspector = InspectorPane::build(
+                        doc,
+                        label,
+                        page_count,
+                        deployed_workers.clone(),
+                        window,
+                        cx,
+                    );
                     Some(Panes {
                         pdf: pdf_pane,
                         inspector,
@@ -475,7 +496,100 @@ fn dispatch_prompt(
 /// `ModalExtractor::new` requires both URLs.
 const PASS1_URL: &str = "https://ferrite-systems--parselab-glm-ocr-serve.modal.run";
 const PASS2_URL: &str =
-    "https://ferrite-systems--parselab-infinity-parser2-serve.modal.run";
+    "https://ferrite-systems--parselab-inf2-flash-serve.modal.run";
+
+/// Build a fresh `Doc` from a Pass 1 `ExtractionResult`. Used by
+/// `dispatch_pass1` to seed an empty inspector after in-app Pass 1.
+/// `content_hash` is a lightweight byte-length placeholder rather than
+/// sha256 to avoid pulling sha2 in just for this path; hash integrity
+/// matters when a sidecar gets reloaded, not when the Doc is built and
+/// consumed in-process.
+fn build_doc_from_pass1(
+    pdf_bytes: &[u8],
+    result: extractor_client::ExtractionResult,
+) -> Doc {
+    Doc {
+        schema_version: SCHEMA_VERSION,
+        content_hash: ContentHash(format!("inline:{}", pdf_bytes.len())),
+        extractions: vec![result.extraction],
+        extracted_pages: result.pages,
+        toc: vec![],
+    }
+}
+
+/// Dispatch a whole-doc extraction using the chosen [`ExtractorModel`].
+/// Routes GLM-OCR through [`ModalExtractor::pass1`] (markdown), and
+/// Inf2-Flash through [`ModalExtractor::pass2`] (structured JSON with
+/// bboxes — feeds the overlay) over an enumerated list of all pages.
+/// Mirrors [`dispatch_pass2_for_page`]'s thread/oneshot/cx.spawn
+/// structure. Multiple runs append to the inspector's `Doc` rather
+/// than replace, so users can compare model outputs side-by-side.
+fn dispatch_extraction(
+    inspector: Entity<InspectorPane>,
+    pdf: Entity<PdfPane>,
+    model: extractor_client::ExtractorModel,
+    cx: &mut App,
+) {
+    let pdf_bytes = pdf.read(cx).pdf_bytes();
+    let page_count = pdf.read(cx).page_count();
+    inspector.update(cx, |pane, cx| pane.set_pass1_pending(cx));
+    let pdf_bytes_for_doc = pdf_bytes.clone();
+    let (tx, rx) = futures::channel::oneshot::channel();
+    std::thread::spawn(move || {
+        let runtime = match tokio::runtime::Builder::new_current_thread()
+            .enable_all()
+            .build()
+        {
+            Ok(rt) => rt,
+            Err(e) => {
+                let _ = tx.send(Err(format!("build tokio runtime: {e}")));
+                return;
+            }
+        };
+        let result = runtime.block_on(async move {
+            let extractor = ModalExtractor::new(PASS1_URL, PASS2_URL);
+            match model {
+                extractor_client::ExtractorModel::GlmOcr => {
+                    extractor.pass1(&pdf_bytes, None).await
+                }
+                extractor_client::ExtractorModel::Inf2Flash => {
+                    let pages: Vec<u32> = (0..page_count).collect();
+                    extractor.pass2(&pdf_bytes, &pages).await
+                }
+            }
+        });
+        let _ = tx.send(result.map_err(|e| format!("{e}")));
+    });
+
+    let inspector_handle = inspector.downgrade();
+    cx.spawn(async move |cx| {
+        let outcome = rx.await;
+        let _ = cx.update(|cx| {
+            let _ = inspector_handle.update(cx, |pane, cx| match outcome {
+                Ok(Ok(result)) => {
+                    // First run: build a fresh Doc. Subsequent runs:
+                    // append the new Extraction + PageExtractions onto
+                    // the existing Doc so the user can compare models.
+                    if pane.doc().is_some() {
+                        pane.append_extraction(result.extraction, result.pages, cx);
+                    } else {
+                        let doc = build_doc_from_pass1(&pdf_bytes_for_doc, result);
+                        pane.apply_pass1_result(doc, cx);
+                    }
+                }
+                Ok(Err(msg)) => {
+                    log::error!("extraction dispatch failed: {msg}");
+                    pane.set_pass1_error(msg, cx);
+                }
+                Err(_) => {
+                    log::error!("extraction dispatch task cancelled");
+                    pane.set_pass1_error("dispatch task cancelled".into(), cx);
+                }
+            });
+        });
+    })
+    .detach();
+}
 
 /// FER-123: dispatch a Pass 2 extraction for a single page. Mirrors
 /// [`dispatch_prompt`]'s shape — synchronous prep on the gpui thread,
@@ -654,5 +768,29 @@ fn main() {
             std::process::exit(1);
         }
     };
-    run_app(application(), pdf_input);
+    let deployed_workers = match discover_deployed_workers() {
+        Ok(set) => {
+            if set.is_empty() {
+                eprintln!(
+                    "no parselab-* Modal apps deployed; prompt-tab \
+                     dispatches will be disabled. Run `modal deploy` \
+                     from modal/ to enable."
+                );
+            } else {
+                eprintln!("deployed parselab workers ({}):", set.len());
+                let mut names: Vec<&String> = set.iter().collect();
+                names.sort();
+                for n in names {
+                    eprintln!("  - {n}");
+                }
+            }
+            set
+        }
+        Err(e) => {
+            eprintln!("warning: couldn't discover deployed Modal workers: {e}");
+            eprintln!("  prompt-tab model picker will show all options as undeployed");
+            HashSet::new()
+        }
+    };
+    run_app(application(), pdf_input, deployed_workers);
 }

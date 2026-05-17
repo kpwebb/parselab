@@ -13,3 +13,5 @@ __pycache__/
 # Local editor / IDE state.
 .idea/
 .vscode/
+# Vendored pdfium binaries — regeneratable via vendor/setup-pdfium.sh.
+/vendor/pdfium/

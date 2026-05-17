@@ -366,7 +366,7 @@ async fn call_llm(url: &str, model: &str, prompt: &str) -> Result<String, Error>
     let content = body
         .choices
         .first()
-        .and_then(|c| c.message.content.clone())
+        .and_then(|c| c.message.body().map(str::to_string))
         .ok_or_else(|| Error::TocBuild("response had no message content".into()))?;
     Ok(content)
 }

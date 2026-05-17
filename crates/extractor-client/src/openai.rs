@@ -79,6 +79,28 @@ pub struct Choice {
 pub struct ResponseMessage {
     #[serde(default)]
     pub content: Option<String>,
+    /// vLLM's qwen3 reasoning parser routes output to `reasoning` (or
+    /// `reasoning_content`) instead of `content` when the response has
+    /// no `<think>` block. Inf2-Flash hits this path because its
+    /// layout-JSON output never wraps in `<think>`. Callers should
+    /// prefer `content` and fall back to these.
+    #[serde(default)]
+    pub reasoning_content: Option<String>,
+    #[serde(default)]
+    pub reasoning: Option<String>,
+}
+
+impl ResponseMessage {
+    /// Return the first non-empty body field — `content`, then
+    /// `reasoning_content`, then `reasoning`. Insulates callers from
+    /// vLLM reasoning-parser routing quirks.
+    pub fn body(&self) -> Option<&str> {
+        self.content
+            .as_deref()
+            .or(self.reasoning_content.as_deref())
+            .or(self.reasoning.as_deref())
+            .filter(|s| !s.is_empty())
+    }
 }
 
 #[derive(Debug, Clone, Copy, Deserialize)]

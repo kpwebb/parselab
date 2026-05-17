@@ -20,19 +20,19 @@ use crate::Error;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum AdHocModel {
     GlmOcr,
-    InfinityParser2Pro,
+    InfinityParser2Flash,
     Qwen36MoE,
 }
 
 impl AdHocModel {
     /// Stable iteration order for UI pickers.
     pub const ALL: &'static [Self] =
-        &[Self::GlmOcr, Self::InfinityParser2Pro, Self::Qwen36MoE];
+        &[Self::GlmOcr, Self::InfinityParser2Flash, Self::Qwen36MoE];
 
     pub fn label(self) -> &'static str {
         match self {
             Self::GlmOcr => "GLM-OCR",
-            Self::InfinityParser2Pro => "Infinity-Parser2-Pro",
+            Self::InfinityParser2Flash => "Infinity-Parser2-Flash",
             Self::Qwen36MoE => "Qwen3.6 35B-A3B",
         }
     }
@@ -40,8 +40,8 @@ impl AdHocModel {
     pub fn url(self) -> &'static str {
         match self {
             Self::GlmOcr => "https://ferrite-systems--parselab-glm-ocr-serve.modal.run",
-            Self::InfinityParser2Pro => {
-                "https://ferrite-systems--parselab-infinity-parser2-serve.modal.run"
+            Self::InfinityParser2Flash => {
+                "https://ferrite-systems--parselab-inf2-flash-serve.modal.run"
             }
             Self::Qwen36MoE => {
                 "https://ferrite-systems--parselab-qwen36-35b-a3b-serve.modal.run"
@@ -49,10 +49,21 @@ impl AdHocModel {
         }
     }
 
+    /// Modal app name that hosts this model. Matches the deployed
+    /// `parselab-*` app names; used by `discovery::discover_deployed_workers`
+    /// to filter the model picker to live endpoints.
+    pub fn modal_app_name(self) -> &'static str {
+        match self {
+            Self::GlmOcr => "parselab-glm-ocr",
+            Self::InfinityParser2Flash => "parselab-inf2-flash",
+            Self::Qwen36MoE => "parselab-qwen36-35b-a3b",
+        }
+    }
+
     pub fn model_id(self) -> &'static str {
         match self {
             Self::GlmOcr => "zai-org/GLM-OCR",
-            Self::InfinityParser2Pro => "infly/Infinity-Parser2-Pro",
+            Self::InfinityParser2Flash => "infly/Infinity-Parser2-Flash",
             Self::Qwen36MoE => "Qwen/Qwen3.6-35B-A3B",
         }
     }
@@ -171,7 +182,8 @@ impl AdHocClient {
             .ok_or_else(|| Error::WorkerResponse("response had no choices".into()))?;
         let content = choice
             .message
-            .content
+            .body()
+            .map(str::to_string)
             .ok_or_else(|| Error::WorkerResponse("response had no message content".into()))?;
         let usage = body.usage.map(|u| AdHocUsage {
             prompt_tokens: u.prompt_tokens,

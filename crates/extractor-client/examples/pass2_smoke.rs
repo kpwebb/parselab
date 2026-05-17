@@ -13,7 +13,7 @@ use ir::Content;
 use std::time::Instant;
 
 const PASS1_URL: &str = "https://ferrite-systems--parselab-glm-ocr-serve.modal.run";
-const PASS2_URL: &str = "https://ferrite-systems--parselab-infinity-parser2-serve.modal.run";
+const PASS2_URL: &str = "https://ferrite-systems--parselab-inf2-flash-serve.modal.run";
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {

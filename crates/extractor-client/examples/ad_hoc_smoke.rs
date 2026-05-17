@@ -20,7 +20,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let model = match model_arg.as_str() {
         "glm-ocr" | "glm" => AdHocModel::GlmOcr,
-        "infinity" | "inf2" => AdHocModel::InfinityParser2Pro,
+        "infinity" | "inf2" | "inf2-flash" => AdHocModel::InfinityParser2Flash,
         "qwen36" | "qwen" => AdHocModel::Qwen36MoE,
         other => {
             return Err(format!(

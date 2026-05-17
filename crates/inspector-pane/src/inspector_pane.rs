@@ -13,10 +13,11 @@ use std::collections::{BTreeMap, HashMap, HashSet};
 use std::time::Duration;
 
 use extractor_client::ad_hoc::{AdHocModel, AdHocResponse};
+use extractor_client::ExtractorModel;
 use gpui::{
-    actions, div, point, prelude::*, px, rgb, AnyElement, App, Context, Entity, EventEmitter,
-    FocusHandle, KeyBinding, MouseButton, MouseDownEvent, MouseMoveEvent, MouseUpEvent, Pixels,
-    ScrollHandle, SharedString, Task, Window,
+    actions, deferred, div, point, prelude::*, px, rgb, AnyElement, App, Context, Entity,
+    EventEmitter, FocusHandle, KeyBinding, MouseButton, MouseDownEvent, MouseMoveEvent,
+    MouseUpEvent, Pixels, ScrollHandle, SharedString, Task, Window,
 };
 use ir::{
     Content, Doc, Extraction, ExtractionId, PageExtraction, StructuredBlock, TocEntry, TocEntryId,
@@ -109,6 +110,20 @@ pub enum InspectorEvent {
     /// [`InspectorPane::set_component_response`] /
     /// [`InspectorPane::set_component_error`].
     ExtractComponentModel,
+    /// User clicked the "Run extraction" button. Workspace dispatches
+    /// the chosen extractor model over the whole PDF and writes the
+    /// result back via [`InspectorPane::apply_pass1_result`] /
+    /// [`InspectorPane::set_pass1_error`]. Multiple runs accumulate
+    /// in the `Doc.extractions` list.
+    RunExtraction(ExtractorModel),
+}
+
+/// Lifecycle of the Run-Pass-1 button on the empty Extractions state.
+#[derive(Debug, Clone)]
+enum Pass1State {
+    Idle,
+    Pending,
+    Failed(String),
 }
 
 impl EventEmitter<InspectorEvent> for InspectorPane {}
@@ -295,6 +310,17 @@ pub struct InspectorPane {
     pass2_in_flight: HashSet<u32>,
     /// FER-124: Components tab request lifecycle.
     component_state: ComponentState,
+    /// Run-Extraction-button request lifecycle.
+    pass1_state: Pass1State,
+    /// Which model the Run-Extraction button will dispatch.
+    selected_extraction_model: ExtractorModel,
+    /// Whether the extraction-model dropdown is currently open.
+    extraction_model_dropdown_open: bool,
+    /// Modal `parselab-*` app names that are currently deployed.
+    /// Populated by `extractor_client::discovery::discover_deployed_workers`
+    /// at app startup and used to filter the Prompt-tab model picker so
+    /// the UI only offers dispatches that can reach a live worker.
+    deployed_workers: HashSet<String>,
     focus_handle: FocusHandle,
 }
 
@@ -309,6 +335,7 @@ impl InspectorPane {
         doc: Option<Doc>,
         source_label: impl Into<SharedString>,
         page_count: u32,
+        deployed_workers: HashSet<String>,
         _window: &mut Window,
         cx: &mut App,
     ) -> Entity<Self> {
@@ -375,13 +402,24 @@ impl InspectorPane {
                 detail_panel_height: px(DETAIL_PANEL_HEIGHT_PX),
                 detail_drag: None,
                 current_pdf_selection: None,
-                selected_prompt_model: AdHocModel::GlmOcr,
+                // Default to the first deployed model so the Prompt tab
+                // opens to something the user can actually dispatch.
+                // Falls back to GlmOcr if discovery returned nothing.
+                selected_prompt_model: AdHocModel::ALL
+                    .iter()
+                    .copied()
+                    .find(|m| deployed_workers.contains(m.modal_app_name()))
+                    .unwrap_or(AdHocModel::GlmOcr),
                 selected_prompt_preset: 0,
                 prompt_state: PromptState::Idle,
                 spinner_frame: 0,
                 _spinner_task: None,
                 pass2_in_flight: HashSet::new(),
                 component_state: ComponentState::Idle,
+                pass1_state: Pass1State::Idle,
+                selected_extraction_model: ExtractorModel::GlmOcr,
+                extraction_model_dropdown_open: false,
+                deployed_workers,
                 focus_handle: cx.focus_handle(),
             }
         })
@@ -655,11 +693,110 @@ impl InspectorPane {
     }
 
     /// True while any spinner-driving operation is active — Prompt-tab
-    /// pending, any per-page Pass 2 dispatch, or Components-tab pending.
+    /// pending, any per-page Pass 2 dispatch, Components-tab pending,
+    /// or a Run-Pass-1 dispatch.
     fn any_spinning(&self) -> bool {
         matches!(self.prompt_state, PromptState::Pending)
             || matches!(self.component_state, ComponentState::Pending)
             || !self.pass2_in_flight.is_empty()
+            || matches!(self.pass1_state, Pass1State::Pending)
+    }
+
+    /// Workspace calls this when the user clicks Run Pass 1.
+    pub fn set_pass1_pending(&mut self, cx: &mut Context<Self>) {
+        self.pass1_state = Pass1State::Pending;
+        self.ensure_spinner_running(cx);
+        cx.notify();
+    }
+
+    /// Workspace calls this on Pass 1 success. Adopts the new `Doc`,
+    /// auto-expands the first few pages, and discovers `kind` chips —
+    /// mirrors the initial setup done by `InspectorPane::build` so the
+    /// pane behaves the same whether the `Doc` came from a sidecar or
+    /// from in-app extraction.
+    pub fn apply_pass1_result(&mut self, doc: Doc, cx: &mut Context<Self>) {
+        let mut pages: Vec<u32> =
+            doc.extracted_pages.iter().map(|p| p.page).collect();
+        pages.sort_unstable();
+        pages.dedup();
+        self.expanded_pages = pages.into_iter().take(3).collect();
+        for pe in &doc.extracted_pages {
+            if let Content::Structured(sp) = &pe.content {
+                for b in &sp.blocks {
+                    self.enabled_kinds.entry(b.kind.clone()).or_insert(true);
+                }
+            }
+        }
+        self.doc = Some(doc);
+        self.pass1_state = Pass1State::Idle;
+        self.maybe_stop_spinner();
+        cx.emit(InspectorEvent::OverlayChanged);
+        cx.notify();
+    }
+
+    /// Workspace calls this when the Pass 1 dispatch fails. Stays in
+    /// the no-sidecar state but shows the error + a Retry button.
+    pub fn set_pass1_error(&mut self, message: String, cx: &mut Context<Self>) {
+        self.pass1_state = Pass1State::Failed(message);
+        self.maybe_stop_spinner();
+        cx.notify();
+    }
+
+    /// Append a fresh `Extraction` + its `PageExtraction`s onto the
+    /// existing `Doc`. Used when a Run-extraction click happens while
+    /// a doc is already loaded — second and later runs accumulate
+    /// rather than overwrite, so the user can compare model outputs.
+    /// Mirrors `insert_pass2_result`'s side effects (register new
+    /// kinds, emit `OverlayChanged`).
+    pub fn append_extraction(
+        &mut self,
+        extraction: Extraction,
+        pages: Vec<PageExtraction>,
+        cx: &mut Context<Self>,
+    ) {
+        if let Some(doc) = self.doc.as_mut() {
+            doc.extractions.push(extraction);
+            for pe in &pages {
+                if let Content::Structured(sp) = &pe.content {
+                    for b in &sp.blocks {
+                        self.enabled_kinds.entry(b.kind.clone()).or_insert(true);
+                    }
+                }
+            }
+            doc.extracted_pages.extend(pages);
+        }
+        self.pass1_state = Pass1State::Idle;
+        self.maybe_stop_spinner();
+        cx.emit(InspectorEvent::OverlayChanged);
+        cx.notify();
+    }
+
+    /// Emit `RunExtraction` with the currently selected model.
+    fn emit_run_extraction(&mut self, cx: &mut Context<Self>) {
+        let model = self.selected_extraction_model;
+        self.pass1_state = Pass1State::Pending;
+        self.ensure_spinner_running(cx);
+        cx.emit(InspectorEvent::RunExtraction(model));
+        cx.notify();
+    }
+
+    fn select_extraction_model(&mut self, model: ExtractorModel, cx: &mut Context<Self>) {
+        if self.selected_extraction_model != model {
+            self.selected_extraction_model = model;
+            cx.notify();
+        }
+    }
+
+    fn toggle_extraction_dropdown(&mut self, cx: &mut Context<Self>) {
+        self.extraction_model_dropdown_open = !self.extraction_model_dropdown_open;
+        cx.notify();
+    }
+
+    fn close_extraction_dropdown(&mut self, cx: &mut Context<Self>) {
+        if self.extraction_model_dropdown_open {
+            self.extraction_model_dropdown_open = false;
+            cx.notify();
+        }
     }
 
     /// FER-124: workspace calls this when the user clicks Extract on
@@ -1614,44 +1751,55 @@ impl InspectorPane {
     }
 
     fn render_extractions_tab(&self, cx: &mut Context<Self>) -> AnyElement {
-        let Some(doc) = &self.doc else {
-            return self.render_no_sidecar_state();
-        };
-
-        let mut rows: Vec<AnyElement> = Vec::new();
-        for page in 0..self.page_count {
-            let extractions: Vec<&PageExtraction> =
-                doc.extracted_pages.iter().filter(|p| p.page == page).collect();
-            let expanded = self.expanded_pages.contains(&page);
-            rows.push(self.render_page_row(page, &extractions, expanded, cx));
-            if expanded {
-                if extractions.is_empty() {
-                    rows.push(empty_extraction_row());
-                } else {
-                    for pe in &extractions {
-                        rows.extend(self.render_extraction_rows(doc, page, pe, cx));
+        // The run-extraction bar is always visible at the top — lets
+        // the user add additional extractions (different models) even
+        // after one has run.
+        let body: AnyElement = if let Some(doc) = &self.doc {
+            let mut rows: Vec<AnyElement> = Vec::new();
+            for page in 0..self.page_count {
+                let extractions: Vec<&PageExtraction> =
+                    doc.extracted_pages.iter().filter(|p| p.page == page).collect();
+                let expanded = self.expanded_pages.contains(&page);
+                rows.push(self.render_page_row(page, &extractions, expanded, cx));
+                if expanded {
+                    if extractions.is_empty() {
+                        rows.push(empty_extraction_row());
+                    } else {
+                        for pe in &extractions {
+                            rows.extend(self.render_extraction_rows(doc, page, pe, cx));
+                        }
                     }
                 }
             }
-        }
+            div()
+                .flex()
+                .flex_col()
+                .flex_grow()
+                .min_h_0()
+                .child(self.render_filter_chips(cx))
+                .child(
+                    div()
+                        .id("inspector-scroll")
+                        .flex_grow()
+                        .min_h_0()
+                        .overflow_y_scroll()
+                        .track_scroll(&self.tree_scroll_handle)
+                        .child(div().flex().flex_col().children(rows)),
+                )
+                .child(self.render_detail_splitter(cx))
+                .child(self.render_detail_panel())
+                .into_any_element()
+        } else {
+            self.render_no_sidecar_state(cx)
+        };
 
         div()
             .flex()
             .flex_col()
             .flex_grow()
             .min_h_0()
-            .child(self.render_filter_chips(cx))
-            .child(
-                div()
-                    .id("inspector-scroll")
-                    .flex_grow()
-                    .min_h_0()
-                    .overflow_y_scroll()
-                    .track_scroll(&self.tree_scroll_handle)
-                    .child(div().flex().flex_col().children(rows)),
-            )
-            .child(self.render_detail_splitter(cx))
-            .child(self.render_detail_panel())
+            .child(self.render_run_extraction_bar(cx))
+            .child(body)
             .into_any_element()
     }
 
@@ -1920,7 +2068,7 @@ impl InspectorPane {
 
     fn render_toc_tab(&self, cx: &mut Context<Self>) -> AnyElement {
         let Some(doc) = &self.doc else {
-            return self.render_no_sidecar_state();
+            return self.render_no_sidecar_state(cx);
         };
         if doc.toc.is_empty() {
             return self.render_no_toc_state();
@@ -2089,16 +2237,44 @@ impl InspectorPane {
         cx: &mut Context<Self>,
     ) -> AnyElement {
         let current = self.selected_prompt_model;
+        let deployed = &self.deployed_workers;
+        // Show every known model, but visually distinguish deployed
+        // (clickable, normal contrast) from not-deployed (dimmed,
+        // disabled). Lets the user see which workers exist in the
+        // catalog AND which they can actually dispatch to right now.
         let chips: Vec<AnyElement> = AdHocModel::ALL
             .iter()
             .map(|&m| {
-                let active = m == current;
-                let bg = if active { rgb(0x4488ff) } else { rgb(0x252525) };
-                let text_color = if active { rgb(0xf0f0f0) } else { rgb(0xc0c0c0) };
+                let is_deployed = deployed.contains(m.modal_app_name());
+                let active = m == current && is_deployed;
+                let bg = if active {
+                    rgb(0x4488ff)
+                } else if is_deployed {
+                    rgb(0x252525)
+                } else {
+                    rgb(0x181818)
+                };
+                let text_color = if active {
+                    rgb(0xf0f0f0)
+                } else if is_deployed {
+                    rgb(0xc0c0c0)
+                } else {
+                    rgb(0x606060)
+                };
+                let border_color = if is_deployed {
+                    rgb(0x303030)
+                } else {
+                    rgb(0x252525)
+                };
                 let id_suffix = match m {
                     AdHocModel::GlmOcr => "glm",
-                    AdHocModel::InfinityParser2Pro => "inf2",
+                    AdHocModel::InfinityParser2Flash => "inf2",
                     AdHocModel::Qwen36MoE => "qwen36",
+                };
+                let label = if is_deployed {
+                    m.label().to_string()
+                } else {
+                    format!("{} (not deployed)", m.label())
                 };
                 let mut chip = div()
                     .id(SharedString::from(format!("prompt-model-{id_suffix}")))
@@ -2108,10 +2284,10 @@ impl InspectorPane {
                     .text_color(text_color)
                     .bg(bg)
                     .border_1()
-                    .border_color(rgb(0x303030))
+                    .border_color(border_color)
                     .rounded_md()
-                    .child(SharedString::new_static(m.label()));
-                if !pending {
+                    .child(SharedString::from(label));
+                if !pending && is_deployed {
                     chip = chip
                         .hover(|this| this.bg(rgb(0x355aa5)))
                         .on_click(cx.listener(move |this, _, _, cx| {
@@ -2498,7 +2674,9 @@ impl InspectorPane {
             .into_any_element()
     }
 
-    fn render_no_sidecar_state(&self) -> AnyElement {
+    fn render_no_sidecar_state(&self, _cx: &mut Context<Self>) -> AnyElement {
+        // Empty-state placeholder. The Run-extraction control lives in
+        // the always-visible top bar (`render_run_extraction_bar`).
         div()
             .flex_grow()
             .min_h_0()
@@ -2519,10 +2697,170 @@ impl InspectorPane {
                     .text_size(px(11.0))
                     .pt(px(8.0))
                     .child(SharedString::new_static(
-                        "Generate one with: cargo run --release --bin extract-to-kdl -- <pdf>",
+                        "Pick a model above and click Run, or load a .ir.kdl sidecar next to the PDF.",
                     )),
             )
             .into_any_element()
+    }
+
+    /// Persistent top-of-tab bar with a model dropdown + Run button.
+    /// Lets the user add additional extractions (with different models)
+    /// on top of whatever's already in the `Doc`. Each run appends a
+    /// new `Extraction` rather than replacing.
+    fn render_run_extraction_bar(&self, cx: &mut Context<Self>) -> AnyElement {
+        let current = self.selected_extraction_model;
+        let deployed = &self.deployed_workers;
+        let pending = matches!(self.pass1_state, Pass1State::Pending);
+        let dropdown_open = self.extraction_model_dropdown_open;
+
+        // Trigger button — shows current selection + chevron, toggles dropdown.
+        let chevron = if dropdown_open { "▲" } else { "▼" };
+        let trigger_label: SharedString =
+            format!("{}   {}", current.label(), chevron).into();
+        let mut trigger = div()
+            .id("extraction-model-dropdown-trigger")
+            .px(px(10.0))
+            .py(px(4.0))
+            .text_size(px(11.0))
+            .text_color(rgb(0xd0d0d0))
+            .bg(rgb(0x252525))
+            .border_1()
+            .border_color(rgb(0x404040))
+            .rounded_md()
+            .min_w(px(220.0))
+            .child(trigger_label);
+        if !pending {
+            trigger = trigger
+                .hover(|this| this.bg(rgb(0x303030)))
+                .on_click(cx.listener(|this, _, _, cx| this.toggle_extraction_dropdown(cx)));
+        }
+
+        // Popover — absolute-positioned options list, anchored to the
+        // trigger via a wrapping `.relative()` container. Only rendered
+        // when the dropdown is open.
+        let popover_items: Vec<AnyElement> = ExtractorModel::ALL
+            .iter()
+            .map(|&m| {
+                let model_deployed = deployed.contains(m.modal_app_name());
+                let is_current = m == current;
+                let bg = if is_current { rgb(0x303040) } else { rgb(0x1e1e1e) };
+                let text_color = if model_deployed {
+                    rgb(0xe0e0e0)
+                } else {
+                    rgb(0x606060)
+                };
+                let id_suffix = match m {
+                    ExtractorModel::GlmOcr => "glm",
+                    ExtractorModel::Inf2Flash => "inf2flash",
+                };
+                let label: SharedString = if model_deployed {
+                    m.label().into()
+                } else {
+                    format!("{} (not deployed)", m.label()).into()
+                };
+                let mut item = div()
+                    .id(SharedString::from(format!("extraction-model-item-{id_suffix}")))
+                    .px(px(10.0))
+                    .py(px(6.0))
+                    .text_size(px(11.0))
+                    .text_color(text_color)
+                    .bg(bg)
+                    .child(label);
+                if model_deployed {
+                    item = item.hover(|this| this.bg(rgb(0x355aa5))).on_click(
+                        cx.listener(move |this, _, _, cx| {
+                            this.select_extraction_model(m, cx);
+                            this.close_extraction_dropdown(cx);
+                        }),
+                    );
+                }
+                item.into_any_element()
+            })
+            .collect();
+
+        // Wrap the trigger in a `.relative()` container so the
+        // popover's absolute positioning anchors to the trigger's
+        // top-left. The popover itself is `deferred()` so it paints
+        // after subsequent siblings in the parent tab — without this,
+        // the filter-chip row below the bar would draw on top of it.
+        let mut trigger_with_popover = div().relative().child(trigger);
+        if dropdown_open {
+            trigger_with_popover = trigger_with_popover.child(
+                deferred(
+                    div()
+                        .absolute()
+                        .top(px(28.0))
+                        .left(px(0.0))
+                        .min_w(px(240.0))
+                        .bg(rgb(0x1c1c1c))
+                        .border_1()
+                        .border_color(rgb(0x404040))
+                        .rounded_md()
+                        .flex()
+                        .flex_col()
+                        .children(popover_items),
+                )
+                .with_priority(1),
+            );
+        }
+
+        // Run button.
+        let current_deployed = deployed.contains(current.modal_app_name());
+        let button_enabled = !pending && current_deployed;
+        let button_label: SharedString = if pending {
+            "…".into()
+        } else {
+            "+".into()
+        };
+        let button_bg = if button_enabled { rgb(0x2a4a8a) } else { rgb(0x202020) };
+        let button_text_color = if button_enabled { rgb(0xf0f0f0) } else { rgb(0x606060) };
+        let mut run_button = div()
+            .id("run-extraction-button")
+            .px(px(10.0))
+            .py(px(2.0))
+            .min_w(px(24.0))
+            .text_size(px(14.0))
+            .text_color(button_text_color)
+            .bg(button_bg)
+            .border_1()
+            .border_color(rgb(0x355aa5))
+            .rounded_md()
+            .flex()
+            .items_center()
+            .justify_center()
+            .child(button_label);
+        if button_enabled {
+            run_button = run_button
+                .hover(|this| this.bg(rgb(0x355aa5)))
+                .on_click(cx.listener(|this, _, _, cx| {
+                    this.close_extraction_dropdown(cx);
+                    this.emit_run_extraction(cx);
+                }));
+        }
+
+        let mut bar = div()
+            .flex()
+            .items_center()
+            .gap(px(6.0))
+            .px(px(8.0))
+            .py(px(6.0))
+            .border_b_1()
+            .border_color(rgb(0x202020))
+            .child(trigger_with_popover)
+            .child(run_button.into_any_element())
+            .child(div().flex_grow());
+
+        if let Pass1State::Failed(msg) = &self.pass1_state {
+            bar = bar.child(
+                div()
+                    .pl(px(8.0))
+                    .text_size(px(10.0))
+                    .text_color(rgb(0xc06060))
+                    .child(SharedString::from(format!("error: {msg}"))),
+            );
+        }
+
+        bar.into_any_element()
     }
 
     fn render_page_row(

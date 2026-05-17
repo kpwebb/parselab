@@ -47,8 +47,12 @@ const PASS1_MAX_TOKENS: u32 = 1024;
 /// throughput plateaus near concurrency=16 on L40S.
 const PASS1_DEFAULT_CONCURRENCY: usize = 16;
 
-/// Pass 2 (Infinity-Parser2-Pro) — model id sent in the OpenAI request.
-const PASS2_MODEL_ID: &str = "infly/Infinity-Parser2-Pro";
+/// Pass 2 — model id sent in the OpenAI request. Switched from
+/// Infinity-Parser2-Pro to Infinity-Parser2-Flash: Flash is ~3× faster
+/// and ~5.6× cheaper at matched output budget with only ~1-2% accuracy
+/// drop on olmOCR-Bench / ParseBench (see BENCHMARKS.md). Same schema
+/// (bbox + category + text), same prompt.
+const PASS2_MODEL_ID: &str = "infly/Infinity-Parser2-Flash";
 /// FER-117 production prompt. Replaces the earlier one-line
 /// `"Extract layout with bboxes as JSON"` which produced degenerate
 /// output (duplicate `"bbox"` keys, broken JSON) on dense pages — see
@@ -302,7 +306,7 @@ async fn send_one_bulk_request(
         let content = body
             .choices
             .first()
-            .and_then(|c| c.message.content.clone())
+            .and_then(|c| c.message.body().map(str::to_string))
             .ok_or_else(|| "response had no message content".to_string())?;
         let usage = body.usage;
         Ok((
@@ -365,7 +369,7 @@ async fn send_one_request(
         let content = body
             .choices
             .first()
-            .and_then(|c| c.message.content.clone())
+            .and_then(|c| c.message.body().map(str::to_string))
             .ok_or_else(|| "response had no message content".to_string())?;
         let usage = body.usage;
         Ok((

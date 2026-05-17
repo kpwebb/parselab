@@ -1,5 +1,5 @@
 [package]
-name = "app"
+name = "parselab"
 version = "0.0.0"
 edition.workspace = true
 publish.workspace = true
