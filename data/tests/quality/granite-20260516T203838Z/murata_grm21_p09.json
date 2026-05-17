@@ -1,0 +1,12 @@
+{
+  "part_id": "murata_grm21",
+  "page_no": 9,
+  "elapsed": 2.7755313709999996,
+  "in_tok": 877,
+  "out_tok": 641,
+  "content": "<doctag><section_header_level_1><loc_25><loc_30><loc_112><loc_38>\uf06e Package (Tape Carrier Packaging)</section_header_level_1>\n<unordered_list><list_item><loc_24><loc_46><loc_171><loc_68>4. Part of the leader and part of the vacant section are attached as follows. The sprocket holes are to the right as the tape is pulled toward the user.</list_item>\n</unordered_list>\n<picture><loc_36><loc_70><loc_216><loc_158></picture>\n<unordered_list><list_item><loc_24><loc_170><loc_159><loc_177>5. Accumulate tolerance of sprocket holes pitch = +/-0.3mm/10 pitch</list_item>\n<list_item><loc_24><loc_185><loc_209><loc_192>6. Chip in the tape is enclosed by top tape and bottom tape as shown in 2.Dimensions of Tape.</list_item>\n<list_item><loc_24><loc_200><loc_216><loc_207>7. The top tape and carrier tape are not attached at the end of the tape for a minimum of 5 pitches.</list_item>\n<list_item><loc_24><loc_215><loc_145><loc_222>8. There are no jointing for top tape and bottom tape.</list_item>\n<list_item><loc_24><loc_230><loc_93><loc_237>9. There are no fuzz in the cavity.</list_item>\n<list_item><loc_24><loc_245><loc_175><loc_260>10. Break down force of top tape : 5N min. Break down force of bottom tape : 5N min. (Only a bottom tape existence )</list_item>\n<list_item><loc_24><loc_268><loc_197><loc_283>11. Reel is made by resin and appeaser and dimension is shown in 3.Dimensions of Reel. There are possibly to change the material and dimension due to some impairment.</list_item>\n<list_item><loc_24><loc_291><loc_154><loc_298>12. Peeling off force : 0.1N to 0.7N in the direction as shown below.</list_item>\n</unordered_list>\n<text><loc_34><loc_306><loc_102><loc_313>Speed of Peeling off : 300 mm / min</text>\n<picture><loc_45><loc_319><loc_158><loc_358></picture>\n<unordered_list><list_item><loc_24><loc_373><loc_212><loc_388>13. Label that show the customer parts number, our parts number, our company name, inspection number and quantity, will be put in outside of reel.</list_item>\n</unordered_list>\n<page_footer><loc_10><loc_482><loc_73><loc_490>GRM21BR71C105KA01-01A</page_footer>\n<page_footer><loc_250><loc_482><loc_254><loc_490>9</page_footer>\n<picture><loc_468><loc_18><loc_490><loc_28></picture>\n</doctag>",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

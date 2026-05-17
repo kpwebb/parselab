@@ -1,0 +1,12 @@
+{
+  "part_id": "murata_blm18",
+  "page_no": 1,
+  "elapsed": 139.43184591099998,
+  "in_tok": 1021,
+  "out_tok": 244,
+  "content": "```json\n[{\"bbox\": [208, 424, 316, 472], \"category\": \"text\", \"text\": \"Distributed by:\"}, {\"bbox\": [181, 478, 464, 673], \"category\": \"text\", \"text\": \"JAMECO$^{\u00ae}$\\nELECTRONICS\"}, {\"bbox\": [483, 493, 850, 548], \"category\": \"text\", \"text\": \"www.Jameco.com \u2666 1-800-831-4242\"}, {\"bbox\": [504, 571, 805, 667], \"category\": \"text\", \"text\": \"The content and copyrights of the attached material are the property of its owner.\"}, {\"bbox\": [389, 862, 650, 915], \"category\": \"text\", \"text\": \"Jameco Part Number 1845013\"}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

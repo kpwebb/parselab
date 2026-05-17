@@ -1,0 +1,11 @@
+{
+  "part_id": "yageo_rc0805",
+  "page_no": 2,
+  "elapsed": 5.974556968000002,
+  "in_tok": 4831,
+  "out_tok": 420,
+  "content": "SCOPE\nThis specification describes RC0805 series chip resistors with lead-free terminations made by thick film process.\n\nORDERING INFORMATION\nPart number is identified by the series, size, tolerance, packing type, temperature coefficient, taping reel and resistance value.\n\nYAGEO ORDERING CODE\n\nCTC CODE\nRC0805 X X X XX XXX L\n(1) (2) (3) (4) (5) (6)\n\n(1) TOLERANCE\nF = \u00b11%\nJ = \u00b15%\n\n(2) PACKAGING TYPE\nR = Paper/PE taping reel\n\n(3) TEMPERATURE COEFFICIENT OF RESISTANCE\n\u2013 = Base on spec\n\n(4) TAPING REEL\n07 = 7 inch dia. Reel\n10 = 10 inch dia. Reel (not preferred)\n13 = 13 inch dia. Reel\n\n(5) RESISTANCE VALUE\n5R6, 56R, 560R, 5K6, 56K, 22M.\n\n(6) RESISTOR TERMINATIONS\nL = Lead free terminations (pure Tin)\n\nORDERING EXAMPLE\nThe ordering code of a RC0805 chip resistor, value 56 \u03a9 with \u00b11% tolerance, supplied in 7-inch tape reel is: RC0805FR-0756RL.\n\nNOTE\n1. The \u201cL\u201d at the end of the code is only for ordering. On the reel label, the standard CTC will be mentioned an additional stamp \u201cLFP\u201d= lead free production.\n2. Products with lead in terminations fulfil the same requirements as mentioned in this datasheet.\n3. Products with lead in terminations will be phased out in the coming months (before July 1st, 2006)",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

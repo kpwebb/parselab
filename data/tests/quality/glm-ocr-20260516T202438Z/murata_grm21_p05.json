@@ -1,0 +1,11 @@
+{
+  "part_id": "murata_grm21",
+  "page_no": 5,
+  "elapsed": 4.536297433999998,
+  "in_tok": 4968,
+  "out_tok": 238,
+  "content": "Specifications and Test Methods\n\n| No | Item | Specification | Test Method(Ref. Standard:JIS C 5101 (all parts), IEC60384 (all parts)) |\n| :--- | :--- | :--- | :--- |\n| 16 | Durability | Appearance No defects or abnormalities. Capacitance Change Within +/-12.5% Q or D.F. DF \u2264 0.05 I.R. More than 50\u03a9 \u2022 F | Mounting method Solder the capacitor on the test substrate Pre-treatment Voltage treatment:Apply the test voltage at the test temperature for 1 hour and then let sit for 24+/-2 hours at room temperature, then measure. Test Temperature Maximum Operating Temperature +/-3\u00b0C Test Time 1000+/-12h Test Voltage 200% of the rated voltage Charge/discharge current 50mA max. Post-treatment Non treatment:Let sit for 24+/-2 hours at room temperature, then measure. |",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

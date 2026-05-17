@@ -1,0 +1,12 @@
+{
+  "part_id": "mmbt3904",
+  "page_no": 6,
+  "elapsed": 6.206366340000002,
+  "in_tok": 3826,
+  "out_tok": 650,
+  "content": null,
+  "reasoning": "```json\n[{\"bbox\": [376, 27, 634, 45], \"category\": \"title\", \"text\": \"MMBT3904L, SMMBT3904L\"}, {\"bbox\": [93, 63, 494, 285], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [148, 288, 478, 318], \"category\": \"figure_caption\", \"text\": \"Figure 17. Collector Emitter Saturation Voltage vs. Collector Current\"}, {\"bbox\": [494, 63, 899, 285], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [558, 288, 887, 318], \"category\": \"figure_caption\", \"text\": \"Figure 18. Base Emitter Saturation Voltage vs. Collector Current\"}, {\"bbox\": [93, 327, 486, 549], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [155, 553, 471, 582], \"category\": \"figure_caption\", \"text\": \"Figure 19. Base Emitter Voltage vs. Collector Current\"}, {\"bbox\": [499, 327, 906, 548], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [594, 552, 849, 567], \"category\": \"figure_caption\", \"text\": \"Figure 20. Temperature Coefficients\"}, {\"bbox\": [93, 591, 499, 813], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [187, 816, 460, 845], \"category\": \"figure_caption\", \"text\": \"Figure 21. Current Gain Bandwidth vs. Collector Current\"}, {\"bbox\": [502, 591, 906, 813], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [605, 816, 828, 832], \"category\": \"figure_caption\", \"text\": \"Figure 22. Safe Operating Area\"}, {\"bbox\": [432, 940, 561, 955], \"category\": \"footer\", \"text\": \"www.onsemi.com\"}, {\"bbox\": [491, 954, 506, 968], \"category\": \"footer\", \"text\": \"6\"}, {\"bbox\": [729, 938, 906, 969], \"category\": \"footer\", \"text\": \"Share Feedback Your Opinion Matters\"}]\n```",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

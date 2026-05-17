@@ -1,0 +1,11 @@
+{
+  "part_id": "murata_blm18",
+  "page_no": 2,
+  "elapsed": 15.717712070000001,
+  "in_tok": 3965,
+  "out_tok": 1628,
+  "content": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

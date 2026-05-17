@@ -1,0 +1,19 @@
+{
+  "preset": "granite",
+  "prompt": "Convert this page to docling.",
+  "model": "ibm-granite/granite-docling-258M",
+  "endpoint": "https://ferrite-systems--parselab-granite-docling-serve.modal.run/v1/chat/completions",
+  "pages": 101,
+  "ok": 101,
+  "errors": 0,
+  "render_secs": 10.42,
+  "dispatch_secs": 30.45,
+  "sum_req_secs": 450.9,
+  "in_tok_total": 99754,
+  "out_tok_total": 87218,
+  "pages_per_sec": 3.317,
+  "effective_parallelism": 14.8,
+  "concurrency": 16,
+  "max_tokens": 2048,
+  "dpi": 200
+}

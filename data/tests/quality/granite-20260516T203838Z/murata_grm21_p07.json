@@ -1,0 +1,12 @@
+{
+  "part_id": "murata_grm21",
+  "page_no": 7,
+  "elapsed": 2.5963979240000015,
+  "in_tok": 877,
+  "out_tok": 308,
+  "content": "<doctag><section_header_level_1><loc_25><loc_30><loc_110><loc_38>\uf06e Package \uff08Tape Carrier Packaging\uff09</section_header_level_1>\n<unordered_list><list_item><loc_25><loc_46><loc_88><loc_53>1. Minimum Quantity(pcs./reel)</list_item>\n</unordered_list>\n<otsl><loc_32><loc_52><loc_191><loc_86><ecel><ched>\u03c6180mm Reel(W8P4)<lcel><lcel><ched>\u03c6330mm Reel(W8P4)<nl><ched>Type<ched>Plastic Tape<ched>Plastic Tape<ched>Plastic Tape<ecel><nl><fcel>GRM21<fcel>B<fcel>3000<fcel>10000<fcel>CODE : K<nl></otsl>\n<unordered_list><list_item><loc_25><loc_93><loc_91><loc_100>2. Dimensions of Tape (in mm)</list_item>\n</unordered_list>\n<text><loc_35><loc_101><loc_93><loc_108>(1)GRM21(W8P4 CODE : K/L)</text>\n<picture><loc_34><loc_112><loc_169><loc_194></picture>\n<picture><loc_468><loc_17><loc_490><loc_27></picture>\n<page_footer><loc_10><loc_482><loc_73><loc_490>GRM21BR71C105KA01-01A</page_footer>\n<page_footer><loc_250><loc_482><loc_254><loc_490>7</page_footer>\n</doctag>",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

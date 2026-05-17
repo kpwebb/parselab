@@ -1,0 +1,19 @@
+{
+  "preset": "qwen36",
+  "prompt": "Extract layout with bboxes as JSON",
+  "model": "Qwen/Qwen3.6-35B-A3B",
+  "endpoint": "https://ferrite-systems--parselab-qwen36-35b-a3b-serve.modal.run/v1/chat/completions",
+  "pages": 101,
+  "ok": 101,
+  "errors": 0,
+  "render_secs": 11.92,
+  "dispatch_secs": 339.73,
+  "sum_req_secs": 5162.8,
+  "in_tok_total": 376542,
+  "out_tok_total": 348938,
+  "pages_per_sec": 0.297,
+  "effective_parallelism": 15.2,
+  "concurrency": 16,
+  "max_tokens": 4096,
+  "dpi": 200
+}

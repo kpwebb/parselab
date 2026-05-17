@@ -1,0 +1,12 @@
+{
+  "part_id": "murata_grm21",
+  "page_no": 5,
+  "elapsed": 24.857113199000004,
+  "in_tok": 3817,
+  "out_tok": 437,
+  "content": "```json\n[{\"bbox\": [934, 35, 980, 55], \"category\": \"header\", \"text\": \"muRata\"}, {\"bbox\": [47, 59, 211, 74], \"category\": \"table_caption\", \"text\": \"\u25a0 Specifications and Test Methods\"}, {\"bbox\": [45, 74, 952, 245], \"category\": \"table\", \"text\": \"<table><tr><td>No</td><td>Item</td><td>Specification</td><td>Test Method(Ref. Standard:JIS C 5101 (all parts), IEC60384 (all parts))</td></tr><tr><td>16</td><td>Durability</td><td>Appearance No defects or abnormalities. Capacitance Change Within +/-12.5% Q or D.F. DF\u22660.05 I.R. More than 50\u03a9\u00b7F</td><td>Mounting method Solder the capacitor on the test substrate Pre-treatment Voltage treatment:Apply the test voltage at the test temperature for 1hour and then let sit for 24+/-2hours at room temperature, then measure. Test Temperature Maximum Operating Temperature +/-3\u2103 Test Time 1000+/-12h Test Voltage 200% of the rated voltage Charge/discharge current 50mA max. Post-treatment Non treatment:Let sit for 24+/-2hours at room temperature, then measure.</td></tr></table>\"}, {\"bbox\": [19, 962, 146, 978], \"category\": \"footer\", \"text\": \"GRM21BR71C105KA01-01A\"}, {\"bbox\": [495, 963, 504, 977], \"category\": \"footer\", \"text\": \"5\"}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

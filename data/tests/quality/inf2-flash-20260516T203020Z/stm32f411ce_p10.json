@@ -1,0 +1,12 @@
+{
+  "part_id": "stm32f411ce",
+  "page_no": 10,
+  "elapsed": 5.759219182999999,
+  "in_tok": 3965,
+  "out_tok": 601,
+  "content": null,
+  "reasoning": "```json\n[{\"bbox\": [106, 67, 226, 84], \"category\": \"header\", \"text\": \"List of figures\"}, {\"bbox\": [650, 67, 891, 83], \"category\": \"header\", \"text\": \"STM32F411xC STM32F411xE\"}, {\"bbox\": [106, 103, 891, 321], \"category\": \"text\", \"text\": \"Figure 47. WLCSP49 - Footprint example . . . . . 127 Figure 48. WLCSP49 marking (package top view) . . . . . 128 Figure 49. UFQFPN48 \u2013 Outline . . . . . 129 Figure 50. UFQFPN48 \u2013 Footprint example . . . . . 130 Figure 51. LQFP64 - Outline^(15) . . . . . 131 Figure 52. LQFP64 - Footprint example . . . . . 133 Figure 53. LQFP100 - Outline^(15) . . . . . 134 Figure 54. LQFP100 - Footprint example . . . . . 136 Figure 55. UFBGA100 - Outline^(13) . . . . . 137 Figure 56. UFBGA100 - Footprint example . . . . . 139 Figure 57. USB controller configured as peripheral-only and used in Full-Speed mode . . . . . 143 Figure 58. USB controller configured as host-only and used in Full-Speed mode . . . . . 143 Figure 59. USB controller configured in dual mode and used in Full-Speed mode . . . . . 144 Figure 60. Sensor Hub application example . . . . . 145 Figure 61. Batch Acquisition Mode (BAM) example . . . . . 146\"}, {\"bbox\": [106, 879, 162, 895], \"category\": \"footer\", \"text\": \"10/151\"}, {\"bbox\": [442, 879, 557, 895], \"category\": \"footer\", \"text\": \"DS10314 Rev 8\"}, {\"bbox\": [829, 872, 885, 894], \"category\": \"footer\", \"text\": \"\"}]\n```",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

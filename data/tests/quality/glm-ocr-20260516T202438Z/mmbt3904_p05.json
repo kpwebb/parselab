@@ -1,0 +1,11 @@
+{
+  "part_id": "mmbt3904",
+  "page_no": 5,
+  "elapsed": 2.240085696999998,
+  "in_tok": 4831,
+  "out_tok": 32,
+  "content": "TYPICAL STATIC CHARACTERISTICS\n\nFigure 15. DC Current Gain\n\nFigure 16. Collector Saturation Region",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

@@ -1,0 +1,11 @@
+{
+  "part_id": "tlv757p",
+  "page_no": 10,
+  "elapsed": 3.232934764999996,
+  "in_tok": 1142,
+  "out_tok": 370,
+  "content": "<doctag><page_header><loc_44><loc_28><loc_74><loc_35>TLV757P</page_header>\n<page_header><loc_44><loc_35><loc_190><loc_40>SBVS322C - OCTOBER 2017 - REVISED MARCH 2024</page_header>\n<picture><loc_376><loc_18><loc_456><loc_35></picture>\n<page_header><loc_420><loc_35><loc_456><loc_40>www.ti.com</page_header>\n<section_header_level_1><loc_46><loc_47><loc_211><loc_55>5.6 Typical Characteristics (continued)</section_header_level_1>\n<text><loc_46><loc_59><loc_450><loc_74>at operating temperature T$_{J}$ = 25\u00b0C, V$_{IN}$ = V$_{OUT(NOM)}$ + 0.5V or 1.45V (whichever is greater), I$_{OUT}$ = 1mA, V$_{EN}$ = V$_{IN}$, and C$_{IN}$ = C$_{OUT}$ = 1\u00b5F (unless otherwise noted)</text>\n<picture><loc_46><loc_81><loc_454><loc_419></picture>\n<page_footer><loc_44><loc_469><loc_52><loc_475>10</page_footer>\n<page_footer><loc_65><loc_468><loc_147><loc_474>Submit Document Feedback</page_footer>\n<page_footer><loc_329><loc_468><loc_456><loc_474>Copyright \u00a9 2024 Texas Instruments Incorporated</page_footer>\n<page_footer><loc_204><loc_477><loc_296><loc_483>Product Folder Links: TLV757P</page_footer>\n</doctag>",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

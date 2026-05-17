@@ -1,0 +1,11 @@
+{
+  "part_id": "yageo_rc0805",
+  "page_no": 8,
+  "elapsed": 13.221752711999997,
+  "in_tok": 3826,
+  "out_tok": 1500,
+  "content": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

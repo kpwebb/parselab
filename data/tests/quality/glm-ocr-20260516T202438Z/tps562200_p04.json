@@ -1,0 +1,11 @@
+{
+  "part_id": "tps562200",
+  "page_no": 4,
+  "elapsed": 3.6347012330000013,
+  "in_tok": 4831,
+  "out_tok": 236,
+  "content": "5 Pin Configuration and Functions\n\nFigure 5-1. DDC Package 6 Pin (SOT) Top View\n\nTable 5-1. Pin Functions\n\n| PIN | NAME | NUMBER | DESCRIPTION |\n| :--- | :--- | :--- | :--- |\n| GND | 1 | Ground pin Source terminal of low-side power NFET as well as the ground terminal for controller circuit. Connect sensitive VFB to this GND at a single point. |\n| SW | 2 | Switch node connection between high-side NFET and low-side NFET. |\n| VIN | 3 | Input voltage supply pin. The drain terminal of high-side power NFET. |\n| VFB | 4 | Converter feedback input. Connect to output voltage with feedback resistor divider. |\n| EN | 5 | Enable input control. Active high and must be pulled up to enable the device. |\n| VBST | 6 | Supply input for the high-side NFET gate drive circuit. Connect a 0.1\u00b5F capacitor between VBST and SW pins. |",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

@@ -1,0 +1,12 @@
+{
+  "part_id": "pmeg3010eb",
+  "page_no": 4,
+  "elapsed": 6.735173832000001,
+  "in_tok": 3965,
+  "out_tok": 705,
+  "content": null,
+  "reasoning": "```json\n[{\"bbox\": [79, 39, 172, 56], \"category\": \"header\", \"text\": \"Nexperia\"}, {\"bbox\": [734, 39, 915, 59], \"category\": \"header\", \"text\": \"PMEG3010EB\"}, {\"bbox\": [544, 66, 918, 83], \"category\": \"header\", \"text\": \"30 V, 1 A very low VF Schottky barrier rectifier\"}, {\"bbox\": [80, 94, 912, 360], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [80, 343, 624, 359], \"category\": \"figure_caption\", \"text\": \"Fig. 3. Diode capacitance as a function of reverse voltage; typical values\"}, {\"bbox\": [80, 382, 312, 402], \"category\": \"title\", \"text\": \"11. Test information\"}, {\"bbox\": [390, 417, 602, 538], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [80, 544, 300, 560], \"category\": \"figure_caption\", \"text\": \"Fig. 4. Duty cycle definition\"}, {\"bbox\": [80, 582, 310, 604], \"category\": \"title\", \"text\": \"12. Package outline\"}, {\"bbox\": [330, 618, 695, 814], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [80, 821, 387, 837], \"category\": \"figure_caption\", \"text\": \"Fig. 5. Package outline SC-79 (SOD523)\"}, {\"bbox\": [79, 940, 142, 952], \"category\": \"footer\", \"text\": \"PMEG3010EB\"}, {\"bbox\": [363, 940, 632, 952], \"category\": \"footer\", \"text\": \"All information provided in this document is subject to legal disclaimers.\"}, {\"bbox\": [760, 940, 917, 952], \"category\": \"footer\", \"text\": \"\u00a9 Nexperia B.V. 2024. All rights reserved\"}, {\"bbox\": [79, 956, 209, 969], \"category\": \"footer\", \"text\": \"Product data sheet\"}, {\"bbox\": [447, 956, 551, 969], \"category\": \"footer\", \"text\": \"8 October 2024\"}, {\"bbox\": [884, 956, 917, 969], \"category\": \"footer\", \"text\": \"4 / 8\"}]\n```",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

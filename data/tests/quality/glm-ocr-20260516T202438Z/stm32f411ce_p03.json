@@ -1,0 +1,11 @@
+{
+  "part_id": "stm32f411ce",
+  "page_no": 3,
+  "elapsed": 7.770907202000004,
+  "in_tok": 4968,
+  "out_tok": 442,
+  "content": "Contents\n\n1 Introduction ... 11\n\n2 Description ... 12\n2.1 Compatibility with STM32F4 series ... 14\n\n3 Functional overview ... 17\n3.1 Arm\u00ae Cortex\u00ae-M4 with FPU core with embedded flash memory and SRAM ... 17\n3.2 Adaptive real-time memory accelerator (ART Accelerator) ... 17\n3.3 Batch acquisition mode (BAM) ... 17\n3.4 Memory protection unit ... 18\n3.5 Embedded flash memory ... 18\n3.6 CRC (cyclic redundancy check) calculation unit ... 18\n3.7 Embedded SRAM ... 18\n3.8 Multi-AHB bus matrix ... 19\n3.9 DMA controller (DMA) ... 19\n3.10 Nested vectored interrupt controller (NVIC) ... 20\n3.11 External interrupt/event controller (EXTI) ... 20\n3.12 Clocks and startup ... 20\n3.13 Boot modes ... 21\n3.14 Power supply schemes ... 21\n3.15 Power supply supervisor ... 22\n   3.15.1 Internal reset ON ... 22\n   3.15.2 Internal reset OFF ... 22\n3.16 Voltage regulator ... 23\n   3.16.1 Regulator ON ... 23\n   3.16.2 Regulator OFF ... 23\n   3.16.3 Regulator ON/OFF and internal power supply supervisor availability ... 26\n3.17 Real-time clock (RTC) and backup registers ... 26\n3.18 Low-power modes ... 27\n3.19 $V_{BAT}$ operation ... 27\n3.20 Timers and watchdogs ... 28",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

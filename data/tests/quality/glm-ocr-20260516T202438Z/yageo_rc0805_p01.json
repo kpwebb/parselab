@@ -1,0 +1,11 @@
+{
+  "part_id": "yageo_rc0805",
+  "page_no": 1,
+  "elapsed": 3.3494399620000053,
+  "in_tok": 4831,
+  "out_tok": 31,
+  "content": "DATA SHEET\n\nGENERAL PURPOSE CHIP RESISTORS\n\nRC0805 (Pb Free)\n5%; 1%",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

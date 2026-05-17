@@ -1,0 +1,12 @@
+{
+  "part_id": "pmeg3010eb",
+  "page_no": 5,
+  "elapsed": 35.90866680800002,
+  "in_tok": 3817,
+  "out_tok": 512,
+  "content": "```json\n[{\"bbox\": [80, 39, 171, 56], \"category\": \"header\", \"text\": \"Nexperia\"}, {\"bbox\": [736, 39, 917, 59], \"category\": \"header\", \"text\": \"PMEG3010EB\"}, {\"bbox\": [545, 67, 918, 83], \"category\": \"header\", \"text\": \"30 V, 1 A very low VF Schottky barrier rectifier\"}, {\"bbox\": [80, 104, 240, 125], \"category\": \"title\", \"text\": \"13. Soldering\"}, {\"bbox\": [209, 140, 789, 356], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [83, 360, 483, 376], \"category\": \"figure_caption\", \"text\": \"Fig. 6. Reflow soldering footprint for SC-79 (SOD523)\"}, {\"bbox\": [80, 941, 140, 951], \"category\": \"footer\", \"text\": \"PMEG3010EB\"}, {\"bbox\": [364, 941, 633, 951], \"category\": \"footer\", \"text\": \"All information provided in this document is subject to legal disclaimers.\"}, {\"bbox\": [761, 941, 918, 951], \"category\": \"footer\", \"text\": \"\u00a9 Nexperia B.V. 2024. All rights reserved\"}, {\"bbox\": [80, 957, 207, 969], \"category\": \"footer\", \"text\": \"Product data sheet\"}, {\"bbox\": [448, 957, 550, 969], \"category\": \"footer\", \"text\": \"8 October 2024\"}, {\"bbox\": [886, 957, 918, 969], \"category\": \"footer\", \"text\": \"5 / 8\"}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

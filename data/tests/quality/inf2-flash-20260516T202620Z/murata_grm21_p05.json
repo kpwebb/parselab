@@ -1,0 +1,11 @@
+{
+  "part_id": "murata_grm21",
+  "page_no": 5,
+  "elapsed": 4.976950646999995,
+  "in_tok": 3965,
+  "out_tok": 436,
+  "content": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

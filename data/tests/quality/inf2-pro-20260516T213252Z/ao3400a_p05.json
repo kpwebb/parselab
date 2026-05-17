@@ -1,0 +1,12 @@
+{
+  "part_id": "ao3400a",
+  "page_no": 5,
+  "elapsed": 21.706157126,
+  "in_tok": 3815,
+  "out_tok": 731,
+  "content": "```json\n[{\"bbox\": [131, 42, 340, 75], \"category\": \"logo\", \"bbox\": [131, 42, 340, 75]}, {\"bbox\": [800, 44, 887, 59], \"category\": \"header\", \"bbox\": [800, 44, 887, 59]}, {\"bbox\": [369, 114, 635, 128], \"category\": \"figure_caption\", \"bbox\": [369, 114, 635, 128]}, {\"bbox\": [216, 142, 458, 264], \"category\": \"figure\", \"bbox\": [216, 142, 458, 264]}, {\"bbox\": [541, 135, 821, 281], \"category\": \"figure\", \"bbox\": [541, 135, 821, 281]}, {\"bbox\": [386, 286, 706, 299], \"category\": \"figure_caption\", \"bbox\": [386, 286, 706, 299]}, {\"bbox\": [169, 300, 463, 428], \"category\": \"figure\", \"bbox\": [169, 300, 463, 428]}, {\"bbox\": [500, 324, 823, 436], \"category\": \"figure\", \"bbox\": [500, 324, 823, 436]}, {\"bbox\": [389, 477, 672, 489], \"category\": \"figure_caption\", \"bbox\": [389, 477, 672, 489]}, {\"bbox\": [186, 496, 475, 610], \"category\": \"figure\", \"bbox\": [186, 496, 475, 610]}, {\"bbox\": [531, 488, 840, 609], \"category\": \"figure\", \"bbox\": [531, 488, 840, 609]}, {\"bbox\": [122, 944, 210, 955], \"category\": \"footer\", \"bbox\": [122, 944, 210, 955]}, {\"bbox\": [450, 944, 548, 954], \"category\": \"footer\", \"bbox\": [450, 944, 548, 954]}, {\"bbox\": [835, 945, 888, 955], \"category\": \"footer\", \"bbox\": [835, 945, 888, 955]}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

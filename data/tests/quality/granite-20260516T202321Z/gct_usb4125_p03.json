@@ -1,0 +1,11 @@
+{
+  "part_id": "gct_usb4125",
+  "page_no": 3,
+  "elapsed": 4.42352333,
+  "in_tok": 878,
+  "out_tok": 111,
+  "content": "<doctag><section_header_level_1><loc_159><loc_13><loc_355><loc_25>PRODUCT SPECIFICATION</section_header_level_1>\n<otsl><loc_24><loc_27><loc_472><loc_76></otsl>\n<section_header_level_1><loc_29><loc_94><loc_151><loc_102>6.1 Electrical Performance</section_header_level_1>\n<otsl><loc_28><loc_105><loc_454><loc_288></otsl>\n<picture><loc_224><loc_465><loc_287><loc_494></picture>\n</doctag>",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

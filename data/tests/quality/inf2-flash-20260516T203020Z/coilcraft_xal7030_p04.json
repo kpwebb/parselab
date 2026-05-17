@@ -1,0 +1,12 @@
+{
+  "part_id": "coilcraft_xal7030",
+  "page_no": 4,
+  "elapsed": 8.879474659,
+  "in_tok": 3826,
+  "out_tok": 774,
+  "content": null,
+  "reasoning": "```json\n[{\"bbox\": [777, 9, 914, 26], \"category\": \"header\", \"text\": \"Document 863-4\"}, {\"bbox\": [94, 10, 362, 70], \"category\": \"title\", \"text\": \"HIGH TEMPERATURE\"}, {\"bbox\": [19, 76, 68, 135], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [84, 81, 586, 114], \"category\": \"title\", \"text\": \"Shielded Power Inductors \u2013 XAL7030\"}, {\"bbox\": [84, 117, 214, 138], \"category\": \"title\", \"text\": \"L vs Current\"}, {\"bbox\": [19, 142, 68, 200], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [19, 209, 68, 265], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [84, 151, 487, 266], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [84, 281, 487, 402], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [84, 419, 487, 536], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [509, 145, 912, 266], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [509, 279, 912, 401], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [86, 919, 278, 964], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [151, 965, 276, 978], \"category\": \"footer\", \"text\": \"www.coilcraft.com\"}, {\"bbox\": [328, 918, 642, 979], \"category\": \"footer\", \"text\": \"US +1-847-639-6400 sales@coilcraft.com\\nUK +44-1236-730595 sales@coilcraft-europe.com\\nTaiwan +886-2-2264 3646 sales@coilcraft.com.tw\\nChina +86-21-6218 8074 sales@coilcraft.com.cn\\nSingapore +65-6484 8412 sales@coilcraft.com.sg\"}, {\"bbox\": [697, 918, 912, 931], \"category\": \"footer\", \"text\": \"Document 863-4 Revised 12/16/25\"}, {\"bbox\": [697, 933, 914, 979], \"category\": \"footer\", \"text\": \"\u00a9 Coilcraft Inc. 2025\\nThis product may not be used in medical or high risk applications without prior Coilcraft approval.\\nSpecification subject to change without notice.\\nPlease check web site for latest information.\"}]\n```",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

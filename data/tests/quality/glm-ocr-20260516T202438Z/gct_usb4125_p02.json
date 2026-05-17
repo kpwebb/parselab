@@ -1,0 +1,11 @@
+{
+  "part_id": "gct_usb4125",
+  "page_no": 2,
+  "elapsed": 14.904092686,
+  "in_tok": 4968,
+  "out_tok": 384,
+  "content": "PRODUCT SPECIFICATION\n\nPart Number USB4125, USB4130, USB4135 Rev A3 Date 20/12/24\n\nProduct Description USB Type C Receptacle, 6 contacts, For Power Charging only Page 2\n\nDoc Number USB Type C Prepared YR Checked CC Approved PH\n\n1.0 SCOPE\nThis specification covers performance, tests and quality requirements for the USB Type C Receptacles, USB4125, USB4130 and USB4135.\n\n2.0 PRODUCT NAME AND PART NUMBER\nUSB Type C Receptacles, USB4125, USB4130 and USB4135.\n\n3.0 PRODUCT SHAPE, DIMENSIONS AND MATERIAL\nPlease refer to drawings.\n\n4.0 RATINGS\n4.1 Current rating: 3.00A collectively for VBUS pins(pins A9, B9)\n4.25A collectively for GND pins(pins A12, B12)\n1.25A for VCONN (pin A5/B5)\n4.2 Voltage rating ... 48V DC\n4.3 Operating Temperature Range ... -30\u00b0C to +85\u00b0C\n\n5.0 TEST AND MEASUREMENT CONDITIONS\nProduct is designed to meet electrical, mechanical and environmental performance requirements specified below. All tests are performed in ambient conditions unless otherwise specified.\n\n6.0 PERFORMANCE\n\nTest No Item Test Condition Requirement\n6.0.1 Examination of Product Visual, dimensional and functional inspection as per quality plan. Product shall meet requirements of product drawing and specification.\nReseating Manually plug/unplug 3 times No physical damage",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

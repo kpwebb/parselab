@@ -1,0 +1,11 @@
+{
+  "part_id": "mmbt3904",
+  "page_no": 4,
+  "elapsed": 3.722403608999997,
+  "in_tok": 1142,
+  "out_tok": 462,
+  "content": "<doctag><section_header_level_1><loc_190><loc_15><loc_317><loc_23>MMBT3904L, SMMBT3904L</section_header_level_1>\n<section_header_level_1><loc_145><loc_32><loc_355><loc_47>TYPICAL AUDIO SMALL- SIGNAL CHARACTERISTICS NOISE FIGURE VARIATIONS</section_header_level_1>\n<text><loc_172><loc_48><loc_328><loc_55>(V$_{CE}$ = 5.0 Vdc, T$_{A}$ = 25\u00b0C, Bandwidth = 1.0 Hz)</text>\n<picture><loc_48><loc_62><loc_241><loc_174></picture>\n<picture><loc_250><loc_62><loc_448><loc_174><caption><loc_137><loc_177><loc_168><loc_184>Figure 9.</caption></picture>\n<picture><loc_48><loc_209><loc_243><loc_320><caption><loc_341><loc_177><loc_376><loc_184>Figure 10.</caption></picture>\n<picture><loc_48><loc_340><loc_243><loc_448><caption><loc_311><loc_320><loc_413><loc_328>Figure 12. Output Admittance</caption></picture>\n<picture><loc_252><loc_209><loc_450><loc_320><caption><loc_115><loc_324><loc_196><loc_331>Figure 11. Current Gain</caption></picture>\n<picture><loc_252><loc_340><loc_450><loc_448><caption><loc_108><loc_454><loc_203><loc_461>Figure 13. Input Impedance</caption></picture>\n<page_footer><loc_219><loc_472><loc_281><loc_479>www.onsemi.com</page_footer>\n<page_footer><loc_247><loc_479><loc_252><loc_486>4</page_footer>\n<picture><loc_366><loc_471><loc_451><loc_486><caption><loc_302><loc_454><loc_421><loc_461>Figure 14. Voltage Feedback Ratio</caption></picture>\n</doctag>",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

@@ -1,0 +1,11 @@
+{
+  "part_id": "stusb4500",
+  "page_no": 6,
+  "elapsed": 7.663514120000002,
+  "in_tok": 4968,
+  "out_tok": 406,
+  "content": "2.2.4 I$^2$C interface pins\n\nTable 3. I$^2$C interface pin list\n\n| Name | Description |\n| :--- | :--- |\n| SCL | I$^2$C clock, need external pull-up |\n| SDA | I$^2$C data, need external pull-up |\n| ALERT | I$^2$C interrupt, need external pull-up |\n| ADDR0, ADDR1 | I$^2$C device address bits (see Section 4 I$^2$C Interface)\n\n\u2022 Warning:\n  \u2013 ADDR0 and ADDR1 pins must be connected to ground when there is no connection to an MCU\n  \u2013 SCL and SDA are pulled down when none of VDD or VSYS is present\n\n2.2.5 DISCH\nThis input/output pin can be used to implement a discharge path for highly capacitive $V_{BUS}$ line on power system side.\n\nWhen used as input, the discharge is internal and a serial resistor must connected to the pin to limit the discharge current through the pin. Maximum discharge current is 500 mA.\n\nThe pin can be also used as an open drain output to control an external $V_{BUS}$ discharge path when higher discharge current is required by the application, for instance.\n\nThe pin is activated at the same time as the internal discharge path on VBUS_VS_DISCH pin. The discharge is activated automatically during cable disconnection, transition to a lower PDO voltage, hard reset and error recovery state. The discharge time is programmable by NVM (see Section 5 Start-up configuration).\n\n2.2.6 GND\nGround.\n\n2.2.7 ATTACH\nThis pin is asserted when a valid source-to-sink connection is established. It is also asserted when a connection to a debug accessory device is detected.",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

@@ -1,0 +1,12 @@
+{
+  "part_id": "murata_grm21",
+  "page_no": 6,
+  "elapsed": 2.2756140719999998,
+  "in_tok": 877,
+  "out_tok": 148,
+  "content": "<doctag><section_header_level_1><loc_24><loc_36><loc_77><loc_45>Substrate Bending test</section_header_level_1>\n<section_header_level_1><loc_260><loc_36><loc_338><loc_45>Except for Substrate Bending test</section_header_level_1>\n<picture><loc_23><loc_46><loc_249><loc_355></picture>\n<page_footer><loc_11><loc_482><loc_73><loc_490>GRM21BR71C105KA01-01A</page_footer>\n<page_footer><loc_248><loc_481><loc_251><loc_490>6</page_footer>\n<picture><loc_467><loc_17><loc_490><loc_27></picture>\n</doctag>",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

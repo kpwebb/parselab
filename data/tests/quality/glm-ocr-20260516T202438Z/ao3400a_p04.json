@@ -1,0 +1,11 @@
+{
+  "part_id": "ao3400a",
+  "page_no": 4,
+  "elapsed": 10.502048319,
+  "in_tok": 4968,
+  "out_tok": 99,
+  "content": "TYPICAL ELECTRICAL AND THERMAL CHARACTERISTICS\n\nFigure 7: Gate-Charge Characteristics\n\nFigure 8: Capacitance Characteristics\n\nFigure 9: Maximum Forward Biased Safe Operating Area (Note F)\n\nFigure 10: Single Pulse Power Rating Junction-to-Ambient (Note F)\n\nFigure 11: Normalized Maximum Transient Thermal Impedance (Note F)",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

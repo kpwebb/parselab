@@ -1,0 +1,12 @@
+{
+  "part_id": "stm32f411ce",
+  "page_no": 3,
+  "elapsed": 6.695878474000004,
+  "in_tok": 3965,
+  "out_tok": 706,
+  "content": null,
+  "reasoning": "```json\n[{\"bbox\": [106, 66, 347, 82], \"category\": \"header\", \"text\": \"STM32F411xC STM32F411xE\"}, {\"bbox\": [804, 66, 891, 82], \"category\": \"header\", \"text\": \"Contents\"}, {\"bbox\": [106, 103, 238, 125], \"category\": \"title\", \"text\": \"Contents\"}, {\"bbox\": [106, 156, 891, 842], \"category\": \"text\", \"text\": \"1 Introduction \u2026\u2026 11 2 Description \u2026\u2026 12 2.1 Compatibility with STM32F4 series \u2026\u2026 14 3 Functional overview \u2026\u2026 17 3.1 Arm\u00ae Cortex\u00ae-M4 with FPU core with embedded flash memory and SRAM \u2026\u2026 17 3.2 Adaptive real-time memory accelerator (ART Accelerator) \u2026\u2026 17 3.3 Batch acquisition mode (BAM) \u2026\u2026 17 3.4 Memory protection unit \u2026\u2026 18 3.5 Embedded flash memory \u2026\u2026 18 3.6 CRC (cyclic redundancy check) calculation unit \u2026\u2026 18 3.7 Embedded SRAM \u2026\u2026 18 3.8 Multi-AHB bus matrix \u2026\u2026 19 3.9 DMA controller (DMA) \u2026\u2026 19 3.10 Nested vectored interrupt controller (NVIC) \u2026\u2026 20 3.11 External interrupt/event controller (EXTI) \u2026\u2026 20 3.12 Clocks and startup \u2026\u2026 20 3.13 Boot modes \u2026\u2026 21 3.14 Power supply schemes \u2026\u2026 21 3.15 Power supply supervisor \u2026\u2026 22 3.15.1 Internal reset ON \u2026\u2026 22 3.15.2 Internal reset OFF \u2026\u2026 22 3.16 Voltage regulator \u2026\u2026 23 3.16.1 Regulator ON \u2026\u2026 23 3.16.2 Regulator OFF \u2026\u2026 23 3.16.3 Regulator ON/OFF and internal power supply supervisor availability \u2026\u2026 26 3.17 Real-time clock (RTC) and backup registers \u2026\u2026 26 3.18 Low-power modes \u2026\u2026 27 3.19 $V_{BAT}$ operation \u2026\u2026 27 3.20 Timers and watchdogs \u2026\u2026 28\"}, {\"bbox\": [115, 871, 168, 894], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [440, 878, 555, 894], \"category\": \"footer\", \"text\": \"DS10314 Rev 8\"}, {\"bbox\": [842, 878, 891, 894], \"category\": \"footer\", \"text\": \"3/151\"}]\n```",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

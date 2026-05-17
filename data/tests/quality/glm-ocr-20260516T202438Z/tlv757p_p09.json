@@ -1,0 +1,11 @@
+{
+  "part_id": "tlv757p",
+  "page_no": 9,
+  "elapsed": 4.568807871000004,
+  "in_tok": 4831,
+  "out_tok": 283,
+  "content": "5.6 Typical Characteristics (continued)\n\nat operating temperature $T_J = 25^\\circ\\text{C}$, $V_{\\text{IN}} = V_{\\text{OUT}}(\\text{NOM}) + 0.5\\text{V}$ or 1.45V (whichever is greater), $I_{\\text{OUT}} = 1\\text{mA}$, $V_{\\text{EN}} = V_{\\text{IN}}$, and $C_{\\text{IN}} = C_{\\text{OUT}} = 1\\text{\\muF}$ (unless otherwise noted)\n\nFigure 5-13. Load Regulation vs $I_{\\text{OUT}}$\n\nFigure 5-14. 3.3V Dropout Voltage vs $I_{\\text{OUT}}$\n\nFigure 5-15. 5.0V Dropout Voltage vs $I_{\\text{OUT}}$\n\nFigure 5-16. 3.3V Regulation vs $V_{\\text{IN}}$ (Line Regulation)\n\nFigure 5-17. 5.0V Accuracy vs $V_{\\text{IN}}$ (Line Regulation)\n\nFigure 5-18. $I_{\\text{GND}}$ vs $I_{\\text{OUT}}$",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

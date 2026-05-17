@@ -1,0 +1,12 @@
+{
+  "part_id": "mmbt3904",
+  "page_no": 3,
+  "elapsed": 133.49569399799998,
+  "in_tok": 3678,
+  "out_tok": 735,
+  "content": "```json\n[{\"bbox\": [376, 28, 635, 46], \"category\": \"title\", \"text\": \"MMBT3904L, SMMBT3904L\"}, {\"bbox\": [333, 65, 665, 79], \"category\": \"title\", \"text\": \"TYPICAL TRANSIENT CHARACTERISTICS\"}, {\"bbox\": [468, 89, 570, 115], \"category\": \"legend\", \"text\": \"$$\\\\begin{array}{l} - T_{J} = 25^{\\\\circ}C \\\\\\\\ - T_{J} = 125^{\\\\circ}C \\\\end{array}$$\"}, {\"bbox\": [95, 121, 482, 340], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [496, 121, 894, 340], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [228, 351, 384, 365], \"category\": \"figure_caption\", \"text\": \"Figure 3. Capacitance\"}, {\"bbox\": [95, 365, 490, 585], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [225, 590, 396, 605], \"category\": \"figure_caption\", \"text\": \"Figure 5. Turn-On Time\"}, {\"bbox\": [640, 351, 795, 365], \"category\": \"figure_caption\", \"text\": \"Figure 4. Charge Data\"}, {\"bbox\": [495, 365, 894, 585], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [645, 590, 784, 605], \"category\": \"figure_caption\", \"text\": \"Figure 6. Rise Time\"}, {\"bbox\": [95, 624, 490, 844], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [229, 854, 392, 869], \"category\": \"figure_caption\", \"text\": \"Figure 7. Storage Time\"}, {\"bbox\": [495, 624, 894, 844], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [648, 854, 780, 869], \"category\": \"figure_caption\", \"text\": \"Figure 8. Fall Time\"}, {\"bbox\": [435, 943, 562, 955], \"category\": \"footer\", \"text\": \"www.onsemi.com\"}, {\"bbox\": [494, 957, 504, 967], \"category\": \"footer\", \"text\": \"3\"}, {\"bbox\": [732, 942, 902, 969], \"category\": \"footer\", \"text\": \"Share Feedback\\nYour Opinion Matters\"}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

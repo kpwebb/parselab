@@ -1,0 +1,11 @@
+{
+  "part_id": "yageo_rc0805",
+  "page_no": 8,
+  "elapsed": 6.036518665000003,
+  "in_tok": 4831,
+  "out_tok": 804,
+  "content": "TEST TEST METHOD PROCEDURE REQUIREMENTS\n\nSolderability MIL-STD-202F-method 208A; IEC 60115-1 4.17 Solder bath at 245\u00b13 \u00b0C Dipping time: 2\u00b10.5 seconds Well tinned (\u226595% covered) No visible damage\n\nBending Strength JIS C 5202.6.14; IEC 60115-1 4.15 Resistors mounted on a 90 mm glass epoxy resin PCB (FR4) Bending: 5 mm \u00b1(1.0%+0.05 \u03a9) for 1% tol. \u00b1(1.0%+0.05 \u03a9) for 5% tol. No visible damage\n\nResistance to Solvent MIL-STD-202F-method 215; IEC 60115-1 4.29 Isopropylalcohol (C\u2083H\u2087OH) or dichloromethane (CH\u2082Cl\u2082) followed by brushing No smeared\n\nNoise JIS C 5202 5.9; IEC 60115-1 4.12 Maximum voltage (Vrms) applied. Resistors range Value\nR < 100 \u03a9 10 dB\n100 \u03a9 \u2264 R < 1 K\u03a9 20 dB\n1 K\u03a9 \u2264 R < 10 K\u03a9 30 dB\n10 K\u03a9 \u2264 R < 100 K\u03a9 40 dB\n100 K\u03a9 \u2264 R < 1 M\u03a9 46 dB\n1 M\u03a9 \u2264 R \u2264 22 M\u03a9 48 dB\n\nHumidity (steady state) JIS C 5202 7.5; IEC 60115-8 4.24.8 1,000 hours; 40\u00b12 \u00b0C; 93(+2/-3)% RH RCWV applied for 1.5 hours on and 0.5 hour off \u00b1(0.5%+0.05 \u03a9) for 1% tol. \u00b1(2.0%+0.05 \u03a9) for 5% tol.\n\nLeaching EIA/IS 4.13B; IEC 60115-8 4.18 Solder bath at 260\u00b15 \u00b0C Dipping time: 30\u00b11 seconds No visible damage\n\nIntermittent Overload JIS C 5202 5.8 At room temperature; 2.5 \u00d7 RCWV applied for 1 second on and 25 seconds off; total 10,000 cycles \u00b1(1.0%+0.05 \u03a9) for 1% tol. \u00b1(2.0%+0.05 \u03a9) for 5% tol.\n\nResistance to Vibration On request On request\n\nMoisture Resistance Heat MIL-STD-202F-method 106F; IEC 60115-1 4.24.2 42 cycles; total 1,000 hours Shown as figure 9 \u00b1(0.5%+0.05 \u03a9) for 1% tol. \u00b1(2.0%+0.05 \u03a9) for 5% tol. No visible damage",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

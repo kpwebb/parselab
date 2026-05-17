@@ -1,0 +1,12 @@
+{
+  "part_id": "murata_grm21",
+  "page_no": 6,
+  "elapsed": 21.337684388,
+  "in_tok": 3815,
+  "out_tok": 914,
+  "content": "```json\n[{\"bbox\": [934, 35, 980, 55], \"category\": \"header\", \"text\": \"muRata\"}, {\"bbox\": [47, 73, 155, 88], \"category\": \"title\", \"text\": \"Substrate Bending test\"}, {\"bbox\": [48, 89, 465, 181], \"category\": \"text\", \"text\": \"\u00b7Test substrate\\nMaterial JIS C 6484 Copper-clad laminated sheets for PCBs (Glass fabric base, epoxy resin)\\nThickness 1.6mm\\nCopper Foil Thickness 0.035mm\\nKind of Solder Sn-3.0Ag-0.5Cu(Lead Free Solder)\\n\u00b7Land Dimension\"}, {\"bbox\": [72, 202, 196, 284], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [133, 288, 151, 302], \"category\": \"figure_caption\", \"text\": \"Fig.1\"}, {\"bbox\": [65, 335, 244, 384], \"category\": \"table\", \"text\": \"<table><tr><td rowspan=\\\"2\\\">Type</td><td colspan=\\\"3\\\">Dimension(mm)</td></tr><tr><td>a</td><td>b</td><td>c</td></tr><tr><td>GRM21</td><td>1.2</td><td>4.0</td><td>1.65</td></tr></table>\"}, {\"bbox\": [48, 415, 139, 430], \"category\": \"text\", \"text\": \"\u00b7Pressurization Method\"}, {\"bbox\": [71, 432, 277, 619], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [127, 628, 148, 642], \"category\": \"figure_caption\", \"text\": \"Fig.2\"}, {\"bbox\": [518, 73, 676, 88], \"category\": \"title\", \"text\": \"Except for Substrate Bending test\"}, {\"bbox\": [520, 90, 937, 181], \"category\": \"text\", \"text\": \"\u00b7Test substrate\\nMaterial JIS C 6484 Copper-clad laminated sheets for PCBs (Glass fabric base, epoxy resin)\\nThickness 1.6mm or 0.8mm\\nCopper Foil Thickness 0.035mm\\nKind of Solder Sn-3.0Ag-0.5Cu(Lead Free Solder)\\n\u00b7Land Dimension\"}, {\"bbox\": [540, 198, 671, 283], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [604, 287, 625, 301], \"category\": \"figure_caption\", \"text\": \"Fig.3\"}, {\"bbox\": [537, 335, 715, 384], \"category\": \"table\", \"text\": \"<table><tr><td rowspan=\\\"2\\\">Type</td><td colspan=\\\"3\\\">Dimension(mm)</td></tr><tr><td>a</td><td>b</td><td>c</td></tr><tr><td>GRM21</td><td>1.2</td><td>4.0</td><td>1.65</td></tr></table>\"}, {\"bbox\": [20, 962, 146, 978], \"category\": \"footer\", \"text\": \"GRM21BR71C105KA01-01A\"}, {\"bbox\": [495, 963, 503, 977], \"category\": \"footer\", \"text\": \"6\"}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

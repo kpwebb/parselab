@@ -1,0 +1,11 @@
+{
+  "part_id": "yageo_rc0805",
+  "page_no": 5,
+  "elapsed": 4.963454389999995,
+  "in_tok": 4831,
+  "out_tok": 322,
+  "content": "FUNCTIONAL DESCRIPTION\n\nPOWER RATING\nRC0805 rated power at 70\u00b0C is 1/8 W\n\nRATED VOLTAGE\nThe DC or AC (rms) continuous working voltage corresponding to the rated power is determined by the following formula:\n\n$$V = \\sqrt{P \\times R}$$\n\nWhere\n\n$$V = \\text{Continuous rated DC or AC (rms) working voltage (V)}$$\n\n$$P = \\text{Rated power (W)}$$\n\n$$R = \\text{Resistance value (\u03a9)}$$\n\nPULSE LOADING CAPABILITIES\n\n$$\\hat{V}_{\\text{max}} (V)$$\n\n$$1.2/50 \\mu s$$\n\n$$10/700 \\mu s$$\n\n$$10^2$$\n\n$$10^2$$\n\n$$10^3$$\n\n$$10^4$$\n\n$$10^5$$\n\n$$10^6$$\n\n$$R_n (\\Omega)$$\n\n$$10^7$$\n\nFig. 5 Maximum dissipation ($P_{\\text{max}}$) in percentage of rated power as a function of the operating ambient temperature ($T_{\\text{amb}}$)\n\nFig. 6 Maximum permissible peak pulse voltage without failing to open circuit\u2019 in accordance with DIN IEC 60040 (CO) 533 for type: RC0805",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

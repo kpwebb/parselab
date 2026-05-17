@@ -1,0 +1,12 @@
+{
+  "part_id": "tps562200",
+  "page_no": 6,
+  "elapsed": 34.29592736700002,
+  "in_tok": 3676,
+  "out_tok": 827,
+  "content": "```json\n[{\"bbox\": [85, 56, 252, 68], \"category\": \"header\", \"text\": \"TPS562200, TPS563200\"}, {\"bbox\": [752, 35, 913, 67], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [85, 69, 362, 80], \"category\": \"header\", \"text\": \"SLVSCB0E \u2013 JANUARY 2014 \u2013 REVISED MAY 2023\"}, {\"bbox\": [836, 69, 913, 80], \"category\": \"header\", \"text\": \"www.ti.com\"}, {\"bbox\": [89, 94, 298, 110], \"category\": \"title\", \"text\": \"6.4 Thermal Information\"}, {\"bbox\": [90, 117, 906, 259], \"category\": \"table\", \"text\": \"<table><tr><td rowspan=\\\"3\\\" colspan=\\\"2\\\">THERMAL METRIC <sup>(1)</sup></td><td>TPS562200</td><td>TPS563200</td><td rowspan=\\\"2\\\">UNITS</td></tr><tr><td>DDC (SOT)</td><td>DDC (SOT)</td></tr><tr><td>(6 PINS)</td><td>(6 PINS)</td><td></td></tr><tr><td>\\\\(R_{\\\\theta JA}\\\\)</td><td>Junction-to-ambient thermal resistance</td><td>89.0</td><td>87.9</td><td rowspan=\\\"5\\\">\u00b0C/W</td></tr><tr><td>\\\\(R_{\\\\theta JCtop}\\\\)</td><td>Junction-to-case (top) thermal resistance</td><td>44.5</td><td>42.2</td></tr><tr><td>\\\\(R_{\\\\theta JB}\\\\)</td><td>Junction-to-board thermal resistance</td><td>13.4</td><td>13.6</td></tr><tr><td>\\\\(\\\\psi_{JT}\\\\)</td><td>Junction-to-top characterization parameter</td><td>2.2</td><td>1.9</td></tr><tr><td>\\\\(\\\\psi_{JB}\\\\)</td><td>Junction-to-board characterization parameter</td><td>13.2</td><td>13.3</td></tr></table>\"}, {\"bbox\": [89, 268, 884, 281], \"category\": \"table_caption\", \"text\": \"(1) For more information about traditional and new thermal metrics, see the IC Package Thermal Metrics application report, SPRA953.\"}, {\"bbox\": [86, 951, 96, 962], \"category\": \"footer\", \"text\": \"6\"}, {\"bbox\": [128, 951, 296, 963], \"category\": \"footer\", \"text\": \"Submit Document Feedback\"}, {\"bbox\": [657, 950, 913, 962], \"category\": \"footer\", \"text\": \"Copyright \u00a9 2023 Texas Instruments Incorporated\"}, {\"bbox\": [364, 975, 636, 987], \"category\": \"footer\", \"text\": \"Product Folder Links: TPS562200 TPS563200\"}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

@@ -1,0 +1,12 @@
+{
+  "part_id": "ao3400a",
+  "page_no": 4,
+  "elapsed": 12.020167376,
+  "in_tok": 3815,
+  "out_tok": 685,
+  "content": "```json\n[{\"bbox\": [132, 43, 369, 79], \"category\": \"logo\", \"text\": \"ALPHA & OMEGA\\nSEMICONDUCTOR\"}, {\"bbox\": [786, 44, 883, 61], \"category\": \"header\", \"text\": \"AO3400A\"}, {\"bbox\": [135, 109, 553, 123], \"category\": \"title\", \"text\": \"TYPICAL ELECTRICAL AND THERMAL CHARACTERISTICS\"}, {\"bbox\": [141, 134, 487, 324], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [212, 324, 430, 335], \"category\": \"figure_caption\", \"text\": \"Figure 7: Gate-Charge Characteristics\"}, {\"bbox\": [513, 134, 863, 324], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [596, 324, 812, 335], \"category\": \"figure_caption\", \"text\": \"Figure 8: Capacitance Characteristics\"}, {\"bbox\": [154, 350, 510, 527], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [221, 531, 461, 553], \"category\": \"figure_caption\", \"text\": \"Figure 9: Maximum Forward Biased Safe Operating Area (Note F)\"}, {\"bbox\": [525, 350, 854, 504], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [589, 518, 875, 548], \"category\": \"figure_caption\", \"text\": \"Pulse Width (s)\\nFigure 10: Single Pulse Power Rating Junction-to-Ambient (Note F)\"}, {\"bbox\": [141, 569, 840, 734], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [294, 738, 700, 760], \"category\": \"figure_caption\", \"text\": \"Pulse Width (s)\\nFigure 11: Normalized Maximum Transient Thermal Impedance (Note F)\"}, {\"bbox\": [125, 943, 228, 955], \"category\": \"footer\", \"text\": \"Rev 3.1: July 2023\"}, {\"bbox\": [441, 943, 554, 954], \"category\": \"footer\", \"text\": \"www.aosmd.com\"}, {\"bbox\": [822, 943, 887, 955], \"category\": \"footer\", \"text\": \"Page 4 of 5\"}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

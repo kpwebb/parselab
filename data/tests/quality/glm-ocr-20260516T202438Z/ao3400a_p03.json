@@ -1,0 +1,11 @@
+{
+  "part_id": "ao3400a",
+  "page_no": 3,
+  "elapsed": 10.493083986000002,
+  "in_tok": 4968,
+  "out_tok": 118,
+  "content": "TYPICAL ELECTRICAL AND THERMAL CHARACTERISTICS\n\nFig 1: On-Region Characteristics (Note E)\n\nFig 2: Transfer Characteristics (Note E)\n\nFig 3: On-Resistance vs. Drain Current and Gate Voltage (Note E)\n\nFig 4: On-Resistance vs. Junction Temperature (Note E)\n\nFig 5: On-Resistance vs. Gate-Source Voltage (Note E)\n\nFig 6: Body-Diode Characteristics (Note E)",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

@@ -1,0 +1,12 @@
+{
+  "part_id": "tps562200",
+  "page_no": 8,
+  "elapsed": 8.431562514000007,
+  "in_tok": 3826,
+  "out_tok": 898,
+  "content": null,
+  "reasoning": "```json\n[{\"bbox\": [83, 55, 361, 80], \"category\": \"header\", \"text\": \"TPS562200, TPS563200\\nSLVSCB0E \u2013 JANUARY 2014 \u2013 REVISED MAY 2023\"}, {\"bbox\": [750, 33, 910, 80], \"category\": \"header\", \"text\": \"TEXAS INSTRUMENTS www.ti.com\"}, {\"bbox\": [87, 93, 419, 110], \"category\": \"title\", \"text\": \"6.7 Typical Characteristics TPS562200\"}, {\"bbox\": [87, 117, 329, 132], \"category\": \"text\", \"text\": \"$V_{IN} = 12$ V (unless otherwise noted).\"}, {\"bbox\": [89, 140, 480, 334], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [129, 336, 459, 350], \"category\": \"figure_caption\", \"text\": \"Figure 6-1. Supply Current vs Junction Temperature\"}, {\"bbox\": [542, 144, 887, 334], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [595, 337, 655, 350], \"category\": \"figure_caption\", \"text\": \"EN = 0 V\"}, {\"bbox\": [512, 355, 890, 370], \"category\": \"figure_caption\", \"text\": \"Figure 6-2. VIN Shutdown Current vs Junction Temperature\"}, {\"bbox\": [112, 376, 480, 584], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [142, 588, 447, 603], \"category\": \"figure_caption\", \"text\": \"Figure 6-3. Vfb Voltage vs Junction Temperature\"}, {\"bbox\": [530, 376, 887, 567], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [585, 568, 816, 582], \"category\": \"figure_caption\", \"text\": \"Figure 6-4. En Current vs En Voltage\"}, {\"bbox\": [109, 610, 462, 799], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [168, 801, 421, 816], \"category\": \"figure_caption\", \"text\": \"Figure 6-5. Efficiency vs Output Current\"}, {\"bbox\": [516, 610, 869, 817], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [575, 820, 828, 835], \"category\": \"figure_caption\", \"text\": \"Figure 6-6. Efficiency vs Output Current\"}, {\"bbox\": [83, 949, 97, 962], \"category\": \"footer\", \"text\": \"8\"}, {\"bbox\": [125, 949, 296, 963], \"category\": \"footer\", \"text\": \"Submit Document Feedback\"}, {\"bbox\": [654, 949, 910, 962], \"category\": \"footer\", \"text\": \"Copyright \u00a9 2023 Texas Instruments Incorporated\"}, {\"bbox\": [361, 973, 635, 987], \"category\": \"footer\", \"text\": \"Product Folder Links: TPS562200 TPS563200\"}]\n```",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

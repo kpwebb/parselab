@@ -1,0 +1,19 @@
+{
+  "preset": "inf2-pro",
+  "prompt": "Extract layout with bboxes as JSON",
+  "model": "infly/Infinity-Parser2-Pro",
+  "endpoint": "https://ferrite-systems--parselab-infinity-parser2-serve.modal.run/v1/chat/completions",
+  "pages": 101,
+  "ok": 101,
+  "errors": 0,
+  "render_secs": 10.28,
+  "dispatch_secs": 190.16,
+  "sum_req_secs": 2909.4,
+  "in_tok_total": 376744,
+  "out_tok_total": 128761,
+  "pages_per_sec": 0.531,
+  "effective_parallelism": 15.3,
+  "concurrency": 16,
+  "max_tokens": 4096,
+  "dpi": 200
+}

@@ -1,0 +1,12 @@
+{
+  "part_id": "gct_usb4125",
+  "page_no": 9,
+  "elapsed": 13.574084047,
+  "in_tok": 3817,
+  "out_tok": 897,
+  "content": "```json\n{\n  \"type\": \"table\",\n  \"bbox_2d\": [49, 56, 943, 152],\n  \"rows\": [\n    {\n      \"cells\": [\n        {\n          \"bbox_2d\": [49, 56, 161, 86],\n          \"text_content\": \"Part Number\"\n        },\n        {\n          \"bbox_2d\": [161, 56, 510, 86],\n          \"text_content\": \"USB4125, USB4130, USB4135\"\n        },\n        {\n          \"bbox_2d\": [510, 56, 566, 86],\n          \"text_content\": \"Rev\"\n        },\n        {\n          \"bbox_2d\": [566, 56, 741, 86],\n          \"text_content\": \"A3\"\n        },\n        {\n          \"bbox_2d\": [741, 56, 800, 86],\n          \"text_content\": \"Date\"\n        },\n        {\n          \"bbox_2d\": [800, 56, 943, 86],\n          \"text_content\": \"20/12/24\"\n        }\n      ]\n    },\n    {\n      \"cells\": [\n        {\n          \"bbox_2d\": [49, 86, 161, 117],\n          \"text_content\": \"Product Description\"\n        },\n        {\n          \"bbox_2d\": [161, 86, 741, 117],\n          \"text_content\": \"USB Type C Receptacle, 6 contacts, For Power Charging only\"\n        },\n        {\n          \"bbox_2d\": [741, 86, 800, 117],\n          \"text_content\": \"Page\"\n        },\n        {\n          \"bbox_2d\": [800, 86, 943, 117],\n          \"text_content\": \"9\"\n        }\n      ]\n    },\n    {\n      \"cells\": [\n        {\n          \"bbox_2d\": [49, 117, 161, 152],\n          \"text_content\": \"Doc Number\"\n        },\n        {\n          \"bbox_2d\": [161, 117, 388, 152],\n          \"text_content\": \"USB Type C\"\n        },\n        {\n          \"bbox_2d\": [388, 117, 461, 152],\n          \"text_content\": \"Prepared\"\n        },\n        {\n          \"bbox_2d\": [461, 117, 566, 152],\n          \"text_content\": \"YR\"\n        },\n        {\n          \"bbox_2d\": [566, 117, 661, 152],\n          \"text_content\": \"Checked\"\n        },\n        {\n          \"bbox_2d\": [661, 117, 741, 152],\n          \"text_content\": \"CC\"\n        },\n        {\n          \"bbox_2d\": [741, 117, 800, 152],\n          \"text_content\": \"Approved\"\n        },\n        {\n          \"bbox_2d\": [800, 117, 943, 152],\n          \"text_content\": \"PH\"\n        }\n      ]\n    }\n  ]\n}\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

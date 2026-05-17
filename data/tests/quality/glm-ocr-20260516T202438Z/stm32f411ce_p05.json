@@ -1,0 +1,11 @@
+{
+  "part_id": "stm32f411ce",
+  "page_no": 5,
+  "elapsed": 8.554225572999997,
+  "in_tok": 4968,
+  "out_tok": 560,
+  "content": "6.3.4 Operating conditions at power-up / power-down (regulator OFF) ... 66\n6.3.5 Embedded reset and power control block characteristics ... 67\n6.3.6 Supply current characteristics ... 68\n6.3.7 Wakeup time from low-power modes ... 82\n6.3.8 External clock source characteristics ... 83\n6.3.9 Internal clock source characteristics ... 87\n6.3.10 PLL characteristics ... 89\n6.3.11 PLL spread spectrum clock generation (SSCG) characteristics ... 91\n6.3.12 Memory characteristics ... 92\n6.3.13 EMC characteristics ... 94\n6.3.14 Absolute maximum ratings (electrical sensitivity) ... 96\n6.3.15 I/O current injection characteristics ... 97\n6.3.16 I/O port characteristics ... 98\n6.3.17 NRST pin characteristics ... 104\n6.3.18 TIM timer characteristics ... 105\n6.3.19 Communications interfaces ... 105\n6.3.20 12-bit ADC characteristics ... 114\n6.3.21 Temperature sensor characteristics ... 120\n6.3.22 $V_{BAT}$ monitoring characteristics ... 121\n6.3.23 Embedded reference voltage ... 121\n6.3.24 SD/SDIO MMC/eMMC card host interface (SDIO) characteristics ... 122\n6.3.25 RTC characteristics ... 124\n\n7 Package information ... 125\n7.1 Device marking ... 125\n7.2 WLCSP49 package information (A0ZV) ... 126\n7.3 UFQFPN48 package information (A0B9) ... 129\n7.4 LQFP64 package information (5W) ... 131\n7.5 LQFP100 package information (1L) ... 134\n7.6 UFBGA100 package information (A0C2) ... 137\n7.7 Thermal characteristics ... 140\n7.7.1 Reference document ... 140\n\n8 Ordering information ... 141\n\nAppendix A Recommendations when using the internal reset OFF ... 142",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

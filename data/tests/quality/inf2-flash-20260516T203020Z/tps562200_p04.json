@@ -1,0 +1,12 @@
+{
+  "part_id": "tps562200",
+  "page_no": 4,
+  "elapsed": 7.525630374000002,
+  "in_tok": 3826,
+  "out_tok": 800,
+  "content": null,
+  "reasoning": "```json\n[{\"bbox\": [85, 56, 254, 69], \"category\": \"header\", \"text\": \"TPS562200, TPS563200\"}, {\"bbox\": [85, 68, 362, 81], \"category\": \"header\", \"text\": \"SLVSCB0E \u2013 JANUARY 2014 \u2013 REVISED MAY 2023\"}, {\"bbox\": [752, 33, 914, 80], \"category\": \"header\", \"text\": \"TEXAS INSTRUMENTS\\nwww.ti.com\"}, {\"bbox\": [88, 96, 415, 115], \"category\": \"title\", \"text\": \"5 Pin Configuration and Functions\"}, {\"bbox\": [372, 121, 626, 239], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [314, 248, 684, 264], \"category\": \"figure_caption\", \"text\": \"Figure 5-1. DDC Package 6 Pin (SOT) Top View\"}, {\"bbox\": [401, 276, 596, 290], \"category\": \"table_caption\", \"text\": \"Table 5-1. Pin Functions\"}, {\"bbox\": [90, 290, 905, 456], \"category\": \"table\", \"text\": \"<table><tr><td colspan=\\\"2\\\">PIN</td><td rowspan=\\\"2\\\">DESCRIPTION</td></tr><tr><td>NAME</td><td>NUMBER</td></tr><tr><td>GND</td><td>1</td><td>Ground pin Source terminal of low-side power NFET as well as the ground terminal for controller circuit. Connect sensitive VFB to this GND at a single point.</td></tr><tr><td>SW</td><td>2</td><td>Switch node connection between high-side NFET and low-side NFET.</td></tr><tr><td>VIN</td><td>3</td><td>Input voltage supply pin. The drain terminal of high-side power NFET.</td></tr><tr><td>VFB</td><td>4</td><td>Converter feedback input. Connect to output voltage with feedback resistor divider.</td></tr><tr><td>EN</td><td>5</td><td>Enable input control. Active high and must be pulled up to enable the device.</td></tr><tr><td>VBST</td><td>6</td><td>Supply input for the high-side NFET gate drive circuit. Connect a 0.1\u03bcF capacitor between VBST and SW pins.</td></tr></table>\"}, {\"bbox\": [85, 952, 97, 963], \"category\": \"footer\", \"text\": \"4\"}, {\"bbox\": [126, 951, 297, 964], \"category\": \"footer\", \"text\": \"Submit Document Feedback\"}, {\"bbox\": [656, 950, 914, 963], \"category\": \"footer\", \"text\": \"Copyright \u00a9 2023 Texas Instruments Incorporated\"}, {\"bbox\": [362, 975, 637, 988], \"category\": \"footer\", \"text\": \"Product Folder Links: TPS562200 TPS563200\"}]\n```",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

@@ -1,0 +1,12 @@
+{
+  "part_id": "gct_usb4125",
+  "page_no": 1,
+  "elapsed": 5.962059339,
+  "in_tok": 878,
+  "out_tok": 285,
+  "content": "<doctag><section_header_level_1><loc_159><loc_13><loc_355><loc_25>PRODUCT SPECIFICATION</section_header_level_1>\n<otsl><loc_24><loc_28><loc_472><loc_78><ched>Part  Number<ched>USB4125, USB4130, USB4135<ched>Rev<ched>A3<ched>Date<ched>20/12/24<nl><fcel>Product  Description<fcel>USB Type C Receptacle, 6 contacts, For Power Charging only<lcel><fcel>Page<fcel>1<fcel>USB4125, USB4135<nl><fcel>Doc  Number<fcel>USB Type C<fcel>Prepared<fcel>YR<fcel>Checked<fcel>CC Approved PH<nl></otsl>\n<picture><loc_183><loc_92><loc_310><loc_166><other><caption><loc_226><loc_175><loc_269><loc_183>USB4125</caption></picture>\n<picture><loc_195><loc_197><loc_301><loc_294><other><caption><loc_226><loc_308><loc_269><loc_316>USB4130</caption></picture>\n<picture><loc_180><loc_327><loc_322><loc_395><other><caption><loc_226><loc_412><loc_269><loc_420>USB4135</caption></picture>\n<picture><loc_224><loc_465><loc_287><loc_492><logo></picture>\n</doctag>",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

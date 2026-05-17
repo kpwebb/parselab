@@ -1,0 +1,12 @@
+{
+  "part_id": "pmeg3010eb",
+  "page_no": 6,
+  "elapsed": 24.672122029000008,
+  "in_tok": 3817,
+  "out_tok": 813,
+  "content": "```json\n[{\"bbox\": [81, 40, 171, 56], \"category\": \"header\", \"text\": \"Nexperia\"}, {\"bbox\": [737, 40, 916, 59], \"category\": \"header\", \"text\": \"PMEG3010EB\"}, {\"bbox\": [545, 68, 918, 83], \"category\": \"header\", \"text\": \"30 V, 1 A very low VF Schottky barrier rectifier\"}, {\"bbox\": [81, 106, 314, 124], \"category\": \"title\", \"text\": \"14. Revision history\"}, {\"bbox\": [82, 140, 262, 152], \"category\": \"table_caption\", \"text\": \"Table 8. Revision history\"}, {\"bbox\": [82, 152, 915, 278], \"category\": \"table\", \"text\": \"<table><tr><td>Data sheet ID</td><td>Release date</td><td>Data sheet status</td><td>Change notice</td><td>Supersedes</td></tr><tr><td>PMEG3010EB v.4</td><td>20241008</td><td>Product data sheet</td><td>-</td><td>PMEG3010EB v.3</td></tr><tr><td>Modifications:</td><td colspan=\\\"4\\\">\u2022 Product(s) changed to non-automotive qualification. Please refer to nexperia.com for automotive (-Q) product alternative(s).</td></tr><tr><td>PMEG3010EB v.3</td><td>20210407</td><td>Product data sheet</td><td>-</td><td>PMEG3010EB v.2</td></tr><tr><td>PMEG3010EB v.2</td><td>20120315</td><td>Product data sheet</td><td>-</td><td>PMEG3010EB v.1</td></tr><tr><td>PMEG3010EB v.1</td><td>20061201</td><td>Product data sheet</td><td>-</td><td>-</td></tr></table>\"}, {\"bbox\": [81, 941, 140, 951], \"category\": \"footer\", \"text\": \"PMEG3010EB\"}, {\"bbox\": [365, 941, 633, 951], \"category\": \"footer\", \"text\": \"All information provided in this document is subject to legal disclaimers.\"}, {\"bbox\": [761, 941, 917, 951], \"category\": \"footer\", \"text\": \"\u00a9 Nexperia B.V. 2024. All rights reserved\"}, {\"bbox\": [81, 958, 206, 969], \"category\": \"footer\", \"text\": \"Product data sheet\"}, {\"bbox\": [449, 958, 549, 969], \"category\": \"footer\", \"text\": \"8 October 2024\"}, {\"bbox\": [887, 958, 917, 969], \"category\": \"footer\", \"text\": \"6 / 8\"}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

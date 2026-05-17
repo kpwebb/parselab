@@ -1,0 +1,12 @@
+{
+  "part_id": "stusb4500",
+  "page_no": 5,
+  "elapsed": 24.447036622999974,
+  "in_tok": 3817,
+  "out_tok": 883,
+  "content": "```json\n[{\"bbox\": [68, 66, 126, 91], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [813, 66, 930, 96], \"category\": \"header\", \"text\": \"STUSB4500\\nPin description\"}, {\"bbox\": [423, 120, 669, 134], \"category\": \"table_caption\", \"text\": \"Table 2. Pin function descriptions\"}, {\"bbox\": [164, 139, 927, 366], \"category\": \"table\", \"text\": \"<table><tr><td>Type</td><td>Description</td></tr><tr><td>D</td><td>Digital</td></tr><tr><td>A</td><td>Analog</td></tr><tr><td>O</td><td>Output pad</td></tr><tr><td>I</td><td>Input pad</td></tr><tr><td>IO</td><td>Bidirectional pad</td></tr><tr><td>OD</td><td>Open drain output</td></tr><tr><td>PD</td><td>Pull-down</td></tr><tr><td>PU</td><td>Pull-up</td></tr><tr><td>HV</td><td>High voltage</td></tr><tr><td>PWR</td><td>Power</td></tr><tr><td>GND</td><td>Ground</td></tr></table>\"}, {\"bbox\": [67, 385, 314, 402], \"category\": \"title\", \"text\": \"2.2 Pin description\"}, {\"bbox\": [67, 418, 251, 433], \"category\": \"title\", \"text\": \"2.2.1 CC1 / CC2\"}, {\"bbox\": [161, 436, 915, 476], \"category\": \"text\", \"text\": \"CC1 and CC2 are the configuration channel pins used for connection and attachment detection, plug orientation determination, USB power delivery communication, and system configuration management across USB Type-C cable. CC1 and CC2 are HiZ during reset.\"}, {\"bbox\": [67, 491, 299, 506], \"category\": \"title\", \"text\": \"2.2.2 CC1DB / CC2DB\"}, {\"bbox\": [161, 508, 912, 549], \"category\": \"text\", \"text\": \"CC1DB and CC2DB are used for dead battery mode. This mode is enabled by connecting CC1DB and CC2DB respectively to CC1 and CC2. Thanks to this connection, the pull-down terminations on the CC pins are present by default even if the device is not supplied (see Section 3.5 Dead battery mode).\"}, {\"bbox\": [161, 550, 855, 565], \"category\": \"text\", \"text\": \"Warning: CC1DB and CC2DB must be connected to ground when dead battery mode is not supported.\"}, {\"bbox\": [67, 580, 225, 594], \"category\": \"title\", \"text\": \"2.2.3 RESET\"}, {\"bbox\": [162, 597, 284, 611], \"category\": \"text\", \"text\": \"Active high reset.\"}, {\"bbox\": [69, 973, 164, 984], \"category\": \"footer\", \"text\": \"DS12499 - Rev 8\"}, {\"bbox\": [873, 974, 930, 985], \"category\": \"footer\", \"text\": \"page 5/42\"}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

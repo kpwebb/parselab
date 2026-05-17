@@ -1,0 +1,12 @@
+{
+  "part_id": "yageo_rc0805",
+  "page_no": 10,
+  "elapsed": 15.053727423999987,
+  "in_tok": 3678,
+  "out_tok": 429,
+  "content": "```json\n[{\"bbox\": [85, 44, 173, 63], \"category\": \"header\", \"text\": \"YAGEO\"}, {\"bbox\": [784, 53, 880, 63], \"category\": \"header\", \"text\": \"Product specification\"}, {\"bbox\": [882, 51, 907, 76], \"category\": \"header\", \"text\": \"10\\n10\"}, {\"bbox\": [186, 68, 638, 85], \"category\": \"header\", \"text\": \"Chip Resistor Surface Mount | RC | SERIES | 0805 (Pb Free)\"}, {\"bbox\": [90, 148, 245, 162], \"category\": \"title\", \"text\": \"REVISION HISTORY\"}, {\"bbox\": [89, 169, 908, 228], \"category\": \"table\", \"text\": \"<table><tr><td>REVISION</td><td>DATE</td><td>CHANGE NOTIFICATION</td><td>DESCRIPTION</td></tr><tr><td>Version 2</td><td>Sep 03, 2004</td><td>-</td><td>- Test method and procedure updated</td></tr><tr><td></td><td></td><td></td><td>- PE tape added (paper tape will be replaced by PE tape)</td></tr></table>\"}, {\"bbox\": [86, 951, 188, 985], \"category\": \"footer\", \"text\": \"Sep 03, 2004 V.2\"}, {\"bbox\": [812, 957, 910, 968], \"category\": \"footer\", \"text\": \"www.yageo.com\"}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

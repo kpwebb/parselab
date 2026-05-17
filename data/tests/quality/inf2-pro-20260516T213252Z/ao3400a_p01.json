@@ -1,0 +1,12 @@
+{
+  "part_id": "ao3400a",
+  "page_no": 1,
+  "elapsed": 24.436802626000002,
+  "in_tok": 3815,
+  "out_tok": 839,
+  "content": "```json\n[{\"bbox\": [148, 100, 221, 140], \"category\": \"figure\", \"bbox\": [148, 100, 221, 140]}, {\"bbox\": [230, 99, 418, 129], \"category\": \"header\", \"bbox\": [230, 99, 418, 129]}, {\"bbox\": [642, 101, 874, 143], \"category\": \"header\", \"bbox\": [642, 101, 874, 143]}, {\"bbox\": [150, 191, 310, 206], \"category\": \"title\", \"bbox\": [150, 191, 310, 206]}, {\"bbox\": [149, 217, 495, 268], \"category\": \"text\", \"bbox\": [149, 217, 495, 268]}, {\"bbox\": [516, 191, 661, 206], \"category\": \"title\", \"bbox\": [516, 191, 661, 206]}, {\"bbox\": [513, 215, 814, 289], \"category\": \"table\", \"bbox\": [513, 215, 814, 289]}, {\"bbox\": [762, 301, 823, 346], \"category\": \"figure\", \"bbox\": [762, 301, 823, 346]}, {\"bbox\": [242, 380, 482, 493], \"category\": \"figure\", \"bbox\": [242, 380, 482, 493]}, {\"bbox\": [622, 385, 718, 481], \"category\": \"figure\", \"bbox\": [622, 385, 718, 481]}, {\"bbox\": [136, 500, 538, 512], \"category\": \"table_caption\", \"bbox\": [136, 500, 538, 512]}, {\"bbox\": [134, 512, 881, 645], \"category\": \"table\", \"bbox\": [134, 512, 881, 645]}, {\"bbox\": [134, 655, 882, 723], \"category\": \"table\", \"bbox\": [134, 655, 882, 723]}, {\"bbox\": [123, 944, 216, 955], \"category\": \"footer\", \"bbox\": [123, 944, 216, 955]}, {\"bbox\": [447, 944, 550, 954], \"category\": \"footer\", \"bbox\": [447, 944, 550, 954]}, {\"bbox\": [829, 944, 888, 955], \"category\": \"footer\", \"bbox\": [829, 944, 888, 955]}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

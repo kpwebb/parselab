@@ -1,0 +1,12 @@
+{
+  "part_id": "stm32f411ce",
+  "page_no": 2,
+  "elapsed": 9.847479128999993,
+  "in_tok": 3817,
+  "out_tok": 486,
+  "content": "```json\n[\n\t{\"bbox_2d\": [654, 69, 887, 81], \"text_content\": \"STM32F411xC STM32F411xE\"},\n\t{\"bbox_2d\": [207, 107, 335, 123], \"text_content\": \"Application\"},\n\t{\"bbox_2d\": [231, 135, 489, 147], \"text_content\": \"Motor drive and application control\"},\n\t{\"bbox_2d\": [231, 153, 373, 164], \"text_content\": \"Medical equipment\"},\n\t{\"bbox_2d\": [231, 170, 632, 182], \"text_content\": \"Industrial applications: PLC, inverters, circuit breakers\"},\n\t{\"bbox_2d\": [231, 188, 399, 200], \"text_content\": \"Printers, and scanners\"},\n\t{\"bbox_2d\": [231, 205, 549, 218], \"text_content\": \"Alarm systems, video intercom, and HVAC\"},\n\t{\"bbox_2d\": [231, 223, 407, 235], \"text_content\": \"Home audio appliances\"},\n\t{\"bbox_2d\": [231, 241, 421, 253], \"text_content\": \"Mobile phone sensor hub\"},\n\t{\"bbox_2d\": [112, 882, 149, 893], \"text_content\": \"2/151\"},\n\t{\"bbox_2d\": [444, 882, 552, 893], \"text_content\": \"DS10314 Rev 8\"},\n\t{\"bbox_2d\": [833, 874, 882, 891], \"text_content\": \"ST\"}\n]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

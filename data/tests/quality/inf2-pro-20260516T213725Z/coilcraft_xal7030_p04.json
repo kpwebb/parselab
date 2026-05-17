@@ -1,0 +1,12 @@
+{
+  "part_id": "coilcraft_xal7030",
+  "page_no": 4,
+  "elapsed": 13.132690889,
+  "in_tok": 3676,
+  "out_tok": 740,
+  "content": "```json\n[{\"bbox\": [88, 4, 371, 73], \"category\": \"header\", \"text\": \"HIGH TEMPERATURE\"}, {\"bbox\": [774, 9, 916, 26], \"category\": \"header\", \"text\": \"Document 863-4\"}, {\"bbox\": [18, 77, 68, 135], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [83, 81, 588, 114], \"category\": \"title\", \"text\": \"Shielded Power Inductors \u2013 XAL7030\"}, {\"bbox\": [84, 117, 214, 137], \"category\": \"title\", \"text\": \"L vs Current\"}, {\"bbox\": [18, 142, 69, 201], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [19, 208, 68, 266], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [83, 144, 489, 267], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [509, 144, 915, 267], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [83, 278, 489, 401], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [509, 278, 915, 401], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [83, 412, 489, 536], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [86, 919, 280, 963], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [149, 965, 275, 978], \"category\": \"footer\", \"text\": \"www.coilcraft.com\"}, {\"bbox\": [329, 917, 643, 979], \"category\": \"footer\", \"text\": \"US +1-847-639-6400 sales@coilcraft.com\\nUK +44-1236-730595 sales@coilcraft-europe.com\\nTaiwan +886-2-2264 3646 sales@coilcraft.com.tw\\nChina +86-21-6218 8074 sales@coilcraft.com.cn\\nSingapore +65-6484 8412 sales@coilcraft.com.sg\"}, {\"bbox\": [696, 917, 915, 978], \"category\": \"footer\", \"text\": \"Document 863-4 Revised 12/16/25\\n\u00a9 Coilcraft Inc. 2025\\nThis product may not be used in medical or high risk applications without prior Coilcraft approval.\\nSpecification subject to change without notice.\\nPlease check web site for latest information.\"}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

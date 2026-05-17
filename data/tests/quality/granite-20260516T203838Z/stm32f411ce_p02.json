@@ -1,0 +1,12 @@
+{
+  "part_id": "stm32f411ce",
+  "page_no": 2,
+  "elapsed": 3.1494127180000007,
+  "in_tok": 878,
+  "out_tok": 312,
+  "content": "<doctag><page_footer><loc_56><loc_442><loc_75><loc_448>2/151</page_footer>\n<page_footer><loc_223><loc_442><loc_277><loc_448>DS10314 Rev 8</page_footer>\n<page_header><loc_328><loc_35><loc_444><loc_42>STM32F411xC STM32F411xE</page_header>\n<section_header_level_1><loc_104><loc_53><loc_168><loc_62>Application</section_header_level_1>\n<unordered_list><list_item><loc_104><loc_66><loc_245><loc_73>\u00b7 Motor drive and application control</list_item>\n<list_item><loc_104><loc_75><loc_187><loc_82>\u00b7 Medical equipment</list_item>\n<list_item><loc_104><loc_84><loc_316><loc_91>\u00b7 Industrial applications: PLC, inverters, circuit breakers</list_item>\n<list_item><loc_104><loc_93><loc_200><loc_100>\u00b7 Printers, and scanners</list_item>\n<list_item><loc_104><loc_102><loc_275><loc_109>\u00b7 Alarm systems, video intercom, and HVAC</list_item>\n<list_item><loc_104><loc_111><loc_204><loc_118>\u00b7 Home audio appliances</list_item>\n<list_item><loc_104><loc_120><loc_211><loc_127>\u00b7 Mobile phone sensor hub</list_item>\n</unordered_list>\n<picture><loc_416><loc_438><loc_442><loc_448></picture>\n</doctag>",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

@@ -1,0 +1,11 @@
+{
+  "part_id": "yageo_rc0805",
+  "page_no": 6,
+  "elapsed": 2.460248219999997,
+  "in_tok": 4831,
+  "out_tok": 84,
+  "content": "Fig. 7 Pulse on a regular basis for type: RC0805; maximum permissible peak pulse power as a function of pulse duration for single pulse and repetitive pulse $tp/ti = 1000$\n\nFig. 8 Pulse on a regular basis for type: RC0805; maximum permissible peak pulse voltage as a function of pulse duration",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

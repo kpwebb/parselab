@@ -1,0 +1,12 @@
+{
+  "part_id": "ao3400a",
+  "page_no": 3,
+  "elapsed": 7.7990660169999995,
+  "in_tok": 3965,
+  "out_tok": 757,
+  "content": null,
+  "reasoning": "```json\n[{\"bbox\": [131, 44, 370, 79], \"category\": \"header\", \"text\": \"ALPHA & OMEGA\\nSEMICONDUCTOR\"}, {\"bbox\": [784, 44, 884, 61], \"category\": \"header\", \"text\": \"AO3400A\"}, {\"bbox\": [134, 109, 554, 124], \"category\": \"title\", \"text\": \"TYPICAL ELECTRICAL AND THERMAL CHARACTERISTICS\"}, {\"bbox\": [154, 134, 495, 310], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [215, 321, 453, 334], \"category\": \"figure_caption\", \"text\": \"Fig 1: On-Region Characteristics (Note E)\"}, {\"bbox\": [512, 136, 842, 306], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [562, 319, 807, 332], \"category\": \"figure_caption\", \"text\": \"Figure 2: Transfer Characteristics (Note E)\"}, {\"bbox\": [162, 348, 495, 522], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [210, 519, 505, 541], \"category\": \"figure_caption\", \"text\": \"Figure 3: On-Resistance vs. Drain Current and Gate Voltage (Note E)\"}, {\"bbox\": [512, 350, 850, 510], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [584, 516, 875, 546], \"category\": \"figure_caption\", \"text\": \"Figure 4: On-Resistance vs. Junction Temperature (Note E)\"}, {\"bbox\": [158, 567, 495, 749], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [209, 751, 492, 773], \"category\": \"figure_caption\", \"text\": \"Figure 5: On-Resistance vs. Gate-Source Voltage (Note E)\"}, {\"bbox\": [512, 567, 860, 749], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [577, 751, 840, 764], \"category\": \"figure_caption\", \"text\": \"Figure 6: Body-Diode Characteristics (Note E)\"}, {\"bbox\": [124, 942, 228, 955], \"category\": \"footer\", \"text\": \"Rev 3.1: July 2023\"}, {\"bbox\": [440, 942, 554, 955], \"category\": \"footer\", \"text\": \"www.aosmd.com\"}, {\"bbox\": [817, 942, 887, 955], \"category\": \"footer\", \"text\": \"Page 3 of 5\"}]\n```",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

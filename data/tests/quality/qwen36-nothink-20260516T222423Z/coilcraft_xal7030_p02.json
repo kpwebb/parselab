@@ -1,0 +1,12 @@
+{
+  "part_id": "coilcraft_xal7030",
+  "page_no": 2,
+  "elapsed": 8.707256095,
+  "in_tok": 3678,
+  "out_tok": 48,
+  "content": "```json\n{\n  \"bbox_2d\": [773, 13, 919, 27], \"text_content\": \"Document 863-2\"\n}\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

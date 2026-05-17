@@ -1,0 +1,12 @@
+{
+  "part_id": "pmeg3010eb",
+  "page_no": 4,
+  "elapsed": 2.661843633,
+  "in_tok": 878,
+  "out_tok": 396,
+  "content": "<doctag><page_header><loc_42><loc_20><loc_85><loc_28>Nexperia</page_header>\n<page_header><loc_370><loc_20><loc_458><loc_31>PMEG3010EB</page_header>\n<section_header_level_1><loc_275><loc_34><loc_459><loc_41>30 V, 1 A very low VF Schottky barrier rectifier</section_header_level_1>\n<picture><loc_42><loc_48><loc_458><loc_180><caption><loc_42><loc_180><loc_311><loc_186>Fig. 3. Diode capacitance as a function of reverse voltage; typical values</caption></picture>\n<section_header_level_1><loc_42><loc_192><loc_155><loc_202>11. Test information</section_header_level_1>\n<picture><loc_42><loc_206><loc_458><loc_282></picture>\n<section_header_level_1><loc_42><loc_292><loc_154><loc_302>12. Package outline</section_header_level_1>\n<picture><loc_42><loc_308><loc_458><loc_421></picture>\n<page_footer><loc_42><loc_473><loc_70><loc_476>PMEG3010EB</page_footer>\n<page_footer><loc_183><loc_473><loc_315><loc_476>All information provided in this document is subject to legal disclaimers.</page_footer>\n<page_footer><loc_382><loc_473><loc_459><loc_476>\u00a9 Nexperia B.V. 2024. All rights reserved</page_footer>\n<page_footer><loc_42><loc_480><loc_103><loc_486>Product data sheet</page_footer>\n<page_footer><loc_225><loc_480><loc_274><loc_486>8 October 2024</page_footer>\n<page_footer><loc_444><loc_480><loc_459><loc_486>4 / 8</page_footer>\n</doctag>",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

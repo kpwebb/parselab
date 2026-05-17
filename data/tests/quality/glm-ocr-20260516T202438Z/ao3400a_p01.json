@@ -1,0 +1,11 @@
+{
+  "part_id": "ao3400a",
+  "page_no": 1,
+  "elapsed": 14.730563724,
+  "in_tok": 4968,
+  "out_tok": 459,
+  "content": "General Description\n\nThe AO3400A combines advanced trench MOSFET technology with a low resistance package to provide extremely low $R_{DS(ON)}$. This device is suitable for use as a load switch or in PWM applications.\n\nProduct Summary\n\n$V_{DS}$ 30V\n$I_D$ (at $V_{GS}=10$V) 5.7A\n$R_{DS(ON)}$ (at $V_{GS}=10$V) < 26.5m\u03a9\n$R_{DS(ON)}$ (at $V_{GS}=4.5$V) < 32m\u03a9\n$R_{DS(ON)}$ (at $V_{GS}=2.5$V) < 48m\u03a9\n\nAbsolute Maximum Ratings $T_A=25^\\circ C$ unless otherwise noted\n\nParameter Symbol Maximum Units\nDrain-Source Voltage $V_{DS}$ 30 V\nGate-Source Voltage $V_{GS}$ \u00b112 V\nContinuous Drain Current $T_A=25^\\circ C$ $I_D$ 5.7 A\n$T_A=70^\\circ C$ $I_D$ 4.7 A\nPulsed Drain Current $I_D$ 30 A\nPower Dissipation $T_A=25^\\circ C$ $P_D$ 1.4 W\n$T_A=70^\\circ C$ 0.9 W\nJunction and Storage Temperature Range $T_J$, $T_{STG}$ -55 to 150 \u00b0C\n\nThermal Characteristics\n\nParameter Symbol Typ Max Units\nMaximum Junction-to-Ambient $t \\leq 10$s $R_{0JA}$ 70 90 \u00b0C/W\nMaximum Junction-to-Ambient Steady-State 100 125 \u00b0C/W\nMaximum Junction-to-Lead Steady-State 63 80 \u00b0C/W",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

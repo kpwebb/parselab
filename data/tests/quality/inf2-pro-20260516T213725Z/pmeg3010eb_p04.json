@@ -1,0 +1,12 @@
+{
+  "part_id": "pmeg3010eb",
+  "page_no": 4,
+  "elapsed": 24.60891994100001,
+  "in_tok": 3815,
+  "out_tok": 757,
+  "content": "```json\n[{\"bbox\": [80, 39, 171, 56], \"category\": \"header\", \"text\": \"Nexperia\"}, {\"bbox\": [736, 39, 917, 59], \"category\": \"header\", \"text\": \"PMEG3010EB\"}, {\"bbox\": [545, 67, 918, 83], \"category\": \"header\", \"text\": \"30 V, 1 A very low VF Schottky barrier rectifier\"}, {\"bbox\": [323, 98, 643, 323], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [144, 325, 312, 339], \"category\": \"text\", \"text\": \"f = 1 MHz; $T_{amb}$ = 25 \u00b0C\"}, {\"bbox\": [83, 344, 623, 359], \"category\": \"figure_caption\", \"text\": \"Fig. 3. Diode capacitance as a function of reverse voltage; typical values\"}, {\"bbox\": [80, 383, 312, 401], \"category\": \"title\", \"text\": \"11. Test information\"}, {\"bbox\": [392, 418, 605, 538], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [83, 544, 299, 560], \"category\": \"figure_caption\", \"text\": \"Fig. 4. Duty cycle definition\"}, {\"bbox\": [80, 583, 311, 603], \"category\": \"title\", \"text\": \"12. Package outline\"}, {\"bbox\": [327, 619, 696, 815], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [83, 822, 386, 837], \"category\": \"figure_caption\", \"text\": \"Fig. 5. Package outline SC-79 (SOD523)\"}, {\"bbox\": [80, 941, 141, 951], \"category\": \"footer\", \"text\": \"PMEG3010EB\"}, {\"bbox\": [363, 941, 633, 952], \"category\": \"footer\", \"text\": \"All information provided in this document is subject to legal disclaimers.\"}, {\"bbox\": [761, 941, 918, 952], \"category\": \"footer\", \"text\": \"\u00a9 Nexperia B.V. 2024. All rights reserved\"}, {\"bbox\": [80, 957, 207, 969], \"category\": \"footer\", \"text\": \"Product data sheet\"}, {\"bbox\": [448, 957, 550, 969], \"category\": \"footer\", \"text\": \"8 October 2024\"}, {\"bbox\": [886, 957, 918, 969], \"category\": \"footer\", \"text\": \"4 / 8\"}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

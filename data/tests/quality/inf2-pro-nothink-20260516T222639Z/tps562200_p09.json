@@ -1,0 +1,12 @@
+{
+  "part_id": "tps562200",
+  "page_no": 9,
+  "elapsed": 17.095228691999978,
+  "in_tok": 3678,
+  "out_tok": 627,
+  "content": "```json\n[{\"bbox\": [85, 34, 248, 80], \"category\": \"header\", \"text\": \"TEXAS INSTRUMENTS\\nwww.ti.com\"}, {\"bbox\": [638, 56, 913, 81], \"category\": \"header\", \"text\": \"TPS562200, TPS563200\\nSLVSCBOE \u2013 JANUARY 2014 \u2013 REVISED MAY 2023\"}, {\"bbox\": [89, 94, 522, 110], \"category\": \"title\", \"text\": \"6.7 Typical Characteristics TPS562200 (continued)\"}, {\"bbox\": [89, 118, 329, 132], \"category\": \"text\", \"text\": \"$V_{IN} = 12 \\\\, V$ (unless otherwise noted).\"}, {\"bbox\": [129, 142, 479, 334], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [133, 337, 457, 350], \"category\": \"figure_caption\", \"text\": \"Figure 6-7. Output Current vs Ambient Temperature\"}, {\"bbox\": [534, 142, 885, 335], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [548, 357, 858, 370], \"category\": \"figure_caption\", \"text\": \"Figure 6-8. Switching Frequency vs Input Voltage\"}, {\"bbox\": [330, 377, 687, 567], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [338, 570, 661, 583], \"category\": \"figure_caption\", \"text\": \"Figure 6-9. Switching Frequency vs Output Current\"}, {\"bbox\": [86, 951, 342, 963], \"category\": \"footer\", \"text\": \"Copyright \u00a9 2023 Texas Instruments Incorporated\"}, {\"bbox\": [704, 951, 872, 963], \"category\": \"footer\", \"text\": \"Submit Document Feedback\"}, {\"bbox\": [902, 951, 913, 962], \"category\": \"footer\", \"text\": \"9\"}, {\"bbox\": [363, 975, 636, 987], \"category\": \"footer\", \"text\": \"Product Folder Links: TPS562200 TPS563200\"}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

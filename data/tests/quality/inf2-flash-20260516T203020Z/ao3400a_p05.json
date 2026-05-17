@@ -1,0 +1,12 @@
+{
+  "part_id": "ao3400a",
+  "page_no": 5,
+  "elapsed": 5.418615389999998,
+  "in_tok": 3965,
+  "out_tok": 548,
+  "content": null,
+  "reasoning": "```json\n[{\"bbox\": [131, 42, 340, 74], \"category\": \"header\", \"text\": \"ALPHA & OMEGA\\nSEMICONDUCTOR\"}, {\"bbox\": [800, 44, 887, 59], \"category\": \"header\", \"text\": \"AO3400A\"}, {\"bbox\": [368, 115, 636, 128], \"category\": \"figure_caption\", \"text\": \"Gate Charge Test Circuit & Waveform\"}, {\"bbox\": [215, 141, 458, 264], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [540, 135, 819, 280], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [384, 286, 708, 299], \"category\": \"figure_caption\", \"text\": \"Resistive Switching Test Circuit & Waveforms\"}, {\"bbox\": [168, 299, 464, 427], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [498, 323, 822, 435], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [387, 476, 675, 490], \"category\": \"figure_caption\", \"text\": \"Diode Recovery Test Circuit & Waveforms\"}, {\"bbox\": [184, 496, 476, 609], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [529, 488, 839, 609], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [119, 944, 210, 955], \"category\": \"footer\", \"text\": \"Rev 3.1: July 2023\"}, {\"bbox\": [449, 944, 548, 955], \"category\": \"footer\", \"text\": \"www.aosmd.com\"}, {\"bbox\": [832, 944, 891, 955], \"category\": \"footer\", \"text\": \"Page 5 of 5\"}]\n```",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

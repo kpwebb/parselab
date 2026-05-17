@@ -1,0 +1,11 @@
+{
+  "part_id": "tps562200",
+  "page_no": 6,
+  "elapsed": 5.190167488,
+  "in_tok": 4831,
+  "out_tok": 243,
+  "content": "6.4 Thermal Information\n\n| THERMAL METRIC (1) | TPS562200 | TPS563200 | UNITS |\n| :--- | :--- | :--- | :--- |\n| | DDC (SOT) | DDC (SOT) | |\n| | (6 PINS) | (6 PINS) | |\n\n$R_{0JA}$ Junction-to-ambient thermal resistance 89.0 87.9\n\n$R_{0JCtop}$ Junction-to-case (top) thermal resistance 44.5 42.2\n\n$R_{0JB}$ Junction-to-board thermal resistance 13.4 13.6\n\n$\\psi_{JT}$ Junction-to-top characterization parameter 2.2 1.9\n\n$\\psi_{JB}$ Junction-to-board characterization parameter 13.2 13.3\n\n(1) For more information about traditional and new thermal metrics, see the IC Package Thermal Metrics application report, SPRA953.",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

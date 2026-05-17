@@ -1,0 +1,11 @@
+{
+  "part_id": "pmeg3010eb",
+  "page_no": 6,
+  "elapsed": 5.819638331999997,
+  "in_tok": 4968,
+  "out_tok": 244,
+  "content": "14. Revision history\n\nTable 8. Revision history\n\n| Data sheet ID | Release date | Data sheet status | Change notice | Supersedes |\n| :--- | :--- | :--- | :--- | :--- |\n| PMEG3010EB v.4 | 20241008 | Product data sheet | - | PMEG3010EB v.3 |\n| Modifications: | \u2022 Product(s) changed to non-automotive qualification. Please refer to nexperia.com for automotive (-Q) product alternative(s). | | | |\n| PMEG3010EB v.3 | 20210407 | Product data sheet | - | PMEG3010EB v.2 |\n| PMEG3010EB v.2 | 20120315 | Product data sheet | - | PMEG3010EB v.1 |\n| PMEG3010EB v.1 | 20061201 | Product data sheet | - | - |",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

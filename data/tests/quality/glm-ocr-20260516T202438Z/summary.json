@@ -1,0 +1,19 @@
+{
+  "preset": "glm-ocr",
+  "prompt": "Text Recognition:",
+  "model": "zai-org/GLM-OCR",
+  "endpoint": "https://ferrite-systems--parselab-glm-ocr-serve.modal.run/v1/chat/completions",
+  "pages": 101,
+  "ok": 101,
+  "errors": 0,
+  "render_secs": 10.55,
+  "dispatch_secs": 60.14,
+  "sum_req_secs": 914.9,
+  "in_tok_total": 492232,
+  "out_tok_total": 46282,
+  "pages_per_sec": 1.679,
+  "effective_parallelism": 15.2,
+  "concurrency": 16,
+  "max_tokens": 1024,
+  "dpi": 200
+}

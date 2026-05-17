@@ -1,0 +1,11 @@
+{
+  "part_id": "yageo_rc0805",
+  "page_no": 3,
+  "elapsed": 5.259240742999999,
+  "in_tok": 4831,
+  "out_tok": 314,
+  "content": "MARKING\nRC0805\n\nFig. 1 Value=10 K\u03a9\n\nE-24 series: 3 digits\nFirst two digits for significant figure and 3rd digit for number of zeros\n\nFig. 2 Value=10 K\u03a9\n\nBoth E-24 and E-96 series: 4 digits\nFirst three digits for significant figure and 4th digit for number of zeros\n\nFor marking codes, please see EIA-marking code rules in data sheet \u201cChip resistors instruction\u201d.\n\nCONSTRUCTION\nThe resistors are constructed out of a high-grade ceramic body. Internal metal electrodes are added at each end and connected by a resistive paste. The composition of the paste is adjusted to give the approximate required resistance and laser cutting of this resistive layer that achieves tolerance trims the value. The resistive layer is covered with a protective coat and printed with the resistance value. Finally, the two external terminations (pure Tin) are added. See fig. 3.\n\nDIMENSIONS\n\nTable 1\nTYPE RC0805\nL (mm) 2.00 \u00b10.10\nW (mm) 1.25 \u00b10.10\nH (mm) 0.50 \u00b10.10\nI1 (mm) 0.35 \u00b10.20\nI2 (mm) 0.35 \u00b10.20",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

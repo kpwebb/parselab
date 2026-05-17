@@ -1,0 +1,12 @@
+{
+  "part_id": "tlv757p",
+  "page_no": 10,
+  "elapsed": 9.161527102999997,
+  "in_tok": 3826,
+  "out_tok": 984,
+  "content": null,
+  "reasoning": "```json\n[{\"bbox\": [84, 55, 152, 69], \"category\": \"header\", \"text\": \"TLV757P\"}, {\"bbox\": [84, 68, 382, 81], \"category\": \"header\", \"text\": \"SBVS322C \u2013 OCTOBER 2017 \u2013 REVISED MARCH 2024\"}, {\"bbox\": [752, 33, 914, 81], \"category\": \"header\", \"text\": \"TEXAS INSTRUMENTS\\nwww.ti.com\"}, {\"bbox\": [87, 93, 424, 111], \"category\": \"title\", \"text\": \"5.6 Typical Characteristics (continued)\"}, {\"bbox\": [87, 118, 901, 148], \"category\": \"text\", \"text\": \"at operating temperature $T_{J} = 25^{\\\\circ}C$, $V_{IN} = V_{OUT(NOM)} + 0.5V$ or 1.45V (whichever is greater), $I_{OUT} = 1mA$, $V_{EN} = V_{IN}$, and $C_{IN} = C_{OUT} = 1\\\\mu F$ (unless otherwise noted)\"}, {\"bbox\": [90, 162, 462, 366], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [219, 369, 372, 384], \"category\": \"figure_caption\", \"text\": \"Figure 5-19. $I_{GND}$ vs $V_{IN}$\"}, {\"bbox\": [536, 164, 869, 366], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [626, 369, 778, 384], \"category\": \"figure_caption\", \"text\": \"Figure 5-20. $I_{GND}$ vs $V_{IN}$\"}, {\"bbox\": [126, 389, 468, 575], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [216, 594, 374, 609], \"category\": \"figure_caption\", \"text\": \"Figure 5-21. $I_{SHDN}$ vs $V_{IN}$\"}, {\"bbox\": [536, 389, 870, 575], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [594, 594, 809, 609], \"category\": \"figure_caption\", \"text\": \"Figure 5-22. $I_{SHDN}$ vs Temperature\"}, {\"bbox\": [129, 614, 464, 799], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [149, 818, 442, 833], \"category\": \"figure_caption\", \"text\": \"Figure 5-23. Enable Threshold vs Temperature\"}, {\"bbox\": [532, 614, 874, 815], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [631, 818, 774, 833], \"category\": \"figure_caption\", \"text\": \"Figure 5-24. $I_{EN}$ vs $V_{IN}$\"}, {\"bbox\": [85, 936, 105, 948], \"category\": \"footer\", \"text\": \"10\"}, {\"bbox\": [126, 935, 297, 948], \"category\": \"footer\", \"text\": \"Submit Document Feedback\"}, {\"bbox\": [405, 952, 592, 965], \"category\": \"footer\", \"text\": \"Product Folder Links: TLV757P\"}, {\"bbox\": [655, 935, 912, 948], \"category\": \"footer\", \"text\": \"Copyright \u00a9 2024 Texas Instruments Incorporated\"}]\n```",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

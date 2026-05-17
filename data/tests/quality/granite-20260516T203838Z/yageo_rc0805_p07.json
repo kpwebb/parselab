@@ -1,0 +1,12 @@
+{
+  "part_id": "yageo_rc0805",
+  "page_no": 7,
+  "elapsed": 3.2521676160000013,
+  "in_tok": 1142,
+  "out_tok": 235,
+  "content": "<doctag><page_header><loc_393><loc_27><loc_440><loc_32>Product specification</page_header>\n<page_header><loc_445><loc_27><loc_453><loc_32>7</page_header>\n<page_header><loc_95><loc_34><loc_193><loc_43>Chip Resistor Surface Mount</page_header>\n<page_header><loc_228><loc_35><loc_245><loc_41>RC</page_header>\n<page_header><loc_243><loc_35><loc_261><loc_41>SERIES</page_header>\n<page_header><loc_273><loc_35><loc_318><loc_41>0805 (Pb Free)</page_header>\n<section_header_level_1><loc_46><loc_74><loc_155><loc_81>TESTS AND REQUIREMENTS</section_header_level_1>\n<otsl><loc_45><loc_88><loc_454><loc_461></otsl>\n<picture><loc_44><loc_476><loc_94><loc_492><logo></picture>\n<page_footer><loc_407><loc_479><loc_455><loc_484>www.yageo.com</page_footer>\n</doctag>",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

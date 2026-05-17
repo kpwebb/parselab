@@ -1,0 +1,12 @@
+{
+  "part_id": "yageo_rc0805",
+  "page_no": 5,
+  "elapsed": 4.056133874000004,
+  "in_tok": 1142,
+  "out_tok": 615,
+  "content": "<doctag><picture><loc_43><loc_23><loc_86><loc_32><logo></picture>\n<text><loc_94><loc_35><loc_209><loc_43>Chip Resistor Surface Mount</text>\n<text><loc_223><loc_36><loc_231><loc_42>RC</text>\n<text><loc_243><loc_36><loc_261><loc_42>SERIES</text>\n<text><loc_273><loc_36><loc_318><loc_42>0805 (Pb Free)</text>\n<section_header_level_1><loc_46><loc_74><loc_157><loc_81>FUNCTIONAL DESCRIPTION</section_header_level_1>\n<section_header_level_1><loc_46><loc_86><loc_97><loc_92>POWER RATING</section_header_level_1>\n<text><loc_46><loc_97><loc_187><loc_104>RC0805 rated power at 70\u00b0C is 1/8 W</text>\n<section_header_level_1><loc_46><loc_109><loc_109><loc_115>RATED VOLTAGE</section_header_level_1>\n<text><loc_46><loc_120><loc_236><loc_141>The DC or AC (rms) continuous working voltage corresponding to the rated power is determined by the following formula:</text>\n<text><loc_53><loc_146><loc_99><loc_153>V= \u221a (P X R)</text>\n<text><loc_53><loc_157><loc_79><loc_164>Where</text>\n<text><loc_53><loc_168><loc_164><loc_184>V=Continuous rated DC or AC (rms) working voltage (V)</text>\n<text><loc_53><loc_188><loc_127><loc_195>P=Rated power (W)</text>\n<text><loc_53><loc_199><loc_138><loc_206>R=Resistance value (\u03a9)</text>\n<section_header_level_1><loc_46><loc_211><loc_143><loc_217>PULSE LOADING CAPABILITIES</section_header_level_1>\n<picture><loc_45><loc_221><loc_454><loc_410><other></picture>\n<picture><loc_44><loc_476><loc_94><loc_490><logo></picture>\n<page_header><loc_393><loc_27><loc_442><loc_31>Product specification</page_header>\n<page_header><loc_445><loc_27><loc_453><loc_32>5</page_header>\n<page_header><loc_456><loc_33><loc_462><loc_37>10</page_header>\n<picture><loc_245><loc_87><loc_453><loc_185><line_chart><caption><loc_256><loc_174><loc_447><loc_187>Fig. 5 Maximum dissipation (P max ) in percentage of rated power as a function of the operating ambient temperature (T amb )</caption></picture>\n</doctag>",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

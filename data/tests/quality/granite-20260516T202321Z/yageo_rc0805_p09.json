@@ -1,0 +1,11 @@
+{
+  "part_id": "yageo_rc0805",
+  "page_no": 9,
+  "elapsed": 3.303246920999996,
+  "in_tok": 1142,
+  "out_tok": 201,
+  "content": "<doctag><picture><loc_43><loc_23><loc_86><loc_32></picture>\n<page_header><loc_393><loc_27><loc_440><loc_32>Product specification</page_header>\n<page_header><loc_95><loc_34><loc_209><loc_43>Chip Resistor Surface Mount</page_header>\n<page_header><loc_228><loc_35><loc_245><loc_41>RC</page_header>\n<page_header><loc_259><loc_35><loc_318><loc_41>SERIES</page_header>\n<page_header><loc_431><loc_35><loc_440><loc_40>10</page_header>\n<picture><loc_46><loc_74><loc_454><loc_264></picture>\n<picture><loc_44><loc_476><loc_94><loc_492></picture>\n<page_footer><loc_407><loc_479><loc_455><loc_484>www.yageo.com</page_footer>\n</doctag>",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

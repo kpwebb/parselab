@@ -1,0 +1,11 @@
+{
+  "part_id": "pmeg3010eb",
+  "page_no": 3,
+  "elapsed": 12.194950917,
+  "in_tok": 4968,
+  "out_tok": 730,
+  "content": "10. Characteristics\n\nTable 7. Characteristics\n\n| Symbol | Parameter | Conditions | Min | Typ | Max | Unit |\n| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n| $V_F$ | forward voltage | $I_F = 0.1 \\text{ mA};$ pulsed; $t_p \\leq 300 \\mu\\text{s}; \\delta \\leq 0.02; T_{\\text{amb}} = 25^\\circ\\text{C}$ | - | 90 | 180 | mV |\n| | | $I_F = 1 \\text{ mA};$ pulsed; $t_p \\leq 300 \\mu\\text{s}; \\delta \\leq 0.02; T_{\\text{amb}} = 25^\\circ\\text{C}$ | - | 150 | 200 | mV |\n| | | $I_F = 10 \\text{ mA};$ pulsed; $t_p \\leq 300 \\mu\\text{s}; \\delta \\leq 0.02; T_{\\text{amb}} = 25^\\circ\\text{C}$ | - | 210 | 270 | mV |\n| | | $I_F = 100 \\text{ mA};$ pulsed; $t_p \\leq 300 \\mu\\text{s}; \\delta \\leq 0.02; T_{\\text{amb}} = 25^\\circ\\text{C}$ | - | 295 | 360 | mV |\n| | | $I_F = 500 \\text{ mA};$ pulsed; $t_p \\leq 300 \\mu\\text{s}; \\delta \\leq 0.02; T_{\\text{amb}} = 25^\\circ\\text{C}$ | - | 430 | 500 | mV |\n| | | $I_F = 1 \\text{ A};$ pulsed; $t_p \\leq 300 \\mu\\text{s}; \\delta \\leq 0.02; T_{\\text{amb}} = 25^\\circ\\text{C}$ | - | 610 | 680 | mV |\n| $I_R$ | reverse current | $V_R = 10 \\text{ V}; T_{\\text{amb}} = 25^\\circ\\text{C}$ | - | 15 | 200 | $\\mu\\text{A}$ |\n| | | $V_R = 30 \\text{ V}; T_{\\text{amb}} = 25^\\circ\\text{C}$ | - | 70 | 500 | $\\mu\\text{A}$ |\n| $C_d$ | diode capacitance | $V_R = 1 \\text{ V}; f = 1 \\text{ MHz}; T_{\\text{amb}} = 25^\\circ\\text{C}$ | - | 24 | 30 | pF |\n\nFig. 1. Forward current as a function of forward voltage; typical values\n\nFig. 2. Reverse current as a function of reverse voltage; typical values",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

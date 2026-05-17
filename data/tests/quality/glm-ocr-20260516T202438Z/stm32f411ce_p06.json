@@ -1,0 +1,11 @@
+{
+  "part_id": "stm32f411ce",
+  "page_no": 6,
+  "elapsed": 2.456640641,
+  "in_tok": 4968,
+  "out_tok": 99,
+  "content": "A.1 Operating conditions ... 142\n\nAppendix B Application block diagrams ... 143\nB.1 USB OTG Full Speed (FS) interface solutions ... 143\nB.2 Sensor Hub application example ... 145\nB.3 Batch Acquisition Mode (BAM) example ... 146\n\n9 Important security notice ... 147\n\nRevision history ... 148",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

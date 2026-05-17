@@ -1,0 +1,11 @@
+{
+  "part_id": "mmbt3904",
+  "page_no": 8,
+  "elapsed": 15.333818309000002,
+  "in_tok": 4831,
+  "out_tok": 807,
+  "content": "STYLE 1 THRU 5:\nCANCELLED\n\nSTYLE 6:\nPIN 1. BASE\n2. EMITTER\n3. COLLECTOR\n\nSTYLE 7:\nPIN 1. EMITTER\n2. BASE\n3. COLLECTOR\n\nSTYLE 8:\nPIN 1. ANODE\n2. NO CONNECTION\n3. CATHODE\n\nSTYLE 9:\nPIN 1. ANODE\n2. ANODE\n3. CATHODE\n\nSTYLE 10:\nPIN 1. DRAIN\n2. SOURCE\n3. GATE\n\nSTYLE 11:\nPIN 1. ANODE\n2. CATHODE\n3. CATHODE\u2013ANODE\n\nSTYLE 12:\nPIN 1. CATHODE\n2. CATHODE\n3. ANODE\n\nSTYLE 13:\nPIN 1. SOURCE\n2. DRAIN\n3. GATE\n\nSTYLE 14:\nPIN 1. CATHODE\n2. GATE\n3. ANODE\n\nSTYLE 15:\nPIN 1. GATE\n2. CATHODE\n3. ANODE\n\nSTYLE 16:\nPIN 1. ANODE\n2. CATHODE\n3. CATHODE\n\nSTYLE 17:\nPIN 1. NO CONNECTION\n2. ANODE\n3. CATHODE\n\nSTYLE 18:\nPIN 1. NO CONNECTION\n2. CATHODE\n3. ANODE\n\nSTYLE 19:\nPIN 1. CATHODE\n2. ANODE\n3. CATHODE\u2013ANODE\n\nSTYLE 20:\nPIN 1. CATHODE\n2. ANODE\n3. GATE\n\nSTYLE 21:\nPIN 1. GATE\n2. SOURCE\n3. DRAIN\n\nSTYLE 22:\nPIN 1. RETURN\n2. OUTPUT\n3. INPUT\n\nSTYLE 23:\nPIN 1. ANODE\n2. ANODE\n3. CATHODE\n\nSTYLE 24:\nPIN 1. GATE\n2. DRAIN\n3. SOURCE\n\nSTYLE 25:\nPIN 1. ANODE\n2. CATHODE\n3. GATE\n\nSTYLE 26:\nPIN 1. CATHODE\n2. ANODE\n3. NO CONNECTION\n\nSTYLE 27:\nPIN 1. CATHODE\n2. CATHODE\n3. CATHODE\n\nSTYLE 28:\nPIN 1. ANODE\n2. ANODE\n3. ANODE\n\nDOCUMENT NUMBER: 98ASB42226B\n\nDESCRIPTION: SOT\u201323 (TO\u2013236) 2.90x1.30x1.00 1.90P\n\nPAGE 2 OF 2\n\nonsemi and onsemi are trademarks of Semiconductor Components Industries, LLC dba onsemi or its subsidiaries in the United States and/or other countries. onsemi reserves the right to make changes without further notice to any products herein. onsemi makes no warranty, representation or guarantee regarding the suitability of its products for any particular purpose, nor does onsemi assume any liability arising out of the application or use of any product or circuit, and specifically disclaims any and all liability, including without limitation special, consequential or incidental damages. onsemi does not convey any license under its patent rights nor the rights of others.",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

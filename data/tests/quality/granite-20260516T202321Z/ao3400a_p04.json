@@ -1,0 +1,11 @@
+{
+  "part_id": "ao3400a",
+  "page_no": 4,
+  "elapsed": 4.339521571000001,
+  "in_tok": 878,
+  "out_tok": 311,
+  "content": "<doctag><picture><loc_67><loc_22><loc_184><loc_39></picture>\n<section_header_level_1><loc_69><loc_55><loc_278><loc_61>TYPICAL ELECTRICAL AND THERMAL CHARACTERISTICS</section_header_level_1>\n<picture><loc_72><loc_68><loc_242><loc_163></picture>\n<picture><loc_78><loc_175><loc_255><loc_262></picture>\n<picture><loc_262><loc_175><loc_426><loc_262><caption><loc_112><loc_265><loc_231><loc_276>Figure 9: Maximum Forward Biased Safe Operating Area (Note F)</caption></picture>\n<picture><loc_72><loc_285><loc_419><loc_370><caption><loc_148><loc_373><loc_351><loc_377>Figure 11: Normalized Maximum Transient Thermal Impedance (Note F)</caption></picture>\n<page_footer><loc_64><loc_472><loc_114><loc_477>Rev 3.1: July 2023</page_footer>\n<page_footer><loc_222><loc_472><loc_277><loc_477>www.aosmd.com</page_footer>\n<page_footer><loc_412><loc_472><loc_443><loc_477>Page 4 of 5</page_footer>\n<page_header><loc_394><loc_23><loc_441><loc_31>AO3400A</page_header>\n</doctag>",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

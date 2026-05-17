@@ -1,0 +1,11 @@
+{
+  "part_id": "murata_blm18",
+  "page_no": 4,
+  "elapsed": 5.007778992000002,
+  "in_tok": 4968,
+  "out_tok": 182,
+  "content": "Z-f Characteristics (Typ.)\nBLM18PG181SN1\n\nZ-f characteristics (Typ.)\nBLM18PG221SN1\n\nZ-f characteristics (Typ.)\nBLM18PG331SN1\n\nZ-f characteristics (Typ.)\nBLM18PG471SN1\n\nCaution/Notice\n\nCaution (Rating)\nDo not use products beyond the rated current and rated voltage as this may create excessive heat and deteriorate the insulation resistance.\n\nNotice\nSolderability of Tin plating termination chip might be deteriorated when low temperature soldering profile where peak solder temperature is below the Tin melting point is used. Please confirm the solderability of Tin plating termination chip before use.\n\nThis data sheet is applied for CHIP FERRITE BEAD used for General Electronics equipment for your design.",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

@@ -1,0 +1,12 @@
+{
+  "part_id": "ao3400a",
+  "page_no": 5,
+  "elapsed": 11.436768191999999,
+  "in_tok": 3817,
+  "out_tok": 341,
+  "content": "```json\n[\n\t{\"bbox_2d\": [173, 46, 335, 71], \"text_content\": \"ALPHA & OMEGA SEMICONDUCTOR\"},\n\t{\"bbox_2d\": [805, 46, 883, 58], \"text_content\": \"AO3400A\"},\n\t{\"bbox_2d\": [368, 115, 630, 127], \"text_content\": \"Gate Charge Test Circuit & Waveform\"},\n\t{\"bbox_2d\": [396, 287, 602, 297], \"text_content\": \"Resistive Switching Test Circuit & Waveforms\"},\n\t{\"bbox_2d\": [401, 479, 597, 489], \"text_content\": \"Diode Recovery Test Circuit & Waveforms\"},\n\t{\"bbox_2d\": [121, 945, 208, 952], \"text_content\": \"Rev 3.1: July 2023\"},\n\t{\"bbox_2d\": [448, 945, 545, 952], \"text_content\": \"www.aosmd.com\"},\n\t{\"bbox_2d\": [833, 945, 886, 952], \"text_content\": \"Page 5 of 5\"}\n]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

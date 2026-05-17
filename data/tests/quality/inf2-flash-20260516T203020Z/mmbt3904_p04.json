@@ -1,0 +1,12 @@
+{
+  "part_id": "mmbt3904",
+  "page_no": 4,
+  "elapsed": 8.070997621,
+  "in_tok": 3826,
+  "out_tok": 859,
+  "content": null,
+  "reasoning": "```json\n[{\"bbox\": [376, 27, 635, 45], \"category\": \"title\", \"text\": \"MMBT3904L, SMMBT3904L\"}, {\"bbox\": [285, 62, 710, 94], \"category\": \"title\", \"text\": \"TYPICAL AUDIO SMALL-SIGNAL CHARACTERISTICS NOISE FIGURE VARIATIONS\"}, {\"bbox\": [339, 95, 656, 111], \"category\": \"text\", \"text\": \"( $V_{CE} = 5.0 \\\\text{ Vdc}$ , $T_A = 25^\\\\circ\\\\text{C}$ , Bandwidth = 1.0 Hz)\"}, {\"bbox\": [95, 121, 482, 342], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [269, 350, 335, 366], \"category\": \"figure_caption\", \"text\": \"Figure 9.\"}, {\"bbox\": [494, 121, 899, 342], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [675, 350, 751, 366], \"category\": \"figure_caption\", \"text\": \"Figure 10.\"}, {\"bbox\": [430, 383, 565, 399], \"category\": \"title\", \"text\": \"h PARAMETERS\"}, {\"bbox\": [370, 399, 625, 415], \"category\": \"text\", \"text\": \"( $V_{CE} = 10 \\\\text{ Vdc}$ , $f = 1.0 \\\\text{ kHz}$ , $T_A = 25^\\\\circ\\\\text{C}$ )\"}, {\"bbox\": [95, 417, 489, 634], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [224, 640, 394, 655], \"category\": \"figure_caption\", \"text\": \"Figure 11. Current Gain\"}, {\"bbox\": [499, 417, 903, 634], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [612, 640, 826, 655], \"category\": \"figure_caption\", \"text\": \"Figure 12. Output Admittance\"}, {\"bbox\": [95, 676, 489, 894], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [211, 903, 408, 920], \"category\": \"figure_caption\", \"text\": \"Figure 13. Input Impedance\"}, {\"bbox\": [499, 676, 903, 894], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [596, 903, 842, 920], \"category\": \"figure_caption\", \"text\": \"Figure 14. Voltage Feedback Ratio\"}, {\"bbox\": [432, 940, 562, 956], \"category\": \"footer\", \"text\": \"www.onsemi.com\"}, {\"bbox\": [491, 954, 506, 968], \"category\": \"footer\", \"text\": \"4\"}, {\"bbox\": [729, 938, 906, 969], \"category\": \"footer\", \"text\": \"Share Feedback Your Opinion Matters\"}]\n```",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

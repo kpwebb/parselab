@@ -1,0 +1,11 @@
+{
+  "part_id": "tps562200",
+  "page_no": 9,
+  "elapsed": 3.966712023999996,
+  "in_tok": 4831,
+  "out_tok": 85,
+  "content": "6.7 Typical Characteristics TPS562200 (continued)\n\n$V_{\\text{IN}} = 12 \\text{ V}$ (unless otherwise noted).\n\nFigure 6-7. Output Current vs Ambient Temperature\n\nFigure 6-8. Switching Frequency vs Input Voltage\n\nFigure 6-9. Switching Frequency vs Output Current",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

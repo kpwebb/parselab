@@ -1,0 +1,12 @@
+{
+  "part_id": "mmbt3904",
+  "page_no": 3,
+  "elapsed": 4.004688394000002,
+  "in_tok": 1142,
+  "out_tok": 450,
+  "content": "<doctag><section_header_level_1><loc_190><loc_15><loc_317><loc_23>MMBT3904L, SMMBT3904L</section_header_level_1>\n<section_header_level_1><loc_168><loc_32><loc_332><loc_39>TYPICAL TRANSIENT CHARACTERISTICS</section_header_level_1>\n<text><loc_238><loc_45><loc_253><loc_50>T$_{J}$ =</text>\n<text><loc_253><loc_45><loc_267><loc_50>25\u00b0C</text>\n<text><loc_238><loc_51><loc_253><loc_56>T$_{J}$ =</text>\n<text><loc_253><loc_51><loc_267><loc_56>125\u00b0C</text>\n<picture><loc_48><loc_61><loc_241><loc_170><line_chart></picture>\n<picture><loc_48><loc_181><loc_245><loc_294><line_chart></picture>\n<picture><loc_48><loc_314><loc_245><loc_422><line_chart></picture>\n<picture><loc_250><loc_61><loc_447><loc_170><line_chart></picture>\n<picture><loc_248><loc_181><loc_447><loc_294><line_chart><caption><loc_114><loc_295><loc_197><loc_302>Figure 5. Turn - On Time</caption></picture>\n<picture><loc_248><loc_314><loc_447><loc_422><line_chart><caption><loc_116><loc_428><loc_195><loc_435>Figure 7. Storage Time</caption></picture>\n<picture><loc_367><loc_471><loc_451><loc_486><logo><caption><loc_325><loc_428><loc_390><loc_435>Figure 8. Fall Time</caption></picture>\n<page_footer><loc_218><loc_472><loc_281><loc_479>www.onsemi.com</page_footer>\n<page_footer><loc_248><loc_479><loc_252><loc_485>3</page_footer>\n</doctag>",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

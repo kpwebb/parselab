@@ -1,0 +1,12 @@
+{
+  "part_id": "yageo_rc0805",
+  "page_no": 9,
+  "elapsed": 12.047844504000011,
+  "in_tok": 3678,
+  "out_tok": 327,
+  "content": "```json\n[{\"bbox\": [84, 44, 173, 63], \"category\": \"header\", \"text\": \"YAGEO\"}, {\"bbox\": [186, 66, 638, 85], \"category\": \"header\", \"text\": \"Chip Resistor Surface Mount | RC | SERIES | 0805 (Pb Free)\"}, {\"bbox\": [782, 52, 881, 63], \"category\": \"header\", \"text\": \"Product specification\"}, {\"bbox\": [886, 52, 903, 75], \"category\": \"header\", \"text\": \"9\\n10\"}, {\"bbox\": [136, 184, 865, 475], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [109, 493, 374, 507], \"category\": \"figure_caption\", \"text\": \"Fig. 9 Moisture resistance test requirements\"}, {\"bbox\": [86, 950, 189, 985], \"category\": \"footer\", \"text\": \"Sep 03, 2004 V.2\"}, {\"bbox\": [812, 957, 910, 968], \"category\": \"footer\", \"text\": \"www.yageo.com\"}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

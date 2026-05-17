@@ -1,0 +1,12 @@
+{
+  "part_id": "ao3400a",
+  "page_no": 4,
+  "elapsed": 24.074559781,
+  "in_tok": 3815,
+  "out_tok": 837,
+  "content": "```json\n[{\"bbox\": [132, 43, 369, 79], \"category\": \"logo\", \"bbox\": [132, 43, 369, 79]}, {\"bbox\": [786, 45, 883, 61], \"category\": \"header\", \"bbox\": [786, 45, 883, 61]}, {\"bbox\": [136, 109, 553, 123], \"category\": \"title\", \"bbox\": [136, 109, 553, 123]}, {\"bbox\": [142, 135, 487, 325], \"category\": \"graph\", \"bbox\": [142, 135, 487, 325]}, {\"bbox\": [213, 324, 430, 335], \"category\": \"figure_caption\", \"bbox\": [213, 324, 430, 335]}, {\"bbox\": [514, 135, 863, 325], \"category\": \"graph\", \"bbox\": [514, 135, 863, 325]}, {\"bbox\": [596, 324, 812, 335], \"category\": \"figure_caption\", \"bbox\": [596, 324, 812, 335]}, {\"bbox\": [155, 351, 510, 527], \"category\": \"graph\", \"bbox\": [155, 351, 510, 527]}, {\"bbox\": [221, 531, 461, 553], \"category\": \"figure_caption\", \"bbox\": [221, 531, 461, 553]}, {\"bbox\": [526, 351, 852, 504], \"category\": \"graph\", \"bbox\": [526, 351, 852, 504]}, {\"bbox\": [591, 518, 875, 548], \"category\": \"figure_caption\", \"bbox\": [591, 518, 875, 548]}, {\"bbox\": [142, 569, 840, 734], \"category\": \"graph\", \"bbox\": [142, 569, 840, 734]}, {\"bbox\": [296, 738, 700, 760], \"category\": \"figure_caption\", \"bbox\": [296, 738, 700, 760]}, {\"bbox\": [126, 943, 228, 955], \"category\": \"footer\", \"bbox\": [126, 943, 228, 955]}, {\"bbox\": [442, 943, 554, 954], \"category\": \"footer\", \"bbox\": [442, 943, 554, 954]}, {\"bbox\": [823, 943, 886, 955], \"category\": \"footer\", \"bbox\": [823, 943, 886, 955]}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

@@ -1,0 +1,12 @@
+{
+  "part_id": "tlv757p",
+  "page_no": 1,
+  "elapsed": 1.3027258809999864,
+  "in_tok": 3678,
+  "out_tok": 46,
+  "content": "```json\n{\n  \"bbox_2d\": [127, 60, 244, 84], \"text_content\": \"TEXAS INSTRUMENTS\"\n}\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

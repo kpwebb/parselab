@@ -1,0 +1,11 @@
+{
+  "part_id": "gct_usb4125",
+  "page_no": 8,
+  "elapsed": 3.506970904000001,
+  "in_tok": 878,
+  "out_tok": 86,
+  "content": "<doctag><section_header_level_1><loc_159><loc_13><loc_355><loc_25>PRODUCT SPECIFICATION</section_header_level_1>\n<otsl><loc_24><loc_28><loc_472><loc_77></otsl>\n<otsl><loc_24><loc_82><loc_470><loc_450></otsl>\n<picture><loc_224><loc_465><loc_287><loc_494></picture>\n</doctag>",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

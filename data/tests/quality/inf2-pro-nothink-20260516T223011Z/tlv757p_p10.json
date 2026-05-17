@@ -1,0 +1,12 @@
+{
+  "part_id": "tlv757p",
+  "page_no": 10,
+  "elapsed": 24.308712958,
+  "in_tok": 3678,
+  "out_tok": 985,
+  "content": "```json\n[{\"bbox\": [85, 56, 151, 68], \"category\": \"header\", \"text\": \"TLV757P\"}, {\"bbox\": [85, 68, 382, 80], \"category\": \"header\", \"text\": \"SBVS322C \u2013 OCTOBER 2017 \u2013 REVISED MARCH 2024\"}, {\"bbox\": [751, 34, 913, 80], \"category\": \"header\", \"text\": \"TEXAS INSTRUMENTS\\nwww.ti.com\"}, {\"bbox\": [88, 94, 422, 110], \"category\": \"title\", \"text\": \"5.6 Typical Characteristics (continued)\"}, {\"bbox\": [88, 117, 900, 148], \"category\": \"text\", \"text\": \"at operating temperature $T_{J} = 25^{\\\\circ}C$, $V_{IN} = V_{OUT(NOM)} + 0.5V$ or 1.45V (whichever is greater), $I_{OUT} = 1mA$, $V_{EN} = V_{IN}$, and $C_{IN} = C_{OUT} = 1\\\\mu F$ (unless otherwise noted)\"}, {\"bbox\": [131, 164, 461, 365], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [221, 370, 371, 384], \"category\": \"figure_caption\", \"text\": \"Figure 5-19. $I_{GND}$ vs $V_{IN}$\"}, {\"bbox\": [539, 164, 869, 365], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [629, 370, 776, 384], \"category\": \"figure_caption\", \"text\": \"Figure 5-20. $I_{GND}$ vs $V_{IN}$\"}, {\"bbox\": [126, 389, 467, 574], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [218, 595, 373, 608], \"category\": \"figure_caption\", \"text\": \"Figure 5-21. $I_{SHDN}$ vs $V_{IN}$\"}, {\"bbox\": [536, 389, 871, 574], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [596, 595, 810, 608], \"category\": \"figure_caption\", \"text\": \"Figure 5-22. $I_{SHDN}$ vs Temperature\"}, {\"bbox\": [129, 613, 463, 798], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [149, 818, 441, 832], \"category\": \"figure_caption\", \"text\": \"Figure 5-23. Enable Threshold vs Temperature\"}, {\"bbox\": [534, 613, 875, 814], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [633, 819, 772, 833], \"category\": \"figure_caption\", \"text\": \"Figure 5-24. $I_{EN}$ vs $V_{IN}$\"}, {\"bbox\": [86, 936, 104, 948], \"category\": \"footer\", \"text\": \"10\"}, {\"bbox\": [127, 936, 296, 948], \"category\": \"footer\", \"text\": \"Submit Document Feedback\"}, {\"bbox\": [657, 935, 913, 947], \"category\": \"footer\", \"text\": \"Copyright \u00a9 2024 Texas Instruments Incorporated\"}, {\"bbox\": [407, 952, 593, 965], \"category\": \"footer\", \"text\": \"Product Folder Links: TLV757P\"}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

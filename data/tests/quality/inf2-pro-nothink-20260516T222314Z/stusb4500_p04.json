@@ -1,0 +1,12 @@
+{
+  "part_id": "stusb4500",
+  "page_no": 4,
+  "elapsed": 17.28447682000001,
+  "in_tok": 3817,
+  "out_tok": 307,
+  "content": "```json\n[{\"bbox\": [69, 66, 126, 91], \"category\": \"figure\", \"bbox\": [69, 66, 126, 91]}, {\"bbox\": [813, 66, 930, 95], \"category\": \"header\", \"bbox\": [813, 66, 930, 95]}, {\"bbox\": [410, 120, 589, 133], \"category\": \"table_caption\", \"bbox\": [410, 120, 589, 133]}, {\"bbox\": [69, 139, 929, 835], \"category\": \"table\", \"bbox\": [69, 139, 929, 835]}, {\"bbox\": [69, 973, 164, 984], \"category\": \"footer\", \"bbox\": [69, 973, 164, 984]}, {\"bbox\": [873, 975, 930, 986], \"category\": \"footer\", \"bbox\": [873, 975, 930, 986]}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

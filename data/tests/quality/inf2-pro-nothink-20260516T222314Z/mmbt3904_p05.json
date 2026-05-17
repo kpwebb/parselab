@@ -1,0 +1,12 @@
+{
+  "part_id": "mmbt3904",
+  "page_no": 5,
+  "elapsed": 139.02944077899997,
+  "in_tok": 3678,
+  "out_tok": 359,
+  "content": "```json\n[{\"bbox\": [376, 29, 635, 45], \"category\": \"title\", \"text\": \"MMBT3904L, SMMBT3904L\"}, {\"bbox\": [351, 65, 648, 79], \"category\": \"title\", \"text\": \"TYPICAL STATIC CHARACTERISTICS\"}, {\"bbox\": [92, 99, 894, 317], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [409, 323, 604, 338], \"category\": \"figure_caption\", \"text\": \"Figure 15. DC Current Gain\"}, {\"bbox\": [94, 349, 886, 572], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [369, 577, 644, 592], \"category\": \"figure_caption\", \"text\": \"Figure 16. Collector Saturation Region\"}, {\"bbox\": [435, 944, 562, 955], \"category\": \"footer\", \"text\": \"www.onsemi.com\"}, {\"bbox\": [494, 957, 505, 968], \"category\": \"footer\", \"text\": \"5\"}, {\"bbox\": [732, 942, 902, 969], \"category\": \"footer\", \"text\": \"Share Feedback\\nYour Opinion Matters\"}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

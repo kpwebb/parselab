@@ -1,0 +1,12 @@
+{
+  "part_id": "stusb4500",
+  "page_no": 3,
+  "elapsed": 2.837000314000001,
+  "in_tok": 878,
+  "out_tok": 278,
+  "content": "<doctag><picture><loc_35><loc_34><loc_63><loc_45></picture>\n<section_header_level_1><loc_35><loc_62><loc_165><loc_71>2 Inputs/outputs</section_header_level_1>\n<section_header_level_1><loc_35><loc_89><loc_115><loc_97>2.1 Pinout</section_header_level_1>\n<picture><loc_177><loc_118><loc_389><loc_255><caption><loc_194><loc_108><loc_353><loc_114>Figure 2. QFN-24 pin connections (top view)</caption></picture>\n<picture><loc_155><loc_280><loc_387><loc_436><caption><loc_189><loc_266><loc_358><loc_272>Figure 3. WLCSP-25 pin connections (top view)</caption></picture>\n<page_footer><loc_35><loc_488><loc_82><loc_492>DS12499 - Rev 8</page_footer>\n<page_footer><loc_437><loc_488><loc_464><loc_492>page 3/42</page_footer>\n<page_header><loc_408><loc_34><loc_464><loc_42>STUSB4500</page_header>\n<page_header><loc_417><loc_43><loc_464><loc_48>Inputs/outputs</page_header>\n</doctag>",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

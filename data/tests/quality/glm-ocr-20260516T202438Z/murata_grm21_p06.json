@@ -1,0 +1,11 @@
+{
+  "part_id": "murata_grm21",
+  "page_no": 6,
+  "elapsed": 3.6960354140000007,
+  "in_tok": 4968,
+  "out_tok": 162,
+  "content": "Substrate Bending test\n\n\u2022 Test substrate\n  Material JIS C 6484 Copper-clad laminated sheets for PCBs (Glass fabric base, epoxy resin)\n  Thickness 1.6mm\n  Copper Foil Thickness 0.035mm\n  Kind of Solder Sn-3.0Ag-0.5Cu(Lead Free Solder)\n\n\u2022 Land Dimension\n\n| Type | Dimension(mm) |\n| :--- | :--- |\n| GRM21 | 1.2 4.0 1.65 |\n\n\u2022 Pressurization Method\n\nPressurization speed 1.0mm/s\n\nCapacitance meter\n\nFig.2",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

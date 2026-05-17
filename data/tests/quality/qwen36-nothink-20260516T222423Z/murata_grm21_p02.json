@@ -1,0 +1,12 @@
+{
+  "part_id": "murata_grm21",
+  "page_no": 2,
+  "elapsed": 2.585458927000005,
+  "in_tok": 3817,
+  "out_tok": 82,
+  "content": "```json\n{\n  \"bbox_2d\": [52, 60, 331, 74], \"text_content\": \"GRM21BR71C105KA01_(2012M(0805), X7R(EIA), 1\u03bcF, DC 16V)\"\n}\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

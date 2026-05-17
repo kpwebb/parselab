@@ -1,0 +1,12 @@
+{
+  "part_id": "yageo_rc0805",
+  "page_no": 1,
+  "elapsed": 3.146691512000004,
+  "in_tok": 1142,
+  "out_tok": 216,
+  "content": "<doctag><text><loc_181><loc_20><loc_299><loc_28>Innovative Service Around the GlobeYAGEO</text>\n<section_header_level_1><loc_137><loc_121><loc_299><loc_147>DATA SHEET</section_header_level_1>\n<text><loc_108><loc_148><loc_299><loc_170>GENERAL PURPOSE CHIP RESISTORS RC0805 (Pb Free)</text>\n<text><loc_268><loc_170><loc_299><loc_180>5%; 1%</text>\n<picture><loc_270><loc_325><loc_298><loc_389><screenshot></picture>\n<text><loc_312><loc_358><loc_322><loc_458>Product specification - Sep 03, 2004 V.2</text>\n<text><loc_252><loc_470><loc_298><loc_482>YAGEO</text>\n<picture><loc_326><loc_0><loc_500><loc_500><other></picture>\n</doctag>",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

@@ -1,0 +1,11 @@
+{
+  "part_id": "ao3400a",
+  "page_no": 3,
+  "elapsed": 5.056356767999999,
+  "in_tok": 878,
+  "out_tok": 315,
+  "content": "<doctag><picture><loc_67><loc_22><loc_184><loc_38></picture>\n<section_header_level_1><loc_69><loc_55><loc_276><loc_61>TYPICAL ELECTRICAL AND THERMAL CHARACTERISTICS</section_header_level_1>\n<picture><loc_78><loc_67><loc_246><loc_161></picture>\n<picture><loc_82><loc_176><loc_245><loc_264></picture>\n<picture><loc_80><loc_285><loc_246><loc_384></picture>\n<picture><loc_259><loc_67><loc_421><loc_161></picture>\n<picture><loc_259><loc_176><loc_426><loc_264></picture>\n<picture><loc_259><loc_285><loc_430><loc_384><caption><loc_292><loc_264><loc_438><loc_274>Figure 4: On-Resistance vs. Junction Temperature (Note E)</caption></picture>\n<page_footer><loc_64><loc_472><loc_114><loc_477>Rev 3.1: July 2023</page_footer>\n<page_footer><loc_222><loc_472><loc_277><loc_477>www.aosmd.com</page_footer>\n<page_footer><loc_412><loc_472><loc_443><loc_477>Page 3 of 5</page_footer>\n<page_header><loc_394><loc_23><loc_441><loc_31>AO3400A</page_header>\n</doctag>",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

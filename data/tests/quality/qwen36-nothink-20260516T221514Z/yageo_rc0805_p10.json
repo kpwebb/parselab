@@ -1,0 +1,12 @@
+{
+  "part_id": "yageo_rc0805",
+  "page_no": 10,
+  "elapsed": 9.816181916999994,
+  "in_tok": 3678,
+  "out_tok": 753,
+  "content": "```json\n[\n\t{\"bbox_2d\": [85, 45, 173, 61], \"text_content\": \"YAGEO\"},\n\t{\"bbox_2d\": [788, 53, 882, 62], \"text_content\": \"Product specification\"},\n\t{\"bbox_2d\": [888, 53, 905, 62], \"text_content\": \"10\"},\n\t{\"bbox_2d\": [891, 69, 902, 76], \"text_content\": \"10\"},\n\t{\"bbox_2d\": [188, 69, 417, 83], \"text_content\": \"Chip Resistor Surface Mount\"},\n\t{\"bbox_2d\": [442, 70, 460, 80], \"text_content\": \"RC\"},\n\t{\"bbox_2d\": [487, 72, 517, 79], \"text_content\": \"SERIES\"},\n\t{\"bbox_2d\": [545, 69, 637, 81], \"text_content\": \"0805 (Pb Free)\"},\n\t{\"bbox_2d\": [92, 148, 234, 161], \"text_content\": \"REVISION HISTORY\"},\n\t{\"bbox_2d\": [92, 171, 160, 183], \"text_content\": \"REVISION\"},\n\t{\"bbox_2d\": [184, 171, 224, 183], \"text_content\": \"DATE\"},\n\t{\"bbox_2d\": [299, 171, 476, 183], \"text_content\": \"CHANGE NOTIFICATION\"},\n\t{\"bbox_2d\": [539, 171, 637, 183], \"text_content\": \"DESCRIPTION\"},\n\t{\"bbox_2d\": [92, 193, 149, 205], \"text_content\": \"Version 2\"},\n\t{\"bbox_2d\": [184, 193, 260, 205], \"text_content\": \"Sep 03, 2004\"},\n\t{\"bbox_2d\": [299, 193, 304, 205], \"text_content\": \"-\"},\n\t{\"bbox_2d\": [539, 193, 757, 205], \"text_content\": \"- Test method and procedure updated\"},\n\t{\"bbox_2d\": [539, 211, 868, 223], \"text_content\": \"- PE tape added (paper tape will be replaced by PE tape)\"},\n\t{\"bbox_2d\": [814, 957, 909, 967], \"text_content\": \"www.yageo.com\"},\n\t{\"bbox_2d\": [92, 975, 181, 985], \"text_content\": \"Sep 03, 2004 V.2\"}\n]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

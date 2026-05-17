@@ -1,0 +1,12 @@
+{
+  "part_id": "pmeg3010eb",
+  "page_no": 8,
+  "elapsed": 7.177044637000002,
+  "in_tok": 3965,
+  "out_tok": 753,
+  "content": null,
+  "reasoning": "```json\n[{\"bbox\": [81, 40, 171, 56], \"category\": \"header\", \"text\": \"Nexperia\"}, {\"bbox\": [737, 41, 915, 59], \"category\": \"header\", \"text\": \"PMEG3010EB\"}, {\"bbox\": [546, 67, 917, 83], \"category\": \"header\", \"text\": \"30 V, 1 A very low VF Schottky barrier rectifier\"}, {\"bbox\": [81, 108, 187, 125], \"category\": \"title\", \"text\": \"Contents\"}, {\"bbox\": [80, 141, 490, 402], \"category\": \"text\", \"text\": \"1. General description.....1\\n2. Features and benefits.....1\\n3. Applications.....1\\n4. Quick reference data.....1\\n5. Pinning information.....1\\n6. Ordering information.....2\\n7. Marking.....2\\n8. Limiting values.....2\\n9. Thermal characteristics.....2\\n10. Characteristics.....3\\n11. Test information.....4\\n12. Package outline.....4\\n13. Soldering.....5\\n14. Revision history.....6\\n15. Legal information.....7\"}, {\"bbox\": [80, 421, 326, 433], \"category\": \"text\", \"text\": \"\u00a9 Nexperia B.V. 2024. All rights reserved\"}, {\"bbox\": [80, 436, 352, 446], \"category\": \"text\", \"text\": \"For more information, please visit: http://www.nexperia.com\"}, {\"bbox\": [80, 445, 462, 455], \"category\": \"text\", \"text\": \"For sales office addresses, please send an email to: salesaddresses@nexperia.com\"}, {\"bbox\": [80, 453, 237, 463], \"category\": \"text\", \"text\": \"Date of release: 8 October 2024\"}, {\"bbox\": [80, 943, 142, 952], \"category\": \"footer\", \"text\": \"PMEG3010EB\"}, {\"bbox\": [365, 942, 632, 952], \"category\": \"footer\", \"text\": \"All information provided in this document is subject to legal disclaimers.\"}, {\"bbox\": [762, 942, 917, 952], \"category\": \"footer\", \"text\": \"\u00a9 Nexperia B.V. 2024. All rights reserved\"}, {\"bbox\": [80, 958, 207, 969], \"category\": \"footer\", \"text\": \"Product data sheet\"}, {\"bbox\": [449, 958, 550, 969], \"category\": \"footer\", \"text\": \"8 October 2024\"}, {\"bbox\": [887, 958, 917, 969], \"category\": \"footer\", \"text\": \"8 / 8\"}]\n```",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

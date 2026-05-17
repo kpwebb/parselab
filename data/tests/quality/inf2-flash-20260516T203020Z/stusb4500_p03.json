@@ -1,0 +1,12 @@
+{
+  "part_id": "stusb4500",
+  "page_no": 3,
+  "elapsed": 4.287449555000002,
+  "in_tok": 3965,
+  "out_tok": 441,
+  "content": null,
+  "reasoning": "```json\n[{\"bbox\": [67, 66, 126, 90], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [809, 65, 930, 96], \"category\": \"header\", \"text\": \"STUSB4500\\nInputs/outputs\"}, {\"bbox\": [67, 121, 87, 139], \"category\": \"header\", \"text\": \"2\"}, {\"bbox\": [162, 121, 332, 141], \"category\": \"header\", \"text\": \"Inputs/outputs\"}, {\"bbox\": [65, 176, 232, 193], \"category\": \"title\", \"text\": \"2.1 Pinout\"}, {\"bbox\": [385, 213, 708, 228], \"category\": \"figure_caption\", \"text\": \"Figure 2. QFN-24 pin connections (top view)\"}, {\"bbox\": [352, 232, 777, 508], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [375, 529, 718, 544], \"category\": \"figure_caption\", \"text\": \"Figure 3. WLCSP-25 pin connections (top view)\"}, {\"bbox\": [305, 548, 769, 870], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [67, 972, 165, 985], \"category\": \"footer\", \"text\": \"DS12499 - Rev 8\"}, {\"bbox\": [871, 974, 930, 986], \"category\": \"footer\", \"text\": \"page 3/42\"}]\n```",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

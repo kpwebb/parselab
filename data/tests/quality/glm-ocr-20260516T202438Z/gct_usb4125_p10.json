@@ -1,0 +1,11 @@
+{
+  "part_id": "gct_usb4125",
+  "page_no": 10,
+  "elapsed": 5.776840240999999,
+  "in_tok": 4968,
+  "out_tok": 215,
+  "content": "PRODUCT SPECIFICATION\n\nPart Number USB4125, USB4130, USB4135 Rev A3 Date 20/12/24\n\nProduct Description USB Type C Receptacle, 6 contacts, For Power Charging only Page 10\n\nDoc Number USB Type C Prepared YR Checked CC Approved PH\n\nRevision details:\n\nRevision Information Page Release Date\nA Specification released. - 25/11/20\nA1 Change USB4125 durability from 10000 cycles to 20000 cycles 3 26/05/21\nA2 Add USB4135 to the specification 1&2 18/02/22\nA3 - Voltage rating increased to 48Vdc\n- Durability increased to 20K cycles 2, 4 & 9 20/12/2024",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

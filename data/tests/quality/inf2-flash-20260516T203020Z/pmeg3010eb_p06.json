@@ -1,0 +1,12 @@
+{
+  "part_id": "pmeg3010eb",
+  "page_no": 6,
+  "elapsed": 7.693930440999999,
+  "in_tok": 3965,
+  "out_tok": 814,
+  "content": null,
+  "reasoning": "```json\n[{\"bbox\": [80, 40, 172, 56], \"category\": \"header\", \"text\": \"Nexperia\"}, {\"bbox\": [737, 41, 915, 59], \"category\": \"header\", \"text\": \"PMEG3010EB\"}, {\"bbox\": [546, 67, 917, 83], \"category\": \"header\", \"text\": \"30 V, 1 A very low VF Schottky barrier rectifier\"}, {\"bbox\": [80, 106, 314, 125], \"category\": \"title\", \"text\": \"14. Revision history\"}, {\"bbox\": [80, 140, 264, 153], \"category\": \"table_caption\", \"text\": \"Table 8. Revision history\"}, {\"bbox\": [83, 152, 914, 278], \"category\": \"table\", \"text\": \"<table><tr><td>Data sheet ID</td><td>Release date</td><td>Data sheet status</td><td>Change notice</td><td>Supersedes</td></tr><tr><td>PMEG3010EB v.4</td><td>20241008</td><td>Product data sheet</td><td>-</td><td>PMEG3010EB v.3</td></tr><tr><td>Modifications:</td><td colspan=\\\"4\\\">\u2022 Product(s) changed to non-automotive qualification. Please refer to nexperia.com for automotive (-Q) product alternative(s).</td></tr><tr><td>PMEG3010EB v.3</td><td>20210407</td><td>Product data sheet</td><td>-</td><td>PMEG3010EB v.2</td></tr><tr><td>PMEG3010EB v.2</td><td>20120315</td><td>Product data sheet</td><td>-</td><td>PMEG3010EB v.1</td></tr><tr><td>PMEG3010EB v.1</td><td>20061201</td><td>Product data sheet</td><td>-</td><td>-</td></tr></table>\"}, {\"bbox\": [80, 942, 142, 952], \"category\": \"footer\", \"text\": \"PMEG3010EB\"}, {\"bbox\": [365, 942, 632, 952], \"category\": \"footer\", \"text\": \"All information provided in this document is subject to legal disclaimers.\"}, {\"bbox\": [762, 942, 916, 952], \"category\": \"footer\", \"text\": \"\u00a9 Nexperia B.V. 2024. All rights reserved\"}, {\"bbox\": [80, 958, 208, 969], \"category\": \"footer\", \"text\": \"Product data sheet\"}, {\"bbox\": [449, 958, 550, 969], \"category\": \"footer\", \"text\": \"8 October 2024\"}, {\"bbox\": [887, 958, 916, 969], \"category\": \"footer\", \"text\": \"6 / 8\"}]\n```",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

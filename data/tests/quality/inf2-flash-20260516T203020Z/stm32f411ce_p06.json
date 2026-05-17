@@ -1,0 +1,12 @@
+{
+  "part_id": "stm32f411ce",
+  "page_no": 6,
+  "elapsed": 3.368485327000002,
+  "in_tok": 3965,
+  "out_tok": 337,
+  "content": null,
+  "reasoning": "```json\n[{\"bbox\": [108, 68, 188, 83], \"category\": \"header\", \"text\": \"Contents\"}, {\"bbox\": [652, 68, 890, 83], \"category\": \"header\", \"text\": \"STM32F411xC STM32F411xE\"}, {\"bbox\": [106, 102, 891, 305], \"category\": \"text\", \"text\": \"A.1 Operating conditions \u2026\u2026 142\\n\\nAppendix B Application block diagrams \u2026\u2026 143\\nB.1 USB OTG Full Speed (FS) interface solutions \u2026\u2026 143\\nB.2 Sensor Hub application example \u2026\u2026 145\\nB.3 Batch Acquisition Mode (BAM) example \u2026\u2026 146\\n\\n9 Important security notice \u2026\u2026 147\\n\\nRevision history \u2026\u2026 148\"}, {\"bbox\": [108, 881, 154, 895], \"category\": \"footer\", \"text\": \"6/151\"}, {\"bbox\": [444, 881, 556, 895], \"category\": \"footer\", \"text\": \"DS10314 Rev 8\"}, {\"bbox\": [831, 873, 884, 894], \"category\": \"figure\", \"text\": \"\"}]\n```",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

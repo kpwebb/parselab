@@ -1,0 +1,12 @@
+{
+  "part_id": "gct_usb4125",
+  "page_no": 1,
+  "elapsed": 6.023491744000001,
+  "in_tok": 3965,
+  "out_tok": 546,
+  "content": null,
+  "reasoning": "```json\n[{\"bbox\": [313, 25, 709, 48], \"category\": \"title\", \"text\": \"PRODUCT SPECIFICATION\"}, {\"bbox\": [48, 56, 942, 152], \"category\": \"table\", \"text\": \"<table><tr><td>Part Number</td><td colspan=\\\"2\\\">USB4125, USB4130, USB4135</td><td>Rev</td><td colspan=\\\"2\\\">A3</td><td>Date</td><td>20/12/24</td></tr><tr><td>Product Description</td><td colspan=\\\"5\\\">USB Type C Receptacle, 6 contacts, For Power Charging only</td><td>Page</td><td>1</td></tr><tr><td>Doc Number</td><td>USB Type C</td><td>Prepared</td><td>YR</td><td>Checked</td><td>CC</td><td>Approved</td><td>PH</td></tr></table>\"}, {\"bbox\": [368, 182, 618, 332], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [448, 348, 540, 365], \"category\": \"figure_caption\", \"text\": \"USB4125\"}, {\"bbox\": [387, 392, 602, 589], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [448, 613, 540, 630], \"category\": \"figure_caption\", \"text\": \"USB4130\"}, {\"bbox\": [358, 651, 642, 794], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [448, 824, 540, 841], \"category\": \"figure_caption\", \"text\": \"USB4135\"}, {\"bbox\": [447, 928, 575, 965], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [467, 971, 560, 985], \"category\": \"footer\", \"text\": \"www.gct.co\"}]\n```",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

@@ -1,0 +1,11 @@
+{
+  "part_id": "mmbt3904",
+  "page_no": 3,
+  "elapsed": 4.110195018999999,
+  "in_tok": 4831,
+  "out_tok": 106,
+  "content": "MMBT3904L, SMMBT3904L\n\nTYPICAL TRANSIENT CHARACTERISTICS\n\n$T_J = 25^\\circ C$\n\n$T_J = 125^\\circ C$\n\nFigure 3. Capacitance\n\nFigure 4. Charge Data\n\nFigure 5. Turn\u2013On Time\n\nFigure 6. Rise Time\n\nFigure 7. Storage Time\n\nFigure 8. Fall Time",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

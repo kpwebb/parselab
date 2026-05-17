@@ -1,0 +1,11 @@
+{
+  "part_id": "stusb4500",
+  "page_no": 3,
+  "elapsed": 2.432916261999999,
+  "in_tok": 4968,
+  "out_tok": 46,
+  "content": "2 Inputs/outputs\n\n2.1 Pinout\n\nFigure 2. QFN-24 pin connections (top view)\n\nFigure 3. WLCSP-25 pin connections (top view)",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

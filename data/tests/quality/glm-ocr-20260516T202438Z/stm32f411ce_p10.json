@@ -1,0 +1,11 @@
+{
+  "part_id": "stm32f411ce",
+  "page_no": 10,
+  "elapsed": 5.8174051610000035,
+  "in_tok": 4968,
+  "out_tok": 335,
+  "content": "Figure 47. WLCSP49 - Footprint example ... 127\nFigure 48. WLCSP49 marking (package top view) ... 128\nFigure 49. UFQFPN48 \u2013 Outline ... 129\nFigure 50. UFQFPN48 \u2013 Footprint example ... 130\nFigure 51. LQFP64 - Outline$^{(15)}$ ... 131\nFigure 52. LQFP64 - Footprint example ... 133\nFigure 53. LQFP100 - Outline$^{(15)}$ ... 134\nFigure 54. LQFP100 - Footprint example ... 136\nFigure 55. UFBGA100 - Outline$^{(13)}$ ... 137\nFigure 56. UFBGA100 - Footprint example ... 139\nFigure 57. USB controller configured as peripheral-only and used in Full-Speed mode ... 143\nFigure 58. USB controller configured as host-only and used in Full-Speed mode ... 143\nFigure 59. USB controller configured in dual mode and used in Full-Speed mode ... 144\nFigure 60. Sensor Hub application example ... 145\nFigure 61. Batch Acquisition Mode (BAM) example ... 146",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

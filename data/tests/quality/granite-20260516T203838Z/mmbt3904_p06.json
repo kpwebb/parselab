@@ -1,0 +1,12 @@
+{
+  "part_id": "mmbt3904",
+  "page_no": 6,
+  "elapsed": 3.821849641,
+  "in_tok": 1142,
+  "out_tok": 402,
+  "content": "<doctag><section_header_level_1><loc_190><loc_15><loc_317><loc_23>MMBT3904L, SMMBT3904L</section_header_level_1>\n<picture><loc_48><loc_34><loc_246><loc_143><caption><loc_76><loc_146><loc_238><loc_160>Figure 17. Collector Emitter Saturation Voltage vs. Collector Current</caption></picture>\n<picture><loc_48><loc_166><loc_243><loc_275><caption><loc_79><loc_277><loc_235><loc_284>Figure 19. Base Emitter Voltage vs. Collector</caption></picture>\n<picture><loc_48><loc_296><loc_249><loc_410><caption><loc_96><loc_412><loc_229><loc_426>Figure 21. Current Gain Bandwidth vs. Collector Current</caption></picture>\n<picture><loc_251><loc_34><loc_448><loc_143><caption><loc_282><loc_146><loc_443><loc_160>Figure 18. Base Emitter Saturation Voltage vs. Collector Current</caption></picture>\n<picture><loc_252><loc_166><loc_451><loc_275><caption><loc_299><loc_277><loc_424><loc_284>Figure 20. Temperature Coefficients</caption></picture>\n<picture><loc_252><loc_296><loc_451><loc_410><caption><loc_306><loc_412><loc_414><loc_418>Figure 22. Safe Operating Area</caption></picture>\n<page_footer><loc_219><loc_472><loc_281><loc_479>www.onsemi.com</page_footer>\n<page_footer><loc_248><loc_479><loc_252><loc_485>6</page_footer>\n<picture><loc_366><loc_471><loc_451><loc_486></picture>\n</doctag>",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

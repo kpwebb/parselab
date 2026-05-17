@@ -1,0 +1,12 @@
+{
+  "part_id": "murata_grm21",
+  "page_no": 7,
+  "elapsed": 27.411101207,
+  "in_tok": 3817,
+  "out_tok": 887,
+  "content": "```json\n[{\"bbox\": [934, 35, 980, 55], \"category\": \"header\", \"text\": \"muRata\"}, {\"bbox\": [48, 59, 221, 76], \"category\": \"title\", \"text\": \"\u25a0 Package (Tape Carrier Packaging)\"}, {\"bbox\": [56, 91, 176, 105], \"category\": \"title\", \"text\": \"1. Minimum Quantity(pcs./reel)\"}, {\"bbox\": [65, 104, 382, 168], \"category\": \"table\", \"text\": \"<table><tr><td rowspan=\\\"3\\\" colspan=\\\"2\\\">Type</td><td>\u03c6180mm Reel(W8P4)</td><td>\u03c6330mm Reel(W8P4)</td></tr><tr><td>Plastic Tape</td><td>Plastic Tape</td></tr><tr><td>CODE : L</td><td>CODE : K</td></tr><tr><td>GRM21</td><td>B</td><td>3000</td><td>10000</td></tr></table>\"}, {\"bbox\": [55, 184, 177, 198], \"category\": \"title\", \"text\": \"2. Dimensions of Tape (in mm)\"}, {\"bbox\": [66, 200, 188, 215], \"category\": \"text\", \"text\": \"(1)GRM21(W8P4 CODE : K/L)\"}, {\"bbox\": [68, 221, 337, 391], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [65, 414, 952, 463], \"category\": \"table\", \"text\": \"<table><tr><td rowspan=\\\"2\\\" colspan=\\\"2\\\">Type</td><td colspan=\\\"3\\\">Dimensions(Chip)</td><td rowspan=\\\"2\\\">A</td><td rowspan=\\\"2\\\">B</td><td rowspan=\\\"2\\\">C</td><td rowspan=\\\"2\\\">D</td><td rowspan=\\\"2\\\">E</td><td rowspan=\\\"2\\\">F</td><td rowspan=\\\"2\\\">G</td><td rowspan=\\\"2\\\">H</td><td rowspan=\\\"2\\\">J</td><td rowspan=\\\"2\\\">K</td><td rowspan=\\\"2\\\">L</td></tr><tr><td>L</td><td>W</td><td>T</td></tr><tr><td>GRM21</td><td>B</td><td>2.0+/-0.1</td><td>1.25+/-0.1</td><td>1.25+/-0.1</td><td>1.45+/-0.20</td><td>2.25+/-0.20</td><td>8.0+/-0.3</td><td>3.5+/-0.05</td><td>1.75+/-0.1</td><td>4.0+/-0.1</td><td>2.0+/-0.1</td><td>4.0+/-0.1</td><td>\u03c61.5+0.1/-0</td><td>2.0 max.</td><td>0.25+/-0.1</td></tr></table>\"}, {\"bbox\": [19, 962, 146, 978], \"category\": \"footer\", \"text\": \"GRM21BR71C105KA01-01A\"}, {\"bbox\": [498, 963, 507, 977], \"category\": \"footer\", \"text\": \"7\"}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

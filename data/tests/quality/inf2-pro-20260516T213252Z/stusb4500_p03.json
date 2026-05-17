@@ -1,0 +1,12 @@
+{
+  "part_id": "stusb4500",
+  "page_no": 3,
+  "elapsed": 27.063114364,
+  "in_tok": 3815,
+  "out_tok": 564,
+  "content": "```json\n[{\"bbox\": [68, 66, 127, 91], \"category\": \"logo\", \"bbox\": [68, 66, 127, 91]}, {\"bbox\": [812, 66, 930, 96], \"category\": \"header\", \"bbox\": [812, 66, 930, 96]}, {\"bbox\": [68, 121, 88, 138], \"category\": \"title\", \"bbox\": [68, 121, 88, 138]}, {\"bbox\": [163, 121, 332, 141], \"category\": \"title\", \"bbox\": [163, 121, 332, 141]}, {\"bbox\": [68, 176, 232, 193], \"category\": \"title\", \"bbox\": [68, 176, 232, 193]}, {\"bbox\": [386, 213, 707, 228], \"category\": \"figure_caption\", \"bbox\": [386, 213, 707, 228]}, {\"bbox\": [352, 233, 778, 509], \"category\": \"figure\", \"bbox\": [352, 233, 778, 509]}, {\"bbox\": [375, 529, 718, 544], \"category\": \"figure_caption\", \"bbox\": [375, 529, 718, 544]}, {\"bbox\": [307, 549, 774, 873], \"category\": \"figure\", \"bbox\": [307, 549, 774, 873]}, {\"bbox\": [69, 973, 164, 984], \"category\": \"footer\", \"bbox\": [69, 973, 164, 984]}, {\"bbox\": [873, 975, 930, 986], \"category\": \"footer\", \"bbox\": [873, 975, 930, 986]}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

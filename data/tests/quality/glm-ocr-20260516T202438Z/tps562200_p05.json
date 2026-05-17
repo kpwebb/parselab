@@ -1,0 +1,11 @@
+{
+  "part_id": "tps562200",
+  "page_no": 5,
+  "elapsed": 9.975473137999998,
+  "in_tok": 4831,
+  "out_tok": 805,
+  "content": "6 Specifications\n\n6.1 Absolute Maximum Ratings$^{(1)}$\n\n$T_J = -40^\\circ\\text{C}$ to $150^\\circ\\text{C}$ (unless otherwise noted)\n\n| | MIN | MAX | UNIT |\n| :--- | :--- | :--- | :--- |\n| Input voltage range | VIN, EN | $-0.3$ | 19 | V |\n| | VBST | $-0.3$ | 25 | V |\n| | VBST (10-ns transient) | $-0.3$ | 27.5 | V |\n| | VBST (vs SW) | $-0.3$ | 6.5 | V |\n| | VFB | $-0.3$ | 6.5 | V |\n| | SW | $-2$ | 19 | V |\n| | SW (10-ns transient) | $-3.5$ | 21 | V |\n\nOperating junction temperature, $T_J$\n\n$-40$ to $150$ $^\\circ\\text{C}$\n\nStorage temperature range, $T_{stg}$\n\n$-55$ to $150$ $^\\circ\\text{C}$\n\n(1) Stresses beyond those listed under absolute maximum ratings may cause permanent damage to the device. These are stress ratings only, and functional operation of the device at these or any other conditions beyond those indicated under recommended operating conditions is not implied. Exposure to absolute-maximum-rated conditions for extended periods may affect device reliability.\n\n6.2 ESD Ratings\n\n| | VALUE | UNIT |\n| :--- | :--- | :--- |\n| $V_{(ESD)}$ | Human body model (HBM), per ANSI/ESDA/JEDEC JS-001, all pins$^{(1)}$ | $\\pm2000$ | V |\n| | Charged device model (CDM), per JEDEC specification JESD22-C101, all pins$^{(2)}$ | $\\pm500$ |\n\n(1) JEDEC document JEP155 states that 500-V HBM allows safe manufacturing with a standard ESD control process.\n(2) JEDEC document JEP157 states that 250-V CDM allows safe manufacturing with a standard ESD control process.\n\n6.3 Recommended Operating Conditions\n\n$T_J = -40^\\circ\\text{C}$ to $150^\\circ\\text{C}$ (unless otherwise noted)\n\n| | MIN | MAX | UNIT |\n| :--- | :--- | :--- | :--- |\n| $V_{IN}$ | Supply input voltage range | 4.5 | 17 | V |\n| $V_I$ | Input voltage range | VBST | $-0.1$ | 23 |\n| | | VBST (10-ns transient) | $-0.1$ | 26 |\n| | | VBST(vs SW) | $-0.1$ | 6 |\n| | | EN | $-0.1$ | 17 |\n| | | VFB | $-0.1$ | 5.5 |\n| | | SW | $-1.8$ | 17 |\n| | | SW (10-ns transient) | $-3.5$ | 20 |\n| $T_A$ | Operating free-air temperature | $-40$ | 85 | $^\\circ\\text{C}$ |",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

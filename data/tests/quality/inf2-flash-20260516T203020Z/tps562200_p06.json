@@ -1,0 +1,12 @@
+{
+  "part_id": "tps562200",
+  "page_no": 6,
+  "elapsed": 7.381682358000006,
+  "in_tok": 3826,
+  "out_tok": 792,
+  "content": null,
+  "reasoning": "```json\n[{\"bbox\": [85, 56, 253, 69], \"category\": \"header\", \"text\": \"TPS562200, TPS563200\"}, {\"bbox\": [85, 68, 363, 81], \"category\": \"header\", \"text\": \"SLVSCB0E \u2013 JANUARY 2014 \u2013 REVISED MAY 2023\"}, {\"bbox\": [752, 34, 914, 80], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [88, 94, 299, 110], \"category\": \"title\", \"text\": \"6.4 Thermal Information\"}, {\"bbox\": [90, 118, 906, 260], \"category\": \"table\", \"text\": \"<table><tr><td rowspan=\\\"3\\\">THERMAL METRIC<sup>(1)</sup></td><td>TPS562200</td><td>TPS563200</td><td rowspan=\\\"2\\\">UNITS</td></tr><tr><td>DDC (SOT)</td><td>DDC (SOT)</td></tr><tr><td>(6 PINS)</td><td>(6 PINS)</td><td></td></tr><tr><td>\\\\(R_{\\\\theta JA}\\\\)</td><td>Junction-to-ambient thermal resistance</td><td>89.0</td><td>87.9</td><td rowspan=\\\"4\\\">\u00b0C/W</td></tr><tr><td>\\\\(R_{\\\\theta JC\\\\text{top}}\\\\)</td><td>Junction-to-case (top) thermal resistance</td><td>44.5</td><td>42.2</td></tr><tr><td>\\\\(R_{\\\\theta JB}\\\\)</td><td>Junction-to-board thermal resistance</td><td>13.4</td><td>13.6</td></tr><tr><td>\\\\(\\\\psi_{JT}\\\\)</td><td>Junction-to-top characterization parameter</td><td>2.2</td><td>1.9</td></tr><tr><td>\\\\(\\\\psi_{JB}\\\\)</td><td>Junction-to-board characterization parameter</td><td>13.2</td><td>13.3</td></tr></table>\"}, {\"bbox\": [88, 267, 884, 282], \"category\": \"table_footnote\", \"text\": \"(1) For more information about traditional and new thermal metrics, see the IC Package Thermal Metrics application report, SPRA953.\"}, {\"bbox\": [85, 952, 97, 964], \"category\": \"footer\", \"text\": \"6\"}, {\"bbox\": [127, 951, 297, 964], \"category\": \"footer\", \"text\": \"Submit Document Feedback\"}, {\"bbox\": [657, 951, 913, 963], \"category\": \"footer\", \"text\": \"Copyright \u00a9 2023 Texas Instruments Incorporated\"}, {\"bbox\": [362, 975, 637, 988], \"category\": \"footer\", \"text\": \"Product Folder Links: TPS562200 TPS563200\"}]\n```",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

@@ -1,0 +1,12 @@
+{
+  "part_id": "stm32f411ce",
+  "page_no": 7,
+  "elapsed": 2.368131433000002,
+  "in_tok": 3817,
+  "out_tok": 46,
+  "content": "```json\n{\n  \"bbox_2d\": [113, 107, 287, 125], \"text_content\": \"List of tables\"\n}\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

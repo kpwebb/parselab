@@ -1,0 +1,12 @@
+{
+  "part_id": "pmeg3010eb",
+  "page_no": 6,
+  "elapsed": 3.408935936999999,
+  "in_tok": 878,
+  "out_tok": 455,
+  "content": "<doctag><page_header><loc_42><loc_20><loc_85><loc_28>Nexperia</page_header>\n<page_header><loc_370><loc_20><loc_458><loc_31>PMEG3010EB</page_header>\n<section_header_level_1><loc_42><loc_53><loc_156><loc_62>14. Revision history</section_header_level_1>\n<section_header_level_1><loc_42><loc_70><loc_131><loc_76>Table 8. Revision history</section_header_level_1>\n<otsl><loc_42><loc_76><loc_458><loc_139><fcel>Data sheet ID<fcel>Release date<fcel>Data sheet status<fcel>Change notice<fcel>Supersedes<nl><fcel>PMEG3010EB v.4<fcel>20241008<fcel>Product data sheet<fcel>-<fcel>PMEG3010EB v.3<nl><fcel>Modifications:<fcel>\u00b7 Product(s) changed to non-automotive qualification. Please refer to nexperia.com for  automotive (-Q) product alternative(s).<lcel><lcel><lcel><nl><fcel>PMEG3010EB v.3<fcel>20210407<fcel>Product data sheet<fcel>-<fcel>PMEG3010EB v.2<nl><fcel>PMEG3010EB v.2<fcel>20120315<fcel>Product data sheet<fcel>-<fcel>PMEG3010EB v.1<nl><fcel>PMEG3010EB v.1<fcel>20061201<fcel>Product data sheet<fcel>-<fcel>-<nl></otsl>\n<page_footer><loc_42><loc_472><loc_69><loc_476>PMEG3010EB</page_footer>\n<page_footer><loc_183><loc_472><loc_315><loc_476>All information provided in this document is subject to legal disclaimers.</page_footer>\n<page_footer><loc_382><loc_472><loc_458><loc_476>\u00a9 Nexperia B.V. 2024. All rights reserved</page_footer>\n<page_footer><loc_42><loc_480><loc_103><loc_486>Product data sheet</page_footer>\n<page_footer><loc_226><loc_480><loc_274><loc_486>8 October 2024</page_footer>\n<page_footer><loc_444><loc_480><loc_458><loc_486>6 / 8</page_footer>\n</doctag>",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

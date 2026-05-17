@@ -1,0 +1,12 @@
+{
+  "part_id": "mmbt3904",
+  "page_no": 4,
+  "elapsed": 20.266824604,
+  "in_tok": 3678,
+  "out_tok": 851,
+  "content": "```json\n[{\"bbox\": [376, 28, 635, 46], \"category\": \"title\", \"text\": \"MMBT3904L, SMMBT3904L\"}, {\"bbox\": [286, 65, 711, 94], \"category\": \"title\", \"text\": \"TYPICAL AUDIO SMALL-SIGNAL CHARACTERISTICS\\nNOISE FIGURE VARIATIONS\"}, {\"bbox\": [341, 96, 658, 111], \"category\": \"title\", \"text\": \"$(V_{CE} = 5.0 \\\\, Vdc, T_A = 25^{\\\\circ}C, \\\\text{Bandwidth} = 1.0 \\\\, Hz)$\"}, {\"bbox\": [95, 122, 483, 343], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [270, 352, 336, 366], \"category\": \"figure_caption\", \"text\": \"Figure 9.\"}, {\"bbox\": [496, 122, 898, 343], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [678, 352, 752, 366], \"category\": \"figure_caption\", \"text\": \"Figure 10.\"}, {\"bbox\": [433, 385, 565, 399], \"category\": \"title\", \"text\": \"h PARAMETERS\"}, {\"bbox\": [372, 400, 626, 415], \"category\": \"figure_caption\", \"text\": \"$(V_{CE} = 10 \\\\, Vdc, f = 1.0 \\\\, kHz, T_A = 25^{\\\\circ}C)$\"}, {\"bbox\": [95, 418, 488, 635], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [226, 641, 394, 656], \"category\": \"figure_caption\", \"text\": \"Figure 11. Current Gain\"}, {\"bbox\": [501, 418, 901, 635], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [618, 641, 828, 656], \"category\": \"figure_caption\", \"text\": \"Figure 12. Output Admittance\"}, {\"bbox\": [95, 677, 488, 895], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [212, 905, 408, 920], \"category\": \"figure_caption\", \"text\": \"Figure 13. Input Impedance\"}, {\"bbox\": [501, 677, 901, 895], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [601, 905, 844, 920], \"category\": \"figure_caption\", \"text\": \"Figure 14. Voltage Feedback Ratio\"}, {\"bbox\": [434, 943, 562, 955], \"category\": \"footer\", \"text\": \"www.onsemi.com\"}, {\"bbox\": [494, 957, 504, 967], \"category\": \"footer\", \"text\": \"4\"}, {\"bbox\": [732, 942, 902, 969], \"category\": \"footer\", \"text\": \"Share Feedback\\nYour Opinion Matters\"}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

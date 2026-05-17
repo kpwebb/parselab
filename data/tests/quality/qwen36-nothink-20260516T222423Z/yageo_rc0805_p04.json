@@ -1,0 +1,12 @@
+{
+  "part_id": "yageo_rc0805",
+  "page_no": 4,
+  "elapsed": 2.9324947270000052,
+  "in_tok": 3678,
+  "out_tok": 43,
+  "content": "```json\n{\n  \"bbox_2d\": [86, 45, 173, 63], \"text_content\": \"YAGEO\"\n}\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

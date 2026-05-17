@@ -1,0 +1,11 @@
+{
+  "part_id": "murata_grm21",
+  "page_no": 8,
+  "elapsed": 3.3674232760000002,
+  "in_tok": 877,
+  "out_tok": 314,
+  "content": "<doctag><section_header_level_1><loc_25><loc_30><loc_110><loc_38>Package (Tape Carrier Packaging)</section_header_level_1>\n<unordered_list><list_item><loc_28><loc_46><loc_87><loc_53>3. Dimensions of Reel (in mm)</list_item>\n</unordered_list>\n<picture><loc_53><loc_56><loc_237><loc_198></picture>\n<otsl><loc_52><loc_206><loc_388><loc_230><fcel>Reel<fcel>A<fcel>B<fcel>C<fcel>D<fcel>E<fcel>W<fcel>W1<nl><fcel>\u03c6180mm Reel<fcel>\u03c6180+0/-3.0<fcel>\u03c650 min.<fcel>\u03c613+/-0.2<fcel>\u03c621+/-0.8<fcel>2.0+/-0.5<fcel>14.4 max.<fcel>8.4+1.5<nl><fcel>\u03c6330mm Reel<fcel>\u03c6330+/-2.0<fcel>\u03c650 min.<fcel>\u03c613+/-0.2<fcel>\u03c621+/-0.8<fcel>2.0+/-0.5<fcel>14.4 max.<fcel>8.4+1.5<nl></otsl>\n<page_footer><loc_10><loc_482><loc_73><loc_490>GRM21BR71C105KA01-01A</page_footer>\n<page_footer><loc_250><loc_482><loc_253><loc_490>8</page_footer>\n<picture><loc_467><loc_18><loc_490><loc_27></picture>\n</doctag>",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

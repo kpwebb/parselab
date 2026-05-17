@@ -1,0 +1,11 @@
+{
+  "part_id": "mmbt3904",
+  "page_no": 6,
+  "elapsed": 5.226178861000001,
+  "in_tok": 4831,
+  "out_tok": 111,
+  "content": "MMBT3904L, SMMBT3904L\n\nFigure 17. Collector Emitter Saturation Voltage vs. Collector Current\n\nFigure 18. Base Emitter Saturation Voltage vs. Collector Current\n\nFigure 19. Base Emitter Voltage vs. Collector Current\n\nFigure 20. Temperature Coefficients\n\nFigure 21. Current Gain Bandwidth vs. Collector Current\n\nFigure 22. Safe Operating Area",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

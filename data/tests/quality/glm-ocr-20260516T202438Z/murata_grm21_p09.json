@@ -1,0 +1,11 @@
+{
+  "part_id": "murata_grm21",
+  "page_no": 9,
+  "elapsed": 6.271958359999999,
+  "in_tok": 4968,
+  "out_tok": 301,
+  "content": "\u25a0 Package (Tape Carrier Packaging)\n\n4. Part of the leader and part of the vacant section are attached as follows. The sprocket holes are to the right as the tape is pulled toward the user.\n\n5. Accumulate tolerance of sprocket holes pitch = +/-0.3mm/10 pitch\n\n6. Chip in the tape is enclosed by top tape and bottom tape as shown in 2. Dimensions of Tape.\n\n7. The top tape and carrier tape are not attached at the end of the tape for a minimum of 5 pitches.\n\n8. There are no jointing for top tape and bottom tape.\n\n9. There are no fuzz in the cavity.\n\n10. Break down force of top tape: 5N min.\n   Break down force of bottom tape: 5N min. (Only a bottom tape existence)\n\n11. Reel is made by resin and appeaser and dimension is shown in 3. Dimensions of Reel. There are possibly to change the material and dimension due to some impairment.\n\n12. Peeling off force: 0.1N to 0.7N in the direction as shown below.\n\n   Speed of Peeling off: 300 mm / min\n\n13. Label that show the customer parts number, our parts number, our company name, inspection number and quantity, will be put in outside of reel.",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

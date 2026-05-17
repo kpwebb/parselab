@@ -1,0 +1,7 @@
+{
+  "part_id": "gct_usb4125",
+  "page_no": 1,
+  "elapsed": 150.19684345000002,
+  "error": "HTTPStatusError: Redirect response '303 See Other' for url 'https://ferrite-systems--ferrite-infinity-parser2-serve.modal.run/v1/chat/completions'\nRedirect location: 'https://ferrite-systems--ferrite-infinity-parser2-serve.modal.run/v1/chat/completions?__modal_function_call_id=fc-01KRSDRAMJ1Z7G48CJRMTG4ZR7'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/303",
+  "ok": false
+}

@@ -1,0 +1,12 @@
+{
+  "part_id": "stm32f411ce",
+  "page_no": 2,
+  "elapsed": 4.852856793000001,
+  "in_tok": 3965,
+  "out_tok": 490,
+  "content": null,
+  "reasoning": "```json\n[{\"bbox\": [652, 68, 890, 82], \"category\": \"header\", \"text\": \"STM32F411xC STM32F411xE\"}, {\"bbox\": [204, 106, 339, 126], \"category\": \"title\", \"text\": \"Application\"}, {\"bbox\": [204, 134, 494, 148], \"category\": \"text\", \"text\": \"\u2022 Motor drive and application control\"}, {\"bbox\": [204, 152, 379, 166], \"category\": \"text\", \"text\": \"\u2022 Medical equipment\"}, {\"bbox\": [204, 169, 635, 184], \"category\": \"text\", \"text\": \"\u2022 Industrial applications: PLC, inverters, circuit breakers\"}, {\"bbox\": [204, 187, 405, 201], \"category\": \"text\", \"text\": \"\u2022 Printers, and scanners\"}, {\"bbox\": [204, 205, 554, 220], \"category\": \"text\", \"text\": \"\u2022 Alarm systems, video intercom, and HVAC\"}, {\"bbox\": [204, 222, 413, 237], \"category\": \"text\", \"text\": \"\u2022 Home audio appliances\"}, {\"bbox\": [204, 241, 424, 255], \"category\": \"text\", \"text\": \"\u2022 Mobile phone sensor hub\"}, {\"bbox\": [109, 882, 154, 895], \"category\": \"footer\", \"text\": \"2/151\"}, {\"bbox\": [444, 882, 555, 895], \"category\": \"footer\", \"text\": \"DS10314 Rev 8\"}, {\"bbox\": [832, 874, 884, 894], \"category\": \"figure\", \"text\": \"\"}]\n```",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

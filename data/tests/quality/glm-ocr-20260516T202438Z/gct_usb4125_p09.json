@@ -1,0 +1,11 @@
+{
+  "part_id": "gct_usb4125",
+  "page_no": 9,
+  "elapsed": 8.425208985000001,
+  "in_tok": 4968,
+  "out_tok": 373,
+  "content": "PRODUCT SPECIFICATION\n\nPart Number USB4125, USB4130, USB4135 Rev A3 Date 20/12/24\n\nProduct Description USB Type C Receptacle, 6 contacts, For Power Charging only Page 9\n\nDoc Number USB Type C Prepared YR Checked CC Approved PH\n\n6.2.1 Extraction force Within: a) 33% of initial reading & b) 8N to 20N\n\n6.2.2 Durability Perform 2468 cycles and then rotate the plug or socket 180\u00b0 and then perform 2500 cycles. rotate the plug or socket 180\u00b0 each 2500 cycles. No Physical damage. (Replace the plug after 10K cycles)\n\n6.2.1 Extraction force Within the range of 6N to 20N.\n\n6.1.1 LLCR 50m\u03a9 Max all contacts\n\n6.1.3 DWV No breakdown or flashover\n\n6.1.2 Insulation Resistance 100 M\u03a9 Max.\n\n6.0.1 Examination Visual inspection; No physical damage\n\nGroup B-1\n\n6.0.1 Examination Visual inspection; No physical damage\n\n6.2.4 4-Axis Continuity Discontinuity less than 1\u03bcs\n\n6.0.1 Examination Visual inspection; No physical damage\n\nGroup B-6\n\n6.0.1 Examination Visual inspection; No physical damage\n\n6.1.5 Contact Current Rating The Temperature Rise shall not exceed 30\u00b0C\n\n6.0.1 Examination Visual inspection; No physical damage",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

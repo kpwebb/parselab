@@ -1,0 +1,12 @@
+{
+  "part_id": "murata_grm21",
+  "page_no": 7,
+  "elapsed": 8.460275158000002,
+  "in_tok": 3965,
+  "out_tok": 898,
+  "content": null,
+  "reasoning": "```json\n[{\"bbox\": [933, 36, 981, 55], \"category\": \"header\", \"text\": \"muRata\"}, {\"bbox\": [48, 58, 221, 77], \"category\": \"title\", \"text\": \"\u25a0 Package (Tape Carrier Packaging)\"}, {\"bbox\": [56, 90, 176, 106], \"category\": \"text\", \"text\": \"1. Minimum Quantity(pcs./reel)\"}, {\"bbox\": [64, 104, 382, 168], \"category\": \"table\", \"text\": \"<table><tr><td rowspan=\\\"3\\\">Type</td><td>\\\\(\\\\phi\\\\)180mm Reel(W8P4)</td><td>\\\\(\\\\phi\\\\)330mm Reel(W8P4)</td></tr><tr><td>Plastic Tape</td><td>Plastic Tape</td></tr><tr><td>CODE : L</td><td>CODE : K</td></tr><tr><td>GRM21</td><td>B</td><td>3000</td><td>10000</td></tr></table>\"}, {\"bbox\": [55, 183, 177, 199], \"category\": \"text\", \"text\": \"2. Dimensions of Tape (in mm)\"}, {\"bbox\": [65, 199, 187, 215], \"category\": \"text\", \"text\": \"(1)GRM21(W8P4 CODE : K/L)\"}, {\"bbox\": [68, 221, 338, 392], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [64, 415, 952, 463], \"category\": \"table\", \"text\": \"<table><tr><td rowspan=\\\"2\\\" colspan=\\\"2\\\">Type</td><td colspan=\\\"3\\\">Dimensions(Chip)</td><td rowspan=\\\"2\\\">A</td><td rowspan=\\\"2\\\">B</td><td rowspan=\\\"2\\\">C</td><td rowspan=\\\"2\\\">D</td><td rowspan=\\\"2\\\">E</td><td rowspan=\\\"2\\\">F</td><td rowspan=\\\"2\\\">G</td><td rowspan=\\\"2\\\">H</td><td rowspan=\\\"2\\\">J</td><td rowspan=\\\"2\\\">K</td><td rowspan=\\\"2\\\">L</td></tr><tr><td>L</td><td>W</td><td>T</td></tr><tr><td>GRM21</td><td>B</td><td>2.0+/-0.1</td><td>1.25+/-0.1</td><td>1.25+/-0.1</td><td>1.45+/-0.20</td><td>2.25+/-0.20</td><td>8.0+/-0.3</td><td>3.5+/-0.05</td><td>1.75+/-0.1</td><td>4.0+/-0.1</td><td>2.0+/-0.1</td><td>4.0+/-0.1</td><td>\\\\(\\\\phi\\\\)1.5+0.1/-0</td><td>2.0 max.</td><td>0.25+/-0.1</td></tr></table>\"}, {\"bbox\": [20, 962, 148, 979], \"category\": \"footer\", \"text\": \"GRM21BR71C105KA01-01A\"}, {\"bbox\": [498, 963, 507, 978], \"category\": \"footer\", \"text\": \"7\"}]\n```",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

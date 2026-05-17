@@ -1,0 +1,11 @@
+{
+  "part_id": "tps562200",
+  "page_no": 6,
+  "elapsed": 3.508601793000004,
+  "in_tok": 1142,
+  "out_tok": 453,
+  "content": "<doctag><page_header><loc_44><loc_29><loc_126><loc_35>TPS562200, TPS563200</page_header>\n<page_header><loc_44><loc_36><loc_180><loc_41>SLVSCB0E - JANUARY 2014 - REVISED MAY 2023</page_header>\n<picture><loc_376><loc_18><loc_456><loc_36></picture>\n<section_header_level_1><loc_46><loc_48><loc_148><loc_55>6.4 Thermal Information</section_header_level_1>\n<otsl><loc_46><loc_59><loc_454><loc_130><ecel><fcel>THERMAL METRIC (1)<fcel>TPS562200<fcel>TPS563200<fcel>UNITS<nl><ecel><ecel><fcel>DDC (SOT)<fcel>DDC (SOT)<fcel>R$_{\u03b8JA}$<nl><ecel><ecel><fcel>(6 PINS)<fcel>(6 PINS)<fcel>R$_{\u03b8JCtop}$<nl><ecel><ecel><fcel>89.0<fcel>87.9<fcel>R$_{\u03b8JB}$<nl><ecel><ecel><fcel>44.5<fcel>42.2<fcel>R$_{\u03b8JB}$<nl><ecel><ecel><fcel>13.4<fcel>13.6<fcel>R$_{\u03b8JB}$<nl><ecel><ecel><fcel>2.2<fcel>1.9<fcel>\u03c8$_{JT}$<nl><ecel><ecel><fcel>13.2<fcel>13.3<fcel>R$_{\u03b8JB}$<nl></otsl>\n<unordered_list><list_item><loc_46><loc_135><loc_442><loc_140>(1) For more information about traditional and new thermal metrics, see the IC Package Thermal Metrics application report, SPRA953.</list_item>\n</unordered_list>\n<page_footer><loc_44><loc_477><loc_48><loc_482>6</page_footer>\n<page_footer><loc_65><loc_477><loc_147><loc_482>Submit Document Feedback</page_footer>\n<page_footer><loc_329><loc_477><loc_456><loc_482>Copyright \u00a9 2023 Texas Instruments Incorporated</page_footer>\n<page_footer><loc_182><loc_489><loc_318><loc_494>Product Folder Links: TPS562200 TPS563200</page_footer>\n</doctag>",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

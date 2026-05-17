@@ -1,0 +1,12 @@
+{
+  "part_id": "murata_grm21",
+  "page_no": 8,
+  "elapsed": 31.002596815999993,
+  "in_tok": 3817,
+  "out_tok": 566,
+  "content": "```json\n[{\"bbox\": [48, 59, 221, 76], \"category\": \"title\", \"text\": \"\u25a0 Package (Tape Carrier Packaging)\"}, {\"bbox\": [934, 35, 980, 55], \"category\": \"header\", \"text\": \"muRata\"}, {\"bbox\": [54, 91, 175, 106], \"category\": \"title\", \"text\": \"3. Dimensions of Reel (in mm)\"}, {\"bbox\": [105, 112, 321, 395], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [353, 124, 474, 382], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [105, 414, 774, 463], \"category\": \"table\", \"text\": \"<table><tr><td>Reel</td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>W</td><td>W1</td></tr><tr><td>\u03c6180mm Reel</td><td>\u03c6180+0/-3.0</td><td>\u03c650 min.</td><td>\u03c613+/-0.2</td><td>\u03c621+/-0.8</td><td>2.0+/-0.5</td><td>14.4 max.</td><td>8.4+1.5</td></tr><tr><td>\u03c6330mm Reel</td><td>\u03c6330+/-2.0</td><td>\u03c650 min.</td><td>\u03c613+/-0.2</td><td>\u03c621+/-0.8</td><td>2.0+/-0.5</td><td>14.4 max.</td><td>8.4+1.5</td></tr></table>\"}, {\"bbox\": [20, 962, 146, 978], \"category\": \"footer\", \"text\": \"GRM21BR71C105KA01-01A\"}, {\"bbox\": [499, 963, 507, 977], \"category\": \"footer\", \"text\": \"8\"}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

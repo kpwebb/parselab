@@ -1,0 +1,11 @@
+{
+  "part_id": "coilcraft_xal7030",
+  "page_no": 2,
+  "elapsed": 19.773866409,
+  "in_tok": 4831,
+  "out_tok": 695,
+  "content": "Shielded Power Inductors \u2013 XAL7030\n\nTypical L vs Frequency\n\nInductance (\u00b5H) vs Frequency (MHz)\n\nIndicates direction of terminals and start (short) lead. Connect high dv/dt here for lowest EMI.\n\nRecommended Land Pattern\n\nDimensions are in inches/mm\n\nDash number | Terminal width \u00b10.004 / \u00b10.10 (in / mm) | Land pattern width (in / mm)\n------- | :--- | :---\n-161 | 0.063 / 1,60 | 0.070 / 1.78\n-301 | 0.063 / 1,60 | 0.070 / 1.78\n-601 | 0.063 / 1,60 | 0.070 / 1.78\n-102 | 0.063 / 1,60 | 0.070 / 1.78\n-152 | 0.063 / 1,60 | 0.070 / 1.78\n-222 | 0.063 / 1,60 | 0.070 / 1.78\n-272 | 0.063 / 1,60 | 0.070 / 1.78\n-332 | 0.063 / 1,60 | 0.070 / 1.78\n-472 | 0.055 / 1,40 | 0.062 / 1.58\n-562 | 0.055 / 1,40 | 0.062 / 1.58\n-682 | 0.055 / 1,40 | 0.062 / 1.58\n-822 | 0.055 / 1,40 | 0.062 / 1.58\n-103 | 0.055 / 1,40 | 0.062 / 1.58\n\nUS +1-847-639-6400 sales@coilcraft.com\nUK +44-1236-730595 sales@coilcraft-europe.com\nTaiwan +886-2-2264 3646 sales@coilcraft.com.tw\nChina +86-21-6218 8074 sales@coilcraft.com.cn\nSingapore +65-6484 8412 sales@coilcraft.com.sg\n\nDocument 863-2 Revised 12/16/25\n\nThis product may not be used in medical or high risk applications without prior Coilcraft approval. Specification subject to change without notice. Please check web site for latest information.",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

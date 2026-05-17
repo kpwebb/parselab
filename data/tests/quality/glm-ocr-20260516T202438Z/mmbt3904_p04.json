@@ -1,0 +1,11 @@
+{
+  "part_id": "mmbt3904",
+  "page_no": 4,
+  "elapsed": 3.6021158389999997,
+  "in_tok": 4831,
+  "out_tok": 155,
+  "content": "TYPICAL AUDIO SMALL-SIGNAL CHARACTERISTICS\nNOISE FIGURE VARIATIONS\n($V_{CE} = 5.0$ Vdc, $T_A = 25^\\circ C$, Bandwidth = 1.0 Hz)\n\nFigure 9.\n\nFigure 10.\n\nh PARAMETERS\n($V_{CE} = 10$ Vdc, $f = 1.0$ kHz, $T_A = 25^\\circ C$)\n\nFigure 11. Current Gain\n\nFigure 12. Output Admittance\n\nFigure 13. Input Impedance\n\nFigure 14. Voltage Feedback Ratio",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

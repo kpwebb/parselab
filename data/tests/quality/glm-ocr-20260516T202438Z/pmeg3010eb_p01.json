@@ -1,0 +1,11 @@
+{
+  "part_id": "pmeg3010eb",
+  "page_no": 1,
+  "elapsed": 8.028379097999995,
+  "in_tok": 4968,
+  "out_tok": 414,
+  "content": "1. General description\n\nPlanar Schottky barrier rectifier with an integrated guard ring for stress protection, encapsulated in a SOD523 (SC-79) ultra small and flat lead Surface-Mounted Device (SMD) plastic package.\n\n2. Features and benefits\n\n\u2022 Forward current: $I_F \\leq 1$ A\n\u2022 Reverse voltage: $V_R \\leq 30$ V\n\u2022 Very low forward voltage\n\u2022 Ultra small and flat lead SMD plastic package\n\n3. Applications\n\n\u2022 Low voltage rectification\n\u2022 High efficiency DC-to-DC conversion\n\u2022 Switch mode power supply\n\u2022 Reverse polarity protection\n\u2022 Low power consumption applications\n\n4. Quick reference data\n\nTable 1. Quick reference data\n\n| Symbol | Parameter | Conditions | Min | Typ | Max | Unit |\n| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n| $I_F$ | forward current | $T_{sp} \\leq 55$ \u00b0C | - | - | 1 | A |\n| $V_R$ | reverse voltage | | - | - | 30 | V |\n| $V_F$ | forward voltage | $I_F = 1$ A; pulsed; $t_p \\leq 300$ \u00b5s; $\\delta \\leq 0.02$; $T_{amb} = 25$ \u00b0C | - | 610 | 680 | mV |\n\n5. Pinning information\n\nTable 2. Pinning information\n\n| Pin | Symbol | Description | Simplified outline | Graphic symbol |\n| :--- | :--- | :--- | :--- | :--- |\n| 1 | K | cathode[1] | SC-79 (SOD523) | K A sym001 |\n\n[1] The marking bar indicates the cathode.",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

@@ -1,0 +1,11 @@
+{
+  "part_id": "ao3400a",
+  "page_no": 5,
+  "elapsed": 8.589884263000002,
+  "in_tok": 4968,
+  "out_tok": 30,
+  "content": "Gate Charge Test Circuit & Waveform\n\nResistive Switching Test Circuit & Waveforms\n\nDiode Recovery Test Circuit & Waveforms",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

@@ -1,0 +1,11 @@
+{
+  "part_id": "murata_blm18",
+  "page_no": 2,
+  "elapsed": 10.739720780000003,
+  "in_tok": 4968,
+  "out_tok": 581,
+  "content": "Chip EMIFIL\u00ae Inductor Type\n\nBLM18P Series (0603 Size)\n\nDimension\n\nEquivalent Circuit\n\n(Resistance element becomes dominant at high frequencies.)\n\nPackaging\n\nCode Packaging Minimum Quantity\nD 180mm Paper Tape 4000\nJ 330mm Paper Tape 10000\nB Bulk(Bag) 1000\n\nRated Value (\u2610: packaging code)\n\nPart Number Impedance (at 100MHz/20\u00b0C) Impedance (at 1GHz/20\u00b0C) Rated Current DC Resistance(max.) Operating Temperature Range Number of Circuits\nBLM18PG300SN1\u2610 30ohm(Typ.) - 1000mA 0.05ohm -55\u00b0C to +125\u00b0C 1\nBLM18PG330SN1\u2610 33ohm\u00b125% - 3000mA 0.025ohm -55\u00b0C to +125\u00b0C 1\nBLM18PG600SN1\u2610 60ohm(Typ.) - 500mA 0.10ohm -55\u00b0C to +125\u00b0C 1\nBLM18PG121SN1\u2610 120ohm\u00b125% - 2000mA 0.05ohm -55\u00b0C to +125\u00b0C 1\nBLM18PG181SN1\u2610 180ohm\u00b125% - 1500mA 0.09ohm -55\u00b0C to +125\u00b0C 1\nBLM18PG221SN1\u2610 220ohm\u00b125% - 1400mA 0.1ohm -55\u00b0C to +125\u00b0C 1\nBLM18PG331SN1\u2610 330ohm\u00b125% - 1200mA 0.15ohm -55\u00b0C to +125\u00b0C 1\nBLM18PG471SN1\u2610 470ohm\u00b125% - 1000mA 0.2ohm -55\u00b0C to +125\u00b0C 1\n\nContinued on the following page.\n\n\u25cf This data sheet is applied for CHIP FERRITE BEAD used for General Electronics equipment for your design.",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

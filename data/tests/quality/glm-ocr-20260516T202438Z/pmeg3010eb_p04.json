@@ -1,0 +1,11 @@
+{
+  "part_id": "pmeg3010eb",
+  "page_no": 4,
+  "elapsed": 3.8224702199999996,
+  "in_tok": 4968,
+  "out_tok": 109,
+  "content": "30 V, 1 A very low VF Schottky barrier rectifier\n\n$$f = 1 \\text{ MHz; } T_{\\text{amb}} = 25^\\circ\\text{C}$$\n\nFig. 3. Diode capacitance as a function of reverse voltage; typical values\n\n11. Test information\n\nFig. 4. Duty cycle definition\n\n12. Package outline\n\nFig. 5. Package outline SC-79 (SOD523)",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

@@ -1,0 +1,11 @@
+{
+  "part_id": "mmbt3904",
+  "page_no": 7,
+  "elapsed": 13.187426807999998,
+  "in_tok": 4831,
+  "out_tok": 716,
+  "content": "SOT-23 (TO-236) 2.90x1.30x1.00 1.90P\nCASE 318\nISSUE AU\n\nDATE 14 AUG 2024\n\nMILLIMETERS\nDIM MIN NOM MAX\nA 0.89 1.00 1.11\nA1 0.01 0.06 0.10\nb 0.37 0.44 0.50\nc 0.08 0.14 0.20\nD 2.80 2.90 3.04\nE 1.20 1.30 1.40\ne 1.78 1.90 2.04\nL 0.30 0.43 0.55\nL1 0.35 0.54 0.69\nHE 2.10 2.40 2.64\nT 0\u00b0 --- 10\u00b0\n\nNOTES:\n1. DIMENSIONING AND TOLERANCING PER ASME Y14.5M, 2018.\n2. CONTROLLING DIMENSIONS: MILLIMETERS.\n3. MAXIMUM LEAD THICKNESS INCLUDES LEAD FINISH. MINIMUM LEAD THICKNESS IS THE MINIMUM THICKNESS OF THE BASE MATERIAL.\n4. DIMENSIONS D AND E DO NOT INCLUDE MOLD FLASH, PROTRUSIONS, OR GATE BURRS.\n\nGENERIC MARKING DIAGRAM*\n\nXXX = Specific Device Code\nM = Date Code\n\u25a0 = Pb-Free Package\n\n*This information is generic. Please refer to device data sheet for actual part marking. Pb-Free indicator, \u201cG\u201d or microdot \u201c\u25a0\u201d, may or may not be present. Some products may not follow the Generic Marking.\n\nRECOMMENDED MOUNTING FOOTPRINT\n\n* For additional information on our Pb-Free strategy and soldering details, please download the onsemi Soldering and Mounting Techniques Reference Manual, SOLDERRM/D.\n\nSTYLES ON PAGE 2\n\nDOCUMENT NUMBER: 98ASB42226B\nDESCRIPTION: SOT-23 (TO-236) 2.90x1.30x1.00 1.90P\nPAGE 1 OF 2\n\nonsemi and onsemi are trademarks of Semiconductor Components Industries, LLC dba onsemi or its subsidiaries in the United States and/or other countries. onsemi reserves the right to make changes without further notice to any products herein. onsemi makes no warranty, representation or guarantee regarding the suitability of its products for any particular purpose, nor does onsemi assume any liability arising out of the application or use of any product or circuit, and specifically disclaims any and all liability, including without limitation special, consequential or incidental damages. onsemi does not convey any license under its patent rights nor the rights of others.",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

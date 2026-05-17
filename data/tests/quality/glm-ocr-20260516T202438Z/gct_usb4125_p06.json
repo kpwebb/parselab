@@ -1,0 +1,11 @@
+{
+  "part_id": "gct_usb4125",
+  "page_no": 6,
+  "elapsed": 11.324151214,
+  "in_tok": 4968,
+  "out_tok": 237,
+  "content": "7.0 RESISTANCE TO INFRARED REFLOW SOLDERING HEAT\n\n| Parameter | Reference | Specification |\n| :--- | :--- | :--- |\n| Average temperature gradient in preheating | | 2.5\u00b0C/s |\n| Soak time | $T_{\\text{soak}}$ | 2-3 minutes |\n| Time above 217\u00b0C | $T_1$ | 60 |\n| Time above 230\u00b0C | $T_2$ | 50 |\n| Time above 250\u00b0C | $T_3$ | 5 |\n| Peak temperature in reflow | $T_{\\text{peak}}$ | 255\u00b0C (\u22120/+5\u00b0C) |\n| Temperature gradient in cooling | | -5\u00b0C/s max |\n\nLead Free Process\n\nThis profile is the minimum requirement for evaluating soldering heat resistance of components. Heat transfer method used for reflow soldering is hot air convection. The actual air temperatures used to achieve the specified profile is higher and largely dependent on the reflow equipment.",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

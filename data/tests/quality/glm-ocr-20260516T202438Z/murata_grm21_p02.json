@@ -1,0 +1,11 @@
+{
+  "part_id": "murata_grm21",
+  "page_no": 2,
+  "elapsed": 8.984336294000002,
+  "in_tok": 4968,
+  "out_tok": 539,
+  "content": "Product specifications in this catalog are as of Jan.9, 2025, and are subject to change or obsolescence without notice.\nPlease consult the approval sheet before ordering. Please read rating and !Cautions first.\n\n<Reference>Please kindly use our website.\nPlease refer to the product information page for more information on ceramic capacitors. \u2192 Ceramic capacitor product information\nVarious data can be obtained directly from the product search. \u2192 Product search (SMD)\n\n\u25a0 MURATA Part No. System\n(Ex.) GRM $\\textcircled{1}$Series $\\textcircled{2}$Dimension (L\u00d7W) $\\textcircled{3}$Dimension (T) $\\textcircled{4}$Temperature Characteristics $\\textcircled{5}$Rated Voltage $\\textcircled{6}$Capacitance $\\textcircled{7}$Capacitance Tolerance $\\textcircled{8}$Individual Specification $\\textcircled{9}$Package\n\n\u25a0 Type & Dimension\n\nimage: Dimension\n\nSize Code: 2012M(0805) (in mm)\n$\\textcircled{2}$L 1.25+/-0.1\n$\\textcircled{2}$W 1.25+/-0.1\n$\\textcircled{3}$T 0.2 to 0.7\n$\\textcircled{4}$Temperature Characteristics\n$\\textcircled{5}$Rated Voltage\n$\\textcircled{6}$Capacitance\n$\\textcircled{7}$Capacitance Tolerance\nOperating Temp. Range\nMounting Method\nTemp. coeff. or Cap. Change Temp. Range Ref.Temp.\n-15 to 15% -55 to 125\u00b0C 25\u00b0C DC 16V 1\u00b5F +/-10% -55 to 125\u00b0C Flow, Reflow\n\n$\\textcircled{8}$Individual Specification: This denotes Murata control code.\n\n\u25a0 Package\n$\\textcircled{9}$Package Packaging Standard Packing Quantity\nL \u03c6180mm Reel Plastic Tape W8P4 3000 pcs./Reel\nK \u03c6330mm Reel Plastic Tape W8P4 10000 pcs./Reel",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

@@ -1,0 +1,11 @@
+{
+  "part_id": "tps562200",
+  "page_no": 10,
+  "elapsed": 4.621548984,
+  "in_tok": 4831,
+  "out_tok": 130,
+  "content": "6.8 Typical Characteristics TPS563200\n\n$V_{\\text{IN}} = 12 \\text{ V}$ (unless otherwise noted).\n\nFigure 6-10. Supply Current vs Junction Temperature\n\nFigure 6-11. VIN Shutdown Current vs Junction Temperature\n\nFigure 6-12. Vfb Voltage vs Junction Temperature\n\nFigure 6-13. En Current vs En Voltage\n\nFigure 6-14. Efficiency vs Output Current\n\nFigure 6-15. Efficiency vs Output Current",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

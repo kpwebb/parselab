@@ -1,0 +1,12 @@
+{
+  "part_id": "gct_usb4125",
+  "page_no": 1,
+  "elapsed": 17.68705264,
+  "in_tok": 3817,
+  "out_tok": 858,
+  "content": "```json\n[\n\t{\"bbox_2d\": [48, 57, 150, 88], \"text_content\": \"Part\\nNumber\"},\n\t{\"bbox_2d\": [172, 65, 441, 80], \"text_content\": \"USB4125,USB4130,USB4135\"},\n\t{\"bbox_2d\": [524, 65, 556, 80], \"text_content\": \"Rev\"},\n\t{\"bbox_2d\": [681, 65, 701, 80], \"text_content\": \"A3\"},\n\t{\"bbox_2d\": [770, 65, 805, 80], \"text_content\": \"Date\"},\n\t{\"bbox_2d\": [871, 65, 911, 80], \"text_content\": \"20/12/24\"},\n\t{\"bbox_2d\": [48, 94, 150, 124], \"text_content\": \"Product\\nDescription\"},\n\t{\"bbox_2d\": [172, 99, 693, 115], \"text_content\": \"USB Type C Receptacle,6 contacts,For Power Charging only\"},\n\t{\"bbox_2d\": [770, 99, 805, 115], \"text_content\": \"Page\"},\n\t{\"bbox_2d\": [895, 99, 905, 115], \"text_content\": \"1\"},\n\t{\"bbox_2d\": [48, 127, 150, 157], \"text_content\": \"Doc\\nNumber\"},\n\t{\"bbox_2d\": [172, 127, 284, 147], \"text_content\": \"USB Type C\"},\n\t{\"bbox_2d\": [396, 127, 456, 147], \"text_content\": \"Prepared\"},\n\t{\"bbox_2d\": [517, 127, 547, 147], \"text_content\": \"YR\"},\n\t{\"bbox_2d\": [592, 127, 652, 147], \"text_content\": \"Checked\"},\n\t{\"bbox_2d\": [697, 127, 717, 147], \"text_content\": \"CC\"},\n\t{\"bbox_2d\": [770, 127, 830, 147], \"text_content\": \"Approved\"},\n\t{\"bbox_2d\": [887, 127, 911, 147], \"text_content\": \"PH\"},\n\t{\"bbox_2d\": [451, 348, 536, 363], \"text_content\": \"USB4125\"},\n\t{\"bbox_2d\": [451, 613, 536, 628], \"text_content\": \"USB4130\"},\n\t{\"bbox_2d\": [451, 825, 536, 840], \"text_content\": \"USB4135\"},\n\t{\"bbox_2d\": [450, 929, 573, 963], \"text_content\": \"GCT\"},\n\t{\"bbox_2d\": [464, 972, 558, 983], \"text_content\": \"www.gct.co\"}\n]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

@@ -1,0 +1,11 @@
+{
+  "part_id": "mmbt3904",
+  "page_no": 1,
+  "elapsed": 14.028064864000001,
+  "in_tok": 4831,
+  "out_tok": 691,
+  "content": "General Purpose Transistor\nNPN Silicon\nMMBT3904L, SMMBT3904L\n\nFeatures\n\u2022 These Devices are Pb\u2013Free, Halogen Free/BFR Free and are RoHS Compliant\n\u2022 S Prefix for Automotive and Other Applications Requiring Unique Site and Control Change Requirements; AEC\u2013Q101 Qualified and PPAP Capable\n\nMAXIMUM RATINGS\nRating Symbol Value Unit\nCollector\u2013Emitter Voltage $V_{CEO}$ 40 Vdc\nCollector\u2013Base Voltage $V_{CBO}$ 60 Vdc\nEmitter\u2013Base Voltage $V_{EBO}$ 6.0 Vdc\nCollector Current \u2013 Continuous $I_C$ 200 mAdc\nCollector Current \u2013 Peak (Note 3) $I_{CM}$ 900 mAdc\n\nTHERMAL CHARACTERISTICS\nCharacteristic Symbol Max Unit\nTotal Device Dissipation FR\u20135 Board ($\\text{Note 1}$) @$T_A$ = 25\u00b0C Derate above 25\u00b0C $P_D$ 225 mW mW/\u00b0C\nThermal Resistance, Junction\u2013to\u2013Ambient $R_{\u03b8JA}$ 556 \u00b0C/W\nTotal Device Dissipation Alumina Substrate, ($\\text{Note 2}$) @$T_A$ = 25\u00b0C Derate above 25\u00b0C $P_D$ 300 mW mW/\u00b0C\nThermal Resistance, Junction\u2013to\u2013Ambient $R_{\u03b8JA}$ 417 \u00b0C/W\nJunction and Storage Temperature $T_J$, $T_{stg}$ \u201355 to +150 \u00b0C\n\nStresses exceeding those listed in the Maximum Ratings table may damage the device. If any of these limits are exceeded, device functionality should not be assumed, damage may occur and reliability may be affected.\n1. FR\u20135 = 1.0 \u00d7 0.75 \u00d7 0.062 in.\n2. Alumina = 0.4 \u00d7 0.3 \u00d7 0.024 in. 99.5% alumina.\n3. Reference SOA curve.\n\nMARKING DIAGRAM\n1AM = Specific Device Code\nM = Date Code*\n\u25a0 = Pb\u2013Free Package\n(Note: Microdot may be in either location)\n*Date Code orientation and/or overbar may vary depending upon manufacturing location.\n\nORDERING INFORMATION\nDevice Package Shipping\u2020\nMMBT3904LT1G SOT\u201323 (Pb\u2013Free) 3000 / Tape & Reel\nMMBT3904LT3G SOT\u201323 (Pb\u2013Free) 10,000 / Tape & Reel\n\n\u2020For information on tape and reel specifications, including part orientation and tape sizes, please refer to our Tape and Reel Packaging Specifications Brochure, BRD8011/D.",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

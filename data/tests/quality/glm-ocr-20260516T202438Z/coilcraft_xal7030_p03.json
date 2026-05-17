@@ -1,0 +1,11 @@
+{
+  "part_id": "coilcraft_xal7030",
+  "page_no": 3,
+  "elapsed": 8.579872445,
+  "in_tok": 4831,
+  "out_tok": 86,
+  "content": "Shielded Power Inductors \u2013 XAL7030\nL vs Current\n\nDocument 863-3 Revised 12/16/25\n\u00a9 Coilcraft Inc, 2025\nThis product may not be used in medical or high risk applications without prior Coilcraft approval.\nSpecification subject to change without notice.\nPlease check web site for latest information.",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

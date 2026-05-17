@@ -1,0 +1,11 @@
+{
+  "part_id": "murata_blm18",
+  "page_no": 3,
+  "elapsed": 4.903765214000003,
+  "in_tok": 4968,
+  "out_tok": 152,
+  "content": "Notice (Rating)\nIn operating temperatures exceeding +85\u2103, derating of current is necessary for chip Ferrite Beads for which rated current is 1200mA or over. Please apply the derating curve shown in chart according to the operating temperature.\n\nZ-f Characteristics (Typ.)\nBLM18PG300SN1\n\nZ-f Characteristics(Typ.)\nBLM18PG330SN1\n\nZ-f Characteristics(Typ.)\nBLM18PG600SN1\n\nZ-f Characteristics(Typ.)\nBLM18PG121SN1\n\nThis data sheet is applied for CHIP FERRITE BEAD used for General Electronics equipment for your design.",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

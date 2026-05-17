@@ -1,0 +1,11 @@
+{
+  "part_id": "coilcraft_xal7030",
+  "page_no": 3,
+  "elapsed": 6.846431663000001,
+  "in_tok": 1142,
+  "out_tok": 518,
+  "content": "<doctag><picture><loc_11><loc_38><loc_36><loc_66></picture>\n<picture><loc_11><loc_72><loc_36><loc_99></picture>\n<picture><loc_11><loc_104><loc_36><loc_130></picture>\n<picture><loc_44><loc_0><loc_186><loc_38></picture>\n<section_header_level_1><loc_44><loc_41><loc_292><loc_59>Shielded Power Inductors - XAL7030</section_header_level_1>\n<section_header_level_1><loc_44><loc_59><loc_105><loc_71>L vs Current</section_header_level_1>\n<picture><loc_43><loc_75><loc_243><loc_136></picture>\n<picture><loc_43><loc_140><loc_243><loc_199></picture>\n<picture><loc_43><loc_205><loc_243><loc_267></picture>\n<picture><loc_43><loc_272><loc_243><loc_333></picture>\n<picture><loc_44><loc_459><loc_137><loc_488></picture>\n<picture><loc_257><loc_75><loc_457><loc_136></picture>\n<picture><loc_257><loc_140><loc_456><loc_199></picture>\n<picture><loc_257><loc_205><loc_456><loc_267></picture>\n<picture><loc_257><loc_272><loc_456><loc_333></picture>\n<page_footer><loc_166><loc_459><loc_320><loc_491>US +1-847-639-6400 sales@coilcraft.com UK +44-1236-730595 sales@coilcraft-europe.com Taiwan +886-2-2264 3646 sales@coilcraft.com.tw China +86-21-6218 8074 sales@coilcraft.com.cn Singapore + 65-6484 8412 sales@coilcraft.com.sg</page_footer>\n<page_footer><loc_350><loc_459><loc_456><loc_491>Document 863-3 Revised 12/16/25 This product may not be used in medical or high risk applications without prior Coilcraft approval. Specification subject to change without notice. Please check web site for latest information.</page_footer>\n<page_header><loc_390><loc_5><loc_457><loc_14>Document 863-3</page_header>\n</doctag>",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

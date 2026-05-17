@@ -1,0 +1,12 @@
+{
+  "part_id": "gct_usb4125",
+  "page_no": 3,
+  "elapsed": 16.347760380000004,
+  "in_tok": 3817,
+  "out_tok": 828,
+  "content": "```json\n[{\"bbox\": [315, 26, 709, 48], \"category\": \"title\", \"text\": \"PRODUCT SPECIFICATION\"}, {\"bbox\": [47, 56, 943, 152], \"category\": \"table\", \"text\": \"<table><tr><td>Part Number</td><td colspan=\\\"3\\\">USB4125, USB4130, USB4135</td><td>Rev</td><td colspan=\\\"2\\\">A3</td><td>Date</td><td>20/12/24</td></tr><tr><td>Product Description</td><td colspan=\\\"6\\\">USB Type C Receptacle, 6 contacts, For Power Charging only</td><td>Page</td><td>3</td></tr><tr><td>Doc Number</td><td>USB Type C</td><td>Prepared</td><td>YR</td><td>Checked</td><td colspan=\\\"2\\\">CC</td><td>Approved</td><td>PH</td></tr></table>\"}, {\"bbox\": [55, 188, 297, 204], \"category\": \"title\", \"text\": \"6.1 Electrical Performance\"}, {\"bbox\": [57, 208, 907, 575], \"category\": \"table\", \"text\": \"<table><tr><td>Test No</td><td>Item</td><td>Test Condition</td><td>Requirement</td></tr><tr><td>6.1.1</td><td>Low Level Contact Resistance</td><td>The low level contact resistance measurement is made from the solder tail of the receptacle to the soldering point of the plug. When measured at 20mV Max. open circuit at 100mA. Mated test contacts must be in a connector housing. In accordance with EIA-364-23, Test Condition B</td><td>40m\u03a9 max (initial)</td></tr><tr><td>6.1.2</td><td>Insulation Resistance</td><td>Both unmated and Mated connectors, apply 100V DC for 1 minute at sea level between adjacent terminal or ground. In accordance with EIA-364-21.</td><td>100 M\u03a9 Min (initial).</td></tr><tr><td>6.1.3</td><td>Dielectric Strength</td><td>Mate connectors, apply 100V AC (RMS) for 1 minute at sea level. In accordance with EIA-364-20.</td><td>No Breakdown</td></tr><tr><td>6.1.4</td><td>Contact current rating</td><td>A current of 3 A shall be applied collectively to VBUS pins (i.e., pins A9, B9) and 1.25 A shall be applied to the VCONN pin (i.e., B5) as applicable, terminated through the corresponding GND pins (i.e., pins A12, B12). A minimum current of 0.25 A shall also be applied individually to pin A5, as applicable.</td><td>The temperature rise shall not exceed 30\u00b0C at the outside surface of the shell.</td></tr></table>\"}, {\"bbox\": [447, 929, 573, 965], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [466, 972, 559, 985], \"category\": \"footer\", \"text\": \"www.gct.co\"}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

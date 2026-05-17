@@ -1,0 +1,12 @@
+{
+  "part_id": "murata_blm18",
+  "page_no": 5,
+  "elapsed": 4.354683058999996,
+  "in_tok": 3817,
+  "out_tok": 67,
+  "content": "```json\n{\n  \"bbox_2d\": [356, 28, 942, 38],\n  \"text_content\": \"Noise Suppression Products/EMI Suppression Filters > Chip EMIFIL\u00ae Inductor Type > Chip Ferrite Beads\"\n}\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

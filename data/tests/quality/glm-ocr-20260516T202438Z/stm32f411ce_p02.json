@@ -1,0 +1,11 @@
+{
+  "part_id": "stm32f411ce",
+  "page_no": 2,
+  "elapsed": 2.3342270890000023,
+  "in_tok": 4968,
+  "out_tok": 59,
+  "content": "Application\n\n\u2022 Motor drive and application control\n\u2022 Medical equipment\n\u2022 Industrial applications: PLC, inverters, circuit breakers\n\u2022 Printers, and scanners\n\u2022 Alarm systems, video intercom, and HVAC\n\u2022 Home audio appliances\n\u2022 Mobile phone sensor hub",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

@@ -1,0 +1,11 @@
+{
+  "part_id": "stusb4500",
+  "page_no": 5,
+  "elapsed": 3.371098155000002,
+  "in_tok": 878,
+  "out_tok": 560,
+  "content": "<doctag><picture><loc_35><loc_34><loc_63><loc_45></picture>\n<page_header><loc_407><loc_33><loc_464><loc_49>STUSB4500 Pin description</page_header>\n<otsl><loc_83><loc_70><loc_464><loc_184><fcel>Type<fcel>Description<nl><fcel>D<fcel>Digital<nl><fcel>A<fcel>Analog<nl><fcel>O<fcel>Output pad<nl><fcel>I<fcel>Input pad<nl><fcel>IO<fcel>Bidirectional pad<nl><fcel>OD<fcel>Open drain output<nl><fcel>PD<fcel>Pull-down<nl><fcel>PU<fcel>Pull-up<nl><fcel>HV<fcel>High voltage<nl><fcel>PWR<fcel>Power<nl><fcel>GND<fcel>Ground<nl><caption><loc_213><loc_61><loc_334><loc_67>Table 2. Pin function descriptions</caption></otsl>\n<section_header_level_1><loc_35><loc_193><loc_156><loc_201>2.2 Pin description</section_header_level_1>\n<section_header_level_1><loc_35><loc_210><loc_125><loc_217>2.2.1 CC1 / CC2</section_header_level_1>\n<text><loc_83><loc_219><loc_457><loc_238>CC1 and CC2 are the configuration channel pins used for connection and attachment detection, plug orientation determination, USB power delivery communication, and system configuration management across USB Type-C cable. CC1 and CC2 are HiZ during reset.</text>\n<section_header_level_1><loc_35><loc_247><loc_148><loc_254>2.2.2 CC1DB / CC2DB</section_header_level_1>\n<text><loc_83><loc_256><loc_456><loc_275>CC1DB and CC2DB are used for dead battery mode. This mode is enabled by connecting CC1DB and CC2DB respectively to CC1 and CC2. Thanks to this connection, the pull-down terminations on the CC pins are present by default even if the device is not supplied (see Section 3.5 Dead battery mode).</text>\n<text><loc_83><loc_276><loc_427><loc_282>Warning: CC1DB and CC2DB must be connected to ground when dead battery mode is not supported.</text>\n<section_header_level_1><loc_35><loc_291><loc_112><loc_298>2.2.3 RESET</section_header_level_1>\n<text><loc_83><loc_300><loc_141><loc_306>Active high reset.</text>\n<page_footer><loc_35><loc_488><loc_81><loc_492>DS12499 - Rev 8</page_footer>\n<page_footer><loc_437><loc_488><loc_464><loc_492>page 5/42</page_footer>\n</doctag>",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

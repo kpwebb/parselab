@@ -1,0 +1,11 @@
+{
+  "part_id": "pmeg3010eb",
+  "page_no": 2,
+  "elapsed": 11.760791851,
+  "in_tok": 4968,
+  "out_tok": 666,
+  "content": "6. Ordering information\n\nTable 3. Ordering information\n\n| Type number | Package |\n| :--- | :--- |\n| Name | Description |\n| PMEG3010EB | SC-79 plastic, surface-mounted package; 2 leads; 1.2 mm x 0.8 mm x 0.6 mm body | SOD523 |\n\n7. Marking\n\nTable 4. Marking codes\n\n| Type number | Marking code |\n| :--- | :--- |\n| PMEG3010EB | KA |\n\n8. Limiting values\n\nTable 5. Limiting values\nIn accordance with the Absolute Maximum Rating System (IEC 60134).\n\n| Symbol | Parameter | Conditions | Min | Max | Unit |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| $V_R$ | reverse voltage | | - | 30 | V |\n| $I_F$ | forward current | $T_{sp} \\leq 55$ \u00b0C | - | 1 | A |\n| $I_{FRM}$ | repetitive peak forward current | $t_p \\leq 1$ ms; $\\delta \\leq 0.25$ | - | 3 | A |\n| $I_{FSM}$ | non-repetitive peak forward current | $t_p = 8$ ms; square wave; $T_{j(init)} = 25$ \u00b0C | - | 5 | A |\n| $P_{tot}$ | total power dissipation | $T_{amb} \\leq 25$ \u00b0C | [1] | - | 310 mW |\n| $T_j$ | junction temperature | | - | 150 | \u00b0C |\n| $T_{amb}$ | ambient temperature | | -65 | 150 | \u00b0C |\n| $T_{stg}$ | storage temperature | | -65 | 150 | \u00b0C |\n\n[1] Device mounted on an FR4 PCB, single-sided copper, tin-plated and standard footprint.\n\n9. Thermal characteristics\n\nTable 6. Thermal characteristics\n\n| Symbol | Parameter | Conditions | Min | Typ | Max | Unit |\n| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n| $R_{th(j-a)}$ | thermal resistance from junction to ambient | in free air | [1] [2] | - | - | 400 K/W |\n| $R_{th(j-sp)}$ | thermal resistance from junction to solder point | | [3] | - | - | 75 K/W |\n\n[1] For Schottky barrier diodes thermal runaway has to be considered, as in some applications the reverse power losses $P_R$ are a significant part of the total power losses.\n[2] Device mounted on an FR4 PCB, single-sided copper, tin-plated and standard footprint.\n[3] Soldering point of cathode tab.",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

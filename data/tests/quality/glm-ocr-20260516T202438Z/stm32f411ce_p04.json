@@ -1,0 +1,11 @@
+{
+  "part_id": "stm32f411ce",
+  "page_no": 4,
+  "elapsed": 8.488118363000005,
+  "in_tok": 4968,
+  "out_tok": 547,
+  "content": "3.20.1 Advanced-control timers (TIM1) ... 28\n3.20.2 General-purpose timers (TIMx) ... 29\n3.20.3 Independent watchdog ... 29\n3.20.4 Window watchdog ... 29\n3.20.5 SysTick timer ... 30\n3.21 Inter-integrated circuit interface (I2C) ... 30\n3.22 Universal synchronous/asynchronous receiver transmitters (USART) ... 30\n3.23 Serial peripheral interface (SPI) ... 31\n3.24 Inter-integrated sound (I\u00b2S) ... 31\n3.25 Audio PLL (PLLI2S) ... 31\n3.26 Secure digital input/output interface (SDIO) ... 32\n3.27 Universal serial bus on-the-go full-speed (OTG_FS) ... 32\n3.28 General-purpose input/outputs (GPIOs) ... 32\n3.29 Analog-to-digital converter (ADC) ... 33\n3.30 Temperature sensor ... 33\n3.31 Serial wire JTAG debug port (SWJ-DP) ... 33\n3.32 Embedded Trace Macrocell\u2122 ... 33\n\n4 Pinouts and pin description ... 34\n\n5 Memory mapping ... 54\n\n6 Electrical characteristics ... 58\n\n6.1 Parameter conditions ... 58\n   6.1.1 Minimum and maximum values ... 58\n   6.1.2 Typical values ... 58\n   6.1.3 Typical curves ... 58\n   6.1.4 Loading capacitor ... 58\n   6.1.5 Pin input voltage ... 59\n   6.1.6 Power supply scheme ... 60\n   6.1.7 Current consumption measurement ... 61\n\n6.2 Absolute maximum ratings ... 61\n\n6.3 Operating conditions ... 63\n   6.3.1 General operating conditions ... 63\n   6.3.2 VCAP_1/VCAP_2 external capacitors ... 65\n   6.3.3 Operating conditions at power-up/power-down (regulator ON) ... 66",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

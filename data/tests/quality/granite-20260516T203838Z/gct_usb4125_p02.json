@@ -1,0 +1,12 @@
+{
+  "part_id": "gct_usb4125",
+  "page_no": 2,
+  "elapsed": 4.941296173999998,
+  "in_tok": 878,
+  "out_tok": 632,
+  "content": "<doctag><section_header_level_1><loc_159><loc_13><loc_355><loc_25>PRODUCT SPECIFICATION</section_header_level_1>\n<otsl><loc_24><loc_28><loc_472><loc_76></otsl>\n<section_header_level_1><loc_29><loc_85><loc_82><loc_93>1.0 SCOPE</section_header_level_1>\n<text><loc_60><loc_100><loc_429><loc_115>This specification covers performance, tests and quality requirements for the USB Type C Receptacles, USB4125, USB4130 and USB4135.</text>\n<section_header_level_1><loc_29><loc_129><loc_231><loc_138>2.0 PRODUCT NAME AND PART NUMBER</section_header_level_1>\n<text><loc_60><loc_145><loc_317><loc_153>USB Type C Receptacles, USB4125, USB4130 and USB4135.</text>\n<section_header_level_1><loc_29><loc_163><loc_280><loc_172>3.0 PRODUCT SHAPE, DIMENSIONS AND MATERIAL</section_header_level_1>\n<text><loc_58><loc_179><loc_160><loc_187>Please refer to drawings.</text>\n<section_header_level_1><loc_29><loc_194><loc_91><loc_202>4.0 RATINGS</section_header_level_1>\n<text><loc_58><loc_209><loc_315><loc_217>4.1 Current rating: 3.00A collectively for VBUS pins(pins A9, B9)</text>\n<text><loc_136><loc_224><loc_322><loc_232>4.25A collectively for GND pins(pins A12, B12)</text>\n<text><loc_136><loc_239><loc_255><loc_247>1.25A for VCONN (pin A5/B5)</text>\n<text><loc_58><loc_253><loc_216><loc_261>4.2 Voltage rating \u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026</text>\n<text><loc_229><loc_253><loc_246><loc_261>48V DC</text>\n<text><loc_58><loc_268><loc_216><loc_276>4.3 Operating Temperature Range \u2026\u2026</text>\n<text><loc_229><loc_268><loc_292><loc_276>-30\u00b0C to +85\u00b0C</text>\n<section_header_level_1><loc_29><loc_295><loc_246><loc_304>5.0 TEST AND MEASUREMENT CONDITIONS</section_header_level_1>\n<text><loc_50><loc_311><loc_448><loc_326>Product is designed to meet electrical, mechanical and environmental performance requirements specified below. All tests are performed in ambient conditions unless otherwise specified.</text>\n<section_header_level_1><loc_29><loc_337><loc_125><loc_346>6.0 PERFORMANCE</section_header_level_1>\n<otsl><loc_28><loc_352><loc_466><loc_415></otsl>\n<picture><loc_224><loc_465><loc_287><loc_492></picture>\n</doctag>",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

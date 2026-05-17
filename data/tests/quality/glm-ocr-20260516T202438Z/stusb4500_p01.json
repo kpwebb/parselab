@@ -1,0 +1,11 @@
+{
+  "part_id": "stusb4500",
+  "page_no": 1,
+  "elapsed": 9.862713091000003,
+  "in_tok": 4968,
+  "out_tok": 555,
+  "content": "Standalone USB PD sink controller with short-to-VBUS protections\n\nFeatures\n\n\u2022 Auto-run Type-C\u2122 and USB PD sink controller\n\u2022 Dead battery mode support\n\u2022 Up to 3 sink PDO configurable profiles (up to 20 V; 5 A)\n\u2022 Dual high power charging path support\n\u2022 Integrated $V_{BUS}$ switch gate drivers (PMOS)\n\u2022 Integrated $V_{BUS}$ voltage monitoring\n\u2022 Internal and/or external $V_{BUS}$ discharge paths\n\u2022 Short-to-VBUS protections on CC pins (22 V)\n\u2022 High voltage capability on $V_{BUS}$ pins (28 V)\n\u2022 Dual power supply ($V_{SYS}$ and/or $V_{DD}$):\n  \u2013 $V_{SYS} = [3.0 \\text{ V}; 5.5 \\text{ V}]$\n  \u2013 $V_{DD} = [4.1 \\text{ V}; 22 \\text{ V}]$\n\u2022 Debug accessory mode support\n\u2022 Temperature range: -40 \u00b0C up to 105 \u00b0C\n\u2022 ESD: 3 kV HBM - 1.5 kV CDM\n\u2022 Certified:\n  \u2013 USB Type-C\u2122 rev 1.2\n  \u2013 USB PD rev 2.0 (TID #1000133)\n\u2022 Interoperable with USB PD rev 3.0\n\nApplications\n\n\u2022 Printers, camcorders, cameras\n\u2022 IoT, drones, accessories and battery powered devices\n\u2022 LED lighting and industrial\n\u2022 Toys, gaming, POS, scanner\n\u2022 Healthcare and handheld devices\n\u2022 Any Type-C sink device up to 100 W (20 V; 5 A)\n\nDescription\n\nThe STUSB4500 is a USB power delivery controller that addresses sink up to 100 W (20 V; 5 A). It implements a proprietary algorithm to allow the negotiation of a power delivery contract with a source without MCU support (auto-run mode). PDO profiles are configured in an integrated non-volatile memory.\n\nThe device supports dead battery mode and is suited for sink devices powered from dead battery state and requiring high power charging profile to be fully operational.\n\nThanks to its 20 V technology, it implements high voltage features to protect the CC pins against short-circuits to $V_{BUS}$ up to 22 V and to support high voltage on the $V_{BUS}$ pins directly connected to the $V_{BUS}$ power path up to 28 V.",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

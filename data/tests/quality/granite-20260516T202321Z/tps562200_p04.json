@@ -1,0 +1,11 @@
+{
+  "part_id": "tps562200",
+  "page_no": 4,
+  "elapsed": 3.229480883000001,
+  "in_tok": 1142,
+  "out_tok": 502,
+  "content": "<doctag><page_header><loc_44><loc_29><loc_126><loc_35>TPS562200, TPS563200</page_header>\n<page_header><loc_44><loc_35><loc_180><loc_40>SLVSCB0E - JANUARY 2014 - REVISED MAY 2023</page_header>\n<picture><loc_376><loc_18><loc_456><loc_35></picture>\n<section_header_level_1><loc_46><loc_49><loc_206><loc_57>5 Pin Configuration and Functions</section_header_level_1>\n<picture><loc_188><loc_61><loc_312><loc_119><caption><loc_159><loc_125><loc_341><loc_132>Figure 5-1. DDC Package 6 Pin (SOT) Top View</caption></picture>\n<otsl><loc_46><loc_145><loc_454><loc_229><fcel>PIN<lcel><fcel>DESCRIPTION<nl><fcel>NAME<fcel>NUMBER<fcel>Ground pin Source terminal of low-side power NFET as well as the ground terminal for controller circuit.<nl><fcel>GND<fcel>1<fcel>Connect sensitive VFB to this GND at a single point.<nl><fcel>SW<fcel>2<fcel>Switch node connection between high-side NFET and low-side NFET.<nl><fcel>VIN<fcel>3<fcel>Input voltage supply pin. The drain terminal of high-side power NFET.<nl><fcel>VFB<fcel>4<fcel>Converter feedback input. Connect to output voltage with feedback resistor divider.<nl><fcel>EN<fcel>5<fcel>Enable input control. Active high and must be pulled up to enable the device.<nl><fcel>VBST<fcel>6<fcel>Supply input for the high-side NFET gate drive circuit. Connect a 0.1 \u00b5 F capacitor between VBST and SW pins.<nl><caption><loc_203><loc_139><loc_296><loc_145>Table 5-1. Pin Functions</caption></otsl>\n<page_footer><loc_44><loc_477><loc_48><loc_482>4</page_footer>\n<page_footer><loc_65><loc_477><loc_147><loc_482>Submit Document Feedback</page_footer>\n<page_footer><loc_329><loc_477><loc_456><loc_482>Copyright \u00a9 2023 Texas Instruments Incorporated</page_footer>\n<page_footer><loc_182><loc_489><loc_318><loc_494>Product Folder Links: TPS562200 TPS563200</page_footer>\n</doctag>",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

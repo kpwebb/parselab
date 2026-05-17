@@ -1,0 +1,12 @@
+{
+  "part_id": "gct_usb4125",
+  "page_no": 3,
+  "elapsed": 10.735820441,
+  "in_tok": 3817,
+  "out_tok": 44,
+  "content": "```json\n{\n  \"bbox_2d\": [318, 27, 705, 47], \"text_content\": \"PRODUCT SPECIFICATION\"\n}\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

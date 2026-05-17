@@ -1,0 +1,12 @@
+{
+  "part_id": "stm32f411ce",
+  "page_no": 10,
+  "elapsed": 17.821354719,
+  "in_tok": 3815,
+  "out_tok": 791,
+  "content": "```json\n[{\"bbox\": [109, 69, 226, 84], \"category\": \"header\", \"text\": \"List of figures\"}, {\"bbox\": [652, 69, 889, 82], \"category\": \"header\", \"text\": \"STM32F411xC STM32F411xE\"}, {\"bbox\": [108, 105, 891, 321], \"category\": \"table\", \"text\": \"<table><tr><td>Figure 47.</td><td>WLCSP49 - Footprint example</td><td>127</td></tr><tr><td>Figure 48.</td><td>WLCSP49 marking (package top view)</td><td>128</td></tr><tr><td>Figure 49.</td><td>UFQFPN48 \u2013 Outline</td><td>129</td></tr><tr><td>Figure 50.</td><td>UFQFPN48 \u2013 Footprint example</td><td>130</td></tr><tr><td>Figure 51.</td><td>LQFP64 - Outline<sup>(15)</sup></td><td>131</td></tr><tr><td>Figure 52.</td><td>LQFP64 - Footprint example</td><td>133</td></tr><tr><td>Figure 53.</td><td>LQFP100 - Outline<sup>(15)</sup></td><td>134</td></tr><tr><td>Figure 54.</td><td>LQFP100 - Footprint example</td><td>136</td></tr><tr><td>Figure 55.</td><td>UFBGA100 - Outline<sup>(13)</sup></td><td>137</td></tr><tr><td>Figure 56.</td><td>UFBGA100 - Footprint example</td><td>139</td></tr><tr><td>Figure 57.</td><td>USB controller configured as peripheral-only and used in Full-Speed mode</td><td>143</td></tr><tr><td>Figure 58.</td><td>USB controller configured as host-only and used in Full-Speed mode.</td><td>143</td></tr><tr><td>Figure 59.</td><td>USB controller configured in dual mode and used in Full-Speed mode</td><td>144</td></tr><tr><td>Figure 60.</td><td>Sensor Hub application example</td><td>145</td></tr><tr><td>Figure 61.</td><td>Batch Acquisition Mode (BAM) example</td><td>146</td></tr></table>\"}, {\"bbox\": [111, 882, 161, 895], \"category\": \"footer\", \"text\": \"10/151\"}, {\"bbox\": [443, 882, 555, 895], \"category\": \"footer\", \"text\": \"DS10314 Rev 8\"}, {\"bbox\": [832, 873, 884, 894], \"category\": \"footer\", \"text\": \"ST\"}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

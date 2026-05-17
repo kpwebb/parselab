@@ -225,10 +225,15 @@ didn't fix the wrong-schema problem (Qwen36 emits `bbox_2d` +
 
 ## Fidelity findings
 
-Full per-page readthrough lives in session-local artifacts under
-`target/quality/` (regenerable by re-running the content-capture
-harness and feeding the outputs to a judge). Headline patterns from 5
-representative pages across the model axis:
+Full per-page readthrough lives in
+[`data/tests/quality/`](data/tests/quality/) — the committed snapshot
+of the run dirs the headline findings here are derived from. The
+[`2026-05-16-comparison.md`](data/tests/quality/2026-05-16-comparison.md)
+file is the per-page LLM-as-judge readthrough; the per-`<preset>-<utc>/`
+subdirectories carry raw chat-completion content per page for
+independent re-judging. Fresh runs (via `remote.py --save-content`)
+land in `target/quality/<preset>-<utc>/` locally. Headline patterns
+from 5 representative pages across the model axis:
 
 ### Pass 1 axis
 
@@ -381,6 +386,10 @@ call at our current scale.
 
 ## Run dirs
 
-* `target/quality/<preset>-<utc>/` — Modal-side `remote.py` with
-  `--save-content`; per-page raw chat-completion outputs for fidelity
-  judging.
+* [`data/tests/quality/`](data/tests/quality/) — committed snapshot of
+  the fidelity-judging artifacts that produced the findings above.
+  Per-preset subdirs (one per run) hold raw chat-completion content
+  per page; `2026-05-16-comparison.md` is the per-page readthrough.
+* `target/quality/<preset>-<utc>/` — destination for fresh local runs
+  (Modal-side `remote.py` with `--save-content`). Regeneratable; not
+  committed.

@@ -1,0 +1,11 @@
+{
+  "part_id": "murata_blm18",
+  "page_no": 1,
+  "elapsed": 2.3557381920000005,
+  "in_tok": 612,
+  "out_tok": 134,
+  "content": "<doctag><text><loc_107><loc_208><loc_157><loc_232>Distributed by:</text>\n<picture><loc_92><loc_236><loc_225><loc_327></picture>\n<section_header_level_1><loc_243><loc_245><loc_424><loc_270>Jameco Part Number 1845013</section_header_level_1>\n<text><loc_253><loc_281><loc_402><loc_325>Jameco Part Number 1845013</text>\n<text><loc_197><loc_428><loc_323><loc_455>Jameco Part Number 1845013</text>\n</doctag>",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

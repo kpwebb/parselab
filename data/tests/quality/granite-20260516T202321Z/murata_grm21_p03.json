@@ -1,0 +1,11 @@
+{
+  "part_id": "murata_grm21",
+  "page_no": 3,
+  "elapsed": 2.9811023630000015,
+  "in_tok": 877,
+  "out_tok": 123,
+  "content": "<doctag><section_header_level_1><loc_25><loc_30><loc_105><loc_38>\uf06e Specifications and Test Methods</section_header_level_1>\n<otsl><loc_24><loc_37><loc_476><loc_419></otsl>\n<page_footer><loc_11><loc_482><loc_73><loc_490>GRM21BR71C105KA01-01A</page_footer>\n<page_footer><loc_248><loc_481><loc_251><loc_489>3</page_footer>\n<picture><loc_468><loc_17><loc_490><loc_27></picture>\n</doctag>",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

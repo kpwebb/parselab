@@ -1,0 +1,19 @@
+{
+  "preset": "inf2-flash",
+  "prompt": "Extract layout information from the provided PDF image. For each layout element, output its bbox, category, and the text content within the bbox. Bbox format: [x1, y1, x2, y2]. Allowed layout categories: 'header', 'title', 'text', 'figure', 'table', 'formula', 'figure_caption', 'table_caption', 'formula_caption', 'figure_footnote', 'table_footnote', 'page_footnote', 'footer'. For 'figure', the text field must be empty. For 'formula', format text as LaTeX. For 'table', format text as HTML. For all other categories, format text as Markdown. Sort all layout elements in human reading order. Final output must be a single JSON object.",
+  "model": "infly/Infinity-Parser2-Flash",
+  "endpoint": "https://ferrite-systems--parselab-inf2-flash-serve.modal.run/v1/chat/completions",
+  "pages": 101,
+  "ok": 101,
+  "errors": 0,
+  "render_secs": 12.04,
+  "dispatch_secs": 83.57,
+  "sum_req_secs": 1257.2,
+  "in_tok_total": 391692,
+  "out_tok_total": 126199,
+  "pages_per_sec": 1.208,
+  "effective_parallelism": 15.0,
+  "concurrency": 16,
+  "max_tokens": 4096,
+  "dpi": 200
+}

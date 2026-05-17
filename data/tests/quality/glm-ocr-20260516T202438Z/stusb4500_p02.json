@@ -1,0 +1,11 @@
+{
+  "part_id": "stusb4500",
+  "page_no": 2,
+  "elapsed": 5.865843732000002,
+  "in_tok": 4968,
+  "out_tok": 364,
+  "content": "1 Functional description\n\nThe STUSB4500 is a USB Type-C\u2122 and power delivery controller IC for sink applications. It is able to negotiate a power delivery contract with a source without MCU support (auto-run mode). It relies on proprietary algorithms and configurable PDO (power data objects) thanks to an integrated non-volatile memory. It supports dead battery mode to allow a system to be powered from an external source directly. Combined with its capability to negotiate directly a power contract, the STUSB4500 is the ideal controller device for autonomous systems requiring high power charging profile to be fully operational.\n\nThe STUSB4500 major role is to:\n1. Detect the connection between two USB Type-C ports (attach detection)\n2. Establish a valid source-to-sink connection\n3. Determine the attached device mode: source or debug accessory\n4. Resolve cable orientation and twist connections to establish USB data routing (MUX control)\n5. Negotiate a USB power delivery (PD) contract with a PD capable source device\n6. Configure the incoming $V_{BUS}$ power path and the charging paths accordingly\n7. Monitor the $V_{BUS}$ power path and manage the $V_{BUS}$ voltage transitions\n8. Handle the high voltage protections\n\nThe STUSB4500 also provides:\n\u2022 Dead battery mode\n\u2022 PDO (power data object) customization through NVM\n\u2022 Internal and/or external $V_{BUS}$ discharge paths\n\u2022 Dual high power charging path support\n\u2022 Debug accessory mode detection\n\u2022 Customization of the device configuration through NVM to support specific applications\n\n1.1 Block overview\n\nFigure 1. Functional block diagram",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

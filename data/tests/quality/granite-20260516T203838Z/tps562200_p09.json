@@ -1,0 +1,12 @@
+{
+  "part_id": "tps562200",
+  "page_no": 9,
+  "elapsed": 3.143929681000003,
+  "in_tok": 1142,
+  "out_tok": 385,
+  "content": "<doctag><picture><loc_44><loc_18><loc_123><loc_40></picture>\n<section_header_level_1><loc_46><loc_47><loc_260><loc_55>6.7 Typical Characteristics TPS562200 (continued)</section_header_level_1>\n<text><loc_46><loc_59><loc_164><loc_66>V$_{IN}$ = 12 V (unless otherwise noted).</text>\n<picture><loc_64><loc_70><loc_239><loc_166><caption><loc_68><loc_169><loc_228><loc_175>Figure 6-7. Output Current vs Ambient Temperature</caption></picture>\n<picture><loc_267><loc_70><loc_440><loc_166></picture>\n<picture><loc_166><loc_189><loc_343><loc_285><caption><loc_277><loc_179><loc_428><loc_185>Figure 6-8. Switching Frequency vs Input Voltage</caption></picture>\n<page_footer><loc_44><loc_476><loc_171><loc_481>Copyright \u00a9 2023 Texas Instruments Incorporated</page_footer>\n<page_footer><loc_353><loc_476><loc_435><loc_481>Submit Document Feedback</page_footer>\n<page_footer><loc_183><loc_488><loc_318><loc_494>Product Folder Links: TPS562200 TPS563200</page_footer>\n<page_header><loc_374><loc_29><loc_456><loc_35>TPS562200, TPS563200</page_header>\n<page_header><loc_320><loc_36><loc_456><loc_41>SLVSCB0E - JANUARY 2014 - REVISED MAY 2023</page_header>\n<page_footer><loc_452><loc_476><loc_456><loc_481>9</page_footer>\n</doctag>",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

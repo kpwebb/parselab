@@ -1,0 +1,12 @@
+{
+  "part_id": "tlv757p",
+  "page_no": 2,
+  "elapsed": 2.2144137760000007,
+  "in_tok": 1142,
+  "out_tok": 543,
+  "content": "<doctag><page_header><loc_44><loc_29><loc_75><loc_35>TLV757P</page_header>\n<page_header><loc_44><loc_36><loc_190><loc_41>SBVS322C - OCTOBER 2017 - REVISED MARCH 2024</page_header>\n<page_header><loc_420><loc_36><loc_456><loc_41>www.ti.com</page_header>\n<section_header_level_1><loc_209><loc_54><loc_291><loc_61>Table of Contents</section_header_level_1>\n<otsl><loc_45><loc_66><loc_242><loc_180><fcel>1 Features<fcel>1<nl><fcel>2 Applications<fcel>1<nl><fcel>3 Description<fcel>1<nl><fcel>4 Pin Configuration and Functions<fcel>3<nl><fcel>5 Specifications<fcel>4<nl><fcel>5.1 Absolute Maximum Ratings<fcel>4<nl><fcel>5.2 ESD Ratings<fcel>4<nl><fcel>5.3 Recommended Operating Conditions<fcel>4<nl><fcel>5.4 Thermal Information<fcel>5<nl><fcel>5.5 Electrical Characteristics<fcel>5<nl><fcel>5.6 Typical Characteristics<fcel>7<nl><fcel>6 Detailed Description<fcel>12<nl><fcel>6.1 Overview<fcel>12<nl><fcel>6.2 Functional Block Diagram<fcel>12<nl><fcel>6.3 Feature Description<fcel>12<nl><fcel>6.4 Device Functional Modes<fcel>14<nl></otsl>\n<page_footer><loc_44><loc_469><loc_48><loc_474>2</page_footer>\n<page_footer><loc_65><loc_469><loc_147><loc_474>Submit Document Feedback</page_footer>\n<page_footer><loc_329><loc_469><loc_456><loc_474>Copyright \u00a9 2024 Texas Instruments Incorporated</page_footer>\n<picture><loc_376><loc_18><loc_456><loc_35></picture>\n<otsl><loc_257><loc_66><loc_454><loc_180><fcel>7 Application and Implementation<fcel>15<nl><fcel>7.1 Application Information<fcel>15<nl><fcel>7.2 Typical Application<fcel>19<nl><fcel>7.3 Power Supply Recommendations<fcel>20<nl><fcel>7.4 Layout<fcel>21<nl><fcel>8 Device and Documentation Support<fcel>22<nl><fcel>8.1 Device Support<fcel>22<nl><fcel>8.2 Receiving Notification of Documentation Updates<fcel>22<nl><fcel>8.3 Support Resources<fcel>22<nl><fcel>8.4 Trademarks<fcel>22<nl><fcel>8.5 Electrostatic Discharge Caution<fcel>22<nl><fcel>8.6 Glossary<fcel>22<nl><fcel>9 Revision History<fcel>22<nl><fcel>10 Mechanical, Packaging, and Orderable Information<fcel>23<nl></otsl>\n<page_footer><loc_205><loc_477><loc_296><loc_482>Product Folder Links: TLV757P</page_footer>\n</doctag>",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

@@ -1,0 +1,11 @@
+{
+  "part_id": "pmeg3010eb",
+  "page_no": 5,
+  "elapsed": 2.5835123170000003,
+  "in_tok": 878,
+  "out_tok": 299,
+  "content": "<doctag><page_header><loc_42><loc_20><loc_85><loc_28>Nexperia</page_header>\n<page_header><loc_370><loc_20><loc_458><loc_31>PMEG3010EB</page_header>\n<section_header_level_1><loc_42><loc_52><loc_119><loc_62>13. Soldering</section_header_level_1>\n<picture><loc_42><loc_68><loc_458><loc_189><caption><loc_42><loc_182><loc_240><loc_188>Fig. 6. Reflow soldering footprint for SC-79 (SOD523)</caption></picture>\n<page_footer><loc_42><loc_472><loc_69><loc_476>PMEG3010EB</page_footer>\n<page_footer><loc_183><loc_472><loc_315><loc_476>All information provided in this document is subject to legal disclaimers.</page_footer>\n<page_footer><loc_382><loc_472><loc_458><loc_476>\u00a9 Nexperia B.V. 2024. All rights reserved</page_footer>\n<page_footer><loc_42><loc_480><loc_103><loc_486>Product data sheet</page_footer>\n<page_footer><loc_226><loc_480><loc_274><loc_486>8 October 2024</page_footer>\n<page_footer><loc_444><loc_480><loc_458><loc_486>5 / 8</page_footer>\n</doctag>",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

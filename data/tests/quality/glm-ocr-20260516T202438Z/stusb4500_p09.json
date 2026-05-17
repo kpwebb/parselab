@@ -1,0 +1,11 @@
+{
+  "part_id": "stusb4500",
+  "page_no": 9,
+  "elapsed": 8.938877456,
+  "in_tok": 4968,
+  "out_tok": 464,
+  "content": "2.2.11 A_B_SIDE\nThis output pin provides the cable orientation. It is used to establish USB SuperSpeed signal routing. This signal is not required in case of USB 2.0 support.\n\nTable 7. USB data MUX select\n\n| Value | Description |\n| :--- | :--- |\n| HiZ | CC1 pin is attached to CC line |\n| 0 | CC2 pin is attached to CC line |\n\n2.2.12 VBUS_VS_DISCH\nThis input pin is used to sense $V_{BUS}$ presence, monitor $V_{BUS}$ voltage, and discharge $V_{BUS}$ from the USB Type-C receptacle side.\nA serial resistor connected to the pin must be used to limit the discharge current through the pin. Maximum discharge current is 50 mA.\nThe discharge is activated automatically during cable disconnection, transition to a lower PDO voltage, hard reset and error recovery state. The discharge time is programmable by NVM (see Section 5 Start-up configuration).\n\n2.2.13 VREG_1V2\nThis pin is used only for external decoupling of the 1.2 V internal regulator. The recommended decoupling capacitor is: 1 $\\mu$F typ. (0.5 $\\mu$F min., 10 $\\mu$F max.)\n\n2.2.14 VSYS\nThis is the low power supply from the system, if there is any. It can be connected directly to a single cell Lithium battery or to the system power supply delivering 3.3 V or 5 V. It is recommended to connect the pin to ground when it is not used.\n\n2.2.15 VREG_2V7\nThis pin is used only for external decoupling of the 2.7 V internal regulator. The recommended decoupling capacitor is: 1 $\\mu$F typ. (0.5 $\\mu$F min., 10 $\\mu$F max.)\n\n2.2.16 VDD\nThis is the power supply from the USB power line for applications powered by $V_{BUS}$.",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

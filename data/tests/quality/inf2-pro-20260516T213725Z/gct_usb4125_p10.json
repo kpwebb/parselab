@@ -1,0 +1,12 @@
+{
+  "part_id": "gct_usb4125",
+  "page_no": 10,
+  "elapsed": 19.071146344000002,
+  "in_tok": 3815,
+  "out_tok": 629,
+  "content": "```json\n[{\"bbox\": [315, 26, 709, 48], \"category\": \"title\", \"text\": \"PRODUCT SPECIFICATION\"}, {\"bbox\": [47, 56, 943, 152], \"category\": \"table\", \"text\": \"<table><tr><td>Part Number</td><td colspan=\\\"3\\\">USB4125, USB4130, USB4135</td><td>Rev</td><td colspan=\\\"2\\\">A3</td><td>Date</td><td>20/12/24</td></tr><tr><td>Product Description</td><td colspan=\\\"6\\\">USB Type C Receptacle, 6 contacts, For Power Charging only</td><td>Page</td><td>10</td></tr><tr><td>Doc Number</td><td>USB Type C</td><td>Prepared</td><td>YR</td><td>Checked</td><td colspan=\\\"2\\\">CC</td><td>Approved</td><td>PH</td></tr></table>\"}, {\"bbox\": [56, 170, 208, 186], \"category\": \"text\", \"text\": \"Revision details:\"}, {\"bbox\": [56, 198, 920, 333], \"category\": \"table\", \"text\": \"<table><tr><td>Revision</td><td>Information</td><td>Page</td><td>Release Date</td></tr><tr><td>A</td><td>Specification released.</td><td>-</td><td>25/11/20</td></tr><tr><td>A1</td><td>Change USB4125 durability from 10000 cycles to 20000 cycles</td><td>3</td><td>26/05/21</td></tr><tr><td>A2</td><td>Add USB4135 to the specification</td><td>1&amp;2</td><td>18/02/22</td></tr><tr><td>A3</td><td>- Voltage rating increased to 48Vdc- Durability increased to 20K cycles</td><td>2, 4 &amp; 9</td><td>20/12/2024</td></tr></table>\"}, {\"bbox\": [447, 929, 573, 965], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [466, 972, 559, 985], \"category\": \"footer\", \"text\": \"www.gct.co\"}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

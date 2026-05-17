@@ -1,0 +1,11 @@
+{
+  "part_id": "yageo_rc0805",
+  "page_no": 10,
+  "elapsed": 2.263800414000002,
+  "in_tok": 4831,
+  "out_tok": 56,
+  "content": "REVISION HISTORY\n\nREVISION DATE CHANGE NOTIFICATION DESCRIPTION\nVersion 2 Sep 03, 2004 - - Test method and procedure updated\n- PE tape added (paper tape will be replaced by PE tape)",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

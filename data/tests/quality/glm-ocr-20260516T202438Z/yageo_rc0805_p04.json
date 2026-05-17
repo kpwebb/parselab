@@ -1,0 +1,11 @@
+{
+  "part_id": "yageo_rc0805",
+  "page_no": 4,
+  "elapsed": 5.4864099349999975,
+  "in_tok": 4831,
+  "out_tok": 425,
+  "content": "ELECTRICAL CHARACTERISTICS\n\nTable 2\n\nCHARACTERISTICS RC0805 1/8 W\n\nOperating Temperature Range \u201355 \u00b0C to +155 \u00b0C\n\nMaximum Working Voltage 150 V\n\nMaximum Overload Voltage 300 V\n\nDielectric Withstanding Voltage 300 V\n\n5% (E24) 1 \u03a9 to 22 M\u03a9\n\nResistance Range 1% (E96) 1 \u03a9 to 10 M\u03a9\n\nZero Ohm Jumper < 0.05 \u03a9\n\nTemperature Coefficient 10 \u03a9 < R \u2264 10 M\u03a9 \u00b1100 ppm/\u00b0C\n\nR \u2264 10 \u03a9; R > 10 M\u03a9 \u00b1200 ppm/\u00b0C\n\nJumper Criteria Rated Current 2.0 A\n\nMaximum Current 5.0 A\n\nFOOTPRINT AND SOLDERING PROFILES\n\nFor recommended footprint and soldering profiles, please see the special data sheet \u201cChip resistors mounting\u201d.\n\nENVIRONMENTAL DATA\n\nFor material declaration information (IMDS-data) of the products, please see the separated info \u201cEnvironmental data\u201d.\n\nPACKING STYLE AND PACKAGING QUANTITY\n\nTable 3 Packing style and packaging quantity\n\nPRODUCT TYPE PACKING STYLE REEL DIMENSION QUANTITY PER REEL\n\nRC0805 Paper / PE Taping Reel (R) 7\" (178 mm) 5,000 units\n10\" (254 mm) / not preferred 10,000 units\n13\" (330 mm) 20,000 units\n\nNOTE\n\n1. For Paper/PE tape and reel specification/dimensions, please see the special data sheet \u201cPacking\u201d document.",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

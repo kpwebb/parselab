@@ -1,0 +1,11 @@
+{
+  "part_id": "ao3400a",
+  "page_no": 5,
+  "elapsed": 3.681237037999999,
+  "in_tok": 878,
+  "out_tok": 334,
+  "content": "<doctag><picture><loc_67><loc_21><loc_169><loc_36></picture>\n<section_header_level_1><loc_186><loc_58><loc_319><loc_64>Gate Charge Test Circuit & Waveform</section_header_level_1>\n<picture><loc_109><loc_69><loc_229><loc_132></picture>\n<picture><loc_273><loc_69><loc_409><loc_132></picture>\n<text><loc_194><loc_145><loc_354><loc_150>Resistive Switching Test Circuit & Waveforms</text>\n<picture><loc_85><loc_152><loc_231><loc_213></picture>\n<picture><loc_251><loc_163><loc_411><loc_218></picture>\n<text><loc_195><loc_239><loc_338><loc_244>Diode Recovery Test Circuit & Waveforms</text>\n<picture><loc_94><loc_247><loc_237><loc_303></picture>\n<page_footer><loc_61><loc_473><loc_104><loc_478>Rev 3.1: July 2023</page_footer>\n<page_footer><loc_226><loc_473><loc_275><loc_478>www.aosmd.com</page_footer>\n<page_footer><loc_417><loc_473><loc_444><loc_478>Page 5 of 6</page_footer>\n<picture><loc_251><loc_245><loc_419><loc_303></picture>\n<page_header><loc_401><loc_22><loc_443><loc_30>AO3400A</page_header>\n</doctag>",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

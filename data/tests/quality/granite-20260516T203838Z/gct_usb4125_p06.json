@@ -1,0 +1,12 @@
+{
+  "part_id": "gct_usb4125",
+  "page_no": 6,
+  "elapsed": 3.4107251729999994,
+  "in_tok": 878,
+  "out_tok": 237,
+  "content": "<doctag><section_header_level_1><loc_159><loc_13><loc_355><loc_25>PRODUCT SPECIFICATION</section_header_level_1>\n<otsl><loc_24><loc_28><loc_472><loc_76></otsl>\n<section_header_level_1><loc_29><loc_92><loc_328><loc_101>7.0 RESISTANCE TO INFRARED REFLOW SOLDERING HEAT</section_header_level_1>\n<otsl><loc_50><loc_105><loc_450><loc_205></otsl>\n<section_header_level_1><loc_29><loc_211><loc_118><loc_220>Lead Free Process</section_header_level_1>\n<picture><loc_29><loc_228><loc_433><loc_386></picture>\n<text><loc_29><loc_396><loc_445><loc_422>This profile is the minimum requirement for evaluating soldering heat resistance of components. Heat transfer method used for reflow soldering is hot air convection. The actual air temperatures used to achieve the specified profile is higher and largely dependent on the reflow equipment.</text>\n<picture><loc_224><loc_465><loc_287><loc_492></picture>\n</doctag>",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

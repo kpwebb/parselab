@@ -1,0 +1,12 @@
+{
+  "part_id": "coilcraft_xal7030",
+  "page_no": 3,
+  "elapsed": 15.928486797000001,
+  "in_tok": 3678,
+  "out_tok": 809,
+  "content": "```json\n[{\"bbox\": [93, 11, 365, 72], \"category\": \"header\", \"text\": \"HIGH TEMPERATURE\"}, {\"bbox\": [776, 10, 915, 25], \"category\": \"header\", \"text\": \"Document 863-3\"}, {\"bbox\": [19, 78, 68, 134], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [84, 82, 586, 137], \"category\": \"title\", \"text\": \"Shielded Power Inductors \u2013 XAL7030\\nL vs Current\"}, {\"bbox\": [19, 142, 68, 201], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [19, 208, 68, 265], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [84, 145, 488, 266], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [510, 145, 914, 266], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [84, 277, 488, 399], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [510, 278, 914, 399], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [84, 410, 488, 532], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [510, 410, 914, 532], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [84, 542, 488, 664], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [510, 543, 914, 664], \"category\": \"graph\", \"text\": \"\"}, {\"bbox\": [86, 919, 279, 963], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [150, 965, 275, 977], \"category\": \"footer\", \"text\": \"www.coilcraft.com\"}, {\"bbox\": [329, 917, 642, 979], \"category\": \"footer\", \"text\": \"US +1-847-639-6400 sales@coilcraft.com\\nUK +44-1236-730595 sales@coilcraft-europe.com\\nTaiwan +886-2-2264 3646 sales@coilcraft.com.tw\\nChina +86-21-6218 8074 sales@coilcraft.com.cn\\nSingapore +65-6484 8412 sales@coilcraft.com.sg\"}, {\"bbox\": [697, 918, 914, 978], \"category\": \"footer\", \"text\": \"Document 863-3 Revised 12/16/25\\n\u00a9 Coilcraft Inc. 2025\\nThis product may not be used in medical or high risk applications without prior Coilcraft approval. Specification subject to change without notice. Please check web site for latest information.\"}]\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

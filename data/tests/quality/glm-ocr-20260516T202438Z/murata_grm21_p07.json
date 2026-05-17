@@ -1,0 +1,11 @@
+{
+  "part_id": "murata_grm21",
+  "page_no": 7,
+  "elapsed": 4.303863055000001,
+  "in_tok": 4968,
+  "out_tok": 279,
+  "content": "\u25a0 Package (Tape Carrier Packaging)\n\n1. Minimum Quantity(pcs./reel)\n\n| Type | \u03c6180mm Reel(W8P4) | \u03c6330mm Reel(W8P4) |\n| :--- | :--- | :--- |\n| Plastic Tape | Plastic Tape |\n| CODE : L | CODE : K |\n| GRM21 | B | 3000 | 10000 |\n\n2. Dimensions of Tape (in mm)\n(1)GRM21(W8P4 CODE : K/L)\n\n| Type | Dimensions(Chip) | A | B | C | D | E | F | G | H | J | K | L |\n| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n| | L | W | T | | | | | | | | | | |\n| GRM21 | B | 2.0+/-0.1 | 1.25+/-0.1 | 1.25+/-0.1 | | | | | | | | | 0.25+/-0.1 |",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

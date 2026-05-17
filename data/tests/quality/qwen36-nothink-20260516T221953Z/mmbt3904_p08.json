@@ -1,0 +1,12 @@
+{
+  "part_id": "mmbt3904",
+  "page_no": 8,
+  "elapsed": 1.9721979259999998,
+  "in_tok": 3678,
+  "out_tok": 74,
+  "content": "```json\n{\n  \"bbox_2d\": [362, 65, 636, 77], \"text_content\": \"SOT-23 (TO-236) 2.90x1.30x1.00 1.90P\"\n}\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

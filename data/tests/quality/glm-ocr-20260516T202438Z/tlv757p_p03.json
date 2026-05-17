@@ -1,0 +1,11 @@
+{
+  "part_id": "tlv757p",
+  "page_no": 3,
+  "elapsed": 7.305033602999998,
+  "in_tok": 4831,
+  "out_tok": 433,
+  "content": "4 Pin Configuration and Functions\n\nFigure 4-1. DBV Package, 5-Pin SOT-23 (Top View)\n\nFigure 4-2. DYD Package, 5-Pin SOT-23 With Exposed Thermal Pad (Top View)\n\nFigure 4-3. DRV Package, 6-Pin WSON With Exposed Thermal Pad (Top View)\n\nTable 4-1. Pin Functions\n\n| NAME | DBV | DYD | DRV | TYPE | DESCRIPTION |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| EN | 3 | 3 | 4 | I | Enable pin. Drive EN greater than $V_{HI}$ to turn on the regulator. Drive EN less than $V_{LO}$ to place the LDO into shutdown mode. |\n| GND | 2 | 2 | 3 | \u2014 | Ground pin. |\n| IN | 1 | 1 | 6 | I | Input pin. A capacitor with a value of 1\u00b5F or larger is required from this pin to ground. See the Input and Output Capacitor Selection section for more information. |\n| NC | 4 | 4 | 2,5 | \u2014 | No internal connection. |\n| OUT | 5 | 5 | 1 | O | Regulated output voltage pin. A capacitor with a value of 1\u00b5F or larger is required from this pin to ground. See the Input and Output Capacitor Selection section for more information. |\n| Thermal pad | \u2014 | Pad | Pad | \u2014 | Connect the thermal pad to a large-area ground plane. The thermal pad is internally connected to GND. |\n\n(1) Make sure the nominal input and output capacitance are greater than 0.47\u00b5F. Throughout this document the nominal derating on these capacitors is 50%. Make sure that the effective capacitance at the pin is greater than 0.47\u00b5F.",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

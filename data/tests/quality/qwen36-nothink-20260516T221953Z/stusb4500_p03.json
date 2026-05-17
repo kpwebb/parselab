@@ -1,0 +1,12 @@
+{
+  "part_id": "stusb4500",
+  "page_no": 3,
+  "elapsed": 4.2875373649999915,
+  "in_tok": 3817,
+  "out_tok": 41,
+  "content": "```json\n{\n  \"bbox_2d\": [71, 65, 128, 87], \"text_content\": \"ST\"\n}\n```",
+  "reasoning": null,
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}

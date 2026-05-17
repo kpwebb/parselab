@@ -1,0 +1,12 @@
+{
+  "part_id": "yageo_rc0805",
+  "page_no": 6,
+  "elapsed": 4.782281170999994,
+  "in_tok": 3826,
+  "out_tok": 494,
+  "content": null,
+  "reasoning": "```json\n[{\"bbox\": [81, 43, 174, 64], \"category\": \"header\", \"text\": \"YAGEO\"}, {\"bbox\": [780, 50, 886, 64], \"category\": \"header\", \"text\": \"Product specification\"}, {\"bbox\": [886, 51, 908, 76], \"category\": \"header\", \"text\": \"6\\n10\"}, {\"bbox\": [185, 65, 638, 85], \"category\": \"header\", \"text\": \"Chip Resistor Surface Mount | RC | SERIES | 0805 (Pb Free)\"}, {\"bbox\": [90, 147, 908, 462], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [106, 480, 872, 511], \"category\": \"figure_caption\", \"text\": \"Fig. 7 Pulse on a regular basis for type: RC0805; maximum permissible peak pulse power as a function of pulse duration for single pulse and repetitive pulse $t_p/t_i = 1000$\"}, {\"bbox\": [90, 536, 908, 847], \"category\": \"figure\", \"text\": \"\"}, {\"bbox\": [106, 868, 815, 886], \"category\": \"figure_caption\", \"text\": \"Fig. 8 Pulse on a regular basis for type: RC0805; maximum permissible peak pulse voltage as a function of pulse duration\"}, {\"bbox\": [85, 948, 188, 972], \"category\": \"footer\", \"text\": \"\"}, {\"bbox\": [85, 969, 182, 984], \"category\": \"footer\", \"text\": \"Sep 03, 2004 V.2\"}, {\"bbox\": [808, 954, 915, 968], \"category\": \"footer\", \"text\": \"www.yageo.com\"}]\n```",
+  "reasoning_content": null,
+  "finish_reason": "stop",
+  "ok": true
+}
